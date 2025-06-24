@@ -13,6 +13,7 @@ import {
   Sun,
   Moon,
   Keyboard,
+  Loader2,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -77,6 +78,7 @@ const KEYBOARD_SHORTCUTS = [
 export default function EPubReaderPage() {
   // Book state
   const [isBookLoaded, setIsBookLoaded] = useState(false);
+  const [isBookProcessing, setIsBookProcessing] = useState(false);
   const [book, setBook] = useState<Book | null>(null);
   const [rendition, setRendition] = useState<Rendition | null>(null);
   const [bookTitle, setBookTitle] = useState("");
@@ -113,6 +115,7 @@ export default function EPubReaderPage() {
     if (!file) return;
 
     if (window.FileReader) {
+      setIsBookProcessing(true);
       const reader = new FileReader();
       reader.onload = (event) => {
         if (event.target?.result) {
@@ -133,6 +136,7 @@ export default function EPubReaderPage() {
 
   const handleCloseBook = useCallback(() => {
     setIsBookLoaded(false);
+    setIsBookProcessing(false);
     setBook(null);
     setRendition(null);
     setToc([]);
@@ -217,6 +221,7 @@ export default function EPubReaderPage() {
         book.locations.generate(1650).then(() => {
           locationsRef.current = book.locations; // Re-assign to ensure we have the full object
           setIsLocationsReady(true);
+          setIsBookProcessing(false);
         });
       });
 
@@ -289,7 +294,6 @@ export default function EPubReaderPage() {
       rendition.themes.fontSize(`${fontSize}px`);
       rendition.themes.override("line-height", `${lineHeight}`);
       rendition.themes.font(fontFamily);
-      rendition.display();
     }
   }, [rendition, theme, fontSize, lineHeight, fontFamily]);
 
@@ -432,7 +436,7 @@ export default function EPubReaderPage() {
                       <Keyboard className="h-4 w-4" />
                       <h3>Keyboard Shortcuts</h3>
                     </div>
-                    <ScrollArea className="h-56">
+                    <ScrollArea className="max-h-48">
                       <ul className="space-y-1.5 pr-4 text-sm text-muted-foreground">
                         {KEYBOARD_SHORTCUTS.map(shortcut => (
                           <li key={shortcut.key} className="flex items-center justify-between">
@@ -537,11 +541,18 @@ export default function EPubReaderPage() {
         </div>
       </header>
       
-      <main className="flex-1 overflow-hidden">
+      <main className="relative flex-1 overflow-hidden">
+        {isBookProcessing && (
+            <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-background/80 backdrop-blur-sm">
+                <Loader2 className="mb-4 h-12 w-12 animate-spin text-primary" />
+                <p className="text-lg font-semibold font-headline">Preparing your book...</p>
+                <p className="text-sm text-muted-foreground">This may take a moment.</p>
+            </div>
+        )}
         <div
           className={cn(
             "h-full w-full font-body transition-opacity duration-150 ease-in-out",
-            isTransitioning ? "opacity-0" : "opacity-100"
+            isTransitioning || isBookProcessing ? "opacity-0" : "opacity-100"
           )}
         >
           <div ref={viewerRef} className="h-full" id="viewer" />
