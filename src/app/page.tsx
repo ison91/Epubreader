@@ -216,16 +216,18 @@ export default function EPubReaderPage() {
         if (book.navigation) {
           setToc(book.navigation.toc);
         }
+        
         locationsRef.current = book.locations;
-        book.locations.generate(1650).then(() => {
+        book.locations.generate(1650).then((locations) => {
+          locationsRef.current = book.locations; // Re-assign to ensure we have the full object
           setIsLocationsReady(true);
         });
       });
 
       newRendition.themes.register("light", {
         body: {
-          background: "hsl(var(--background))",
-          color: "hsl(var(--foreground))"
+          background: "hsl(0 0% 93.3%)",
+          color: "hsl(0 0% 3.9%)",
         },
         "a": {
           "color": "#0000EE",
@@ -237,8 +239,8 @@ export default function EPubReaderPage() {
       });
       newRendition.themes.register("dark", {
         body: {
-          background: "hsl(var(--background))",
-          color: "hsl(var(--foreground))"
+          background: "hsl(240 6% 25%)",
+          color: "hsl(0 0% 100%)",
         },
         "a": {
           "color": "#93c5fd",
@@ -343,7 +345,7 @@ export default function EPubReaderPage() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isBookLoaded, handleFileUploadClick, handlePageChange]);
+  }, [isBookLoaded, handleFileUploadClick]);
 
   if (!isBookLoaded) {
     return (
