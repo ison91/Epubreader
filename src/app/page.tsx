@@ -25,7 +25,6 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-  SheetClose,
 } from "@/components/ui/sheet";
 import {
   Popover,
@@ -45,6 +44,7 @@ export default function EPubReaderPage() {
   const [fontSize, setFontSize] = useState(18);
   const [lineHeight, setLineHeight] = useState(1.6);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isTocOpen, setIsTocOpen] = useState(false);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -71,8 +71,16 @@ export default function EPubReaderPage() {
     }
   };
 
+  const handleTocItemClick = (page: number) => {
+    handlePageChange(page);
+    setIsTocOpen(false);
+  };
+
   const handleCloseBook = () => {
-    setIsBookLoaded(false);
+    setIsTocOpen(false);
+    setTimeout(() => {
+      setIsBookLoaded(false);
+    }, 300); // Allow sheet to animate out
   };
 
   if (!isBookLoaded) {
@@ -111,7 +119,7 @@ export default function EPubReaderPage() {
       <header className="flex h-16 flex-shrink-0 items-center justify-between border-b px-4 sm:px-6">
         <h1 className="truncate text-xl font-bold font-headline">{mockBook.title}</h1>
         <div className="flex items-center gap-1">
-          <Sheet>
+          <Sheet open={isTocOpen} onOpenChange={setIsTocOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" aria-label="Table of Contents">
                 <Menu className="h-5 w-5" />
@@ -125,35 +133,31 @@ export default function EPubReaderPage() {
                 <ul className="space-y-1 pr-6">
                   {mockBook.toc.map((item, index) => (
                     <li key={index}>
-                      <SheetClose asChild>
-                        <button
-                          onClick={() => handlePageChange(item.page)}
-                          className={cn(
-                            "w-full rounded-md p-2 text-left transition-colors hover:bg-accent hover:text-accent-foreground",
-                            currentPage >= item.page &&
-                              (!mockBook.toc[index + 1] ||
-                                currentPage < mockBook.toc[index + 1].page) &&
-                              "bg-accent/80 text-accent-foreground"
-                          )}
-                        >
-                          {item.title}
-                        </button>
-                      </SheetClose>
+                      <button
+                        onClick={() => handleTocItemClick(item.page)}
+                        className={cn(
+                          "w-full rounded-md p-2 text-left transition-colors hover:bg-accent hover:text-accent-foreground",
+                          currentPage >= item.page &&
+                            (!mockBook.toc[index + 1] ||
+                              currentPage < mockBook.toc[index + 1].page) &&
+                            "bg-accent/80 text-accent-foreground"
+                        )}
+                      >
+                        {item.title}
+                      </button>
                     </li>
                   ))}
                 </ul>
               </ScrollArea>
               <div className="mt-auto border-t pt-4">
-                <SheetClose asChild>
-                  <Button
-                    variant="outline"
-                    className="w-full"
-                    onClick={handleCloseBook}
-                  >
-                    <BookUp className="mr-2 h-4 w-4" />
-                    Read a new Book
-                  </Button>
-                </SheetClose>
+                <Button
+                  variant="outline"
+                  className="w-full"
+                  onClick={handleCloseBook}
+                >
+                  <BookUp className="mr-2 h-4 w-4" />
+                  Read a new Book
+                </Button>
               </div>
             </SheetContent>
           </Sheet>
