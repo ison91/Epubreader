@@ -80,7 +80,6 @@ export default function EPubReaderPage() {
   const [rendition, setRendition] = useState<Rendition | null>(null);
   const [bookTitle, setBookTitle] = useState("");
   const [toc, setToc] = useState<NavItem[]>([]);
-  const [locations, setLocations] = useState<Locations | null>(null);
   const [progress, setProgress] = useState(0);
 
   // UI State
@@ -92,6 +91,7 @@ export default function EPubReaderPage() {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isTocOpen, setIsTocOpen] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [isLocationsReady, setIsLocationsReady] = useState(false);
 
   const [isAtStart, setIsAtStart] = useState(true);
   const [isAtEnd, setIsAtEnd] = useState(false);
@@ -136,9 +136,9 @@ export default function EPubReaderPage() {
       setRendition(null);
       setToc([]);
       setBookTitle("");
-      setLocations(null);
       locationsRef.current = null;
       setProgress(0);
+      setIsLocationsReady(false);
     }, 300);
   }, [book]);
 
@@ -195,6 +195,7 @@ export default function EPubReaderPage() {
   // Rendition setup effect
   useEffect(() => {
     if (book && viewerRef.current) {
+      setIsLocationsReady(false);
       const newRendition = book.renderTo(viewerRef.current, {
         width: "100%",
         height: "100%",
@@ -209,9 +210,9 @@ export default function EPubReaderPage() {
         if (book.navigation) {
           setToc(book.navigation.toc);
         }
-        book.locations.generate(1650).then((locs) => {
-            setLocations(locs);
-            locationsRef.current = locs;
+        locationsRef.current = book.locations;
+        book.locations.generate(1650).then(() => {
+          setIsLocationsReady(true);
         });
       });
 
@@ -532,7 +533,7 @@ export default function EPubReaderPage() {
             variant="outline"
             size="icon"
             onClick={() => handlePageChange("prev")}
-            disabled={isAtStart}
+            disabled={isAtStart || !isLocationsReady}
             aria-label="Previous Page"
           >
             <ChevronLeft className="h-5 w-5" />
@@ -543,12 +544,13 @@ export default function EPubReaderPage() {
             onValueChange={handleProgressChange}
             className="flex-1"
             aria-label="Book progress"
+            disabled={!isLocationsReady}
           />
           <Button
             variant="outline"
             size="icon"
             onClick={() => handlePageChange("next")}
-            disabled={isAtEnd}
+            disabled={isAtEnd || !isLocationsReady}
             aria-label="Next Page"
           >
             <ChevronRight className="h-5 w-5" />
