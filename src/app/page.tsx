@@ -15,6 +15,7 @@ import {
   Moon,
   Keyboard,
   Loader2,
+  BookCopy,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -52,6 +53,7 @@ import { cn } from "@/lib/utils";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Progress } from "@/components/ui/progress";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 const FONT_OPTIONS = [
   { name: 'Atmospheric', family: "'Quicksand', sans-serif" },
@@ -97,6 +99,7 @@ export default function EPubReaderPage() {
   const [fontSize, setFontSize] = useState(18);
   const [lineHeight, setLineHeight] = useState(1.6);
   const [fontFamily, setFontFamily] = useState(FONT_OPTIONS[0].family);
+  const [spread, setSpread] = useState<'auto' | 'none'>('auto');
   
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isTocOpen, setIsTocOpen] = useState(false);
@@ -322,6 +325,10 @@ export default function EPubReaderPage() {
     if (rendition) rendition.themes.font(fontFamily);
   }, [rendition, fontFamily]);
 
+  useEffect(() => {
+    if (rendition) rendition.spread(spread);
+  }, [rendition, spread]);
+
 
   // Keyboard shortcuts effect
   useEffect(() => {
@@ -519,6 +526,23 @@ export default function EPubReaderPage() {
                       />
                       <Moon className="h-4 w-4" />
                     </div>
+                  </div>
+                  <div className="grid grid-cols-3 items-center gap-4">
+                    <Label>Page View</Label>
+                    <RadioGroup
+                      value={spread}
+                      onValueChange={(value) => setSpread(value as 'auto' | 'none')}
+                      className="col-span-2 flex items-center justify-end gap-4"
+                    >
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="auto" id="view-two-page" />
+                        <Label htmlFor="view-two-page" className="cursor-pointer font-normal">Two Page</Label>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="none" id="view-single-page" />
+                        <Label htmlFor="view-single-page" className="cursor-pointer font-normal">Single Page</Label>
+                      </div>
+                    </RadioGroup>
                   </div>
                   <div className="grid grid-cols-3 items-center gap-4">
                     <Label htmlFor="fontFamily">Font</Label>
