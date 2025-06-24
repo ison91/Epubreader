@@ -172,25 +172,21 @@ export default function EPubReaderPage() {
   }, [rendition]);
 
   const handleProgressChange = (value: number[]) => {
-    if (locationsRef.current && rendition) {
+    if (locationsRef.current && rendition && locationsRef.current.cfiFromPercentage) {
       const percentage = value[0] / 100;
       const cfi = locationsRef.current.cfiFromPercentage(percentage);
       rendition.display(cfi);
     }
   };
 
-  // Theme effect
+  // Theme effect for the main document
   useEffect(() => {
     const root = window.document.documentElement;
     root.classList.remove("light", "dark");
     root.classList.add(theme);
+  }, [theme]);
 
-    if (rendition) {
-      rendition.themes.select(theme);
-    }
-  }, [theme, rendition]);
-
-  // Set initial theme
+  // Set initial theme from system preference
   useEffect(() => {
     if (typeof window !== "undefined") {
       const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -218,7 +214,7 @@ export default function EPubReaderPage() {
         }
         
         locationsRef.current = book.locations;
-        book.locations.generate(1650).then((locations) => {
+        book.locations.generate(1650).then(() => {
           locationsRef.current = book.locations; // Re-assign to ensure we have the full object
           setIsLocationsReady(true);
         });
@@ -250,8 +246,7 @@ export default function EPubReaderPage() {
           "color": "#93c5fd"
         }
       });
-
-      newRendition.themes.select(theme);
+      
       setRendition(newRendition);
       
       return () => {
@@ -260,30 +255,43 @@ export default function EPubReaderPage() {
     }
   }, [book]);
   
-  // Style and navigation effects
+  // Event listeners effect
+  useEffect(() => {
+    if (!rendition) return;
+
+    const handleRelocated = (location: any) => {
+      setIsAtStart(location.atStart);
+      setIsAtEnd(location.atEnd);
+      if (locationsRef.current && locationsRef.current.percentageFromCfi) {
+          const percentage = locationsRef.current.percentageFromCfi(location.start.cfi);
+          setProgress(Math.round(percentage * 100));
+      }
+      setIsTransitioning(false);
+    };
+    
+    const handleRendered = () => {
+      setIsTransitioning(false);
+    };
+
+    rendition.on("relocated", handleRelocated);
+    rendition.on("rendered", handleRendered);
+
+    return () => {
+      rendition.off("relocated", handleRelocated);
+      rendition.off("rendered", handleRendered);
+    };
+  }, [rendition]);
+
+  // Style application effect
   useEffect(() => {
     if (rendition) {
-      rendition.on("relocated", (location: any) => {
-        setIsAtStart(location.atStart);
-        setIsAtEnd(location.atEnd);
-        if (locationsRef.current) {
-            const percentage = locationsRef.current.percentageFromCfi(location.start.cfi);
-            setProgress(Math.round(percentage * 100));
-        }
-        setIsTransitioning(false);
-      });
-      
-      rendition.on("rendered", () => {
-        setIsTransitioning(false);
-      });
-
+      rendition.themes.select(theme);
       rendition.themes.fontSize(`${fontSize}px`);
       rendition.themes.override("line-height", `${lineHeight}`);
       rendition.themes.font(fontFamily);
-
       rendition.display();
     }
-  }, [rendition, fontSize, lineHeight, fontFamily]);
+  }, [rendition, theme, fontSize, lineHeight, fontFamily]);
 
 
   // Keyboard shortcuts effect
