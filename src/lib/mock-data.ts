@@ -1,35 +1,336 @@
-export const mockBook = {
-  title: "Moby-Dick; or, The Whale",
-  author: "Herman Melville",
-  toc: [
-    { title: "Chapter 1: Loomings", page: 0 },
-    { title: "Chapter 2: The Carpet-Bag", page: 3 },
-    { title: "Chapter 3: The Spouter-Inn", page: 5 },
-  ],
-  content: [
-    // Page 1 (Chapter 1)
-    `Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically knocking people’s hats off—then, I account it high time to get to sea as soon as I can. This is my substitute for pistol and ball. With a philosophical flourish Cato throws himself upon his sword; I quietly take to the ship. There is nothing surprising in this. If they but knew it, almost all men in their degree, some time or other, cherish very nearly the same feelings towards the ocean with me.`,
-    // Page 2
-    `There now is your insular city of the Manhattoes, belted round by wharves as Indian isles by coral reefs—commerce surrounds it with her surf. Right and left, the streets take you waterward. Its extreme downtown is the battery, where that noble mole is washed by waves, and cooled by breezes, which a few hours previous were out of sight of land. Look at the crowds of water-gazers there.
-\n
-Circumambulate the city of a dreamy Sabbath afternoon. Go from Corlears Hook to Coenties Slip, and from thence, by Whitehall, northward. What do you see?—Posted like silent sentinels all around the town, stand thousands upon thousands of mortal men fixed in ocean reveries. Some leaning against the spiles; some seated upon the pier-heads; some looking over the bulwarks of ships from China; some high aloft in the rigging, as if striving to get a still better seaward peep. But these are all landsmen; of week days pent up in lath and plaster—tied to counters, nailed to benches, clinched to desks. How then is this? Are the green fields gone? What do they here?`,
-    // Page 3
-    `But look! here come more crowds, pacing straight for the water, and seemingly bound for a dive. Strange! Nothing will content them but the extremest limit of the land; loitering under the shady lee of yonder warehouses will not suffice. No. They must get just as nigh the water as they possibly can without falling in. And there they stand—miles of them—leagues. Inlanders all, they come from lanes and alleys, streets and avenues—north, east, south, and west. Yet here they all unite. Tell me, does the magnetic virtue of the needles of the compasses of all those ships attract them thither?
-\n
-Now, when I say that I am in the habit of going to sea whenever I begin to grow hazy about the eyes, and begin to be over conscious of my lungs, I do not mean to have it inferred that I ever go to sea as a passenger.`,
-    // Page 4 (Chapter 2)
-    `I stuffed a shirt or two into my old carpet-bag, tucked it under my arm, and started for Cape Horn and the Pacific. Quitting the good city of old Manhatto, I duly arrived in New Bedford. It was a Saturday night in December. Much was I disappointed upon learning that the little packet for Nantucket had already sailed, and that no way of reaching that place would offer, till the following Monday.
-\n
-As most young candidates for the pains and penalties of whaling stop at this same New Bedford, thence to embark on their voyage, it may as well be related that I, for one, had no idea of so doing. For my mind was made up to sail in no other than a Nantucket craft, because there was a fine, boisterous something about everything connected with that famous old island, which amazingly pleased me. Besides though New Bedford has of late been gradually monopolizing the business of whaling, and though in this matter poor old Nantucket is now much behind her, yet Nantucket was her great original—the Tyre of this Carthage;—the place where the first dead American whale was stranded.`,
-    // Page 5
-    `Now having a night, a day, and still another night following before me in New Bedford, ere I could embark for my destined port, it became a matter of concernment where I was to eat and sleep meanwhile. It was a very cold and biting night. I knew no one in the place. With anxious grapnels I had sounded my pocket, and only brought up a few pieces of silver,—So, wherever you go, Ishmael, said I to myself, as I stood in the middle of a dreary street shouldering my bag, and comparing the gloom towards the north with the darkness towards the south—wherever in your wisdom you may conclude to lodge for the night, my dear Ishmael, be sure to inquire the price, and don’t be too particular.
-\n
-With halting steps I paced the streets, and passed the sign of “The Crossed Harpoons”—but it looked too expensive and jolly there. Further on, from the bright red windows of the “Sword-Fish Inn,” there came such fervent rays, that it seemed to have melted the packed snow and ice from before the house, for everywhere else the congealed frost lay ten inches thick in a hard, asphaltic pavement.`,
-    // Page 6 (Chapter 3)
-    `Entering that gable-ended Spouter-Inn, you found yourself in a wide, low, straggling entry with old-fashioned wainscots, reminding one of the bulwarks of some condemned old craft. On one side hung a very large oil-painting so thoroughly besmoked, and every way defaced, that in the unequal cross-lights by which you viewed it, it was only by diligent study and a series of systematic visits to it, and careful inquiry of the neighbors, that you could any way arrive at an understanding of its purpose. Such unaccountable masses of shades and shadows, that at first you almost thought some ambitious young artist, in the time of the New England hags, had endeavored to delineate chaos bewitched. But by dint of much and earnest contemplation, and oft repeated ponderings, and especially by throwing open the little window towards the back of the entry, you at last come to the conclusion that such an idea, however wild, might not be altogether unwarranted.`,
-    // Page 7
-    `But what most puzzled and confounded you was a long, limber, portentous, black mass of something hovering in the centre of the picture over three blue, dim, perpendicular lines floating in a nameless yeast. A boggy, soggy, squitchy picture truly, enough to drive a nervous man distracted. Yet was there a sort of indefinite, half-attained, unimaginable sublimity about it that fairly froze you to it, till you involuntarily took an oath with yourself to find out what that marvellous painting meant. Ever and anon a bright, but, alas, deceptive idea would dart you through.—It’s the Black Sea in a midnight gale.—It’s the unnatural combat of the four primal elements.—It’s a blasted heath.—It’s a Hyperborean winter scene.—It’s the breaking-up of the ice-bound stream of Time. But at last all these fancies yielded to that one portentous something in the picture’s midst. That once found out, and all the rest were plain. But stop; does it not bear a faint resemblance to a gigantic fish? even the great leviathan himself?`,
-    // Page 8
-    `In fact, the artist’s design seemed this: a final theory of my own, partly based upon the aggregated opinions of many aged persons with whom I conversed upon the subject. The picture represents a Cape-Horner in a great hurricane; the half-foundered ship weltering there with its three dismantled masts alone visible; and an exasperated whale, purposing to spring clean over the craft, is in the enormous act of impaling himself upon the three mast-heads.`,
-  ],
-};
+"use client";
+
+import { useState, useRef, useEffect } from "react";
+import ePub, { Book, Rendition, NavItem } from "epubjs";
+import {
+  BookOpen,
+  Upload,
+  Menu,
+  Settings,
+  ChevronLeft,
+  ChevronRight,
+  BookUp,
+} from "lucide-react";
+
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { Slider } from "@/components/ui/slider";
+import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
+import { cn } from "@/lib/utils";
+import { ScrollArea } from "@/components/ui/scroll-area";
+
+export default function EPubReaderPage() {
+  const [isBookLoaded, setIsBookLoaded] = useState(false);
+  const [book, setBook] = useState<Book | null>(null);
+  const [rendition, setRendition] = useState<Rendition | null>(null);
+  const [bookTitle, setBookTitle] = useState("");
+  const [toc, setToc] = useState<NavItem[]>([]);
+
+  const [fontSize, setFontSize] = useState(18);
+  const [lineHeight, setLineHeight] = useState(1.6);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isTocOpen, setIsTocOpen] = useState(false);
+
+  const [isAtStart, setIsAtStart] = useState(true);
+  const [isAtEnd, setIsAtEnd] = useState(false);
+
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const viewerRef = useRef<HTMLDivElement>(null);
+
+  const handleFileUploadClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (window.FileReader) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        if (event.target?.result) {
+          const loadedBook = ePub(event.target.result as ArrayBuffer);
+          setBook(loadedBook);
+          setIsBookLoaded(true);
+        }
+      };
+      reader.readAsArrayBuffer(file);
+    }
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
+  };
+
+  useEffect(() => {
+    if (book && viewerRef.current) {
+      const newRendition = book.renderTo(viewerRef.current, {
+        width: "100%",
+        height: "100%",
+        spread: "auto",
+        flow: "paginated",
+      });
+
+      newRendition.display();
+
+      book.ready.then(() => {
+        if (book.packaging.metadata.title) {
+          setBookTitle(book.packaging.metadata.title);
+        }
+        if (book.navigation) {
+          setToc(book.navigation.toc);
+        }
+      });
+
+      newRendition.on("relocated", (location: any) => {
+        setIsAtStart(location.atStart);
+        setIsAtEnd(location.atEnd);
+        setIsTransitioning(false);
+      });
+
+      newRendition.on("rendered", () => {
+        setIsTransitioning(false);
+      });
+
+      setRendition(newRendition);
+
+      return () => {
+        if (newRendition) {
+          newRendition.destroy();
+        }
+        if (book) {
+          book.destroy();
+        }
+      };
+    }
+  }, [book]);
+
+  useEffect(() => {
+    if (rendition) {
+      rendition.themes.fontSize(`${fontSize}px`);
+    }
+  }, [fontSize, rendition]);
+
+  useEffect(() => {
+    if (rendition) {
+      rendition.themes.override("line-height", `${lineHeight}`);
+    }
+  }, [lineHeight, rendition]);
+
+  const handlePageChange = (direction: "prev" | "next") => {
+    if (rendition) {
+      setIsTransitioning(true);
+      if (direction === "prev") {
+        rendition.prev();
+      } else {
+        rendition.next();
+      }
+    }
+  };
+
+  const handleTocItemClick = (href: string) => {
+    if (rendition) {
+      setIsTransitioning(true);
+      rendition.display(href);
+      setIsTocOpen(false);
+    }
+  };
+
+  const handleCloseBook = () => {
+    setIsTocOpen(false);
+    setTimeout(() => {
+      setIsBookLoaded(false);
+      book?.destroy();
+      setBook(null);
+      setRendition(null);
+      setToc([]);
+      setBookTitle("");
+    }, 300); // Allow sheet to animate out
+  };
+
+  if (!isBookLoaded) {
+    return (
+      <div className="flex min-h-screen w-full flex-col items-center justify-center bg-background p-4">
+        <Card className="w-full max-w-md text-center shadow-2xl">
+          <CardHeader>
+            <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-primary/10 text-primary">
+              <BookOpen className="h-10 w-10" />
+            </div>
+            <CardTitle className="font-headline text-3xl">
+              ePub Reader
+            </CardTitle>
+            <CardDescription className="pt-1 text-muted-foreground">
+              A clean, distraction-free reading environment.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <input
+              type="file"
+              ref={fileInputRef}
+              onChange={handleFileChange}
+              className="hidden"
+              accept=".epub"
+            />
+            <Button size="lg" onClick={handleFileUploadClick}>
+              <Upload className="mr-2 h-5 w-5" />
+              Upload a Book
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex h-dvh flex-col bg-background text-foreground">
+      <header className="flex h-16 flex-shrink-0 items-center justify-between border-b px-4 sm:px-6">
+        <h1 className="truncate text-xl font-bold font-headline">
+          {bookTitle || "Loading..."}
+        </h1>
+        <div className="flex items-center gap-1">
+          <Sheet open={isTocOpen} onOpenChange={setIsTocOpen}>
+            <SheetTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                aria-label="Table of Contents"
+              >
+                <Menu className="h-5 w-5" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent className="flex flex-col">
+              <SheetHeader>
+                <SheetTitle className="font-headline">
+                  Table of Contents
+                </SheetTitle>
+              </SheetHeader>
+              <ScrollArea className="my-4 flex-1">
+                <ul className="space-y-1 pr-6">
+                  {toc.map((item, index) => (
+                    <li key={index}>
+                      <button
+                        onClick={() => handleTocItemClick(item.href)}
+                        className="w-full rounded-md p-2 text-left transition-colors hover:bg-accent hover:text-accent-foreground"
+                      >
+                        {item.label}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </ScrollArea>
+              <div className="mt-auto border-t pt-4">
+                <Button
+                  variant="outline"
+                  className="w-full"
+                  onClick={handleCloseBook}
+                >
+                  <BookUp className="mr-2 h-4 w-4" />
+                  Read a new Book
+                </Button>
+              </div>
+            </SheetContent>
+          </Sheet>
+
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button variant="ghost" size="icon" aria-label="Display Settings">
+                <Settings className="h-5 w-5" />
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-80">
+              <div className="grid gap-4">
+                <div className="space-y-2">
+                  <h4 className="font-medium leading-none font-headline">
+                    Display Settings
+                  </h4>
+                  <p className="text-sm text-muted-foreground">
+                    Adjust your reading experience.
+                  </p>
+                </div>
+                <Separator />
+                <div className="grid gap-4 py-2">
+                  <div className="grid grid-cols-3 items-center gap-4">
+                    <Label htmlFor="fontSize">Font Size</Label>
+                    <Slider
+                      id="fontSize"
+                      min={12}
+                      max={32}
+                      step={1}
+                      value={[fontSize]}
+                      onValueChange={(value) => setFontSize(value[0])}
+                      className="col-span-2"
+                    />
+                  </div>
+                  <div className="grid grid-cols-3 items-center gap-4">
+                    <Label htmlFor="lineHeight">Line Height</Label>
+                    <Slider
+                      id="lineHeight"
+                      min={1.2}
+                      max={2.4}
+                      step={0.1}
+                      value={[lineHeight]}
+                      onValueChange={(value) => setLineHeight(value[0])}
+                      className="col-span-2"
+                    />
+                  </div>
+                </div>
+              </div>
+            </PopoverContent>
+          </Popover>
+        </div>
+      </header>
+
+      <main className="flex-1 overflow-hidden p-4 sm:p-6 md:p-12">
+        <div
+          className={cn(
+            "mx-auto h-full max-w-prose font-body transition-opacity duration-150 ease-in-out",
+            isTransitioning ? "opacity-0" : "opacity-100"
+          )}
+        >
+          <div ref={viewerRef} className="h-full" id="viewer" />
+        </div>
+      </main>
+
+      <footer className="flex flex-col items-center justify-center gap-2 border-t p-4">
+        <div className="flex w-full max-w-md items-center justify-center gap-4">
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={() => handlePageChange("prev")}
+            disabled={isAtStart}
+          >
+            <ChevronLeft className="h-5 w-5" />
+            <span className="sr-only">Previous Page</span>
+          </Button>
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={() => handlePageChange("next")}
+            disabled={isAtEnd}
+          >
+            <ChevronRight className="h-5 w-5" />
+            <span className="sr-only">Next Page</span>
+          </Button>
+        </div>
+      </footer>
+    </div>
+  );
+}

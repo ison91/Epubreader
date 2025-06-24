@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import ePub, { Book, Rendition, NavItem } from "epubjs";
 import {
   BookOpen,
   Upload,
@@ -34,52 +35,134 @@ import {
 import { Slider } from "@/components/ui/slider";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
-import { mockBook } from "@/lib/mock-data";
 import { cn } from "@/lib/utils";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 export default function EPubReaderPage() {
   const [isBookLoaded, setIsBookLoaded] = useState(false);
-  const [currentPage, setCurrentPage] = useState(0);
+  const [book, setBook] = useState<Book | null>(null);
+  const [rendition, setRendition] = useState<Rendition | null>(null);
+  const [bookTitle, setBookTitle] = useState("");
+  const [toc, setToc] = useState<NavItem[]>([]);
+
   const [fontSize, setFontSize] = useState(18);
   const [lineHeight, setLineHeight] = useState(1.6);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isTocOpen, setIsTocOpen] = useState(false);
 
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [isAtStart, setIsAtStart] = useState(true);
+  const [isAtEnd, setIsAtEnd] = useState(false);
 
-  const totalPages = mockBook.content.length;
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const viewerRef = useRef<HTMLDivElement>(null);
 
   const handleFileUploadClick = () => {
     fileInputRef.current?.click();
   };
 
-  const handleFileChange = () => {
-    // In a real app, you would process the file here.
-    // For this demo, we'll just simulate loading the book.
-    setIsBookLoaded(true);
-    setCurrentPage(0);
-  };
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
 
-  const handlePageChange = (newPage: number) => {
-    if (newPage >= 0 && newPage < totalPages && newPage !== currentPage) {
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setCurrentPage(newPage);
-        setIsTransitioning(false);
-      }, 150);
+    if (window.FileReader) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        if (event.target?.result) {
+          const loadedBook = ePub(event.target.result as ArrayBuffer);
+          setBook(loadedBook);
+          setIsBookLoaded(true);
+        }
+      };
+      reader.readAsArrayBuffer(file);
+    }
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
     }
   };
 
-  const handleTocItemClick = (page: number) => {
-    handlePageChange(page);
-    setIsTocOpen(false);
+  useEffect(() => {
+    if (book && viewerRef.current) {
+      const newRendition = book.renderTo(viewerRef.current, {
+        width: "100%",
+        height: "100%",
+        spread: "auto",
+        flow: "paginated",
+      });
+
+      newRendition.display();
+
+      book.ready.then(() => {
+        if (book.packaging.metadata.title) {
+          setBookTitle(book.packaging.metadata.title);
+        }
+        if (book.navigation) {
+          setToc(book.navigation.toc);
+        }
+      });
+
+      newRendition.on("relocated", (location: any) => {
+        setIsAtStart(location.atStart);
+        setIsAtEnd(location.atEnd);
+        setIsTransitioning(false);
+      });
+
+      newRendition.on("rendered", () => {
+        setIsTransitioning(false);
+      });
+
+      setRendition(newRendition);
+
+      return () => {
+        if (newRendition) {
+          newRendition.destroy();
+        }
+        if (book) {
+          book.destroy();
+        }
+      };
+    }
+  }, [book]);
+
+  useEffect(() => {
+    if (rendition) {
+      rendition.themes.fontSize(`${fontSize}px`);
+    }
+  }, [fontSize, rendition]);
+
+  useEffect(() => {
+    if (rendition) {
+      rendition.themes.override("line-height", `${lineHeight}`);
+    }
+  }, [lineHeight, rendition]);
+
+  const handlePageChange = (direction: "prev" | "next") => {
+    if (rendition) {
+      setIsTransitioning(true);
+      if (direction === "prev") {
+        rendition.prev();
+      } else {
+        rendition.next();
+      }
+    }
+  };
+
+  const handleTocItemClick = (href: string) => {
+    if (rendition) {
+      setIsTransitioning(true);
+      rendition.display(href);
+      setIsTocOpen(false);
+    }
   };
 
   const handleCloseBook = () => {
     setIsTocOpen(false);
     setTimeout(() => {
       setIsBookLoaded(false);
+      book?.destroy();
+      setBook(null);
+      setRendition(null);
+      setToc([]);
+      setBookTitle("");
     }, 300); // Allow sheet to animate out
   };
 
@@ -91,7 +174,9 @@ export default function EPubReaderPage() {
             <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-primary/10 text-primary">
               <BookOpen className="h-10 w-10" />
             </div>
-            <CardTitle className="font-headline text-3xl">ePub Reader</CardTitle>
+            <CardTitle className="font-headline text-3xl">
+              ePub Reader
+            </CardTitle>
             <CardDescription className="pt-1 text-muted-foreground">
               A clean, distraction-free reading environment.
             </CardDescription>
@@ -102,7 +187,7 @@ export default function EPubReaderPage() {
               ref={fileInputRef}
               onChange={handleFileChange}
               className="hidden"
-              accept=".epub,.pdf"
+              accept=".epub"
             />
             <Button size="lg" onClick={handleFileUploadClick}>
               <Upload className="mr-2 h-5 w-5" />
@@ -117,33 +202,35 @@ export default function EPubReaderPage() {
   return (
     <div className="flex h-dvh flex-col bg-background text-foreground">
       <header className="flex h-16 flex-shrink-0 items-center justify-between border-b px-4 sm:px-6">
-        <h1 className="truncate text-xl font-bold font-headline">{mockBook.title}</h1>
+        <h1 className="truncate text-xl font-bold font-headline">
+          {bookTitle || "Loading..."}
+        </h1>
         <div className="flex items-center gap-1">
           <Sheet open={isTocOpen} onOpenChange={setIsTocOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" aria-label="Table of Contents">
+              <Button
+                variant="ghost"
+                size="icon"
+                aria-label="Table of Contents"
+              >
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
             <SheetContent className="flex flex-col">
               <SheetHeader>
-                <SheetTitle className="font-headline">Table of Contents</SheetTitle>
+                <SheetTitle className="font-headline">
+                  Table of Contents
+                </SheetTitle>
               </SheetHeader>
               <ScrollArea className="my-4 flex-1">
                 <ul className="space-y-1 pr-6">
-                  {mockBook.toc.map((item, index) => (
+                  {toc.map((item, index) => (
                     <li key={index}>
                       <button
-                        onClick={() => handleTocItemClick(item.page)}
-                        className={cn(
-                          "w-full rounded-md p-2 text-left transition-colors hover:bg-accent hover:text-accent-foreground",
-                          currentPage >= item.page &&
-                            (!mockBook.toc[index + 1] ||
-                              currentPage < mockBook.toc[index + 1].page) &&
-                            "bg-accent/80 text-accent-foreground"
-                        )}
+                        onClick={() => handleTocItemClick(item.href)}
+                        className="w-full rounded-md p-2 text-left transition-colors hover:bg-accent hover:text-accent-foreground"
                       >
-                        {item.title}
+                        {item.label}
                       </button>
                     </li>
                   ))}
@@ -171,7 +258,9 @@ export default function EPubReaderPage() {
             <PopoverContent className="w-80">
               <div className="grid gap-4">
                 <div className="space-y-2">
-                  <h4 className="font-medium leading-none font-headline">Display Settings</h4>
+                  <h4 className="font-medium leading-none font-headline">
+                    Display Settings
+                  </h4>
                   <p className="text-sm text-muted-foreground">
                     Adjust your reading experience.
                   </p>
@@ -209,51 +298,37 @@ export default function EPubReaderPage() {
         </div>
       </header>
 
-      <main className="flex-1 overflow-y-auto p-4 sm:p-6 md:p-12">
+      <main className="flex-1 overflow-hidden p-4 sm:p-6 md:p-12">
         <div
           className={cn(
-            "mx-auto max-w-prose font-body transition-opacity duration-150 ease-in-out",
+            "mx-auto h-full max-w-prose font-body transition-opacity duration-150 ease-in-out",
             isTransitioning ? "opacity-0" : "opacity-100"
           )}
-          style={{ fontSize: `${fontSize}px`, lineHeight }}
         >
-          {mockBook.content[currentPage].split("\n").map((paragraph, i) => (
-            <p key={i} className="mb-6 last:mb-0">
-              {paragraph || <>&nbsp;</>}
-            </p>
-          ))}
+          <div ref={viewerRef} className="h-full" id="viewer" />
         </div>
       </main>
 
       <footer className="flex flex-col items-center justify-center gap-2 border-t p-4">
-        <div className="flex w-full max-w-md items-center gap-4">
+        <div className="flex w-full max-w-md items-center justify-center gap-4">
           <Button
             variant="outline"
             size="icon"
-            onClick={() => handlePageChange(currentPage - 1)}
-            disabled={currentPage === 0}
+            onClick={() => handlePageChange("prev")}
+            disabled={isAtStart}
           >
             <ChevronLeft className="h-5 w-5" />
             <span className="sr-only">Previous Page</span>
           </Button>
-          <Slider
-            value={[currentPage]}
-            max={totalPages - 1}
-            step={1}
-            onValueChange={(value) => handlePageChange(value[0])}
-          />
           <Button
             variant="outline"
             size="icon"
-            onClick={() => handlePageChange(currentPage + 1)}
-            disabled={currentPage === totalPages - 1}
+            onClick={() => handlePageChange("next")}
+            disabled={isAtEnd}
           >
             <ChevronRight className="h-5 w-5" />
             <span className="sr-only">Next Page</span>
           </Button>
-        </div>
-        <div className="text-sm text-muted-foreground">
-          Page {currentPage + 1} of {totalPages}
         </div>
       </footer>
     </div>
