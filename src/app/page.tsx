@@ -267,7 +267,7 @@ export default function EPubReaderPage() {
         book.destroy();
       };
     }
-  }, [book, theme]);
+  }, [book]);
 
   // Style effects
   useEffect(() => {
