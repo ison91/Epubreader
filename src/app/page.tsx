@@ -144,7 +144,7 @@ export default function EPubReaderPage() {
 
 
   // Page navigation
-  const handlePageChange = useCallback((direction: "prev" | "next") => {
+  const handlePageChange = (direction: "prev" | "next") => {
     if (rendition) {
       setIsTransitioning(true);
       if (direction === "prev") {
@@ -153,7 +153,7 @@ export default function EPubReaderPage() {
         rendition.next();
       }
     }
-  }, [rendition]);
+  };
 
   const handleTocItemClick = useCallback((href: string) => {
     if (rendition) {
@@ -338,7 +338,7 @@ export default function EPubReaderPage() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isBookLoaded, handlePageChange, handleCloseBook, handleFileUploadClick]);
+  }, [isBookLoaded, rendition, handleCloseBook, handleFileUploadClick]);
 
   if (!isBookLoaded) {
     return (
