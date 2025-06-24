@@ -58,15 +58,8 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 const FONT_OPTIONS = [
   { name: 'Atmospheric', family: "'Quicksand', sans-serif" },
   { name: 'Aladin', family: "'Aladin', cursive" },
-  { name: 'Henny Penny', family: "'Henny Penny', cursive" },
-  { name: 'Dialog', family: "sans-serif" },
   { name: 'Bosque', family: "'Roboto Slab', serif" },
-  { name: 'Arsenica', family: "'Dancing Script', cursive" },
-  { name: 'Concrete', family: "'Anton', sans-serif" },
-  { name: 'Morningwasabi', family: "'Patrick Hand', cursive" },
   { name: 'Valeria', family: "'Valeria Round', serif" },
-  { name: 'Annabelle', family: "'Great Vibes', cursive" },
-  { name: 'Midnight Tales', family: "'Creepster', cursive" },
 ];
 
 const KEYBOARD_SHORTCUTS = [
@@ -168,7 +161,7 @@ export default function EPubReaderPage() {
 
 
   // Page navigation
-  const handlePageChange = useCallback((direction: "prev" | "next") => {
+  const handlePageChange = (direction: "prev" | "next") => {
     if (rendition) {
       setIsTransitioning(true);
       if (direction === "prev") {
@@ -177,7 +170,7 @@ export default function EPubReaderPage() {
         rendition.next();
       }
     }
-  }, [rendition]);
+  };
 
   const handleTocItemClick = useCallback((href: string) => {
     if (rendition) {

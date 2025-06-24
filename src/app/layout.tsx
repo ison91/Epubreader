@@ -94,7 +94,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Aladin&family=Henny+Penny&family=Valeria+Round&family=Dancing+Script&family=Anton&family=Patrick+Hand&family=Great+Vibes&family=Creepster&family=Quicksand:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Aladin&family=Valeria+Round&family=Quicksand:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap"
           rel="stylesheet"
         />
         <script
