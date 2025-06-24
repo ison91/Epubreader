@@ -48,6 +48,7 @@ import { Switch } from "@/components/ui/switch";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const FONT_OPTIONS = [
   { name: 'Literata', family: 'Literata, serif' },
@@ -95,6 +96,7 @@ export default function EPubReaderPage() {
 
   const [isAtStart, setIsAtStart] = useState(true);
   const [isAtEnd, setIsAtEnd] = useState(false);
+  const isMobile = useIsMobile();
 
   // Refs
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -114,6 +116,9 @@ export default function EPubReaderPage() {
       const reader = new FileReader();
       reader.onload = (event) => {
         if (event.target?.result) {
+          if (book) {
+            book.destroy();
+          }
           const loadedBook = ePub(event.target.result as ArrayBuffer);
           setBook(loadedBook);
           setIsBookLoaded(true);
@@ -127,20 +132,23 @@ export default function EPubReaderPage() {
   };
 
   const handleCloseBook = useCallback(() => {
-    setIsTocOpen(false);
-    setIsSettingsOpen(false);
-    setTimeout(() => {
-      setIsBookLoaded(false);
-      book?.destroy();
-      setBook(null);
-      setRendition(null);
-      setToc([]);
-      setBookTitle("");
-      locationsRef.current = null;
-      setProgress(0);
-      setIsLocationsReady(false);
-    }, 300);
+    setIsBookLoaded(false);
+    setBook(null);
+    setRendition(null);
+    setToc([]);
+    setBookTitle("");
+    locationsRef.current = null;
+    setProgress(0);
+    setIsLocationsReady(false);
+    book?.destroy();
   }, [book]);
+
+  const handleCloseBookAndSheet = useCallback(() => {
+    setIsTocOpen(false); // Close the sheet first
+    setTimeout(() => {
+      handleCloseBook(); // Then close the book after a delay
+    }, 300); // 300ms matches sheet animation
+  }, [handleCloseBook]);
 
 
   // Page navigation
@@ -168,7 +176,6 @@ export default function EPubReaderPage() {
       const percentage = value[0] / 100;
       const cfi = locationsRef.current.cfiFromPercentage(percentage);
       rendition.display(cfi);
-      setProgress(value[0]);
     }
   };
 
@@ -181,8 +188,8 @@ export default function EPubReaderPage() {
     if (rendition) {
       rendition.themes.select(theme);
     }
-  }, [theme, rendition]);
-  
+  }, [theme]);
+
   // Set initial theme
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -190,7 +197,6 @@ export default function EPubReaderPage() {
       setTheme(prefersDark ? "dark" : "light");
     }
   }, []);
-
 
   // Rendition setup effect
   useEffect(() => {
@@ -211,41 +217,52 @@ export default function EPubReaderPage() {
           setToc(book.navigation.toc);
         }
         locationsRef.current = book.locations;
-        book.locations.generate(1650).then(() => {
+        book.locations.generate(1650).then((locations: Locations) => {
+          locationsRef.current = locations;
           setIsLocationsReady(true);
         });
       });
 
-      newRendition.themes.register("light", { 
-        body: { 
-          background: "#FFFFFF", 
-          color: "#09090b"
+      newRendition.themes.register("light", {
+        body: {
+          background: "hsl(var(--background))",
+          color: "hsl(var(--foreground))"
         },
         "a": {
-          "color": "#0000EE"
+          "color": "#0000EE",
+          "text-decoration": "underline !important"
         },
         "a:hover": {
-          "color": "#0000EE",
-          "text-decoration": "underline"
+          "color": "#0000EE"
         }
       });
-      newRendition.themes.register("dark", { 
-        body: { 
-          background: "#18181b", 
-          color: "#f4f4f5"
+      newRendition.themes.register("dark", {
+        body: {
+          background: "hsl(var(--background))",
+          color: "hsl(var(--foreground))"
         },
         "a": {
-          "color": "#93c5fd"
+          "color": "#93c5fd",
+          "text-decoration": "underline !important"
         },
         "a:hover": {
-          "color": "#93c5fd",
-          "text-decoration": "underline"
+          "color": "#93c5fd"
         }
       });
 
       newRendition.themes.select(theme);
-
-      newRendition.on("relocated", (location: any) => {
+      setRendition(newRendition);
+      
+      return () => {
+        newRendition?.destroy();
+      };
+    }
+  }, [book, theme]);
+  
+  // Style and navigation effects
+  useEffect(() => {
+    if (rendition) {
+      rendition.on("relocated", (location: any) => {
         setIsAtStart(location.atStart);
         setIsAtEnd(location.atEnd);
         if (locationsRef.current) {
@@ -255,28 +272,17 @@ export default function EPubReaderPage() {
         setIsTransitioning(false);
       });
       
-      newRendition.on("rendered", () => {
+      rendition.on("rendered", () => {
         setIsTransitioning(false);
       });
-      
-      newRendition.display();
-      setRendition(newRendition);
 
-      return () => {
-        newRendition.destroy();
-        book.destroy();
-      };
-    }
-  }, [book]);
-
-  // Style effects
-  useEffect(() => {
-    if (rendition) {
       rendition.themes.fontSize(`${fontSize}px`);
       rendition.themes.override("line-height", `${lineHeight}`);
       rendition.themes.font(fontFamily);
+
+      rendition.display();
     }
-  }, [fontSize, lineHeight, fontFamily, rendition]);
+  }, [rendition, fontSize, lineHeight, fontFamily]);
 
 
   // Keyboard shortcuts effect
@@ -306,7 +312,7 @@ export default function EPubReaderPage() {
         case " ":
         case "Spacebar":
             e.preventDefault();
-            handleCloseBook();
+            handleFileUploadClick();
             break;
         case "t":
         case "T":
@@ -338,7 +344,7 @@ export default function EPubReaderPage() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isBookLoaded, rendition, handleCloseBook, handleFileUploadClick]);
+  }, [isBookLoaded, rendition, handleFileUploadClick]);
 
   if (!isBookLoaded) {
     return (
@@ -409,29 +415,35 @@ export default function EPubReaderPage() {
                   ))}
                 </ul>
               </ScrollArea>
+              {!isMobile && (
+                <>
+                  <Separator />
+                  <div className="py-4">
+                    <div className="mb-2 flex items-center gap-2 font-headline font-semibold">
+                      <Keyboard className="h-4 w-4" />
+                      <h3>Keyboard Shortcuts</h3>
+                    </div>
+                    <ScrollArea className="h-56">
+                      <ul className="space-y-1.5 pr-4 text-sm text-muted-foreground">
+                        {KEYBOARD_SHORTCUTS.map(shortcut => (
+                          <li key={shortcut.key} className="flex items-center justify-between">
+                            <span>{shortcut.description}</span>
+                            <kbd className="min-w-[40px] text-center rounded-md border bg-muted px-2 py-0.5 font-sans text-xs">
+                              {shortcut.key}
+                            </kbd>
+                          </li>
+                        ))}
+                      </ul>
+                    </ScrollArea>
+                  </div>
+                </>
+              )}
               <Separator />
-               <div className="py-4">
-                <div className="flex items-center gap-2 font-headline font-semibold mb-2">
-                  <Keyboard className="h-4 w-4" />
-                  <h3>Keyboard Shortcuts</h3>
-                </div>
-                <ul className="space-y-1.5 text-sm text-muted-foreground">
-                  {KEYBOARD_SHORTCUTS.map(shortcut => (
-                    <li key={shortcut.key} className="flex items-center justify-between">
-                      <span>{shortcut.description}</span>
-                      <kbd className="min-w-[40px] text-center rounded-md border bg-muted px-2 py-0.5 font-sans text-xs">
-                        {shortcut.key}
-                      </kbd>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <Separator />
-              <div className="border-t pt-4">
+              <div className="pt-4">
                 <Button
                   variant="outline"
                   className="w-full"
-                  onClick={handleCloseBook}
+                  onClick={handleCloseBookAndSheet}
                 >
                   <BookUp className="mr-2 h-4 w-4" />
                   Read a new Book
