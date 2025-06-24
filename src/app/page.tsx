@@ -54,13 +54,17 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { Progress } from "@/components/ui/progress";
 
 const FONT_OPTIONS = [
-  { name: 'Literata', family: 'Literata, serif' },
-  { name: 'Georgia', family: 'Georgia, serif' },
-  { name: 'Garamond', family: "'EB Garamond', serif" },
-  { name: 'Merriweather', family: 'Merriweather, serif' },
-  { name: 'Palatino', family: "Palatino, 'Palatino Linotype', 'Book Antiqua', serif" },
-  { name: 'Baskerville', family: "'Libre Baskerville', serif" },
-  { name: 'Tisa', family: 'Tinos, serif' },
+  { name: 'Atmospheric', family: "'Quicksand', sans-serif" },
+  { name: 'Aladin', family: "'Aladin', cursive" },
+  { name: 'Henny Penny', family: "'Henny Penny', cursive" },
+  { name: 'Dialog', family: "sans-serif" },
+  { name: 'Bosque', family: "'Roboto Slab', serif" },
+  { name: 'Arsenica', family: "'Dancing Script', cursive" },
+  { name: 'Concrete', family: "'Anton', sans-serif" },
+  { name: 'Morningwasabi', family: "'Patrick Hand', cursive" },
+  { name: 'Valeria', family: "'Valeria Round', serif" },
+  { name: 'Annabelle', family: "'Great Vibes', cursive" },
+  { name: 'Midnight Tales', family: "'Creepster', cursive" },
 ];
 
 const KEYBOARD_SHORTCUTS = [
@@ -227,6 +231,24 @@ export default function EPubReaderPage() {
       });
       setRendition(newRendition);
 
+      // Register themes once when rendition is created
+      newRendition.themes.register("light", {
+        body: {
+          background: "hsl(0 0% 93.3%)",
+          color: "hsl(0 0% 3.9%)",
+        },
+        "a": { "color": "#0000EE", "text-decoration": "underline !important" },
+        "a:hover": { "color": "#0000EE" }
+      });
+      newRendition.themes.register("dark", {
+        body: {
+          background: "hsl(240 6% 25%)",
+          color: "hsl(0 0% 100%)",
+        },
+        "a": { "color": "#93c5fd", "text-decoration": "underline !important" },
+        "a:hover": { "color": "#93c5fd" }
+      });
+
       const onFirstRendered = () => {
         renditionRendered.current = true;
         checkLoadingComplete();
@@ -294,23 +316,6 @@ export default function EPubReaderPage() {
   // Style application effect
   useEffect(() => {
     if (rendition) {
-      rendition.themes.register("light", {
-        body: {
-          background: "hsl(0 0% 93.3%)",
-          color: "hsl(0 0% 3.9%)",
-        },
-        "a": { "color": "#0000EE", "text-decoration": "underline !important" },
-        "a:hover": { "color": "#0000EE" }
-      });
-      rendition.themes.register("dark", {
-        body: {
-          background: "hsl(240 6% 25%)",
-          color: "hsl(0 0% 100%)",
-        },
-        "a": { "color": "#93c5fd", "text-decoration": "underline !important" },
-        "a:hover": { "color": "#93c5fd" }
-      });
-
       rendition.themes.select(theme);
       rendition.themes.fontSize(`${fontSize}px`);
       rendition.themes.override("line-height", `${lineHeight}`);
