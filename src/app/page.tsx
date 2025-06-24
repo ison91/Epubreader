@@ -8,6 +8,7 @@ import {
   Settings,
   ChevronLeft,
   ChevronRight,
+  BookUp,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -36,6 +37,7 @@ import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { mockBook } from "@/lib/mock-data";
 import { cn } from "@/lib/utils";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 export default function EPubReaderPage() {
   const [isBookLoaded, setIsBookLoaded] = useState(false);
@@ -67,6 +69,10 @@ export default function EPubReaderPage() {
         setIsTransitioning(false);
       }, 150);
     }
+  };
+
+  const handleCloseBook = () => {
+    setIsBookLoaded(false);
   };
 
   if (!isBookLoaded) {
@@ -111,30 +117,44 @@ export default function EPubReaderPage() {
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent>
+            <SheetContent className="flex flex-col">
               <SheetHeader>
                 <SheetTitle className="font-headline">Table of Contents</SheetTitle>
               </SheetHeader>
-              <ul className="mt-4 space-y-1">
-                {mockBook.toc.map((item, index) => (
-                  <li key={index}>
-                    <SheetClose asChild>
-                      <button
-                        onClick={() => handlePageChange(item.page)}
-                        className={cn(
-                          "w-full rounded-md p-2 text-left transition-colors hover:bg-accent hover:text-accent-foreground",
-                          currentPage >= item.page &&
-                            (!mockBook.toc[index + 1] ||
-                              currentPage < mockBook.toc[index + 1].page) &&
-                            "bg-accent/80 text-accent-foreground"
-                        )}
-                      >
-                        {item.title}
-                      </button>
-                    </SheetClose>
-                  </li>
-                ))}
-              </ul>
+              <ScrollArea className="my-4 flex-1">
+                <ul className="space-y-1 pr-6">
+                  {mockBook.toc.map((item, index) => (
+                    <li key={index}>
+                      <SheetClose asChild>
+                        <button
+                          onClick={() => handlePageChange(item.page)}
+                          className={cn(
+                            "w-full rounded-md p-2 text-left transition-colors hover:bg-accent hover:text-accent-foreground",
+                            currentPage >= item.page &&
+                              (!mockBook.toc[index + 1] ||
+                                currentPage < mockBook.toc[index + 1].page) &&
+                              "bg-accent/80 text-accent-foreground"
+                          )}
+                        >
+                          {item.title}
+                        </button>
+                      </SheetClose>
+                    </li>
+                  ))}
+                </ul>
+              </ScrollArea>
+              <div className="mt-auto border-t pt-4">
+                <SheetClose asChild>
+                  <Button
+                    variant="outline"
+                    className="w-full"
+                    onClick={handleCloseBook}
+                  >
+                    <BookUp className="mr-2 h-4 w-4" />
+                    Read a new Book
+                  </Button>
+                </SheetClose>
+              </div>
             </SheetContent>
           </Sheet>
 
@@ -148,7 +168,9 @@ export default function EPubReaderPage() {
               <div className="grid gap-4">
                 <div className="space-y-2">
                   <h4 className="font-medium leading-none font-headline">Display Settings</h4>
-                  <p className="text-sm text-muted-foreground">Adjust your reading experience.</p>
+                  <p className="text-sm text-muted-foreground">
+                    Adjust your reading experience.
+                  </p>
                 </div>
                 <Separator />
                 <div className="grid gap-4 py-2">
@@ -191,7 +213,7 @@ export default function EPubReaderPage() {
           )}
           style={{ fontSize: `${fontSize}px`, lineHeight }}
         >
-          {mockBook.content[currentPage].split('\n').map((paragraph, i) => (
+          {mockBook.content[currentPage].split("\n").map((paragraph, i) => (
             <p key={i} className="mb-6 last:mb-0">
               {paragraph || <>&nbsp;</>}
             </p>
@@ -201,12 +223,27 @@ export default function EPubReaderPage() {
 
       <footer className="flex flex-col items-center justify-center gap-2 border-t p-4">
         <div className="flex w-full max-w-md items-center gap-4">
-          <Button variant="outline" size="icon" onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 0}>
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 0}
+          >
             <ChevronLeft className="h-5 w-5" />
             <span className="sr-only">Previous Page</span>
           </Button>
-          <Slider value={[currentPage]} max={totalPages - 1} step={1} onValueChange={(value) => handlePageChange(value[0])} />
-          <Button variant="outline" size="icon" onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages - 1}>
+          <Slider
+            value={[currentPage]}
+            max={totalPages - 1}
+            step={1}
+            onValueChange={(value) => handlePageChange(value[0])}
+          />
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages - 1}
+          >
             <ChevronRight className="h-5 w-5" />
             <span className="sr-only">Next Page</span>
           </Button>
