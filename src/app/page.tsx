@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
@@ -50,6 +51,7 @@ import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { Progress } from "@/components/ui/progress";
 
 const FONT_OPTIONS = [
   { name: 'Literata', family: 'Literata, serif' },
@@ -79,6 +81,7 @@ export default function EPubReaderPage() {
   // Book state
   const [isBookLoaded, setIsBookLoaded] = useState(false);
   const [isBookProcessing, setIsBookProcessing] = useState(false);
+  const [loadingProgress, setLoadingProgress] = useState(0);
   const [book, setBook] = useState<Book | null>(null);
   const [rendition, setRendition] = useState<Rendition | null>(null);
   const [bookTitle, setBookTitle] = useState("");
@@ -116,6 +119,7 @@ export default function EPubReaderPage() {
 
     if (window.FileReader) {
       setIsBookProcessing(true);
+      setLoadingProgress(0);
       const reader = new FileReader();
       reader.onload = (event) => {
         if (event.target?.result) {
@@ -143,6 +147,7 @@ export default function EPubReaderPage() {
     setBookTitle("");
     locationsRef.current = null;
     setProgress(0);
+    setLoadingProgress(0);
     setIsLocationsReady(false);
     book?.destroy();
   }, [book]);
@@ -201,14 +206,34 @@ export default function EPubReaderPage() {
   // Rendition setup effect
   useEffect(() => {
     if (book && viewerRef.current) {
+      const renditionRendered = { current: false };
+      const locationsGenerated = { current: false };
+
+      const checkLoadingComplete = () => {
+        if (renditionRendered.current && locationsGenerated.current) {
+          setIsBookProcessing(false);
+        }
+      };
+      
+      setIsBookProcessing(true);
+      setLoadingProgress(0);
       setIsLocationsReady(false);
+
       const newRendition = book.renderTo(viewerRef.current, {
         width: "100%",
         height: "100%",
         spread: "auto",
         flow: "paginated",
       });
+      setRendition(newRendition);
 
+      const onFirstRendered = () => {
+        renditionRendered.current = true;
+        checkLoadingComplete();
+        newRendition.off('rendered', onFirstRendered);
+      };
+      newRendition.on('rendered', onFirstRendered);
+      
       book.ready.then(() => {
         if (book.packaging.metadata.title) {
           setBookTitle(book.packaging.metadata.title);
@@ -217,44 +242,23 @@ export default function EPubReaderPage() {
           setToc(book.navigation.toc);
         }
         
-        locationsRef.current = book.locations;
-        book.locations.generate(1650).then(() => {
-          locationsRef.current = book.locations; // Re-assign to ensure we have the full object
-          setIsLocationsReady(true);
-          setIsBookProcessing(false);
+        book.locations.on('progress', (progress: number) => {
+          setLoadingProgress(Math.round(progress));
         });
+
+        return book.locations.generate(1650);
+      }).then(() => {
+        locationsRef.current = book.locations;
+        setIsLocationsReady(true);
+        setLoadingProgress(100);
+        locationsGenerated.current = true;
+        checkLoadingComplete();
       });
 
-      newRendition.themes.register("light", {
-        body: {
-          background: "hsl(0 0% 93.3%)",
-          color: "hsl(0 0% 3.9%)",
-        },
-        "a": {
-          "color": "#0000EE",
-          "text-decoration": "underline !important"
-        },
-        "a:hover": {
-          "color": "#0000EE"
-        }
-      });
-      newRendition.themes.register("dark", {
-        body: {
-          background: "hsl(240 6% 25%)",
-          color: "hsl(0 0% 100%)",
-        },
-        "a": {
-          "color": "#93c5fd",
-          "text-decoration": "underline !important"
-        },
-        "a:hover": {
-          "color": "#93c5fd"
-        }
-      });
-      
-      setRendition(newRendition);
-      
+      newRendition.display();
+
       return () => {
+        book?.destroy();
         newRendition?.destroy();
       };
     }
@@ -290,6 +294,23 @@ export default function EPubReaderPage() {
   // Style application effect
   useEffect(() => {
     if (rendition) {
+      rendition.themes.register("light", {
+        body: {
+          background: "hsl(0 0% 93.3%)",
+          color: "hsl(0 0% 3.9%)",
+        },
+        "a": { "color": "#0000EE", "text-decoration": "underline !important" },
+        "a:hover": { "color": "#0000EE" }
+      });
+      rendition.themes.register("dark", {
+        body: {
+          background: "hsl(240 6% 25%)",
+          color: "hsl(0 0% 100%)",
+        },
+        "a": { "color": "#93c5fd", "text-decoration": "underline !important" },
+        "a:hover": { "color": "#93c5fd" }
+      });
+
       rendition.themes.select(theme);
       rendition.themes.fontSize(`${fontSize}px`);
       rendition.themes.override("line-height", `${lineHeight}`);
@@ -357,7 +378,7 @@ export default function EPubReaderPage() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isBookLoaded, handleFileUploadClick]);
+  }, [isBookLoaded, handleFileUploadClick, handlePageChange]);
 
   if (!isBookLoaded) {
     return (
@@ -546,13 +567,16 @@ export default function EPubReaderPage() {
             <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-background/80 backdrop-blur-sm">
                 <Loader2 className="mb-4 h-12 w-12 animate-spin text-primary" />
                 <p className="text-lg font-semibold font-headline">Preparing your book...</p>
-                <p className="text-sm text-muted-foreground">This may take a moment.</p>
+                <p className="mb-4 text-sm text-muted-foreground">
+                  {loadingProgress < 100 ? `Analyzing content: ${loadingProgress}%` : "Rendering..."}
+                </p>
+                <Progress value={loadingProgress} className="w-64" />
             </div>
         )}
         <div
           className={cn(
             "h-full w-full font-body transition-opacity duration-150 ease-in-out",
-            isTransitioning || isBookProcessing ? "opacity-0" : "opacity-100"
+            isBookProcessing ? "opacity-0" : "opacity-100"
           )}
         >
           <div ref={viewerRef} className="h-full" id="viewer" />
