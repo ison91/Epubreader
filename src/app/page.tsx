@@ -199,14 +199,6 @@ export default function EPubReaderPage() {
     root.classList.add(theme);
   }, [theme]);
 
-  // Set initial theme from system preference
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      setTheme(prefersDark ? "dark" : "light");
-    }
-  }, []);
-
   // Rendition setup effect
   useEffect(() => {
     if (book && viewerRef.current) {
