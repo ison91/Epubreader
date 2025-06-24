@@ -165,7 +165,7 @@ export default function EPubReaderPage() {
 
 
   // Page navigation
-  const handlePageChange = (direction: "prev" | "next") => {
+  const handlePageChange = useCallback((direction: "prev" | "next") => {
     if (rendition) {
       setIsTransitioning(true);
       if (direction === "prev") {
@@ -174,7 +174,7 @@ export default function EPubReaderPage() {
         rendition.next();
       }
     }
-  };
+  }, [rendition]);
 
   const handleTocItemClick = useCallback((href: string) => {
     if (rendition) {
@@ -269,8 +269,8 @@ export default function EPubReaderPage() {
         });
 
         return book.locations.generate(1650);
-      }).then(() => {
-        locationsRef.current = book.locations;
+      }).then((locations) => {
+        locationsRef.current = locations;
         setIsLocationsReady(true);
         setLoadingProgress(100);
         locationsGenerated.current = true;
@@ -313,15 +313,22 @@ export default function EPubReaderPage() {
     };
   }, [rendition]);
 
-  // Style application effect
+  // Style application effects
   useEffect(() => {
-    if (rendition) {
-      rendition.themes.select(theme);
-      rendition.themes.fontSize(`${fontSize}px`);
-      rendition.themes.override("line-height", `${lineHeight}`);
-      rendition.themes.font(fontFamily);
-    }
-  }, [rendition, theme, fontSize, lineHeight, fontFamily]);
+    if (rendition) rendition.themes.select(theme);
+  }, [rendition, theme]);
+
+  useEffect(() => {
+    if (rendition) rendition.themes.fontSize(`${fontSize}px`);
+  }, [rendition, fontSize]);
+  
+  useEffect(() => {
+    if (rendition) rendition.themes.override("line-height", `${lineHeight}`);
+  }, [rendition, lineHeight]);
+
+  useEffect(() => {
+    if (rendition) rendition.themes.font(fontFamily);
+  }, [rendition, fontFamily]);
 
 
   // Keyboard shortcuts effect
