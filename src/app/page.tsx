@@ -188,7 +188,7 @@ export default function EPubReaderPage() {
     if (rendition) {
       rendition.themes.select(theme);
     }
-  }, [theme]);
+  }, [theme, rendition]);
 
   // Set initial theme
   useEffect(() => {
@@ -217,8 +217,7 @@ export default function EPubReaderPage() {
           setToc(book.navigation.toc);
         }
         locationsRef.current = book.locations;
-        book.locations.generate(1650).then((locations: Locations) => {
-          locationsRef.current = locations;
+        book.locations.generate(1650).then(() => {
           setIsLocationsReady(true);
         });
       });
@@ -257,7 +256,7 @@ export default function EPubReaderPage() {
         newRendition?.destroy();
       };
     }
-  }, [book, theme]);
+  }, [book]);
   
   // Style and navigation effects
   useEffect(() => {
@@ -344,7 +343,7 @@ export default function EPubReaderPage() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isBookLoaded, rendition, handleFileUploadClick]);
+  }, [isBookLoaded, handleFileUploadClick, handlePageChange]);
 
   if (!isBookLoaded) {
     return (
