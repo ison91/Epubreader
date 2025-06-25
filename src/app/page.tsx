@@ -55,73 +55,12 @@ import { Progress } from "@/components/ui/progress";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 const FONT_OPTIONS = [
-  { name: "Absolute Zero", family: "AbsoluteZero" },
-  { name: "Adventure Hollow", family: "AdventureHollow" },
-  { name: "Adventure", family: "Adventure" },
-  { name: "Angelwish", family: "Angelwish" },
-  { name: "Angels", family: "Angels" },
-  { name: "ANTI-SOC", family: "ANTI-SOC" },
-  { name: "Antique Book Cover", family: "antique_book_cover" },
-  { name: "AYUMA", family: "AYUMA___" },
-  { name: "BADABB", family: "BADABB__" },
-  { name: "Bonello-Regular", family: "Bonello-Regular" },
-  { name: "BOSQUE", family: "BOSQUE" },
-  { name: "Bronco Personal Use", family: "BroncoPersonalUse" },
-  { name: "Carnevalee Freakshow", family: "CarnevaleeFreakshow" },
-  { name: "Champagne & Limousines", family: "Champagne&Limousines" },
-  { name: "Cookies", family: "Cookies" },
-  { name: "Designer", family: "Designer" },
-  { name: "Destruction Manual", family: "DestructionManual" },
-  { name: "DOTMATRI", family: "DOTMATRI" },
-  { name: "DS-DIGIT", family: "DS-DIGIT" },
-  { name: "Ethnocentric Rg", family: "EthnocentricRg" },
-  { name: "fFireBlast", family: "fFireBlast" },
-  { name: "Flowers Kingdom", family: "FlowersKingdom" },
-  { name: "Future-Earth", family: "future-earth" },
-  { name: "Guardians", family: "Guardians" },
-  { name: "Happy Memories", family: "HappyMemories" },
-  { name: "Hollywood Hills", family: "HollywoodHills" },
-  { name: "Honey and Raspberries", family: "HoneyandRaspberries" },
-  { name: "Howdybun", family: "Howdybun" },
-  { name: "Icecold-Italic", family: "Icecold-Italic" },
-  { name: "Icecold", family: "Icecold" },
-  { name: "Indiana-Jonas-48p", family: "Indiana-Jonas-48p" },
-  { name: "JMH Typewriter-Bold", family: "JMHTypewriter-Bold" },
-  { name: "JMH Typewriter", family: "JMHTypewriter" },
-  { name: "ka1", family: "ka1" },
-  { name: "LED Dot-Matrix", family: "LEDDot-Matrix" },
-  { name: "LEMONMILK-Regular", family: "LEMONMILK-Regular" },
-  { name: "Magical Night", family: "MagicalNight" },
-  { name: "mangati", family: "mangati" },
-  { name: "Melted Monster", family: "MeltedMonster" },
-  { name: "Million Dreams", family: "MillionDreams" },
-  { name: "Modern Prestige DEMO", family: "ModernPrestigeDEMO" },
-  { name: "Night of the Deads", family: "NightoftheDeads" },
-  { name: "Night Clown", family: "NightClown" },
-  { name: "Pervitina-Dex-FFP", family: "Pervitina-Dex-FFP" },
-  { name: "Polar Snow", family: "PolarSnow" },
-  { name: "Retro Grunge West", family: "RetroGrungeWest" },
-  { name: "REVOLUTI", family: "REVOLUTI" },
-  { name: "Rio Grande", family: "RioGrande" },
-  { name: "Roboto-Regular", family: "Roboto-Regular" },
-  { name: "SF Distant Galaxy", family: "SFDistantGalaxy" },
-  { name: "Shadow of the Deads", family: "ShadowoftheDeads" },
-  { name: "spaceage", family: "spaceage" },
-  { name: "Sports World-Regular", family: "SportsWorld-Regular" },
-  { name: "Storm Gust", family: "StormGust" },
-  { name: "Stranger back in the Night", family: "StrangerbackintheNight" },
-  { name: "Sugar Christmas", family: "SugarChristmas" },
-  { name: "Sweety Rasty", family: "SweetyRasty" },
-  { name: "Tenada", family: "Tenada" },
-  { name: "Thug Land", family: "ThugLand" },
-  { name: "Titania-Regular", family: "Titania-Regular" },
-  { name: "Valeria Bold Grunge", family: "ValeriaBoldGrunge" },
-  { name: "Vampire Wars", family: "VampireWars" },
-  { name: "Varsity Team-Bold", family: "VarsityTeam-Bold" },
-  { name: "Vogue", family: "Vogue" },
-  { name: "White On Black", family: "WhiteOnBlack" },
-  { name: "ZOMBIE", family: "ZOMBIE" },
+  { name: "Literata", family: "var(--font-literata)" },
+  { name: "Inter", family: "var(--font-inter)" },
+  { name: "Aladin", family: "var(--font-aladin)" },
+  { name: "Henny Penny", family: "var(--font-henny-penny)" },
 ];
+
 
 const KEYBOARD_SHORTCUTS = [
   { key: "→", description: "Next Page" },
@@ -608,8 +547,8 @@ export default function EPubReaderPage() {
                         </SelectTrigger>
                         <SelectContent>
                           {FONT_OPTIONS.map(font => (
-                            <SelectItem key={font.name} value={font.family} style={{ fontFamily: font.family }}>
-                              {font.name}
+                            <SelectItem key={font.name} value={font.family} className="font-sans" style={{ fontFamily: font.family }}>
+                              <span style={{ fontFamily: font.family }}>{font.name}</span>
                             </SelectItem>
                           ))}
                         </SelectContent>

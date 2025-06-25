@@ -1,23 +1,33 @@
 import type { Metadata } from "next";
 import { Toaster } from "@/components/ui/toaster";
-import localFont from 'next/font/local';
+import { Inter, Literata, Aladin, Henny_Penny } from 'next/font/google';
 import "./globals.css";
 
-/*
-// EXAMPLE: How to load a local font.
-//
-// 1. Add your font file to the `src/fonts` directory.
-//    (e.g., `src/fonts/AbsoluteZero.otf`)
-// 2. Uncomment and update this code to load your font.
-// 3. Repeat for each font you want to load.
-// 4. Add the generated CSS variable to the `<html>` tag's className below.
-//
-const absoluteZero = localFont({
-  src: '../fonts/AbsoluteZero.otf',
+const inter = Inter({
+  subsets: ['latin'],
   display: 'swap',
-  variable: '--font-absolute-zero', // Create a CSS variable
+  variable: '--font-inter',
 });
-*/
+
+const literata = Literata({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-literata',
+});
+
+const aladin = Aladin({
+  subsets: ['latin'],
+  weight: '400',
+  display: 'swap',
+  variable: '--font-aladin',
+});
+
+const hennyPenny = Henny_Penny({
+  subsets: ['latin'],
+  weight: '400',
+  display: 'swap',
+  variable: '--font-henny-penny',
+});
 
 export const metadata: Metadata = {
   title: {
@@ -105,8 +115,7 @@ export default function RootLayout({
     <html 
       lang="en" 
       suppressHydrationWarning
-      // Add your font variables here after loading them above
-      // e.g. className={absoluteZero.variable}
+      className={`${inter.variable} ${literata.variable} ${aladin.variable} ${hennyPenny.variable}`}
     >
       <head>
         <script
@@ -114,7 +123,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="font-sans antialiased">
+      <body className="font-headline antialiased">
         {children}
         <Toaster />
       </body>
