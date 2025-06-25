@@ -82,9 +82,6 @@ export default function EPubReaderPage() {
 
   const handleCloseBook = useCallback(() => {
     if (book) {
-      if (book.archived) {
-        window.URL.revokeObjectURL(book.archived.url);
-      }
       book.destroy();
     }
     setIsBookLoaded(false);
@@ -108,12 +105,30 @@ export default function EPubReaderPage() {
 
     handleCloseBook(); // Clean up previous book before loading a new one
 
-    if (window.URL) {
-      const url = window.URL.createObjectURL(file);
-      const loadedBook = ePub(url);
-      setBook(loadedBook);
-      setIsBookLoaded(true);
-    }
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const arrayBuffer = event.target?.result;
+      if (arrayBuffer) {
+        const loadedBook = ePub(arrayBuffer as ArrayBuffer);
+        setBook(loadedBook);
+        setIsBookLoaded(true);
+      } else {
+        toast({
+          variant: "destructive",
+          title: "Error Reading File",
+          description: "Could not read the selected file.",
+        });
+      }
+    };
+    reader.onerror = () => {
+      toast({
+        variant: "destructive",
+        title: "Error Reading File",
+        description: "An error occurred while reading the file.",
+      });
+    };
+    reader.readAsArrayBuffer(file);
+
     if (fileInputRef.current) {
       fileInputRef.current.value = "";
     }
@@ -339,10 +354,8 @@ export default function EPubReaderPage() {
 
   useEffect(() => {
     if (rendition) {
-      // Get the current location BEFORE changing the spread
       const cfi = cfiRef.current;
       rendition.spread(spread);
-      // After spread is set, re-display at the stored location
       if (cfi) {
         rendition.display(cfi);
       }
