@@ -76,6 +76,7 @@ export default function EPubReaderPage() {
   const viewerRef = useRef<HTMLDivElement>(null);
   const locationsRef = useRef<Locations | null>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
+  const cfiRef = useRef<string | null>(null);
 
   // File handling
   const handleFileUploadClick = useCallback(() => {
@@ -115,6 +116,7 @@ export default function EPubReaderPage() {
     setToc([]);
     setBookTitle("");
     locationsRef.current = null;
+    cfiRef.current = null;
     setLoadingProgress(0);
     setIsLocationsReady(false);
     setCurrentPage(0);
@@ -264,6 +266,9 @@ export default function EPubReaderPage() {
     const handleRelocated = (location: any) => {
       setIsAtStart(location.atStart);
       setIsAtEnd(location.atEnd);
+      if (location.start?.cfi) {
+        cfiRef.current = location.start.cfi;
+      }
       if (locationsRef.current) {
         const currentPageNum = locationsRef.current.locationFromCfi(
           location.start.cfi
@@ -297,14 +302,9 @@ export default function EPubReaderPage() {
 
   useEffect(() => {
     if (rendition) {
-      const currentLocation = rendition.currentLocation();
       rendition.spread(spread);
-      if (
-        currentLocation &&
-        currentLocation.start &&
-        currentLocation.start.cfi
-      ) {
-        rendition.display(currentLocation.start.cfi);
+      if (cfiRef.current) {
+        rendition.display(cfiRef.current);
       }
     }
   }, [rendition, spread]);
