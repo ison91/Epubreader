@@ -1,54 +1,6 @@
 import type { Metadata } from "next";
-import {
-  Poppins,
-  Playfair_Display,
-  Open_Sans,
-  Merriweather,
-  Lora,
-  Crimson_Text,
-} from "next/font/google";
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-poppins",
-  weight: ["400", "700"],
-});
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-playfair",
-});
-
-const openSans = Open_Sans({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-open-sans",
-  weight: ["400", "700"],
-});
-
-const merriweather = Merriweather({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  display: "swap",
-  variable: "--font-merriweather",
-});
-
-const lora = Lora({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-lora",
-});
-
-const crimsonText = Crimson_Text({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  display: "swap",
-  variable: "--font-crimson-text",
-});
 
 export const metadata: Metadata = {
   title: {
@@ -139,7 +91,6 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${poppins.variable} ${playfair.variable} ${openSans.variable} ${merriweather.variable} ${lora.variable} ${crimsonText.variable}`}
     >
       <head>
         <script
@@ -147,7 +98,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="font-headline antialiased">
+      <body className="antialiased">
         {children}
         <Toaster />
       </body>

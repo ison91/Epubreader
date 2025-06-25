@@ -9,11 +9,6 @@ export default {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        body: ['var(--font-open-sans)', 'sans-serif'],
-        headline: ['var(--font-poppins)', 'sans-serif'],
-        code: ['monospace'],
-      },
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',

@@ -37,13 +37,6 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Slider } from "@/components/ui/slider";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
@@ -53,15 +46,6 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Progress } from "@/components/ui/progress";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-
-const FONT_OPTIONS = [
-  { name: "Poppins", family: "var(--font-poppins)" },
-  { name: "Playfair Display", family: "var(--font-playfair)" },
-  { name: "Open Sans", family: "var(--font-open-sans)" },
-  { name: "Merriweather", family: "var(--font-merriweather)" },
-  { name: "Lora", family: "var(--font-lora)" },
-  { name: "Crimson Text", family: "var(--font-crimson-text)" },
-];
 
 const KEYBOARD_SHORTCUTS = [
   { key: "→", description: "Next Page" },
@@ -92,7 +76,6 @@ export default function EPubReaderPage() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [fontSize, setFontSize] = useState(18);
   const [lineHeight, setLineHeight] = useState(1.6);
-  const [fontFamily, setFontFamily] = useState(FONT_OPTIONS[0].family);
   const [spread, setSpread] = useState<'auto' | 'none'>('auto');
   
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -219,25 +202,7 @@ export default function EPubReaderPage() {
         flow: "paginated",
       });
       setRendition(newRendition);
-
-      // Register themes once when rendition is created
-      newRendition.themes.register("light", {
-        body: {
-          background: "hsl(0 0% 93.3%)",
-          color: "hsl(0 0% 3.9%)",
-        },
-        "a": { "color": "#0000EE", "text-decoration": "underline !important" },
-        "a:hover": { "color": "#0000EE" }
-      });
-      newRendition.themes.register("dark", {
-        body: {
-          background: "hsl(240 6% 15%)",
-          color: "hsl(0 0% 100%)",
-        },
-        "a": { "color": "#93c5fd", "text-decoration": "underline !important" },
-        "a:hover": { "color": "#93c5fd" }
-      });
-
+      
       const onFirstRendered = () => {
         renditionRendered.current = true;
         checkLoadingComplete();
@@ -245,7 +210,7 @@ export default function EPubReaderPage() {
       };
       newRendition.on('rendered', onFirstRendered);
       
-      book.ready.then(() => {
+      book.ready.then(async () => {
         if (book.packaging.metadata.title) {
           setBookTitle(book.packaging.metadata.title);
         }
@@ -253,15 +218,14 @@ export default function EPubReaderPage() {
           setToc(book.navigation.toc);
         }
         
-        book.locations.on('progress', (progress: number) => {
-          setLoadingProgress(Math.round(progress));
+        book.locations.on('progress', (p: number) => {
+          setLoadingProgress(p);
         });
 
-        return book.locations.generate(1650);
-      }).then((locations) => {
-        locationsRef.current = locations;
+        const generatedLocations = await book.locations.generate(1650);
+        
+        locationsRef.current = generatedLocations;
         setIsLocationsReady(true);
-        setLoadingProgress(100);
         locationsGenerated.current = true;
         checkLoadingComplete();
       });
@@ -304,22 +268,35 @@ export default function EPubReaderPage() {
 
   // Style application effects
   useEffect(() => {
-    if (rendition) rendition.themes.select(theme);
+    if (rendition) {
+      const newStyles = {
+        body: {
+            background: theme === 'light' ? 'hsl(0 0% 93.3%)' : 'hsl(240 6% 15%)',
+            color: theme === 'light' ? 'hsl(0 0% 3.9%)' : 'hsl(0 0% 100%)',
+        },
+        a: {
+            color: theme === 'light' ? '#0000EE' : '#93c5fd',
+            'text-decoration': 'underline !important',
+        },
+        'a:hover': {
+            color: theme === 'light' ? '#0000EE' : '#93c5fd',
+        }
+      };
+      rendition.themes.override('all', newStyles);
+    }
   }, [rendition, theme]);
-
+  
   useEffect(() => {
-    if (rendition) rendition.themes.fontSize(`${fontSize}px`);
+    if (rendition) {
+      rendition.themes.override("font-size", `${fontSize}px`);
+    }
   }, [rendition, fontSize]);
   
   useEffect(() => {
-    if (rendition) rendition.themes.override("line-height", `${lineHeight}`);
-  }, [rendition, lineHeight]);
-
-  useEffect(() => {
     if (rendition) {
-      rendition.themes.font(fontFamily);
+      rendition.themes.override("line-height", `${lineHeight}`);
     }
-  }, [rendition, fontFamily]);
+  }, [rendition, lineHeight]);
 
   useEffect(() => {
     if (rendition) rendition.spread(spread);
@@ -539,21 +516,6 @@ export default function EPubReaderPage() {
                         <Label htmlFor="view-single-page" className="cursor-pointer font-normal">Single Page</Label>
                       </div>
                     </RadioGroup>
-                  </div>
-                  <div className="grid grid-cols-3 items-center gap-4">
-                    <Label htmlFor="fontFamily">Font</Label>
-                     <Select value={fontFamily} onValueChange={setFontFamily}>
-                        <SelectTrigger id="fontFamily" className="col-span-2">
-                          <SelectValue placeholder="Select a font" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {FONT_OPTIONS.map(font => (
-                            <SelectItem key={font.name} value={font.family} className="font-sans" style={{ fontFamily: font.family }}>
-                              <span style={{ fontFamily: font.family }}>{font.name}</span>
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
                   </div>
                   <div className="grid grid-cols-3 items-center gap-4">
                     <Label htmlFor="fontSize">Font Size</Label>
