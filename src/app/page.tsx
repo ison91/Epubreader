@@ -297,7 +297,16 @@ export default function EPubReaderPage() {
 
   useEffect(() => {
     if (rendition) {
-      rendition.spread(spread);
+      rendition.spread(spread).then(() => {
+        const currentLocation = rendition.currentLocation();
+        if (
+          currentLocation &&
+          currentLocation.start &&
+          currentLocation.start.cfi
+        ) {
+          rendition.display(currentLocation.start.cfi);
+        }
+      });
     }
   }, [rendition, spread]);
 
