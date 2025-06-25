@@ -57,8 +57,8 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 const FONT_OPTIONS = [
   { name: 'Atmospheric', family: 'var(--font-quicksand)' },
   { name: 'Aladin', family: 'var(--font-aladin)' },
-  { name: 'Bosque', family: 'var(--font-roboto-slab)' },
-  { name: 'Valeria', family: 'var(--font-varela-round)' },
+  { name: 'Bosque', family: 'var(--font-cinzel)' },
+  { name: 'Valeria', family: 'var(--font-valeria)' },
 ];
 
 const KEYBOARD_SHORTCUTS = [
@@ -229,7 +229,7 @@ export default function EPubReaderPage() {
       });
       newRendition.themes.register("dark", {
         body: {
-          background: "hsl(240 6% 25%)",
+          background: "hsl(240 6% 15%)",
           color: "hsl(0 0% 100%)",
         },
         "a": { "color": "#93c5fd", "text-decoration": "underline !important" },
@@ -432,7 +432,7 @@ export default function EPubReaderPage() {
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent className="flex flex-col">
+            <SheetContent className="flex flex-col sm:max-w-md">
               <SheetHeader>
                 <SheetTitle className="font-headline">
                   Table of Contents
