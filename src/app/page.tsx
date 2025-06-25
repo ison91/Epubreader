@@ -61,7 +61,6 @@ const FONT_OPTIONS = [
   { name: "Henny Penny", family: "var(--font-henny-penny)" },
 ];
 
-
 const KEYBOARD_SHORTCUTS = [
   { key: "→", description: "Next Page" },
   { key: "←", description: "Previous Page" },

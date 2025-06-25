@@ -1,10 +1,8 @@
-
 import type { Metadata } from "next";
-import { Toaster } from "@/components/ui/toaster";
 import { Inter, Literata, Aladin, Henny_Penny } from "next/font/google";
+import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 
-// --- UI Fonts ---
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
@@ -17,7 +15,6 @@ const literata = Literata({
   variable: "--font-literata",
 });
 
-// --- Custom Reader Fonts ---
 const aladin = Aladin({
   subsets: ["latin"],
   weight: "400",
@@ -32,26 +29,26 @@ const hennyPenny = Henny_Penny({
   variable: "--font-henny-penny",
 });
 
-
 export const metadata: Metadata = {
   title: {
     default: "ePub Reader | Read ePub Books Online",
     template: "%s | ePub Reader",
   },
-  description: "A modern, accessible, and feature-rich ePub reader built with Next.js. Upload your .epub files and enjoy a clean, distraction-free reading environment with customizable fonts and themes.",
+  description:
+    "A modern, accessible, and feature-rich ePub reader built with Next.js. Upload your .epub files and enjoy a clean, distraction-free reading environment with customizable fonts and themes.",
   keywords: [
-    "epub reader", 
-    "ebook reader", 
-    "online book reader", 
-    "nextjs epub reader", 
-    "free epub reader", 
-    "read epubs online", 
-    "epubjs reader", 
+    "epub reader",
+    "ebook reader",
+    "online book reader",
+    "nextjs epub reader",
+    "free epub reader",
+    "read epubs online",
+    "epubjs reader",
     "web reader",
     "digital book reader",
     "online epub viewer",
     "customizable reader",
-    "dark mode reader"
+    "dark mode reader",
   ],
   authors: [{ name: "Firebase Studio" }],
   creator: "Firebase Studio",
@@ -59,11 +56,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "ePub Reader | Read ePub Books Online",
     description: "A modern, accessible e-reader for your browser.",
-    url: "https://your-app-url.com", // Replace with your actual URL
+    url: "https://your-app-url.com",
     siteName: "ePub Reader",
     images: [
       {
-        url: "https://placehold.co/1200x630.png", // Replace with an actual image of your app
+        url: "https://placehold.co/1200x630.png",
         width: 1200,
         height: 630,
         alt: "ePub Reader Application Interface",
@@ -75,8 +72,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "ePub Reader | Read ePub Books Online",
-    description: "Upload and read your ePub books directly in your browser with a clean, customizable interface.",
-    images: ["https://placehold.co/1200x630.png"], // Replace with an actual image of your app
+    description:
+      "Upload and read your ePub books directly in your browser with a clean, customizable interface.",
+    images: ["https://placehold.co/1200x630.png"],
   },
   robots: {
     index: true,
@@ -95,19 +93,20 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
   name: "ePub Reader",
-  description: "A modern, accessible, and feature-rich ePub reader built with Next.js. Upload your .epub files and enjoy a clean, distraction-free reading environment with customizable fonts and themes.",
+  description:
+    "A modern, accessible, and feature-rich ePub reader built with Next.js. Upload your .epub files and enjoy a clean, distraction-free reading environment with customizable fonts and themes.",
   applicationCategory: "ProductivityApplication",
   operatingSystem: "Any",
   browserRequirements: "Requires HTML5 support",
   offers: {
     "@type": "Offer",
     price: "0",
-    priceCurrency: "USD"
+    priceCurrency: "USD",
   },
   publisher: {
     "@type": "Organization",
-    name: "Firebase"
-  }
+    name: "Firebase",
+  },
 };
 
 export default function RootLayout({
@@ -116,8 +115,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html 
-      lang="en" 
+    <html
+      lang="en"
       suppressHydrationWarning
       className={`${inter.variable} ${literata.variable} ${aladin.variable} ${hennyPenny.variable}`}
     >
