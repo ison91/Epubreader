@@ -43,6 +43,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Progress } from "@/components/ui/progress";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Input } from "@/components/ui/input";
 
 export default function EPubReaderPage() {
   // Book state
@@ -54,7 +55,11 @@ export default function EPubReaderPage() {
   const [bookTitle, setBookTitle] = useState("");
   const [toc, setToc] = useState<NavItem[]>([]);
   const [progress, setProgress] = useState(0);
-  const [sliderValue, setSliderValue] = useState(0);
+
+  // Page navigation state
+  const [currentPage, setCurrentPage] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
+  const [pageInput, setPageInput] = useState("");
 
   // UI State
   const [fontSize, setFontSize] = useState(18);
@@ -72,7 +77,6 @@ export default function EPubReaderPage() {
   const viewerRef = useRef<HTMLDivElement>(null);
   const locationsRef = useRef<Locations | null>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
-  const debounceTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // File handling
   const handleFileUploadClick = useCallback(() => {
@@ -115,6 +119,9 @@ export default function EPubReaderPage() {
     setProgress(0);
     setLoadingProgress(0);
     setIsLocationsReady(false);
+    setCurrentPage(0);
+    setTotalPages(0);
+    setPageInput("");
     book?.destroy();
   }, [book]);
 
@@ -146,30 +153,38 @@ export default function EPubReaderPage() {
     [rendition]
   );
 
-  const handleSliderChange = useCallback(
-    (value: number[]) => {
-      setSliderValue(value[0]);
+  const handlePageInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPageInput(e.target.value);
+  };
 
-      if (debounceTimeoutRef.current) {
-        clearTimeout(debounceTimeoutRef.current);
+  const navigateToPage = (input: string) => {
+    const pageNum = parseInt(input, 10);
+    if (
+      !isNaN(pageNum) &&
+      pageNum > 0 &&
+      pageNum <= totalPages &&
+      locationsRef.current
+    ) {
+      const cfi = locationsRef.current.cfiFromLocation(pageNum);
+      if (cfi && rendition) {
+        rendition.display(cfi);
       }
+    } else {
+      setPageInput(String(currentPage));
+    }
+  };
 
-      debounceTimeoutRef.current = setTimeout(() => {
-        if (
-          locationsRef.current &&
-          rendition &&
-          locationsRef.current.cfiFromPercentage
-        ) {
-          const percentage = value[0] / 100;
-          const cfi = locationsRef.current.cfiFromPercentage(percentage);
-          if (cfi) {
-            rendition.display(cfi);
-          }
-        }
-      }, 250); // Debounce delay
-    },
-    [rendition]
-  );
+  const handlePageInputKeyDown = (
+    e: React.KeyboardEvent<HTMLInputElement>
+  ) => {
+    if (e.key === "Enter") {
+      navigateToPage((e.target as HTMLInputElement).value);
+    }
+  };
+
+  const handlePageInputBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    navigateToPage(e.target.value);
+  };
 
   // Rendition setup effect
   useEffect(() => {
@@ -223,12 +238,13 @@ export default function EPubReaderPage() {
         }
 
         book.locations.on("progress", (p: number) => {
-          setLoadingProgress(p * 100);
+          setLoadingProgress(Math.round(p * 100));
         });
 
         const generatedLocations = await book.locations.generate(1650);
 
         locationsRef.current = generatedLocations;
+        setTotalPages(generatedLocations.total);
         setIsLocationsReady(true);
         locationsGenerated.current = true;
         checkLoadingComplete();
@@ -256,7 +272,12 @@ export default function EPubReaderPage() {
         );
         const newProgress = Math.round(percentage * 100);
         setProgress(newProgress);
-        setSliderValue(newProgress);
+      }
+      // Update current page number
+      if (location.start?.location) {
+        const currPage = location.start.location;
+        setCurrentPage(currPage);
+        setPageInput(String(currPage));
       }
     };
 
@@ -266,14 +287,6 @@ export default function EPubReaderPage() {
       rendition.off("relocated", handleRelocated);
     };
   }, [rendition]);
-
-  useEffect(() => {
-    return () => {
-      if (debounceTimeoutRef.current) {
-        clearTimeout(debounceTimeoutRef.current);
-      }
-    };
-  }, []);
 
   // Style application effects
   useEffect(() => {
@@ -538,7 +551,7 @@ export default function EPubReaderPage() {
       </main>
 
       <footer className="flex flex-col items-center justify-center gap-2 border-t p-4">
-        <div className="flex w-full max-w-2xl items-center justify-center gap-4">
+        <div className="flex w-full max-w-sm items-center justify-center gap-4">
           <Button
             variant="outline"
             size="icon"
@@ -547,15 +560,20 @@ export default function EPubReaderPage() {
             aria-label="Previous Page"
           >
             <ChevronLeft className="h-5 w-5" />
-            <span className="sr-only">Previous Page</span>
           </Button>
-          <Slider
-            value={[sliderValue]}
-            onValueChange={handleSliderChange}
-            className="flex-1"
-            aria-label="Book progress"
-            disabled={!isLocationsReady}
-          />
+          <div className="flex items-center gap-2 text-sm">
+            <Input
+              type="number"
+              className="h-9 w-16 text-center"
+              value={pageInput}
+              onChange={handlePageInputChange}
+              onKeyDown={handlePageInputKeyDown}
+              onBlur={handlePageInputBlur}
+              disabled={!isLocationsReady}
+              aria-label="Current Page"
+            />
+            <span className="text-muted-foreground">of {totalPages}</span>
+          </div>
           <Button
             variant="outline"
             size="icon"
@@ -564,7 +582,6 @@ export default function EPubReaderPage() {
             aria-label="Next Page"
           >
             <ChevronRight className="h-5 w-5" />
-            <span className="sr-only">Next Page</span>
           </Button>
         </div>
       </footer>
