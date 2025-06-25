@@ -203,6 +203,38 @@ export default function EPubReaderPage() {
       });
       setRendition(newRendition);
       
+      // Register themes once, when the rendition is created.
+      newRendition.themes.register({
+        light: {
+          body: {
+            background: 'hsl(0 0% 93.3%)',
+            color: 'hsl(0 0% 3.9%)',
+          },
+          a: {
+            color: '#0000EE',
+            'text-decoration': 'underline !important',
+          },
+          'a:hover': {
+            color: '#0000EE',
+          },
+        },
+        dark: {
+           body: {
+            background: 'hsl(240 6% 15%)',
+            color: 'hsl(0 0% 100%)',
+          },
+          a: {
+            color: '#93c5fd',
+            'text-decoration': 'underline !important',
+          },
+          'a:hover': {
+            color: '#93c5fd',
+          },
+        }
+      });
+      // Select the initial theme
+      newRendition.themes.select(theme);
+
       const onFirstRendered = () => {
         renditionRendered.current = true;
         checkLoadingComplete();
@@ -269,34 +301,6 @@ export default function EPubReaderPage() {
   // Style application effects
   useEffect(() => {
     if (rendition) {
-      rendition.themes.register({
-        light: {
-          body: {
-            background: 'hsl(0 0% 93.3%)',
-            color: 'hsl(0 0% 3.9%)',
-          },
-          a: {
-            color: '#0000EE',
-            'text-decoration': 'underline !important',
-          },
-          'a:hover': {
-            color: '#0000EE',
-          },
-        },
-        dark: {
-           body: {
-            background: 'hsl(240 6% 15%)',
-            color: 'hsl(0 0% 100%)',
-          },
-          a: {
-            color: '#93c5fd',
-            'text-decoration': 'underline !important',
-          },
-          'a:hover': {
-            color: '#93c5fd',
-          },
-        }
-      });
       rendition.themes.select(theme);
     }
   }, [rendition, theme]);
