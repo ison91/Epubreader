@@ -1,8 +1,10 @@
+
 import type { Metadata } from "next";
 import { Toaster } from "@/components/ui/toaster";
 import { Inter, Literata, Aladin, Henny_Penny } from "next/font/google";
 import "./globals.css";
 
+// --- UI Fonts ---
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
@@ -15,6 +17,7 @@ const literata = Literata({
   variable: "--font-literata",
 });
 
+// --- Custom Reader Fonts ---
 const aladin = Aladin({
   subsets: ["latin"],
   weight: "400",
