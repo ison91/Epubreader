@@ -1,33 +1,34 @@
 import type { Metadata } from "next";
 import { Toaster } from "@/components/ui/toaster";
-import { Inter, Literata, Aladin, Henny_Penny } from 'next/font/google';
+import { Inter, Literata, Aladin, Henny_Penny } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
 });
 
 const literata = Literata({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-literata',
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-literata",
 });
 
 const aladin = Aladin({
-  subsets: ['latin'],
-  weight: '400',
-  display: 'swap',
-  variable: '--font-aladin',
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+  variable: "--font-aladin",
 });
 
 const hennyPenny = Henny_Penny({
-  subsets: ['latin'],
-  weight: '400',
-  display: 'swap',
-  variable: '--font-henny-penny',
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+  variable: "--font-henny-penny",
 });
+
 
 export const metadata: Metadata = {
   title: {
