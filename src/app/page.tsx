@@ -219,7 +219,7 @@ export default function EPubReaderPage() {
         }
         
         book.locations.on('progress', (p: number) => {
-          setLoadingProgress(p);
+          setLoadingProgress(p * 100);
         });
 
         const generatedLocations = await book.locations.generate(1650);
@@ -269,34 +269,28 @@ export default function EPubReaderPage() {
   // Style application effects
   useEffect(() => {
     if (rendition) {
-      const newStyles = {
+      // Define a single theme object that includes all dynamic styles
+      const bookTheme = {
         body: {
-            background: theme === 'light' ? 'hsl(0 0% 93.3%)' : 'hsl(240 6% 15%)',
-            color: theme === 'light' ? 'hsl(0 0% 3.9%)' : 'hsl(0 0% 100%)',
+          background: theme === 'light' ? 'hsl(0 0% 93.3%)' : 'hsl(240 6% 15%)',
+          color: theme === 'light' ? 'hsl(0 0% 3.9%)' : 'hsl(0 0% 100%)',
+          'font-size': `${fontSize}px !important`,
+          'line-height': `${lineHeight} !important`,
         },
         a: {
-            color: theme === 'light' ? '#0000EE' : '#93c5fd',
-            'text-decoration': 'underline !important',
+          color: theme === 'light' ? '#0000EE' : '#93c5fd',
+          'text-decoration': 'underline !important',
         },
         'a:hover': {
-            color: theme === 'light' ? '#0000EE' : '#93c5fd',
-        }
+          color: theme === 'light' ? '#0000EE' : '#93c5fd',
+        },
       };
-      rendition.themes.override('all', newStyles);
+
+      // Register and select the theme. This ensures all styles are applied at once.
+      rendition.themes.register('custom', bookTheme);
+      rendition.themes.select('custom');
     }
-  }, [rendition, theme]);
-  
-  useEffect(() => {
-    if (rendition) {
-      rendition.themes.override("font-size", `${fontSize}px`);
-    }
-  }, [rendition, fontSize]);
-  
-  useEffect(() => {
-    if (rendition) {
-      rendition.themes.override("line-height", `${lineHeight}`);
-    }
-  }, [rendition, lineHeight]);
+  }, [rendition, theme, fontSize, lineHeight]);
 
   useEffect(() => {
     if (rendition) rendition.spread(spread);
@@ -554,14 +548,14 @@ export default function EPubReaderPage() {
                 <Loader2 className="mb-4 h-12 w-12 animate-spin text-primary" />
                 <p className="text-lg font-semibold font-headline">Preparing your book...</p>
                 <p className="mb-4 text-sm text-muted-foreground">
-                  {loadingProgress < 100 ? `Analyzing content: ${loadingProgress}%` : "Rendering..."}
+                  {loadingProgress < 100 ? `Analyzing content: ${Math.round(loadingProgress)}%` : "Rendering..."}
                 </p>
                 <Progress value={loadingProgress} className="w-64" />
             </div>
         )}
         <div
           className={cn(
-            "h-full w-full font-body transition-opacity duration-150 ease-in-out",
+            "h-full w-full transition-opacity duration-150 ease-in-out",
             isBookProcessing ? "opacity-0" : "opacity-100"
           )}
         >
