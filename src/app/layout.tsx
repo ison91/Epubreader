@@ -1,34 +1,23 @@
 import type { Metadata } from "next";
 import { Toaster } from "@/components/ui/toaster";
-import { Aladin, Cinzel, Quicksand, Varela_Round } from "next/font/google";
+import localFont from 'next/font/local';
 import "./globals.css";
 
-const quicksand = Quicksand({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-quicksand",
+/*
+// EXAMPLE: How to load a local font.
+//
+// 1. Add your font file to the `src/fonts` directory.
+//    (e.g., `src/fonts/AbsoluteZero.otf`)
+// 2. Uncomment and update this code to load your font.
+// 3. Repeat for each font you want to load.
+// 4. Add the generated CSS variable to the `<html>` tag's className below.
+//
+const absoluteZero = localFont({
+  src: '../fonts/AbsoluteZero.otf',
+  display: 'swap',
+  variable: '--font-absolute-zero', // Create a CSS variable
 });
-
-const aladin = Aladin({
-  subsets: ["latin"],
-  weight: "400",
-  display: "swap",
-  variable: "--font-aladin",
-});
-
-const bosque = Cinzel({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-cinzel",
-});
-
-const valeria = Varela_Round({
-  subsets: ["latin"],
-  weight: "400",
-  display: "swap",
-  variable: "--font-valeria",
-});
-
+*/
 
 export const metadata: Metadata = {
   title: {
@@ -116,7 +105,8 @@ export default function RootLayout({
     <html 
       lang="en" 
       suppressHydrationWarning
-      className={`${quicksand.variable} ${aladin.variable} ${bosque.variable} ${valeria.variable}`}
+      // Add your font variables here after loading them above
+      // e.g. className={absoluteZero.variable}
     >
       <head>
         <script
@@ -124,7 +114,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="font-headline antialiased">
+      <body className="font-sans antialiased">
         {children}
         <Toaster />
       </body>
