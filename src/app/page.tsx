@@ -12,6 +12,7 @@ import {
   ChevronRight,
   BookUp,
   Loader2,
+  WholeWord,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -57,11 +58,8 @@ export default function EPubReaderPage() {
   // UI State
   const [fontSize, setFontSize] = useState(18);
   const [lineHeight, setLineHeight] = useState(1.6);
-  const [spread, setSpread] = useState<'auto' | 'none'>('auto');
-  
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [spread, setSpread] = useState<"auto" | "none">("auto");
   const [isTocOpen, setIsTocOpen] = useState(false);
-  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isLocationsReady, setIsLocationsReady] = useState(false);
 
   const [isAtStart, setIsAtStart] = useState(true);
@@ -72,6 +70,7 @@ export default function EPubReaderPage() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const viewerRef = useRef<HTMLDivElement>(null);
   const locationsRef = useRef<Locations | null>(null);
+  const popoverRef = useRef<HTMLDivElement>(null);
 
   // File handling
   const handleFileUploadClick = useCallback(() => {
@@ -124,11 +123,9 @@ export default function EPubReaderPage() {
     }, 300); // 300ms matches sheet animation
   }, [handleCloseBook]);
 
-
   // Page navigation
   const handlePageChange = (direction: "prev" | "next") => {
     if (rendition) {
-      setIsTransitioning(true);
       if (direction === "prev") {
         rendition.prev();
       } else {
@@ -137,16 +134,22 @@ export default function EPubReaderPage() {
     }
   };
 
-  const handleTocItemClick = useCallback((href: string) => {
-    if (rendition) {
-      setIsTransitioning(true);
-      rendition.display(href);
-      setIsTocOpen(false);
-    }
-  }, [rendition]);
+  const handleTocItemClick = useCallback(
+    (href: string) => {
+      if (rendition) {
+        rendition.display(href);
+        setIsTocOpen(false);
+      }
+    },
+    [rendition]
+  );
 
   const handleProgressChange = (value: number[]) => {
-    if (locationsRef.current && rendition && locationsRef.current.cfiFromPercentage) {
+    if (
+      locationsRef.current &&
+      rendition &&
+      locationsRef.current.cfiFromPercentage
+    ) {
       const percentage = value[0] / 100;
       const cfi = locationsRef.current.cfiFromPercentage(percentage);
       rendition.display(cfi);
@@ -164,7 +167,7 @@ export default function EPubReaderPage() {
           setIsBookProcessing(false);
         }
       };
-      
+
       setIsBookProcessing(true);
       setLoadingProgress(0);
       setIsLocationsReady(false);
@@ -176,29 +179,26 @@ export default function EPubReaderPage() {
         flow: "paginated",
       });
       setRendition(newRendition);
-      
+
       newRendition.themes.register("light", {
         body: {
-          background: 'hsl(0 0% 93.3%)',
-          color: 'hsl(0 0% 3.9%)',
+          background: "hsl(0 0% 93.3%)",
+          color: "hsl(0 0% 3.9%)",
         },
-        a: {
-          color: '#0000EE',
-          'text-decoration': 'underline !important',
-        },
-        'a:hover': {
-          color: '#0000EE',
+        "a:hover": {
+          color: "#0000EE",
         },
       });
+
       newRendition.themes.select("light");
 
       const onFirstRendered = () => {
         renditionRendered.current = true;
         checkLoadingComplete();
-        newRendition.off('rendered', onFirstRendered);
+        newRendition.off("rendered", onFirstRendered);
       };
-      newRendition.on('rendered', onFirstRendered);
-      
+      newRendition.on("rendered", onFirstRendered);
+
       book.ready.then(async () => {
         if (book.packaging.metadata.title) {
           setBookTitle(book.packaging.metadata.title);
@@ -206,13 +206,13 @@ export default function EPubReaderPage() {
         if (book.navigation) {
           setToc(book.navigation.toc);
         }
-        
-        book.locations.on('progress', (p: number) => {
-          setLoadingProgress(Math.round(p * 100));
+
+        book.locations.on("progress", (p: number) => {
+          setLoadingProgress(p * 100);
         });
 
         const generatedLocations = await book.locations.generate(1650);
-        
+
         locationsRef.current = generatedLocations;
         setIsLocationsReady(true);
         locationsGenerated.current = true;
@@ -227,7 +227,7 @@ export default function EPubReaderPage() {
       };
     }
   }, [book]);
-  
+
   // Event listeners effect
   useEffect(() => {
     if (!rendition) return;
@@ -236,42 +236,38 @@ export default function EPubReaderPage() {
       setIsAtStart(location.atStart);
       setIsAtEnd(location.atEnd);
       if (locationsRef.current && locationsRef.current.percentageFromCfi) {
-          const percentage = locationsRef.current.percentageFromCfi(location.start.cfi);
-          setProgress(Math.round(percentage * 100));
+        const percentage = locationsRef.current.percentageFromCfi(
+          location.start.cfi
+        );
+        setProgress(Math.round(percentage * 100));
       }
-      setIsTransitioning(false);
-    };
-    
-    const handleRendered = () => {
-      setIsTransitioning(false);
     };
 
     rendition.on("relocated", handleRelocated);
-    rendition.on("rendered", handleRendered);
 
     return () => {
       rendition.off("relocated", handleRelocated);
-      rendition.off("rendered", handleRendered);
     };
   }, [rendition]);
 
   // Style application effects
   useEffect(() => {
     if (rendition) {
-        rendition.themes.fontSize(`${fontSize}px`);
+      rendition.themes.fontSize(`${fontSize}px`);
     }
   }, [rendition, fontSize]);
-  
+
   useEffect(() => {
     if (rendition) {
-        rendition.themes.override('line-height', `${lineHeight}`, true);
+      rendition.themes.override("line-height", `${lineHeight}`, true);
     }
   }, [rendition, lineHeight]);
 
   useEffect(() => {
-    if (rendition) rendition.spread(spread);
+    if (rendition) {
+      rendition.spread(spread);
+    }
   }, [rendition, spread]);
-
 
   // Keyboard shortcuts effect
   useEffect(() => {
@@ -283,12 +279,17 @@ export default function EPubReaderPage() {
         }
         return;
       }
-      
-      if (e.key === 'Escape') {
+
+      if (e.key === "Escape") {
         setIsTocOpen(false);
-        setIsSettingsOpen(false);
       }
-      if (document.activeElement?.tagName === 'INPUT' || document.activeElement?.tagName === 'TEXTAREA' || e.ctrlKey || e.metaKey) return;
+      if (
+        document.activeElement?.tagName === "INPUT" ||
+        document.activeElement?.tagName === "TEXTAREA" ||
+        e.ctrlKey ||
+        e.metaKey
+      )
+        return;
 
       switch (e.key) {
         case "ArrowRight":
@@ -299,29 +300,25 @@ export default function EPubReaderPage() {
           break;
         case " ":
         case "Spacebar":
-            e.preventDefault();
-            handleFileUploadClick();
-            break;
+          e.preventDefault();
+          handleFileUploadClick();
+          break;
         case "t":
         case "T":
-          setIsTocOpen(v => !v);
-          break;
-        case "s":
-        case "S":
-          setIsSettingsOpen(v => !v);
+          setIsTocOpen((v) => !v);
           break;
         case "=":
         case "+":
-          setFontSize(s => Math.min(s + 2, 36));
+          setFontSize((s) => Math.min(s + 2, 36));
           break;
         case "-":
-          setFontSize(s => Math.max(s - 2, 10));
+          setFontSize((s) => Math.max(s - 2, 10));
           break;
         case "]":
-          setLineHeight(h => Math.min(h + 0.1, 2.4));
+          setLineHeight((h) => Math.min(h + 0.1, 2.4));
           break;
         case "[":
-          setLineHeight(h => Math.max(h - 0.1, 1.2));
+          setLineHeight((h) => Math.max(h - 0.1, 1.2));
           break;
       }
     };
@@ -357,9 +354,6 @@ export default function EPubReaderPage() {
               <Upload className="mr-2 h-5 w-5" />
               Upload a Book
             </Button>
-            <p className="mt-4 text-sm text-muted-foreground">
-              Or press <kbd className="rounded-md border bg-muted px-2 py-1 font-sans text-xs">Spacebar</kbd> to upload.
-            </p>
           </CardContent>
         </Card>
       </div>
@@ -375,7 +369,11 @@ export default function EPubReaderPage() {
         <div className="flex items-center gap-1">
           <Sheet open={isTocOpen} onOpenChange={setIsTocOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" aria-label="Table of Contents (T)">
+              <Button
+                variant="ghost"
+                size="icon"
+                aria-label="Table of Contents (T)"
+              >
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
@@ -413,13 +411,17 @@ export default function EPubReaderPage() {
             </SheetContent>
           </Sheet>
 
-          <Popover open={isSettingsOpen} onOpenChange={setIsSettingsOpen}>
+          <Popover>
             <PopoverTrigger asChild>
-              <Button variant="ghost" size="icon" aria-label="Display Settings (S)">
+              <Button
+                variant="ghost"
+                size="icon"
+                aria-label="Display Settings (S)"
+              >
                 <Settings className="h-5 w-5" />
               </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-80">
+            <PopoverContent ref={popoverRef} className="w-80">
               <div className="grid gap-4">
                 <div className="space-y-2">
                   <h4 className="font-medium leading-none font-headline">
@@ -435,21 +437,38 @@ export default function EPubReaderPage() {
                     <Label>Page View</Label>
                     <RadioGroup
                       value={spread}
-                      onValueChange={(value) => setSpread(value as 'auto' | 'none')}
+                      onValueChange={(value) =>
+                        setSpread(value as "auto" | "none")
+                      }
                       className="col-span-2 flex items-center justify-end gap-4"
                     >
                       <div className="flex items-center space-x-2">
                         <RadioGroupItem value="auto" id="view-two-page" />
-                        <Label htmlFor="view-two-page" className="cursor-pointer font-normal">Two Page</Label>
+                        <Label
+                          htmlFor="view-two-page"
+                          className="cursor-pointer font-normal"
+                        >
+                          Two Page
+                        </Label>
                       </div>
                       <div className="flex items-center space-x-2">
                         <RadioGroupItem value="none" id="view-single-page" />
-                        <Label htmlFor="view-single-page" className="cursor-pointer font-normal">Single Page</Label>
+                        <Label
+                          htmlFor="view-single-page"
+                          className="cursor-pointer font-normal"
+                        >
+                          Single Page
+                        </Label>
                       </div>
                     </RadioGroup>
                   </div>
                   <div className="grid grid-cols-3 items-center gap-4">
-                    <Label htmlFor="fontSize">Font Size</Label>
+                    <Label
+                      htmlFor="fontSize"
+                      className="flex items-center gap-2"
+                    >
+                      <WholeWord /> Font Size
+                    </Label>
                     <Slider
                       id="fontSize"
                       min={10}
@@ -478,28 +497,32 @@ export default function EPubReaderPage() {
           </Popover>
         </div>
       </header>
-      
+
       <main className="relative flex-1 overflow-hidden">
         {isBookProcessing && (
-            <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-background/80 backdrop-blur-sm">
-                <Loader2 className="mb-4 h-12 w-12 animate-spin text-primary" />
-                <p className="text-lg font-semibold font-headline">Preparing your book...</p>
-                <p className="mb-4 text-sm text-muted-foreground">
-                  {loadingProgress < 100 ? `Analyzing content: ${Math.round(loadingProgress)}%` : "Rendering..."}
-                </p>
-                <Progress value={loadingProgress} className="w-64" />
-            </div>
+          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-background/80 backdrop-blur-sm">
+            <Loader2 className="mb-4 h-12 w-12 animate-spin text-primary" />
+            <p className="text-lg font-semibold font-headline">
+              Preparing your book...
+            </p>
+            <p className="mb-4 text-sm text-muted-foreground">
+              {loadingProgress < 100
+                ? `Analyzing content: ${Math.round(loadingProgress)}%`
+                : "Rendering..."}
+            </p>
+            <Progress value={loadingProgress} className="w-64" />
+          </div>
         )}
         <div
           className={cn(
-            "h-full w-full transition-opacity duration-150 ease-in-out",
-            isBookProcessing ? "opacity-0" : "opacity-100"
+            "h-full w-full opacity-100 transition-opacity duration-150 ease-in-out",
+            isBookProcessing && "opacity-0"
           )}
         >
           <div ref={viewerRef} className="h-full" id="viewer" />
         </div>
       </main>
-      
+
       <footer className="flex flex-col items-center justify-center gap-2 border-t p-4">
         <div className="flex w-full max-w-2xl items-center justify-center gap-4">
           <Button
