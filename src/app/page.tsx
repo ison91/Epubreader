@@ -39,8 +39,11 @@ import { Progress } from "@/components/ui/progress";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useToast } from "@/hooks/use-toast";
 
 export default function EPubReaderPage() {
+  const { toast } = useToast();
+
   // Book state
   const [isBookLoaded, setIsBookLoaded] = useState(false);
   const [isBookProcessing, setIsBookProcessing] = useState(false);
@@ -77,30 +80,12 @@ export default function EPubReaderPage() {
     fileInputRef.current?.click();
   }, []);
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    if (window.URL) {
-      setIsBookProcessing(true);
-      setLoadingProgress(0);
-
-      const url = window.URL.createObjectURL(file);
-      if (book) {
-        book.destroy();
-      }
-      const loadedBook = ePub(url);
-      setBook(loadedBook);
-      setIsBookLoaded(true);
-    }
-    if (fileInputRef.current) {
-      fileInputRef.current.value = "";
-    }
-  };
-
   const handleCloseBook = useCallback(() => {
-    if (book?.archived) {
-      window.URL.revokeObjectURL(book.archived.url);
+    if (book) {
+      if (book.archived) {
+        window.URL.revokeObjectURL(book.archived.url);
+      }
+      book.destroy();
     }
     setIsBookLoaded(false);
     setIsBookProcessing(false);
@@ -115,8 +100,24 @@ export default function EPubReaderPage() {
     setCurrentPage(0);
     setTotalPages(0);
     setPageInput("");
-    book?.destroy();
   }, [book]);
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    handleCloseBook(); // Clean up previous book before loading a new one
+
+    if (window.URL) {
+      const url = window.URL.createObjectURL(file);
+      const loadedBook = ePub(url);
+      setBook(loadedBook);
+      setIsBookLoaded(true);
+    }
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
+  };
 
   const handleCloseBookAndSheet = useCallback(() => {
     setIsMenuOpen(false); // Close the sheet first
@@ -182,6 +183,10 @@ export default function EPubReaderPage() {
   // Rendition setup effect
   useEffect(() => {
     if (book && viewerRef.current) {
+      setIsBookProcessing(true);
+      setLoadingProgress(0);
+      setIsLocationsReady(false);
+
       const renditionRendered = { current: false };
       const locationsGenerated = { current: false };
 
@@ -191,10 +196,6 @@ export default function EPubReaderPage() {
         }
       };
 
-      setIsBookProcessing(true);
-      setLoadingProgress(0);
-      setIsLocationsReady(false);
-
       const newRendition = book.renderTo(viewerRef.current, {
         width: "100%",
         height: "100%",
@@ -203,7 +204,6 @@ export default function EPubReaderPage() {
       });
       setRendition(newRendition);
 
-      // Add touch handlers for swipe navigation
       const MIN_SWIPE_DISTANCE = 50;
       let touchStartX = 0;
       let touchMoveX = 0;
@@ -249,35 +249,45 @@ export default function EPubReaderPage() {
       };
       newRendition.on("rendered", onFirstRendered);
 
-      book.ready.then(async () => {
-        if (book.packaging.metadata.title) {
-          setBookTitle(book.packaging.metadata.title);
-        }
-        if (book.navigation) {
-          setToc(book.navigation.toc);
-        }
+      book.ready
+        .then(async () => {
+          if (book.packaging.metadata.title) {
+            setBookTitle(book.packaging.metadata.title);
+          }
+          if (book.navigation) {
+            setToc(book.navigation.toc);
+          }
 
-        book.locations.on("progress", (p: number) => {
-          setLoadingProgress(Math.round(p * 100));
+          book.locations.on("progress", (p: number) => {
+            setLoadingProgress(Math.round(p * 100));
+          });
+
+          await book.locations.generate(1650);
+
+          locationsRef.current = book.locations;
+          setTotalPages(book.locations.total);
+          setIsLocationsReady(true);
+          locationsGenerated.current = true;
+          checkLoadingComplete();
+        })
+        .catch((err) => {
+          console.error("Error loading book:", err);
+          toast({
+            variant: "destructive",
+            title: "Error Loading Book",
+            description:
+              "The selected ePub file could not be opened. It might be corrupted or in an unsupported format.",
+          });
+          handleCloseBook();
         });
-
-        await book.locations.generate(1650);
-
-        locationsRef.current = book.locations;
-        setTotalPages(book.locations.total);
-        setIsLocationsReady(true);
-        locationsGenerated.current = true;
-        checkLoadingComplete();
-      });
 
       newRendition.display();
 
       return () => {
-        book?.destroy();
-        newRendition?.destroy();
+        // Cleanup is handled by handleCloseBook now
       };
     }
-  }, [book]);
+  }, [book, handleCloseBook, toast]);
 
   // Event listeners effect
   useEffect(() => {
