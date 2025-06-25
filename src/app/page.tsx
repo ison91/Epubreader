@@ -81,7 +81,7 @@ export default function EPubReaderPage() {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    if (window.FileReader && window.URL) {
+    if (window.URL) {
       setIsBookProcessing(true);
       setLoadingProgress(0);
 
