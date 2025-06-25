@@ -11,9 +11,6 @@ import {
   ChevronLeft,
   ChevronRight,
   BookUp,
-  Sun,
-  Moon,
-  Keyboard,
   Loader2,
 } from "lucide-react";
 
@@ -52,7 +49,6 @@ const KEYBOARD_SHORTCUTS = [
   { key: "←", description: "Previous Page" },
   { key: "T", description: "Toggle Table of Contents" },
   { key: "S", description: "Toggle Settings" },
-  { key: "D", description: "Toggle Dark/Light Theme" },
   { key: "Space", description: "Upload New Book" },
   { key: "+ / =", description: "Increase Font Size" },
   { key: "-", description: "Decrease Font Size" },
@@ -73,7 +69,6 @@ export default function EPubReaderPage() {
   const [progress, setProgress] = useState(0);
 
   // UI State
-  const [theme, setTheme] = useState<"light" | "dark">("light");
   const [fontSize, setFontSize] = useState(18);
   const [lineHeight, setLineHeight] = useState(1.6);
   const [spread, setSpread] = useState<'auto' | 'none'>('auto');
@@ -172,13 +167,6 @@ export default function EPubReaderPage() {
     }
   };
 
-  // Theme effect for the main document
-  useEffect(() => {
-    const root = window.document.documentElement;
-    root.classList.remove("light", "dark");
-    root.classList.add(theme);
-  }, [theme]);
-
   // Rendition setup effect
   useEffect(() => {
     if (book && viewerRef.current) {
@@ -204,36 +192,21 @@ export default function EPubReaderPage() {
       setRendition(newRendition);
       
       // Register themes once, when the rendition is created.
-      newRendition.themes.register({
-        light: {
-          body: {
-            background: 'hsl(0 0% 93.3%)',
-            color: 'hsl(0 0% 3.9%)',
-          },
-          a: {
-            color: '#0000EE',
-            'text-decoration': 'underline !important',
-          },
-          'a:hover': {
-            color: '#0000EE',
-          },
+      newRendition.themes.register("light", {
+        body: {
+          background: 'hsl(0 0% 93.3%)',
+          color: 'hsl(0 0% 3.9%)',
         },
-        dark: {
-           body: {
-            background: 'hsl(240 6% 15%)',
-            color: 'hsl(0 0% 100%)',
-          },
-          a: {
-            color: '#93c5fd',
-            'text-decoration': 'underline !important',
-          },
-          'a:hover': {
-            color: '#93c5fd',
-          },
-        }
+        a: {
+          color: '#0000EE',
+          'text-decoration': 'underline !important',
+        },
+        'a:hover': {
+          color: '#0000EE',
+        },
       });
       // Select the initial theme
-      newRendition.themes.select(theme);
+      newRendition.themes.select("light");
 
       const onFirstRendered = () => {
         renditionRendered.current = true;
@@ -301,12 +274,6 @@ export default function EPubReaderPage() {
   // Style application effects
   useEffect(() => {
     if (rendition) {
-      rendition.themes.select(theme);
-    }
-  }, [rendition, theme]);
-
-  useEffect(() => {
-    if (rendition) {
         rendition.themes.fontSize(`${fontSize}px`);
     }
   }, [rendition, fontSize]);
@@ -358,10 +325,6 @@ export default function EPubReaderPage() {
         case "s":
         case "S":
           setIsSettingsOpen(v => !v);
-          break;
-        case "d":
-        case "D":
-          setTheme(t => t === 'light' ? 'dark' : 'light');
           break;
         case "=":
         case "+":
@@ -452,29 +415,6 @@ export default function EPubReaderPage() {
                   ))}
                 </ul>
               </ScrollArea>
-              {!isMobile && (
-                <>
-                  <Separator />
-                  <div className="py-4">
-                    <div className="mb-2 flex items-center gap-2 font-headline font-semibold">
-                      <Keyboard className="h-4 w-4" />
-                      <h3>Keyboard Shortcuts</h3>
-                    </div>
-                    <ScrollArea className="max-h-48">
-                      <ul className="space-y-1.5 pr-4 text-sm text-muted-foreground">
-                        {KEYBOARD_SHORTCUTS.map(shortcut => (
-                          <li key={shortcut.key} className="flex items-center justify-between">
-                            <span>{shortcut.description}</span>
-                            <kbd className="min-w-[40px] text-center rounded-md border bg-muted px-2 py-0.5 font-sans text-xs">
-                              {shortcut.key}
-                            </kbd>
-                          </li>
-                        ))}
-                      </ul>
-                    </ScrollArea>
-                  </div>
-                </>
-              )}
               <Separator />
               <div className="pt-4">
                 <Button
@@ -507,18 +447,6 @@ export default function EPubReaderPage() {
                 </div>
                 <Separator />
                 <div className="grid gap-4 py-2">
-                  <div className="grid grid-cols-3 items-center gap-4">
-                    <Label>Theme</Label>
-                    <div className="col-span-2 flex items-center justify-end gap-2">
-                      <Sun className="h-4 w-4" />
-                      <Switch
-                        checked={theme === 'dark'}
-                        onCheckedChange={(checked) => setTheme(checked ? 'dark' : 'light')}
-                        aria-label="Toggle theme"
-                      />
-                      <Moon className="h-4 w-4" />
-                    </div>
-                  </div>
                   <div className="grid grid-cols-3 items-center gap-4">
                     <Label>Page View</Label>
                     <RadioGroup
