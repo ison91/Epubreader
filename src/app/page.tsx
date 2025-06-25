@@ -266,18 +266,19 @@ export default function EPubReaderPage() {
     const handleRelocated = (location: any) => {
       setIsAtStart(location.atStart);
       setIsAtEnd(location.atEnd);
-      if (locationsRef.current && locationsRef.current.percentageFromCfi) {
+      if (locationsRef.current) {
         const percentage = locationsRef.current.percentageFromCfi(
           location.start.cfi
         );
-        const newProgress = Math.round(percentage * 100);
-        setProgress(newProgress);
-      }
-      // Update current page number
-      if (location.start?.location) {
-        const currPage = location.start.location;
-        setCurrentPage(currPage);
-        setPageInput(String(currPage));
+        setProgress(Math.round(percentage * 100));
+
+        const currentPageNum = locationsRef.current.locationFromCfi(
+          location.start.cfi
+        );
+        if (currentPageNum) {
+          setCurrentPage(currentPageNum);
+          setPageInput(String(currentPageNum));
+        }
       }
     };
 
@@ -572,7 +573,9 @@ export default function EPubReaderPage() {
               disabled={!isLocationsReady}
               aria-label="Current Page"
             />
-            <span className="text-muted-foreground">of {totalPages}</span>
+            <span className="text-muted-foreground">
+              of {totalPages > 0 ? totalPages : "..."}
+            </span>
           </div>
           <Button
             variant="outline"
