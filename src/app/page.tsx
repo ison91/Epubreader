@@ -36,26 +36,12 @@ import {
 } from "@/components/ui/popover";
 import { Slider } from "@/components/ui/slider";
 import { Label } from "@/components/ui/label";
-import { Switch } from "@/components/ui/switch";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Progress } from "@/components/ui/progress";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-
-const KEYBOARD_SHORTCUTS = [
-  { key: "→", description: "Next Page" },
-  { key: "←", description: "Previous Page" },
-  { key: "T", description: "Toggle Table of Contents" },
-  { key: "S", description: "Toggle Settings" },
-  { key: "Space", description: "Upload New Book" },
-  { key: "+ / =", description: "Increase Font Size" },
-  { key: "-", description: "Decrease Font Size" },
-  { key: "]", description: "Increase Line Height" },
-  { key: "[", description: "Decrease Line Height" },
-  { key: "Esc", description: "Close Menu/Settings" },
-];
 
 export default function EPubReaderPage() {
   // Book state
@@ -191,7 +177,6 @@ export default function EPubReaderPage() {
       });
       setRendition(newRendition);
       
-      // Register themes once, when the rendition is created.
       newRendition.themes.register("light", {
         body: {
           background: 'hsl(0 0% 93.3%)',
@@ -205,7 +190,6 @@ export default function EPubReaderPage() {
           color: '#0000EE',
         },
       });
-      // Select the initial theme
       newRendition.themes.select("light");
 
       const onFirstRendered = () => {
