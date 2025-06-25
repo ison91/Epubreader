@@ -1,79 +1,53 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import {
+  Poppins,
+  Playfair_Display,
+  Open_Sans,
+  Merriweather,
+  Lora,
+  Crimson_Text,
+} from "next/font/google";
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 
-// --- Local Custom Fonts ---
-const atmospheric = localFont({
-  src: "../fonts/Atmospheric.ttf",
+const poppins = Poppins({
+  subsets: ["latin"],
   display: "swap",
-  variable: "--font-atmospheric",
+  variable: "--font-poppins",
+  weight: ["400", "700"],
 });
 
-const adventureHollow = localFont({
-  src: "../fonts/AdventureHollow.otf",
+const playfair = Playfair_Display({
+  subsets: ["latin"],
   display: "swap",
-  variable: "--font-adventure-hollow",
+  variable: "--font-playfair",
 });
 
-const antiqueBook = localFont({
-  src: "../fonts/AntiqueBookCover.otf",
+const openSans = Open_Sans({
+  subsets: ["latin"],
   display: "swap",
-  variable: "--font-antique-book",
+  variable: "--font-open-sans",
+  weight: ["400", "700"],
 });
 
-const bonello = localFont({
-  src: "../fonts/Bonello.otf",
+const merriweather = Merriweather({
+  subsets: ["latin"],
+  weight: ["400", "700"],
   display: "swap",
-  variable: "--font-bonello",
+  variable: "--font-merriweather",
 });
 
-const flowersKingdom = localFont({
-  src: "../fonts/FlowersKingdom.ttf",
+const lora = Lora({
+  subsets: ["latin"],
   display: "swap",
-  variable: "--font-flowers-kingdom",
+  variable: "--font-lora",
 });
 
-const guardians = localFont({
-  src: "../fonts/Guardians.ttf",
+const crimsonText = Crimson_Text({
+  subsets: ["latin"],
+  weight: ["400", "700"],
   display: "swap",
-  variable: "--font-guardians",
-});
-
-const hollywoodHills = localFont({
-  src: "../fonts/HollywoodHills.ttf",
-  display: "swap",
-  variable: "--font-hollywood-hills",
-});
-
-const lemonMilk = localFont({
-  src: "../fonts/LemonMilk.otf",
-  display: "swap",
-  variable: "--font-lemonmilk",
-});
-
-const magicalNight = localFont({
-  src: "../fonts/MagicalNight.woff",
-  display: "swap",
-  variable: "--font-magical-night",
-});
-
-const sportsWorld = localFont({
-  src: "../fonts/SportsWorld.ttf",
-  display: "swap",
-  variable: "--font-sports-world",
-});
-
-const zombie = localFont({
-  src: "../fonts/Zombie.ttf",
-  display: "swap",
-  variable: "--font-zombie",
-});
-
-const bosque = localFont({
-  src: "../fonts/Bosque.ttf",
-  display: "swap",
-  variable: "--font-bosque",
+  variable: "--font-crimson-text",
 });
 
 export const metadata: Metadata = {
@@ -165,7 +139,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${atmospheric.variable} ${adventureHollow.variable} ${antiqueBook.variable} ${bonello.variable} ${flowersKingdom.variable} ${guardians.variable} ${hollywoodHills.variable} ${lemonMilk.variable} ${magicalNight.variable} ${sportsWorld.variable} ${zombie.variable} ${bosque.variable}`}
+      className={`${poppins.variable} ${playfair.variable} ${openSans.variable} ${merriweather.variable} ${lora.variable} ${crimsonText.variable}`}
     >
       <head>
         <script

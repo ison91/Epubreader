@@ -55,18 +55,12 @@ import { Progress } from "@/components/ui/progress";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 const FONT_OPTIONS = [
-  { name: "Atmospheric", family: "var(--font-atmospheric)" },
-  { name: "Adventure Hollow", family: "var(--font-adventure-hollow)" },
-  { name: "Antique Book", family: "var(--font-antique-book)" },
-  { name: "Bonello", family: "var(--font-bonello)" },
-  { name: "Flowers Kingdom", family: "var(--font-flowers-kingdom)" },
-  { name: "Guardians", family: "var(--font-guardians)" },
-  { name: "Hollywood Hills", family: "var(--font-hollywood-hills)" },
-  { name: "Lemon Milk", family: "var(--font-lemonmilk)" },
-  { name: "Magical Night", family: "var(--font-magical-night)" },
-  { name: "Sports World", family: "var(--font-sports-world)" },
-  { name: "Zombie", family: "var(--font-zombie)" },
-  { name: "Bosque", family: "var(--font-bosque)" },
+  { name: "Poppins", family: "var(--font-poppins)" },
+  { name: "Playfair Display", family: "var(--font-playfair)" },
+  { name: "Open Sans", family: "var(--font-open-sans)" },
+  { name: "Merriweather", family: "var(--font-merriweather)" },
+  { name: "Lora", family: "var(--font-lora)" },
+  { name: "Crimson Text", family: "var(--font-crimson-text)" },
 ];
 
 const KEYBOARD_SHORTCUTS = [
