@@ -1,6 +1,35 @@
 import type { Metadata } from "next";
 import { Toaster } from "@/components/ui/toaster";
+import { Quicksand, Aladin, Roboto_Slab, Varela_Round } from 'next/font/google';
 import "./globals.css";
+
+const quicksand = Quicksand({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  display: 'swap',
+  variable: '--font-quicksand',
+});
+
+const aladin = Aladin({
+  subsets: ['latin'],
+  weight: '400',
+  display: 'swap',
+  variable: '--font-aladin',
+});
+
+const robotoSlab = Roboto_Slab({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  display: 'swap',
+  variable: '--font-roboto-slab',
+});
+
+const varelaRound = Varela_Round({
+  subsets: ['latin'],
+  weight: '400',
+  display: 'swap',
+  variable: '--font-varela-round',
+});
 
 export const metadata: Metadata = {
   title: {
@@ -85,18 +114,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html 
+      lang="en" 
+      suppressHydrationWarning
+      className={`${quicksand.variable} ${aladin.variable} ${robotoSlab.variable} ${varelaRound.variable}`}
+    >
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Aladin&family=Valeria+Round&family=Quicksand:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

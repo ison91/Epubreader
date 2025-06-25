@@ -15,7 +15,6 @@ import {
   Moon,
   Keyboard,
   Loader2,
-  BookCopy,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -56,10 +55,10 @@ import { Progress } from "@/components/ui/progress";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 const FONT_OPTIONS = [
-  { name: 'Atmospheric', family: "'Quicksand', sans-serif" },
-  { name: 'Aladin', family: "'Aladin', cursive" },
-  { name: 'Bosque', family: "'Roboto Slab', serif" },
-  { name: 'Valeria', family: "'Valeria Round', serif" },
+  { name: 'Atmospheric', family: 'var(--font-quicksand)' },
+  { name: 'Aladin', family: 'var(--font-aladin)' },
+  { name: 'Bosque', family: 'var(--font-roboto-slab)' },
+  { name: 'Valeria', family: 'var(--font-varela-round)' },
 ];
 
 const KEYBOARD_SHORTCUTS = [
@@ -382,7 +381,7 @@ export default function EPubReaderPage() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isBookLoaded, handleFileUploadClick, handlePageChange]);
+  }, [isBookLoaded, handleFileUploadClick]);
 
   if (!isBookLoaded) {
     return (
