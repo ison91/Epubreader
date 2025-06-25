@@ -7,7 +7,6 @@ import {
   BookOpen,
   Upload,
   Menu,
-  Settings,
   ChevronLeft,
   ChevronRight,
   BookUp,
@@ -30,11 +29,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
 import { Slider } from "@/components/ui/slider";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
@@ -44,6 +38,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { Progress } from "@/components/ui/progress";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Input } from "@/components/ui/input";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function EPubReaderPage() {
   // Book state
@@ -64,7 +59,7 @@ export default function EPubReaderPage() {
   const [fontSize, setFontSize] = useState(18);
   const [lineHeight, setLineHeight] = useState(1.6);
   const [spread, setSpread] = useState<"auto" | "none">("auto");
-  const [isTocOpen, setIsTocOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLocationsReady, setIsLocationsReady] = useState(false);
 
   const [isAtStart, setIsAtStart] = useState(true);
@@ -75,7 +70,6 @@ export default function EPubReaderPage() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const viewerRef = useRef<HTMLDivElement>(null);
   const locationsRef = useRef<Locations | null>(null);
-  const popoverRef = useRef<HTMLDivElement>(null);
   const cfiRef = useRef<string | null>(null);
 
   // File handling
@@ -87,21 +81,17 @@ export default function EPubReaderPage() {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    if (window.FileReader) {
+    if (window.FileReader && window.URL) {
       setIsBookProcessing(true);
       setLoadingProgress(0);
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        if (event.target?.result) {
-          if (book) {
-            book.destroy();
-          }
-          const loadedBook = ePub(event.target.result as ArrayBuffer);
-          setBook(loadedBook);
-          setIsBookLoaded(true);
-        }
-      };
-      reader.readAsArrayBuffer(file);
+
+      const url = window.URL.createObjectURL(file);
+      if (book) {
+        book.destroy();
+      }
+      const loadedBook = ePub(url);
+      setBook(loadedBook);
+      setIsBookLoaded(true);
     }
     if (fileInputRef.current) {
       fileInputRef.current.value = "";
@@ -109,6 +99,9 @@ export default function EPubReaderPage() {
   };
 
   const handleCloseBook = useCallback(() => {
+    if (book?.archived) {
+      window.URL.revokeObjectURL(book.archived.url);
+    }
     setIsBookLoaded(false);
     setIsBookProcessing(false);
     setBook(null);
@@ -126,7 +119,7 @@ export default function EPubReaderPage() {
   }, [book]);
 
   const handleCloseBookAndSheet = useCallback(() => {
-    setIsTocOpen(false); // Close the sheet first
+    setIsMenuOpen(false); // Close the sheet first
     setTimeout(() => {
       handleCloseBook(); // Then close the book after a delay
     }, 300); // 300ms matches sheet animation
@@ -147,7 +140,7 @@ export default function EPubReaderPage() {
     (href: string) => {
       if (rendition) {
         rendition.display(href);
-        setIsTocOpen(false);
+        setIsMenuOpen(false);
       }
     },
     [rendition]
@@ -336,8 +329,10 @@ export default function EPubReaderPage() {
 
   useEffect(() => {
     if (rendition) {
+      // Get the current location BEFORE changing the spread
       const cfi = cfiRef.current;
       rendition.spread(spread);
+      // After spread is set, re-display at the stored location
       if (cfi) {
         rendition.display(cfi);
       }
@@ -350,7 +345,7 @@ export default function EPubReaderPage() {
       if (!isBookLoaded) return;
 
       if (e.key === "Escape") {
-        setIsTocOpen(false);
+        setIsMenuOpen(false);
       }
       if (
         document.activeElement?.tagName === "INPUT" ||
@@ -369,7 +364,7 @@ export default function EPubReaderPage() {
           break;
         case "t":
         case "T":
-          setIsTocOpen((v) => !v);
+          setIsMenuOpen((v) => !v);
           break;
         case "=":
         case "+":
@@ -431,36 +426,112 @@ export default function EPubReaderPage() {
           {bookTitle || "Loading..."}
         </h1>
         <div className="flex items-center gap-1">
-          <Sheet open={isTocOpen} onOpenChange={setIsTocOpen}>
+          <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
             <SheetTrigger asChild>
-              <Button
-                variant="ghost"
-                size="icon"
-                aria-label="Table of Contents (T)"
-              >
+              <Button variant="ghost" size="icon" aria-label="Open Menu (T)">
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
             <SheetContent className="flex flex-col sm:max-w-md">
               <SheetHeader>
-                <SheetTitle className="font-headline">
-                  Table of Contents
-                </SheetTitle>
+                <SheetTitle className="font-headline">Menu</SheetTitle>
               </SheetHeader>
-              <ScrollArea className="my-4 flex-1">
-                <ul className="space-y-1 pr-6">
-                  {toc.map((item, index) => (
-                    <li key={index}>
-                      <button
-                        onClick={() => handleTocItemClick(item.href)}
-                        className="w-full rounded-md p-2 text-left text-sm transition-colors hover:bg-accent hover:text-accent-foreground"
-                      >
-                        {item.label}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </ScrollArea>
+              <Tabs defaultValue="contents" className="mt-4 flex-1 flex flex-col">
+                <TabsList className="grid w-full grid-cols-2">
+                  <TabsTrigger value="contents">Contents</TabsTrigger>
+                  <TabsTrigger value="settings">Settings</TabsTrigger>
+                </TabsList>
+                <TabsContent
+                  value="contents"
+                  className="flex-1 overflow-hidden py-4"
+                >
+                  <ScrollArea className="h-full pr-4">
+                    <ul className="space-y-1">
+                      {toc.map((item, index) => (
+                        <li key={index}>
+                          <button
+                            onClick={() => handleTocItemClick(item.href)}
+                            className="w-full rounded-md p-2 text-left text-sm transition-colors hover:bg-accent hover:text-accent-foreground"
+                          >
+                            {item.label}
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  </ScrollArea>
+                </TabsContent>
+                <TabsContent
+                  value="settings"
+                  className="flex-1 overflow-hidden py-4"
+                >
+                  <ScrollArea className="h-full pr-4">
+                    <div className="grid gap-6">
+                      <div className="grid grid-cols-3 items-center gap-4">
+                        <Label>Page View</Label>
+                        <RadioGroup
+                          value={isMobile ? "none" : spread}
+                          onValueChange={(value) =>
+                            setSpread(value as "auto" | "none")
+                          }
+                          disabled={isMobile}
+                          className="col-span-2 flex items-center justify-end gap-4"
+                        >
+                          <div className="flex items-center space-x-2">
+                            <RadioGroupItem value="auto" id="view-two-page" />
+                            <Label
+                              htmlFor="view-two-page"
+                              className="cursor-pointer font-normal"
+                            >
+                              Two Page
+                            </Label>
+                          </div>
+                          <div className="flex items-center space-x-2">
+                            <RadioGroupItem
+                              value="none"
+                              id="view-single-page"
+                            />
+                            <Label
+                              htmlFor="view-single-page"
+                              className="cursor-pointer font-normal"
+                            >
+                              Single
+                            </Label>
+                          </div>
+                        </RadioGroup>
+                      </div>
+                      <div className="grid grid-cols-3 items-center gap-4">
+                        <Label
+                          htmlFor="fontSize"
+                          className="flex items-center gap-2"
+                        >
+                          <WholeWord className="h-4 w-4" /> Font Size
+                        </Label>
+                        <Slider
+                          id="fontSize"
+                          min={10}
+                          max={36}
+                          step={2}
+                          value={[fontSize]}
+                          onValueChange={(value) => setFontSize(value[0])}
+                          className="col-span-2"
+                        />
+                      </div>
+                      <div className="grid grid-cols-3 items-center gap-4">
+                        <Label htmlFor="lineHeight">Line Height</Label>
+                        <Slider
+                          id="lineHeight"
+                          min={1.2}
+                          max={2.4}
+                          step={0.1}
+                          value={[lineHeight]}
+                          onValueChange={(value) => setLineHeight(value[0])}
+                          className="col-span-2"
+                        />
+                      </div>
+                    </div>
+                  </ScrollArea>
+                </TabsContent>
+              </Tabs>
               <Separator />
               <div className="pt-4">
                 <Button
@@ -474,92 +545,6 @@ export default function EPubReaderPage() {
               </div>
             </SheetContent>
           </Sheet>
-
-          <Popover>
-            <PopoverTrigger asChild>
-              <Button
-                variant="ghost"
-                size="icon"
-                aria-label="Display Settings (S)"
-              >
-                <Settings className="h-5 w-5" />
-              </Button>
-            </PopoverTrigger>
-            <PopoverContent ref={popoverRef} className="w-80">
-              <div className="grid gap-4">
-                <div className="space-y-2">
-                  <h4 className="font-medium leading-none font-headline">
-                    Display Settings
-                  </h4>
-                  <p className="text-sm text-muted-foreground">
-                    Adjust your reading experience.
-                  </p>
-                </div>
-                <Separator />
-                <div className="grid gap-4 py-2">
-                  <div className="grid grid-cols-3 items-center gap-4">
-                    <Label>Page View</Label>
-                    <RadioGroup
-                      value={isMobile ? "none" : spread}
-                      onValueChange={(value) =>
-                        setSpread(value as "auto" | "none")
-                      }
-                      disabled={isMobile}
-                      className="col-span-2 flex items-center justify-end gap-4"
-                    >
-                      <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="auto" id="view-two-page" />
-                        <Label
-                          htmlFor="view-two-page"
-                          className="cursor-pointer font-normal"
-                        >
-                          Two Page
-                        </Label>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="none" id="view-single-page" />
-                        <Label
-                          htmlFor="view-single-page"
-                          className="cursor-pointer font-normal"
-                        >
-                          Single Page
-                        </Label>
-                      </div>
-                    </RadioGroup>
-                  </div>
-                  <div className="grid grid-cols-3 items-center gap-4">
-                    <Label
-                      htmlFor="fontSize"
-                      className="flex items-center gap-2"
-                    >
-                      <WholeWord /> Font Size
-                    </Label>
-                    <Slider
-                      id="fontSize"
-                      min={10}
-                      max={36}
-                      step={2}
-                      value={[fontSize]}
-                      onValueChange={(value) => setFontSize(value[0])}
-                      className="col-span-2"
-                    />
-                  </div>
-                  <div className="grid grid-cols-3 items-center gap-4">
-                    <Label htmlFor="lineHeight">Line Height</Label>
-                    <Slider
-                      id="lineHeight"
-                      min={1.2}
-                      max={2.4}
-                      step={0.1}
-                      value={[lineHeight]}
-                      onValueChange={(value) => setLineHeight(value[0])}
-                      className="col-span-2"
-                    />
-                  </div>
-                </div>
-              </div>
-            </PopoverContent>
-          </Popover>
         </div>
       </header>
 
