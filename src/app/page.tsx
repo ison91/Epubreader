@@ -72,6 +72,7 @@ export default function EPubReaderPage() {
   const viewerRef = useRef<HTMLDivElement>(null);
   const locationsRef = useRef<Locations | null>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
+  const debounceTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // File handling
   const handleFileUploadClick = useCallback(() => {
@@ -145,23 +146,30 @@ export default function EPubReaderPage() {
     [rendition]
   );
 
-  const handleSliderChange = (value: number[]) => {
-    setSliderValue(value[0]);
-  };
+  const handleSliderChange = useCallback(
+    (value: number[]) => {
+      setSliderValue(value[0]);
 
-  const handleSliderCommit = (value: number[]) => {
-    if (
-      locationsRef.current &&
-      rendition &&
-      locationsRef.current.cfiFromPercentage
-    ) {
-      const percentage = value[0] / 100;
-      const cfi = locationsRef.current.cfiFromPercentage(percentage);
-      if (cfi) {
-        rendition.display(cfi);
+      if (debounceTimeoutRef.current) {
+        clearTimeout(debounceTimeoutRef.current);
       }
-    }
-  };
+
+      debounceTimeoutRef.current = setTimeout(() => {
+        if (
+          locationsRef.current &&
+          rendition &&
+          locationsRef.current.cfiFromPercentage
+        ) {
+          const percentage = value[0] / 100;
+          const cfi = locationsRef.current.cfiFromPercentage(percentage);
+          if (cfi) {
+            rendition.display(cfi);
+          }
+        }
+      }, 250); // Debounce delay
+    },
+    [rendition]
+  );
 
   // Rendition setup effect
   useEffect(() => {
@@ -246,7 +254,9 @@ export default function EPubReaderPage() {
         const percentage = locationsRef.current.percentageFromCfi(
           location.start.cfi
         );
-        setProgress(Math.round(percentage * 100));
+        const newProgress = Math.round(percentage * 100);
+        setProgress(newProgress);
+        setSliderValue(newProgress);
       }
     };
 
@@ -257,11 +267,15 @@ export default function EPubReaderPage() {
     };
   }, [rendition]);
 
-  // Style application effects
   useEffect(() => {
-    setSliderValue(progress);
-  }, [progress]);
+    return () => {
+      if (debounceTimeoutRef.current) {
+        clearTimeout(debounceTimeoutRef.current);
+      }
+    };
+  }, []);
 
+  // Style application effects
   useEffect(() => {
     if (rendition) {
       rendition.themes.fontSize(`${fontSize}px`);
@@ -325,7 +339,7 @@ export default function EPubReaderPage() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isBookLoaded, handleFileUploadClick]);
+  }, [isBookLoaded]);
 
   if (!isBookLoaded) {
     return (
@@ -538,7 +552,6 @@ export default function EPubReaderPage() {
           <Slider
             value={[sliderValue]}
             onValueChange={handleSliderChange}
-            onValueCommit={handleSliderCommit}
             className="flex-1"
             aria-label="Book progress"
             disabled={!isLocationsReady}
