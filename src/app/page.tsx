@@ -210,6 +210,33 @@ export default function EPubReaderPage() {
       });
       setRendition(newRendition);
 
+      // Add touch handlers for swipe navigation
+      const MIN_SWIPE_DISTANCE = 50;
+      let touchStartX = 0;
+      let touchMoveX = 0;
+
+      newRendition.on("touchstart", (event: TouchEvent) => {
+        touchStartX = event.changedTouches[0].clientX;
+        touchMoveX = event.changedTouches[0].clientX;
+      });
+
+      newRendition.on("touchmove", (event: TouchEvent) => {
+        touchMoveX = event.changedTouches[0].clientX;
+      });
+
+      newRendition.on("touchend", () => {
+        if (!touchStartX || !touchMoveX) return;
+        const distance = touchStartX - touchMoveX;
+
+        if (distance > MIN_SWIPE_DISTANCE) {
+          newRendition.next();
+        } else if (distance < -MIN_SWIPE_DISTANCE) {
+          newRendition.prev();
+        }
+        touchStartX = 0;
+        touchMoveX = 0;
+      });
+
       newRendition.themes.register("light", {
         body: {
           background: "hsl(0 0% 93.3%)",
@@ -287,6 +314,13 @@ export default function EPubReaderPage() {
     };
   }, [rendition]);
 
+  // Force single page view on mobile
+  useEffect(() => {
+    if (isMobile) {
+      setSpread("none");
+    }
+  }, [isMobile]);
+
   // Style application effects
   useEffect(() => {
     if (rendition) {
@@ -302,9 +336,10 @@ export default function EPubReaderPage() {
 
   useEffect(() => {
     if (rendition) {
+      const cfi = cfiRef.current;
       rendition.spread(spread);
-      if (cfiRef.current) {
-        rendition.display(cfiRef.current);
+      if (cfi) {
+        rendition.display(cfi);
       }
     }
   }, [rendition, spread]);
@@ -465,10 +500,11 @@ export default function EPubReaderPage() {
                   <div className="grid grid-cols-3 items-center gap-4">
                     <Label>Page View</Label>
                     <RadioGroup
-                      value={spread}
+                      value={isMobile ? "none" : spread}
                       onValueChange={(value) =>
                         setSpread(value as "auto" | "none")
                       }
+                      disabled={isMobile}
                       className="col-span-2 flex items-center justify-end gap-4"
                     >
                       <div className="flex items-center space-x-2">
