@@ -297,11 +297,8 @@ export default function EPubReaderPage() {
           },
         }
       });
+      rendition.themes.select(theme);
     }
-  }, [rendition]);
-
-  useEffect(() => {
-    if (rendition) rendition.themes.select(theme);
   }, [rendition, theme]);
 
   useEffect(() => {
