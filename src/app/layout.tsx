@@ -1,7 +1,18 @@
 import type { Metadata } from "next";
 import { Toaster } from "@/components/ui/toaster";
 import { Quicksand, Aladin, Roboto_Slab, Varela_Round } from 'next/font/google';
+// To load a local font, import `next/font/local`
+// import localFont from 'next/font/local';
 import "./globals.css";
+
+// Example for loading a local font:
+// 1. Add your font file to the `src/fonts` directory.
+// 2. Uncomment the code below and update the `src` path.
+// const myLocalFont = localFont({
+//   src: '../fonts/Your-Font-File.woff2', // Adjust path to your font file
+//   display: 'swap',
+//   variable: '--font-my-local-font',
+// });
 
 const quicksand = Quicksand({
   subsets: ['latin'],
@@ -117,6 +128,7 @@ export default function RootLayout({
     <html 
       lang="en" 
       suppressHydrationWarning
+      // 3. Add the local font variable to the className below
       className={`${quicksand.variable} ${aladin.variable} ${robotoSlab.variable} ${varelaRound.variable}`}
     >
       <head>
