@@ -269,28 +269,49 @@ export default function EPubReaderPage() {
   // Style application effects
   useEffect(() => {
     if (rendition) {
-      // Define a single theme object that includes all dynamic styles
-      const bookTheme = {
-        body: {
-          background: theme === 'light' ? 'hsl(0 0% 93.3%)' : 'hsl(240 6% 15%)',
-          color: theme === 'light' ? 'hsl(0 0% 3.9%)' : 'hsl(0 0% 100%)',
-          'font-size': `${fontSize}px !important`,
-          'line-height': `${lineHeight} !important`,
+      rendition.themes.register({
+        light: {
+          body: {
+            background: 'hsl(0 0% 93.3%)',
+            color: 'hsl(0 0% 3.9%)',
+          },
+          a: {
+            color: '#0000EE',
+            'text-decoration': 'underline !important',
+          },
+          'a:hover': {
+            color: '#0000EE',
+          },
         },
-        a: {
-          color: theme === 'light' ? '#0000EE' : '#93c5fd',
-          'text-decoration': 'underline !important',
-        },
-        'a:hover': {
-          color: theme === 'light' ? '#0000EE' : '#93c5fd',
-        },
-      };
-
-      // Register and select the theme. This ensures all styles are applied at once.
-      rendition.themes.register('custom', bookTheme);
-      rendition.themes.select('custom');
+        dark: {
+           body: {
+            background: 'hsl(240 6% 15%)',
+            color: 'hsl(0 0% 100%)',
+          },
+          a: {
+            color: '#93c5fd',
+            'text-decoration': 'underline !important',
+          },
+          'a:hover': {
+            color: '#93c5fd',
+          },
+        }
+      });
+      rendition.themes.select(theme);
     }
-  }, [rendition, theme, fontSize, lineHeight]);
+  }, [rendition, theme]);
+
+  useEffect(() => {
+    if (rendition) {
+        rendition.themes.fontSize(`${fontSize}px`);
+    }
+  }, [rendition, fontSize]);
+  
+  useEffect(() => {
+    if (rendition) {
+        rendition.themes.override('line-height', `${lineHeight}`, true);
+    }
+  }, [rendition, lineHeight]);
 
   useEffect(() => {
     if (rendition) rendition.spread(spread);
