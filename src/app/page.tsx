@@ -54,7 +54,6 @@ export default function EPubReaderPage() {
   const [rendition, setRendition] = useState<Rendition | null>(null);
   const [bookTitle, setBookTitle] = useState("");
   const [toc, setToc] = useState<NavItem[]>([]);
-  const [progress, setProgress] = useState(0);
 
   // Page navigation state
   const [currentPage, setCurrentPage] = useState(0);
@@ -116,7 +115,6 @@ export default function EPubReaderPage() {
     setToc([]);
     setBookTitle("");
     locationsRef.current = null;
-    setProgress(0);
     setLoadingProgress(0);
     setIsLocationsReady(false);
     setCurrentPage(0);
@@ -241,10 +239,10 @@ export default function EPubReaderPage() {
           setLoadingProgress(Math.round(p * 100));
         });
 
-        const generatedLocations = await book.locations.generate(1650);
+        await book.locations.generate(1650);
 
-        locationsRef.current = generatedLocations;
-        setTotalPages(generatedLocations.total);
+        locationsRef.current = book.locations;
+        setTotalPages(book.locations.total);
         setIsLocationsReady(true);
         locationsGenerated.current = true;
         checkLoadingComplete();
@@ -267,11 +265,6 @@ export default function EPubReaderPage() {
       setIsAtStart(location.atStart);
       setIsAtEnd(location.atEnd);
       if (locationsRef.current) {
-        const percentage = locationsRef.current.percentageFromCfi(
-          location.start.cfi
-        );
-        setProgress(Math.round(percentage * 100));
-
         const currentPageNum = locationsRef.current.locationFromCfi(
           location.start.cfi
         );
