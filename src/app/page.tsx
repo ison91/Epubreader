@@ -54,6 +54,7 @@ export default function EPubReaderPage() {
   const [bookTitle, setBookTitle] = useState("");
   const [toc, setToc] = useState<NavItem[]>([]);
   const [progress, setProgress] = useState(0);
+  const [sliderValue, setSliderValue] = useState(0);
 
   // UI State
   const [fontSize, setFontSize] = useState(18);
@@ -144,7 +145,11 @@ export default function EPubReaderPage() {
     [rendition]
   );
 
-  const handleProgressChange = (value: number[]) => {
+  const handleSliderChange = (value: number[]) => {
+    setSliderValue(value[0]);
+  };
+
+  const handleSliderCommit = (value: number[]) => {
     if (
       locationsRef.current &&
       rendition &&
@@ -152,7 +157,9 @@ export default function EPubReaderPage() {
     ) {
       const percentage = value[0] / 100;
       const cfi = locationsRef.current.cfiFromPercentage(percentage);
-      rendition.display(cfi);
+      if (cfi) {
+        rendition.display(cfi);
+      }
     }
   };
 
@@ -252,6 +259,10 @@ export default function EPubReaderPage() {
 
   // Style application effects
   useEffect(() => {
+    setSliderValue(progress);
+  }, [progress]);
+
+  useEffect(() => {
     if (rendition) {
       rendition.themes.fontSize(`${fontSize}px`);
     }
@@ -272,13 +283,7 @@ export default function EPubReaderPage() {
   // Keyboard shortcuts effect
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (!isBookLoaded) {
-        if (e.key === " " || e.key === "Spacebar") {
-          e.preventDefault();
-          handleFileUploadClick();
-        }
-        return;
-      }
+      if (!isBookLoaded) return;
 
       if (e.key === "Escape") {
         setIsTocOpen(false);
@@ -297,11 +302,6 @@ export default function EPubReaderPage() {
           break;
         case "ArrowLeft":
           handlePageChange("prev");
-          break;
-        case " ":
-        case "Spacebar":
-          e.preventDefault();
-          handleFileUploadClick();
           break;
         case "t":
         case "T":
@@ -536,8 +536,9 @@ export default function EPubReaderPage() {
             <span className="sr-only">Previous Page</span>
           </Button>
           <Slider
-            value={[progress]}
-            onValueChange={handleProgressChange}
+            value={[sliderValue]}
+            onValueChange={handleSliderChange}
+            onValueCommit={handleSliderCommit}
             className="flex-1"
             aria-label="Book progress"
             disabled={!isLocationsReady}
