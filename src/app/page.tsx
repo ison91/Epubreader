@@ -342,7 +342,7 @@ export default function EPubReaderPage() {
   // Style application effects
   useEffect(() => {
     if (rendition) {
-      rendition.themes.fontSize(`${fontSize}px`);
+      rendition.themes.override("font-size", `${fontSize}px`, true);
     }
   }, [rendition, fontSize]);
 
