@@ -268,7 +268,7 @@ export default function EPubReaderPage() {
         const currentPageNum = locationsRef.current.locationFromCfi(
           location.start.cfi
         );
-        if (currentPageNum) {
+        if (currentPageNum !== null) {
           setCurrentPage(currentPageNum + 1);
           setPageInput(String(currentPageNum + 1));
         }
@@ -297,8 +297,8 @@ export default function EPubReaderPage() {
 
   useEffect(() => {
     if (rendition) {
-      rendition.spread(spread);
       const currentLocation = rendition.currentLocation();
+      rendition.spread(spread);
       if (
         currentLocation &&
         currentLocation.start &&
