@@ -219,7 +219,7 @@ export default function EPubReaderPage() {
         }
         
         book.locations.on('progress', (p: number) => {
-          setLoadingProgress(p * 100);
+          setLoadingProgress(Math.round(p * 100));
         });
 
         const generatedLocations = await book.locations.generate(1650);
@@ -297,8 +297,11 @@ export default function EPubReaderPage() {
           },
         }
       });
-      rendition.themes.select(theme);
     }
+  }, [rendition]);
+
+  useEffect(() => {
+    if (rendition) rendition.themes.select(theme);
   }, [rendition, theme]);
 
   useEffect(() => {
