@@ -1,32 +1,79 @@
 import type { Metadata } from "next";
-import { Inter, Literata, Aladin, Henny_Penny } from "next/font/google";
+import localFont from "next/font/local";
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
+// --- Local Custom Fonts ---
+const atmospheric = localFont({
+  src: "../fonts/Atmospheric.ttf",
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-atmospheric",
 });
 
-const literata = Literata({
-  subsets: ["latin"],
+const adventureHollow = localFont({
+  src: "../fonts/AdventureHollow.otf",
   display: "swap",
-  variable: "--font-literata",
+  variable: "--font-adventure-hollow",
 });
 
-const aladin = Aladin({
-  subsets: ["latin"],
-  weight: "400",
+const antiqueBook = localFont({
+  src: "../fonts/AntiqueBookCover.otf",
   display: "swap",
-  variable: "--font-aladin",
+  variable: "--font-antique-book",
 });
 
-const hennyPenny = Henny_Penny({
-  subsets: ["latin"],
-  weight: "400",
+const bonello = localFont({
+  src: "../fonts/Bonello.otf",
   display: "swap",
-  variable: "--font-henny-penny",
+  variable: "--font-bonello",
+});
+
+const flowersKingdom = localFont({
+  src: "../fonts/FlowersKingdom.ttf",
+  display: "swap",
+  variable: "--font-flowers-kingdom",
+});
+
+const guardians = localFont({
+  src: "../fonts/Guardians.ttf",
+  display: "swap",
+  variable: "--font-guardians",
+});
+
+const hollywoodHills = localFont({
+  src: "../fonts/HollywoodHills.ttf",
+  display: "swap",
+  variable: "--font-hollywood-hills",
+});
+
+const lemonMilk = localFont({
+  src: "../fonts/LemonMilk.otf",
+  display: "swap",
+  variable: "--font-lemonmilk",
+});
+
+const magicalNight = localFont({
+  src: "../fonts/MagicalNight.woff",
+  display: "swap",
+  variable: "--font-magical-night",
+});
+
+const sportsWorld = localFont({
+  src: "../fonts/SportsWorld.ttf",
+  display: "swap",
+  variable: "--font-sports-world",
+});
+
+const zombie = localFont({
+  src: "../fonts/Zombie.ttf",
+  display: "swap",
+  variable: "--font-zombie",
+});
+
+const bosque = localFont({
+  src: "../fonts/Bosque.ttf",
+  display: "swap",
+  variable: "--font-bosque",
 });
 
 export const metadata: Metadata = {
@@ -118,7 +165,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${literata.variable} ${aladin.variable} ${hennyPenny.variable}`}
+      className={`${atmospheric.variable} ${adventureHollow.variable} ${antiqueBook.variable} ${bonello.variable} ${flowersKingdom.variable} ${guardians.variable} ${hollywoodHills.variable} ${lemonMilk.variable} ${magicalNight.variable} ${sportsWorld.variable} ${zombie.variable} ${bosque.variable}`}
     >
       <head>
         <script

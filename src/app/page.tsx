@@ -55,10 +55,18 @@ import { Progress } from "@/components/ui/progress";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 const FONT_OPTIONS = [
-  { name: "Literata", family: "var(--font-literata)" },
-  { name: "Inter", family: "var(--font-inter)" },
-  { name: "Aladin", family: "var(--font-aladin)" },
-  { name: "Henny Penny", family: "var(--font-henny-penny)" },
+  { name: "Atmospheric", family: "var(--font-atmospheric)" },
+  { name: "Adventure Hollow", family: "var(--font-adventure-hollow)" },
+  { name: "Antique Book", family: "var(--font-antique-book)" },
+  { name: "Bonello", family: "var(--font-bonello)" },
+  { name: "Flowers Kingdom", family: "var(--font-flowers-kingdom)" },
+  { name: "Guardians", family: "var(--font-guardians)" },
+  { name: "Hollywood Hills", family: "var(--font-hollywood-hills)" },
+  { name: "Lemon Milk", family: "var(--font-lemonmilk)" },
+  { name: "Magical Night", family: "var(--font-magical-night)" },
+  { name: "Sports World", family: "var(--font-sports-world)" },
+  { name: "Zombie", family: "var(--font-zombie)" },
+  { name: "Bosque", family: "var(--font-bosque)" },
 ];
 
 const KEYBOARD_SHORTCUTS = [
