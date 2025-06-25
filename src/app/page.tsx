@@ -163,7 +163,7 @@ export default function EPubReaderPage() {
       pageNum <= totalPages &&
       locationsRef.current
     ) {
-      const cfi = locationsRef.current.cfiFromLocation(pageNum);
+      const cfi = locationsRef.current.cfiFromLocation(pageNum - 1);
       if (cfi && rendition) {
         rendition.display(cfi);
       }
@@ -269,8 +269,8 @@ export default function EPubReaderPage() {
           location.start.cfi
         );
         if (currentPageNum) {
-          setCurrentPage(currentPageNum);
-          setPageInput(String(currentPageNum));
+          setCurrentPage(currentPageNum + 1);
+          setPageInput(String(currentPageNum + 1));
         }
       }
     };
@@ -297,16 +297,15 @@ export default function EPubReaderPage() {
 
   useEffect(() => {
     if (rendition) {
-      rendition.spread(spread).then(() => {
-        const currentLocation = rendition.currentLocation();
-        if (
-          currentLocation &&
-          currentLocation.start &&
-          currentLocation.start.cfi
-        ) {
-          rendition.display(currentLocation.start.cfi);
-        }
-      });
+      rendition.spread(spread);
+      const currentLocation = rendition.currentLocation();
+      if (
+        currentLocation &&
+        currentLocation.start &&
+        currentLocation.start.cfi
+      ) {
+        rendition.display(currentLocation.start.cfi);
+      }
     }
   }, [rendition, spread]);
 
