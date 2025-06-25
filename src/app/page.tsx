@@ -223,6 +223,9 @@ export default function EPubReaderPage() {
         body: {
           background: "hsl(0 0% 93.3%)",
           color: "hsl(0 0% 3.9%)",
+          "font-family": fontFamily,
+          "font-size": `${fontSize}px`,
+          "line-height": lineHeight,
         },
         "a": { "color": "#0000EE", "text-decoration": "underline !important" },
         "a:hover": { "color": "#0000EE" }
@@ -231,6 +234,9 @@ export default function EPubReaderPage() {
         body: {
           background: "hsl(240 6% 15%)",
           color: "hsl(0 0% 100%)",
+          "font-family": fontFamily,
+          "font-size": `${fontSize}px`,
+          "line-height": lineHeight,
         },
         "a": { "color": "#93c5fd", "text-decoration": "underline !important" },
         "a:hover": { "color": "#93c5fd" }
@@ -271,7 +277,7 @@ export default function EPubReaderPage() {
         newRendition?.destroy();
       };
     }
-  }, [book]);
+  }, [book, fontSize, fontFamily, lineHeight]);
   
   // Event listeners effect
   useEffect(() => {
@@ -314,7 +320,9 @@ export default function EPubReaderPage() {
   }, [rendition, lineHeight]);
 
   useEffect(() => {
-    if (rendition) rendition.themes.font(fontFamily);
+    if (rendition) {
+      rendition.themes.font(fontFamily);
+    }
   }, [rendition, fontFamily]);
 
   useEffect(() => {
