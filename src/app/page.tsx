@@ -350,7 +350,7 @@ export default function EPubReaderPage() {
   // Style application effects
   useEffect(() => {
     if (rendition) {
-      rendition.themes.override("font-size", `${fontSize}px`);
+      rendition.themes.override("font-size", `${fontSize}px`, true);
     }
   }, [rendition, fontSize]);
 
@@ -598,7 +598,7 @@ export default function EPubReaderPage() {
           <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-background/80 backdrop-blur-sm">
             <Loader2 className="mb-4 h-12 w-12 animate-spin text-primary" />
             <p className="text-lg font-semibold font-headline mb-4">
-              {t("Preparing your book...")}
+              {t("preparing_book")}
             </p>
             <Progress value={loadingProgress} className="w-64" />
           </div>
