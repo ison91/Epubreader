@@ -350,7 +350,7 @@ export default function EPubReaderPage() {
   // Style application effects
   useEffect(() => {
     if (rendition) {
-      rendition.themes.override("font-size", `${fontSize}px`, true);
+      rendition.themes.override("font-size", `${fontSize}px`);
     }
   }, [rendition, fontSize]);
 
@@ -434,6 +434,9 @@ export default function EPubReaderPage() {
                 </DropdownMenuItem>
                 <DropdownMenuItem onSelect={() => setLocale("ja")}>
                   日本語
+                </DropdownMenuItem>
+                <DropdownMenuItem onSelect={() => setLocale("ru")}>
+                  Русский
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
