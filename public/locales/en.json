@@ -1,8 +1,7 @@
 {
   "ePub Reader": "ePub Reader",
-  "A clean, distraction-free reading environment.": "A clean, distraction-free reading environment.",
   "Upload a Book": "Upload a Book",
-  "Loading...": "Loading...",
+  "Preparing your book...": "Preparing your book...",
   "Menu": "Menu",
   "Contents": "Contents",
   "Settings": "Settings",
@@ -12,19 +11,18 @@
   "Font Size": "Font Size",
   "Line Height": "Line Height",
   "Read a new Book": "Read a new Book",
-  "Preparing your book...": "Preparing your book...",
-  "Rendering...": "Rendering...",
   "of": "of",
+  "Language": "Language",
+  "Open Menu (T)": "Open Menu (T)",
   "Previous Page": "Previous Page",
   "Next Page": "Next Page",
   "Current Page": "Current Page",
-  "Language": "Language",
-  "Open Menu (T)": "Open Menu (T)",
+  "Loading...": "Loading...",
   "error": {
     "reading_file_title": "Error Reading File",
-    "reading_file_description": "The file may be corrupted or in an unsupported format.",
-    "reading_file_error_description": "An error occurred while trying to read the file.",
+    "reading_file_description": "There was a problem reading the file. Please ensure it's not corrupted.",
+    "reading_file_error_description": "An error occurred while reading the file.",
     "loading_book_title": "Error Loading Book",
-    "loading_book_description": "This book appears to be corrupted or in an unsupported format. Please try another book."
+    "loading_book_description": "An error occurred while loading the book. It may be corrupted or in an unsupported format."
   }
 }

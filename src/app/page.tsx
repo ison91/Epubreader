@@ -420,7 +420,24 @@ export default function EPubReaderPage() {
   if (!isBookLoaded) {
     return (
       <div className="flex min-h-screen w-full flex-col items-center justify-center bg-background p-4">
-        <Card className="w-full max-w-md text-center shadow-2xl">
+        <Card className="relative w-full max-w-md text-center shadow-2xl">
+          <div className="absolute top-4 right-4">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="icon" aria-label={t("Language")}>
+                  <Globe className="h-5 w-5" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem onSelect={() => setLocale("en")}>
+                  English
+                </DropdownMenuItem>
+                <DropdownMenuItem onSelect={() => setLocale("ja")}>
+                  日本語
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
           <CardHeader>
             <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-primary/10 text-primary">
               <BookOpen className="h-10 w-10" />
@@ -428,9 +445,6 @@ export default function EPubReaderPage() {
             <CardTitle className="text-3xl font-headline">
               {t("ePub Reader")}
             </CardTitle>
-            <CardDescription className="pt-1 text-muted-foreground">
-              {t("A clean, distraction-free reading environment.")}
-            </CardDescription>
           </CardHeader>
           <CardContent>
             <input
@@ -457,22 +471,6 @@ export default function EPubReaderPage() {
           {bookTitle || t("Loading...")}
         </h1>
         <div className="flex items-center gap-1">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon" aria-label={t("Language")}>
-                <Globe className="h-5 w-5" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuItem onSelect={() => setLocale("en")}>
-                English
-              </DropdownMenuItem>
-              <DropdownMenuItem onSelect={() => setLocale("ja")}>
-                日本語
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-
           <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" aria-label={t("Open Menu (T)")}>

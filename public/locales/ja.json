@@ -1,8 +1,7 @@
 {
   "ePub Reader": "ePubリーダー",
-  "A clean, distraction-free reading environment.": "シンプルで気が散らない読書環境。",
   "Upload a Book": "本をアップロード",
-  "Loading...": "読み込み中...",
+  "Preparing your book...": "本を準備しています...",
   "Menu": "メニュー",
   "Contents": "目次",
   "Settings": "設定",
@@ -12,19 +11,18 @@
   "Font Size": "フォントサイズ",
   "Line Height": "行間",
   "Read a new Book": "新しい本を読む",
-  "Preparing your book...": "本を準備する",
-  "Rendering...": "レンダリング中...",
   "of": "の",
+  "Language": "言語",
+  "Open Menu (T)": "メニューを開く (T)",
   "Previous Page": "前のページ",
   "Next Page": "次のページ",
   "Current Page": "現在のページ",
-  "Language": "言語",
-  "Open Menu (T)": "メニューを開く (T)",
+  "Loading...": "読み込み中...",
   "error": {
     "reading_file_title": "ファイルの読み込みエラー",
-    "reading_file_description": "ファイルが破損しているか、サポートされていない形式である可能性があります。",
+    "reading_file_description": "ファイルの読み込み中に問題が発生しました。ファイルが破損していないか確認してください。",
     "reading_file_error_description": "ファイルの読み込み中にエラーが発生しました。",
     "loading_book_title": "本の読み込みエラー",
-    "loading_book_description": "この本は破損しているか、サポートされていない形式のようです。別の本を試してください。"
+    "loading_book_description": "本の読み込み中にエラーが発生しました。ファイルが破損しているか、サポートされていない形式である可能性があります。"
   }
 }
