@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Toaster } from "@/components/ui/toaster";
+import { I18nProvider } from "@/i18n";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -68,7 +69,7 @@ export const metadata: Metadata = {
   creator: "Firebase Studio",
   publisher: "Firebase",
   alternates: {
-    canonical: "https://epubreader.info",
+    canonical: "https://epubreader.info/",
   },
   openGraph: {
     title: "ePub Reader | Free, Instant Online EPUB Book Reader",
@@ -155,8 +156,10 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
-        {children}
-        <Toaster />
+        <I18nProvider>
+          {children}
+          <Toaster />
+        </I18nProvider>
       </body>
     </html>
   );

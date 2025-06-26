@@ -12,6 +12,7 @@ import {
   BookUp,
   Loader2,
   WholeWord,
+  Globe,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -40,9 +41,17 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { useI18n } from "@/i18n";
 
 export default function EPubReaderPage() {
   const { toast } = useToast();
+  const { t, setLocale } = useI18n();
 
   // Book state
   const [isBookLoaded, setIsBookLoaded] = useState(false);
@@ -115,16 +124,16 @@ export default function EPubReaderPage() {
       } else {
         toast({
           variant: "destructive",
-          title: "Error Reading File",
-          description: "Could not read the selected file.",
+          title: t("error.reading_file_title"),
+          description: t("error.reading_file_description"),
         });
       }
     };
     reader.onerror = () => {
       toast({
         variant: "destructive",
-        title: "Error Reading File",
-        description: "An error occurred while reading the file.",
+        title: t("error.reading_file_title"),
+        description: t("error.reading_file_error_description"),
       });
     };
     reader.readAsArrayBuffer(file);
@@ -289,9 +298,8 @@ export default function EPubReaderPage() {
           console.error("Error loading book:", err);
           toast({
             variant: "destructive",
-            title: "Error Loading Book",
-            description:
-              "The selected ePub file could not be opened. It might be corrupted or in an unsupported format.",
+            title: t("error.loading_book_title"),
+            description: t("error.loading_book_description"),
           });
           handleCloseBook();
         });
@@ -302,7 +310,7 @@ export default function EPubReaderPage() {
         // Cleanup is handled by handleCloseBook now
       };
     }
-  }, [book, handleCloseBook, toast]);
+  }, [book, handleCloseBook, toast, t]);
 
   // Event listeners effect
   useEffect(() => {
@@ -418,10 +426,10 @@ export default function EPubReaderPage() {
               <BookOpen className="h-10 w-10" />
             </div>
             <CardTitle className="text-3xl font-headline">
-              ePub Reader
+              {t("ePub Reader")}
             </CardTitle>
             <CardDescription className="pt-1 text-muted-foreground">
-              A clean, distraction-free reading environment.
+              {t("A clean, distraction-free reading environment.")}
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -434,7 +442,7 @@ export default function EPubReaderPage() {
             />
             <Button size="lg" onClick={handleFileUploadClick}>
               <Upload className="mr-2 h-5 w-5" />
-              Upload a Book
+              {t("Upload a Book")}
             </Button>
           </CardContent>
         </Card>
@@ -446,23 +454,39 @@ export default function EPubReaderPage() {
     <div className="flex h-dvh flex-col bg-background text-foreground">
       <header className="flex h-16 flex-shrink-0 items-center justify-between border-b px-4 sm:px-6">
         <h1 className="truncate text-xl font-bold font-headline">
-          {bookTitle || "Loading..."}
+          {bookTitle || t("Loading...")}
         </h1>
         <div className="flex items-center gap-1">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="icon" aria-label={t("Language")}>
+                <Globe className="h-5 w-5" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem onSelect={() => setLocale("en")}>
+                English
+              </DropdownMenuItem>
+              <DropdownMenuItem onSelect={() => setLocale("ja")}>
+                日本語
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
           <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" aria-label="Open Menu (T)">
+              <Button variant="ghost" size="icon" aria-label={t("Open Menu (T)")}>
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
             <SheetContent className="flex flex-col sm:max-w-md">
               <SheetHeader>
-                <SheetTitle className="font-headline">Menu</SheetTitle>
+                <SheetTitle className="font-headline">{t("Menu")}</SheetTitle>
               </SheetHeader>
               <Tabs defaultValue="contents" className="mt-4 flex-1 flex flex-col">
                 <TabsList className="grid w-full grid-cols-2">
-                  <TabsTrigger value="contents">Contents</TabsTrigger>
-                  <TabsTrigger value="settings">Settings</TabsTrigger>
+                  <TabsTrigger value="contents">{t("Contents")}</TabsTrigger>
+                  <TabsTrigger value="settings">{t("Settings")}</TabsTrigger>
                 </TabsList>
                 <TabsContent
                   value="contents"
@@ -490,7 +514,7 @@ export default function EPubReaderPage() {
                   <ScrollArea className="h-full pr-4">
                     <div className="grid gap-6">
                       <div className="grid grid-cols-3 items-center gap-4">
-                        <Label>Page View</Label>
+                        <Label>{t("Page View")}</Label>
                         <RadioGroup
                           value={isMobile ? "none" : spread}
                           onValueChange={(value) =>
@@ -505,7 +529,7 @@ export default function EPubReaderPage() {
                               htmlFor="view-two-page"
                               className="cursor-pointer font-normal"
                             >
-                              Two Page
+                              {t("Two Page")}
                             </Label>
                           </div>
                           <div className="flex items-center space-x-2">
@@ -517,7 +541,7 @@ export default function EPubReaderPage() {
                               htmlFor="view-single-page"
                               className="cursor-pointer font-normal"
                             >
-                              Single
+                              {t("Single")}
                             </Label>
                           </div>
                         </RadioGroup>
@@ -527,7 +551,7 @@ export default function EPubReaderPage() {
                           htmlFor="fontSize"
                           className="flex items-center gap-2"
                         >
-                          <WholeWord className="h-4 w-4" /> Font Size
+                          <WholeWord className="h-4 w-4" /> {t("Font Size")}
                         </Label>
                         <Slider
                           id="fontSize"
@@ -540,7 +564,7 @@ export default function EPubReaderPage() {
                         />
                       </div>
                       <div className="grid grid-cols-3 items-center gap-4">
-                        <Label htmlFor="lineHeight">Line Height</Label>
+                        <Label htmlFor="lineHeight">{t("Line Height")}</Label>
                         <Slider
                           id="lineHeight"
                           min={1.2}
@@ -563,7 +587,7 @@ export default function EPubReaderPage() {
                   onClick={handleCloseBookAndSheet}
                 >
                   <BookUp className="mr-2 h-4 w-4" />
-                  Read a new Book
+                  {t("Read a new Book")}
                 </Button>
               </div>
             </SheetContent>
@@ -576,12 +600,14 @@ export default function EPubReaderPage() {
           <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-background/80 backdrop-blur-sm">
             <Loader2 className="mb-4 h-12 w-12 animate-spin text-primary" />
             <p className="text-lg font-semibold font-headline">
-              Preparing your book...
+              {t("Preparing your book...")}
             </p>
             <p className="mb-4 text-sm text-muted-foreground">
               {loadingProgress < 100
-                ? `Analyzing content: ${Math.round(loadingProgress)}%`
-                : "Rendering..."}
+                ? t("Analyzing content: {{progress}}%", {
+                    progress: Math.round(loadingProgress),
+                  })
+                : t("Rendering...")}
             </p>
             <Progress value={loadingProgress} className="w-64" />
           </div>
@@ -603,7 +629,7 @@ export default function EPubReaderPage() {
             size="icon"
             onClick={() => handlePageChange("prev")}
             disabled={isAtStart || !isLocationsReady}
-            aria-label="Previous Page"
+            aria-label={t("Previous Page")}
           >
             <ChevronLeft className="h-5 w-5" />
           </Button>
@@ -616,10 +642,10 @@ export default function EPubReaderPage() {
               onKeyDown={handlePageInputKeyDown}
               onBlur={handlePageInputBlur}
               disabled={!isLocationsReady}
-              aria-label="Current Page"
+              aria-label={t("Current Page")}
             />
             <span className="text-muted-foreground">
-              of {totalPages > 0 ? totalPages : "..."}
+              {t("of")} {totalPages > 0 ? totalPages : "..."}
             </span>
           </div>
           <Button
@@ -627,7 +653,7 @@ export default function EPubReaderPage() {
             size="icon"
             onClick={() => handlePageChange("next")}
             disabled={isAtEnd || !isLocationsReady}
-            aria-label="Next Page"
+            aria-label={t("Next Page")}
           >
             <ChevronRight className="h-5 w-5" />
           </Button>

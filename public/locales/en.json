@@ -1,0 +1,31 @@
+{
+  "ePub Reader": "ePub Reader",
+  "A clean, distraction-free reading environment.": "A clean, distraction-free reading environment.",
+  "Upload a Book": "Upload a Book",
+  "Loading...": "Loading...",
+  "Menu": "Menu",
+  "Contents": "Contents",
+  "Settings": "Settings",
+  "Page View": "Page View",
+  "Two Page": "Two Page",
+  "Single": "Single",
+  "Font Size": "Font Size",
+  "Line Height": "Line Height",
+  "Read a new Book": "Read a new Book",
+  "Preparing your book...": "Preparing your book...",
+  "Analyzing content: {{progress}}%": "Analyzing content: {{progress}}%",
+  "Rendering...": "Rendering...",
+  "of": "of",
+  "Previous Page": "Previous Page",
+  "Next Page": "Next Page",
+  "Current Page": "Current Page",
+  "Open Menu (T)": "Open Menu (T)",
+  "error": {
+    "reading_file_title": "Error Reading File",
+    "reading_file_description": "Could not read the selected file.",
+    "reading_file_error_description": "An error occurred while reading the file.",
+    "loading_book_title": "Error Loading Book",
+    "loading_book_description": "The selected ePub file could not be opened. It might be corrupted or in an unsupported format."
+  },
+  "Language": "Language"
+}
