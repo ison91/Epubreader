@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: siteUrl,
-      lastModified: new Date().toISOString(),
+      lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 1,
       alternates: {
