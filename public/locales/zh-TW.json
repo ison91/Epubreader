@@ -1,0 +1,75 @@
+
+{
+  "ePub Reader": "ePub 閱讀器",
+  "Upload a Book": "上傳書籍",
+  "preparing_book": "正在準備您的書籍…",
+  "Menu": "選單",
+  "Contents": "目錄",
+  "Settings": "設定",
+  "Page View": "頁面檢視",
+  "Two Page": "雙頁",
+  "Single": "單頁",
+  "Font Size": "字體大小",
+  "Line Height": "行距",
+  "Read a new Book": "閱讀新書",
+  "of": "之",
+  "Language": "語言",
+  "Open Menu (T)": "開啟選單（T）",
+  "Previous Page": "上一頁",
+  "Next Page": "下一頁",
+  "Current Page": "目前頁面",
+  "Loading...": "載入中…",
+  "features_title": "為什麼選擇 ePub 閱讀器？",
+  "features_list": {
+    "feature_1": {
+      "title": "立即免費使用",
+      "description": "無需安裝或註冊。上傳 EPUB，即刻開始閱讀。我們的服務完全免費，無廣告。"
+    },
+    "feature_2": {
+      "title": "隱私優先",
+      "description": "我們尊重您的隱私。檔案在瀏覽器本地處理，絕不上傳至伺服器。您的書籍始終由您掌控。"
+    },
+    "feature_3": {
+      "title": "可自訂閱讀體驗",
+      "description": "掌握您的閱讀體驗。可調整字體大小、行距，並在單頁或雙頁之間切換。"
+    },
+    "feature_4": {
+      "title": "跨裝置相容",
+      "description": "無論桌機、平板或手機，都可享受流暢閱讀。我們的響應式設計會配合您的螢幕。"
+    },
+    "feature_5": {
+      "title": "快速高效",
+      "description": "採用現代網頁技術，提供快速、順暢的閱讀體驗，確保書籍快速載入。"
+    },
+    "feature_6": {
+      "title": "操作直覺",
+      "description": "使用內建目錄導航，或直接跳至任一頁。閱讀應該簡單。"
+    }
+  },
+  "why_choose_us_title": "為現代讀者設計",
+  "why_choose_us_p1": "在複雜的應用與訂閱世界中，我們崇尚簡單。ePub 閱讀器以最直接的方式，讓您在網路上閱讀 EPUB。去除所有阻礙，讓故事與您零距離。",
+  "why_choose_us_p2": "不論您是學生、專業人士或是閱讀愛好者，我們的工具提供清晰無干擾的介面，將內容置於核心。無彈窗，無廣告，不做多餘華麗設計——只有您與書本。",
+  "why_choose_us_p3": "我們致力於打造開放且可及的平台。服務完全免費，支援現代瀏覽器的所有裝置。加入成千上萬個已簡化線上閱讀體驗的使用者行列。",
+  "how_it_works_title": "3 步驟開始閱讀",
+  "how_it_works_steps": {
+    "step_1": "點選「上傳書籍」，從您的裝置選擇 EPUB 檔案。",
+    "step_2": "書籍即時在清爽且無干擾的閱讀器中開啟。",
+    "step_3": "透過選單自訂閱讀體驗並導航章節。"
+  },
+  "faq_title": "常見問題",
+  "faq_items": {
+    "q1": "這項服務真的免費嗎？",
+    "a1": "是的，ePub 閱讀器完全免費，沒有任何隱藏費用或廣告。我們的目標是為所有人提供簡單、好用的閱讀工具。",
+    "q2": "我的書籍安全嗎？會被儲存嗎？",
+    "a2": "隱私是我們的最高考量。您的檔案絕不會被上傳或儲存到任何伺服器。EPUB 檔案會直接在您的瀏覽器中開啟與處理。",
+    "q3": "可以在哪些裝置上使用？",
+    "a3": "我們的閱讀器為網頁應用程式，支援所有具備現代瀏覽器的裝置，包括桌機（Windows、macOS、Linux）、平板（iPad、Android）和智慧型手機（iPhone、Android）。"
+  },
+  "error": {
+    "reading_file_title": "讀取檔案錯誤",
+    "reading_file_description": "讀取檔案時發生問題。請確認檔案是否損毀。",
+    "reading_file_error_description": "處理檔案時發生錯誤。",
+    "loading_book_title": "載入書籍錯誤",
+    "loading_book_description": "載入書籍時發生錯誤。檔案可能已損毀或格式不支援。"
+  }
+}

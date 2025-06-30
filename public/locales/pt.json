@@ -1,0 +1,75 @@
+
+{
+  "ePub Reader": "Leitor ePub",
+  "Upload a Book": "Carregar um livro",
+  "preparing_book": "A preparar o seu livro…",
+  "Menu": "Menu",
+  "Contents": "Índice",
+  "Settings": "Definições",
+  "Page View": "Vista da página",
+  "Two Page": "Duas páginas",
+  "Single": "Página única",
+  "Font Size": "Tamanho da fonte",
+  "Line Height": "Espaçamento de linha",
+  "Read a new Book": "Ler um novo livro",
+  "of": "de",
+  "Language": "Idioma",
+  "Open Menu (T)": "Abrir menu (T)",
+  "Previous Page": "Página anterior",
+  "Next Page": "Próxima página",
+  "Current Page": "Página atual",
+  "Loading...": "A carregar…",
+  "features_title": "Porque escolher o Leitor ePub?",
+  "features_list": {
+    "feature_1": {
+      "title": "Instantâneo e gratuito",
+      "description": "Sem instalação nem registo. Carregue o seu EPUB e comece a ler imediatamente. O serviço é totalmente gratuito e sem publicidade."
+    },
+    "feature_2": {
+      "title": "Privacidade em primeiro",
+      "description": "Privilegiamos a sua privacidade. Os seus ficheiros são processados localmente no navegador e nunca são enviados para servidores. Os seus livros são seus."
+    },
+    "feature_3": {
+      "title": "Experiência personalizável",
+      "description": "Controle a sua leitura. Ajuste tamanho da fonte, espaçamento de linha, e escolha entre visualização de página única ou dupla."
+    },
+    "feature_4": {
+      "title": "Funciona em qualquer dispositivo",
+      "description": "Leia sem interrupções em desktop, tablet ou smartphone. O design responsivo adapta-se ao seu ecrã."
+    },
+    "feature_5": {
+      "title": "Rápido e eficiente",
+      "description": "Construído com tecnologias web modernas, o nosso leitor oferece desempenho rápido e fluido, assegurando carregamentos e leitura suave."
+    },
+    "feature_6": {
+      "title": "Navegação fácil",
+      "description": "Navegue pelo livro com o índice integrado ou vá diretamente a qualquer página. A leitura deve ser fácil."
+    }
+  },
+  "why_choose_us_title": "Concebido para o leitor moderno",
+  "why_choose_us_p1": "Num mundo de apps complexas e subscrições, acreditamos na simplicidade. O Leitor ePub foi criado com um único objetivo: proporcionar a forma mais fácil e direta de ler EPUB online. Eliminando barreiras entre si e as suas histórias.",
+  "why_choose_us_p2": "Quer seja estudante, profissional ou leitor ávido, a nossa ferramenta oferece uma interface limpa sem distrações que coloca o seu conteúdo em primeiro plano. Sem pop‑ups, sem anúncios, sem floreados desnecessários—apenas você e o seu livro.",
+  "why_choose_us_p3": "Estamos comprometidos com uma plataforma aberta e acessível a todos. Por isso, o nosso serviço é totalmente gratuito e projetado para funcionar em qualquer dispositivo com navegador moderno. Junte‑se a milhares de utilizadores que já simplificaram a leitura online.",
+  "how_it_works_title": "Como funciona em 3 passos simples",
+  "how_it_works_steps": {
+    "step_1": "Clique em “Carregar um livro” e selecione um ficheiro EPUB do seu dispositivo.",
+    "step_2": "O livro abre de imediato num leitor limpo e livre de distrações.",
+    "step_3": "Use o menu para personalizar a sua leitura e navegar pelos capítulos."
+  },
+  "faq_title": "Perguntas Frequentes",
+  "faq_items": {
+    "q1": "Este serviço é mesmo gratuito?",
+    "a1": "Sim, o Leitor ePub é totalmente gratuito, sem custos ocultos nem publicidade. O nosso objetivo é oferecer uma ferramenta de leitura simples e acessível a todos.",
+    "q2": "Os meus livros estão seguros? São guardados em algum lado?",
+    "a2": "A sua privacidade é a nossa prioridade. Os seus ficheiros nunca são enviados ou armazenados em servidor nenhum. O ficheiro EPUB é aberto e processado diretamente no seu navegador.",
+    "q3": "Em que dispositivos posso usá‑lo?",
+    "a3": "O nosso leitor é uma aplicação web e funciona em qualquer dispositivo com browser moderno: desktop (Windows, macOS, Linux), tablet (iPad, Android) e smartphone (iPhone, Android)."
+  },
+  "error": {
+    "reading_file_title": "Erro ao ler o ficheiro",
+    "reading_file_description": "Ocorreu um problema ao ler o ficheiro. Verifique se não está corrompido.",
+    "reading_file_error_description": "Ocorreu um erro ao processar o ficheiro.",
+    "loading_book_title": "Erro ao carregar o livro",
+    "loading_book_description": "Ocorreu um erro ao carregar o livro. O ficheiro pode estar corrompido ou num formato não suportado."
+  }
+}

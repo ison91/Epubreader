@@ -41,6 +41,10 @@ const enMetadata: Metadata = {
       'fr-FR': 'https://epubreader.info/',
       'es-ES': 'https://epubreader.info/',
       'pl-PL': 'https://epubreader.info/',
+      'zh-TW': 'https://epubreader.info/',
+      'it-IT': 'https://epubreader.info/',
+      'pt-PT': 'https://epubreader.info/',
+      'bg-BG': 'https://epubreader.info/',
     },
   },
   openGraph: {
@@ -117,6 +121,10 @@ const jaMetadata: Metadata = {
       'fr-FR': 'https://epubreader.info/',
       'es-ES': 'https://epubreader.info/',
       'pl-PL': 'https://epubreader.info/',
+      'zh-TW': 'https://epubreader.info/',
+      'it-IT': 'https://epubreader.info/',
+      'pt-PT': 'https://epubreader.info/',
+      'bg-BG': 'https://epubreader.info/',
     },
   },
   openGraph: {
@@ -193,6 +201,10 @@ const ruMetadata: Metadata = {
       'fr-FR': 'https://epubreader.info/',
       'es-ES': 'https://epubreader.info/',
       'pl-PL': 'https://epubreader.info/',
+      'zh-TW': 'https://epubreader.info/',
+      'it-IT': 'https://epubreader.info/',
+      'pt-PT': 'https://epubreader.info/',
+      'bg-BG': 'https://epubreader.info/',
     },
   },
   openGraph: {
@@ -269,6 +281,10 @@ const koMetadata: Metadata = {
       'fr-FR': 'https://epubreader.info/',
       'es-ES': 'https://epubreader.info/',
       'pl-PL': 'https://epubreader.info/',
+      'zh-TW': 'https://epubreader.info/',
+      'it-IT': 'https://epubreader.info/',
+      'pt-PT': 'https://epubreader.info/',
+      'bg-BG': 'https://epubreader.info/',
     },
   },
   openGraph: {
@@ -345,6 +361,10 @@ const arMetadata: Metadata = {
       'fr-FR': 'https://epubreader.info/',
       'es-ES': 'https://epubreader.info/',
       'pl-PL': 'https://epubreader.info/',
+      'zh-TW': 'https://epubreader.info/',
+      'it-IT': 'https://epubreader.info/',
+      'pt-PT': 'https://epubreader.info/',
+      'bg-BG': 'https://epubreader.info/',
     },
   },
   openGraph: {
@@ -414,6 +434,10 @@ const deMetadata: Metadata = {
       'fr-FR': 'https://epubreader.info/',
       'es-ES': 'https://epubreader.info/',
       'pl-PL': 'https://epubreader.info/',
+      'zh-TW': 'https://epubreader.info/',
+      'it-IT': 'https://epubreader.info/',
+      'pt-PT': 'https://epubreader.info/',
+      'bg-BG': 'https://epubreader.info/',
     },
   },
   openGraph: {
@@ -464,6 +488,10 @@ const frMetadata: Metadata = {
       'fr-FR': 'https://epubreader.info/',
       'es-ES': 'https://epubreader.info/',
       'pl-PL': 'https://epubreader.info/',
+      'zh-TW': 'https://epubreader.info/',
+      'it-IT': 'https://epubreader.info/',
+      'pt-PT': 'https://epubreader.info/',
+      'bg-BG': 'https://epubreader.info/',
     },
   },
   openGraph: {
@@ -514,6 +542,10 @@ const esMetadata: Metadata = {
       'fr-FR': 'https://epubreader.info/',
       'es-ES': 'https://epubreader.info/',
       'pl-PL': 'https://epubreader.info/',
+      'zh-TW': 'https://epubreader.info/',
+      'it-IT': 'https://epubreader.info/',
+      'pt-PT': 'https://epubreader.info/',
+      'bg-BG': 'https://epubreader.info/',
     },
   },
   openGraph: {
@@ -564,6 +596,10 @@ const plMetadata: Metadata = {
       'fr-FR': 'https://epubreader.info/',
       'es-ES': 'https://epubreader.info/',
       'pl-PL': 'https://epubreader.info/',
+      'zh-TW': 'https://epubreader.info/',
+      'it-IT': 'https://epubreader.info/',
+      'pt-PT': 'https://epubreader.info/',
+      'bg-BG': 'https://epubreader.info/',
     },
   },
   openGraph: {
@@ -585,9 +621,206 @@ const plMetadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
+const zhTWMetadata: Metadata = {
+  title: {
+    default: "ePub 閱讀器 | 免費、即時的線上 EPUB 電子書閱讀器",
+    template: "%s | ePub 閱讀器",
+  },
+  description: "在任何裝置上隨時隨地線上閱讀您的 EPUB 書籍。無需下載，無需註冊。只需上傳，即可享受乾淨、可自訂的閱讀體驗。",
+  keywords: [
+    "EPUB 閱讀器", "線上電子書閱讀器", "免費EPUB閱讀器", "在線閱讀EPUB", "EPUB閱讀軟體", "網頁EPUB檢視器", "瀏覽器EPUB閱讀", "HTML5 EPUB", "JavaScript EPUB", "NextJS EPUB", "React EPUB", "epubjs", "數位書籍閱讀器", "線上文件檢視器", "瀏覽器讀書", "上傳EPUB", "開啟EPUB檔案", "免下載電子書", "即時電子書", "雲端電子書", "跨平台閱讀器", "手機EPUB閱讀", "平板EPUB閱讀", "電腦EPUB閱讀", "輕量級EPUB閱讀器", "快速EPUB載入", "無障礙電子書", "螢幕閱讀器友善", "自訂閱讀體驗", "調整字體大小", "調整行距", "夜間模式閱讀", "日間模式閱讀", "棕褐色調", "閱讀進度追蹤", "目錄導航", "線上電子圖書館", "個人數位圖書館", "注重隱私的閱讀器", "免登入電子書", "安全的EPUB檢視器", "開源EPUB閱讀器", "支援EPUB格式", "讀取.epub檔案", "線上閱讀工具", "數位閱讀平台", "EPUB網頁應用", "最佳線上EPUB閱讀器", "簡單EPUB閱讀器", "乾淨閱讀介面", "無干擾閱讀", "EPUB轉HTML", "網頁版電子閱讀器", "免費讀書", "在Chromebook上讀EPUB", "如何開啟epub檔", "Chrome epub檢視器", "線上小說閱讀", "免費電子書", "epub線上看", "上傳讀epub"
+  ],
+  authors: [{ name: "Firebase Studio", url: "https://epubreader.info" }],
+  creator: "Firebase Studio",
+  publisher: "Firebase",
+  alternates: {
+    canonical: "https://epubreader.info/",
+    languages: {
+      'en-US': 'https://epubreader.info/',
+      'ja-JP': 'https://epubreader.info/',
+      'ru-RU': 'https://epubreader.info/',
+      'ko-KR': 'https://epubreader.info/',
+      'ar': 'https://epubreader.info/',
+      'de-DE': 'https://epubreader.info/',
+      'fr-FR': 'https://epubreader.info/',
+      'es-ES': 'https://epubreader.info/',
+      'pl-PL': 'https://epubreader.info/',
+      'zh-TW': 'https://epubreader.info/',
+      'it-IT': 'https://epubreader.info/',
+      'pt-PT': 'https://epubreader.info/',
+      'bg-BG': 'https://epubreader.info/',
+    },
+  },
+  openGraph: {
+    title: "ePub 閱讀器 | 免費、即時的線上 EPUB 電子書閱讀器",
+    description: "在任何裝置上隨時隨地線上閱讀您的 EPUB 書籍。無需下載，無需註冊。只需上傳，即可享受乾淨、可自訂的閱讀體驗。",
+    url: "https://epubreader.info",
+    siteName: "ePub 閱讀器",
+    images: [{ url: "https://placehold.co/1200x630.png", width: 1200, height: 630, alt: "一個乾淨、現代的 ePub 閱讀器應用程式介面，顯示一本打開的書。" }],
+    locale: "zh_TW",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ePub 閱讀器 | 最簡單的線上 ePub 閱讀方式",
+    description: "透過乾淨、行動裝置友善且可自訂的介面，直接在瀏覽器中上傳和閱讀您的 ePub 檔案。",
+    images: ["https://placehold.co/1200x630.png"],
+    creator: "@Firebase",
+  },
+  robots: { index: true, follow: true },
+};
 
-const createJsonLd = (lang: 'en' | 'ja' | 'ru' | 'ko' | 'ar' | 'de' | 'fr' | 'es' | 'pl') => {
-    const content = {
+const itMetadata: Metadata = {
+  title: {
+    default: "Lettore ePub | Lettore di libri EPUB online gratuito e istantaneo",
+    template: "%s | Lettore ePub",
+  },
+  description: "Leggi i tuoi libri EPUB online, ovunque e su qualsiasi dispositivo. Nessun download, nessuna registrazione. Carica e goditi un'esperienza di lettura pulita e personalizzabile.",
+  keywords: [
+    "Lettore EPUB", "lettore ebook online", "lettore EPUB gratuito", "leggere EPUB online", "visualizzatore EPUB web", "lettore EPUB per browser", "epubjs", "lettore di libri digitali", "visualizzatore documenti online", "leggere libri nel browser", "caricare EPUB", "aprire file EPUB", "lettore ebook senza download", "accesso immediato ebook", "lettore ebook cloud", "lettore multipiattaforma", "lettore EPUB mobile", "lettore ebook per tablet", "lettore EPUB desktop", "lettore EPUB leggero", "caricamento EPUB veloce", "lettore ebook accessibile", "personalizzare esperienza di lettura", "cambiare dimensione font ebook", "regolare interlinea", "modalità scura", "modalità chiara", "tema seppia", "tracciamento progresso lettura", "navigazione indice", "libreria ebook online", "biblioteca digitale personale", "lettore attento alla privacy", "lettore ebook senza login", "visualizzatore EPUB sicuro", "lettore EPUB open source", "supporto formato EPUB", "leggere file .epub", "strumento di lettura online", "piattaforma di lettura digitale", "app web EPUB", "miglior lettore EPUB online", "lettore EPUB semplice", "interfaccia di lettura pulita", "lettura senza distrazioni", "EPUB in HTML", "e-reader basato sul web", "leggere libri gratis", "come aprire file epub", "lettore epub per chrome", "leggere romanzi online", "ebook gratuiti", "visualizzatore epub online", "carica e leggi epub"
+  ],
+  authors: [{ name: "Firebase Studio", url: "https://epubreader.info" }],
+  creator: "Firebase Studio",
+  publisher: "Firebase",
+  alternates: {
+    canonical: "https://epubreader.info/",
+    languages: {
+      'en-US': 'https://epubreader.info/',
+      'ja-JP': 'https://epubreader.info/',
+      'ru-RU': 'https://epubreader.info/',
+      'ko-KR': 'https://epubreader.info/',
+      'ar': 'https://epubreader.info/',
+      'de-DE': 'https://epubreader.info/',
+      'fr-FR': 'https://epubreader.info/',
+      'es-ES': 'https://epubreader.info/',
+      'pl-PL': 'https://epubreader.info/',
+      'zh-TW': 'https://epubreader.info/',
+      'it-IT': 'https://epubreader.info/',
+      'pt-PT': 'https://epubreader.info/',
+      'bg-BG': 'https://epubreader.info/',
+    },
+  },
+  openGraph: {
+    title: "Lettore ePub | Lettore di libri EPUB online gratuito e istantaneo",
+    description: "Leggi i tuoi libri EPUB online, ovunque e su qualsiasi dispositivo. Nessun download, nessuna registrazione.",
+    url: "https://epubreader.info",
+    siteName: "Lettore ePub",
+    images: [{ url: "https://placehold.co/1200x630.png", width: 1200, height: 630, alt: "Un'interfaccia pulita e moderna dell'applicazione Lettore ePub, che mostra un libro aperto." }],
+    locale: "it_IT",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lettore ePub | Il modo più semplice per leggere ePub online",
+    description: "Carica e leggi i tuoi file ePub direttamente nel browser con un'interfaccia pulita, mobile-friendly e personalizzabile.",
+    images: ["https://placehold.co/1200x630.png"],
+    creator: "@Firebase",
+  },
+  robots: { index: true, follow: true },
+};
+
+const ptMetadata: Metadata = {
+  title: {
+    default: "Leitor ePub | Leitor de livros EPUB online, grátis e instantâneo",
+    template: "%s | Leitor ePub",
+  },
+  description: "Leia os seus livros EPUB online, em qualquer lugar e em qualquer dispositivo. Sem downloads, sem registos. Basta carregar e desfrutar de uma experiência de leitura limpa e personalizável.",
+  keywords: [
+    "Leitor EPUB", "leitor de ebooks online", "leitor EPUB gratuito", "ler EPUB online", "visualizador EPUB web", "leitor EPUB para navegador", "epubjs", "leitor de livros digitais", "visualizador de documentos online", "ler livros no navegador", "carregar EPUB", "abrir ficheiro EPUB", "leitor de ebook sem download", "acesso instantâneo a ebooks", "leitor de ebook na nuvem", "leitor multiplataforma", "leitor EPUB móvel", "leitor de ebook para tablet", "leitor EPUB para desktop", "leitor EPUB leve", "carregador EPUB rápido", "leitor de ebook acessível", "personalizar experiência de leitura", "alterar tamanho da fonte ebook", "ajustar espaçamento entre linhas", "modo escuro", "modo claro", "tema sépia", "monitorizar progresso de leitura", "navegação por índice", "biblioteca de ebooks online", "biblioteca digital pessoal", "leitor focado na privacidade", "leitor de ebook sem login", "visualizador EPUB seguro", "leitor EPUB de código aberto", "suporte ao formato EPUB", "ler ficheiros .epub", "ferramenta de leitura online", "plataforma de leitura digital", "aplicação web EPUB", "melhor leitor EPUB online", "leitor EPUB simples", "interface de leitura limpa", "leitura sem distrações", "EPUB para HTML", "e-reader baseado na web", "ler livros grátis", "como abrir ficheiro epub", "leitor epub para chrome", "ler romances online", "ebooks gratuitos", "visualizador epub online", "carregar e ler epub"
+  ],
+  authors: [{ name: "Firebase Studio", url: "https://epubreader.info" }],
+  creator: "Firebase Studio",
+  publisher: "Firebase",
+  alternates: {
+    canonical: "https://epubreader.info/",
+    languages: {
+      'en-US': 'https://epubreader.info/',
+      'ja-JP': 'https://epubreader.info/',
+      'ru-RU': 'https://epubreader.info/',
+      'ko-KR': 'https://epubreader.info/',
+      'ar': 'https://epubreader.info/',
+      'de-DE': 'https://epubreader.info/',
+      'fr-FR': 'https://epubreader.info/',
+      'es-ES': 'https://epubreader.info/',
+      'pl-PL': 'https://epubreader.info/',
+      'zh-TW': 'https://epubreader.info/',
+      'it-IT': 'https://epubreader.info/',
+      'pt-PT': 'https://epubreader.info/',
+      'bg-BG': 'https://epubreader.info/',
+    },
+  },
+  openGraph: {
+    title: "Leitor ePub | Leitor de livros EPUB online, grátis e instantâneo",
+    description: "Leia os seus livros EPUB online, em qualquer lugar e em qualquer dispositivo. Sem downloads, sem registos.",
+    url: "https://epubreader.info",
+    siteName: "Leitor ePub",
+    images: [{ url: "https://placehold.co/1200x630.png", width: 1200, height: 630, alt: "Uma interface limpa e moderna da aplicação Leitor ePub, mostrando um livro aberto." }],
+    locale: "pt_PT",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Leitor ePub | A forma mais fácil de ler ePubs online",
+    description: "Carregue e leia os seus ficheiros EPUB diretamente no seu navegador com uma interface limpa, adaptada a telemóveis e personalizável.",
+    images: ["https://placehold.co/1200x630.png"],
+    creator: "@Firebase",
+  },
+  robots: { index: true, follow: true },
+};
+
+const bgMetadata: Metadata = {
+  title: {
+    default: "ePub Прегледач | Безплатен, незабавен онлайн четец на EPUB книги",
+    template: "%s | ePub Прегледач",
+  },
+  description: "Четете вашите EPUB книги онлайн, навсякъде, на всяко устройство. Без изтегляния, без регистрации. Просто качете и се насладете на чисто, персонализирано изживяване при четене.",
+  keywords: [
+    "EPUB четец", "онлайн четец за електронни книги", "безплатен EPUB четец", "четене на EPUB онлайн", "уеб EPUB прегледач", "браузър EPUB четец", "epubjs", "четец на дигитални книги", "онлайн преглед на документи", "четене на книги в браузър", "качване на EPUB", "отваряне на EPUB файл", "четец за електронни книги без изтегляне", "незабавен достъп до електронни книги", "облачен четец за електронни книги", "мултиплатформен четец", "мобилен EPUB четец", "четец за таблет", "десктоп EPUB четец", "лек EPUB четец", "бързо зареждане на EPUB", "достъпен четец за електронни книги", "персонализиране на четенето", "промяна на размера на шрифта", "регулиране на междуредието", "тъмен режим", "светъл режим", "тема сепия", "проследяване на напредъка", "навигация по съдържание", "онлайн библиотека", "лична дигитална библиотека", "четец с фокус върху поверителността", "четец без регистрация", "сигурен EPUB прегледач", "EPUB четец с отворен код", "поддръжка на EPUB формат", "четене на .epub файлове", "онлайн инструмент за четене", "дигитална платформа за четене", "уеб приложение EPUB", "най-добрият онлайн EPUB четец", "прост EPUB четец", "чист интерфейс за четене", "четене без разсейване", "EPUB към HTML", "уеб-базиран електронен четец", "безплатно четене на книги", "как да отворя epub файл", "epub четец за chrome", "четене на романи онлайн", "безплатни електронни книги", "онлайн преглед на epub", "качи и чети epub"
+  ],
+  authors: [{ name: "Firebase Studio", url: "https://epubreader.info" }],
+  creator: "Firebase Studio",
+  publisher: "Firebase",
+  alternates: {
+    canonical: "https://epubreader.info/",
+    languages: {
+      'en-US': 'https://epubreader.info/',
+      'ja-JP': 'https://epubreader.info/',
+      'ru-RU': 'https://epubreader.info/',
+      'ko-KR': 'https://epubreader.info/',
+      'ar': 'https://epubreader.info/',
+      'de-DE': 'https://epubreader.info/',
+      'fr-FR': 'https://epubreader.info/',
+      'es-ES': 'https://epubreader.info/',
+      'pl-PL': 'https://epubreader.info/',
+      'zh-TW': 'https://epubreader.info/',
+      'it-IT': 'https://epubreader.info/',
+      'pt-PT': 'https://epubreader.info/',
+      'bg-BG': 'https://epubreader.info/',
+    },
+  },
+  openGraph: {
+    title: "ePub Прегледач | Безплатен, незабавен онлайн четец на EPUB книги",
+    description: "Четете вашите EPUB книги онлайн, навсякъde, на всяко устройство. Без изтегляния, без регистрации.",
+    url: "https://epubreader.info",
+    siteName: "ePub Прегледач",
+    images: [{ url: "https://placehold.co/1200x630.png", width: 1200, height: 630, alt: "Чист и модерен интерфейс на приложението ePub Прегледач, показващ отворена книга." }],
+    locale: "bg_BG",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ePub Прегледач | Най-лесният начин за четене на ePub онлайн",
+    description: "Качвайте и четете вашите EPUB файлове директно в браузъра си с чист, мобилен и персонализиран интерфейс.",
+    images: ["https://placehold.co/1200x630.png"],
+    creator: "@Firebase",
+  },
+  robots: { index: true, follow: true },
+};
+
+type Language = 'en' | 'ja' | 'ru' | 'ko' | 'ar' | 'de' | 'fr' | 'es' | 'pl' | 'zh-TW' | 'it' | 'pt' | 'bg';
+
+const createJsonLd = (lang: Language) => {
+    const content: Record<Language, any> = {
       en: {
         name: "ePub Reader",
         description: "Read your EPUB books online, anywhere, on any device. No downloads, no sign-ups. Just upload and enjoy a clean, customizable reading experience.",
@@ -705,6 +938,54 @@ const createJsonLd = (lang: 'en' | 'ja' | 'ru' | 'ko' | 'ar' | 'de' | 'fr' | 'es
           "Całkowicie za darmo i bez reklam."
         ],
       },
+      "zh-TW": {
+        name: "ePub 閱讀器",
+        description: "在任何裝置上隨時隨地線上閱讀您的 EPUB 書籍。無需下載，無需註冊。只需上傳，即可享受乾淨、可自訂的閱讀體驗。",
+        featureList: [
+          "立即免費使用：無需安裝或註冊。上傳 EPUB，即刻開始閱讀。",
+          "隱私優先：檔案在瀏覽器本地處理，絕不上傳至伺服器。",
+          "可自訂閱讀體驗：掌握您的閱讀體驗。可調整字體大小、行距，並在單頁或雙頁之間切換。",
+          "跨裝置相容：無論桌機、平板或手機，都可享受流暢閱讀。",
+          "操作直覺：使用內建目錄導航，或直接跳至任一頁。",
+          "完全免費，無廣告。"
+        ]
+      },
+      it: {
+        name: "Lettore ePub",
+        description: "Leggi i tuoi libri EPUB online, ovunque e su qualsiasi dispositivo. Nessun download, nessuna registrazione. Carica e goditi un'esperienza di lettura pulita e personalizzabile.",
+        featureList: [
+          "Istantaneo e gratuito: Nessuna installazione o registrazione richiesta.",
+          "Privacy al primo posto: I file vengono elaborati localmente nel browser e non sono mai caricati sui nostri server.",
+          "Esperienza personalizzabile: Hai il controllo della tua lettura. Regola dimensione del carattere, interlinea e scegli tra visualizzazione a pagina singola o doppia.",
+          "Funziona su qualsiasi dispositivo: Leggi senza interruzioni su desktop, tablet o smartphone.",
+          "Navigazione semplice: Naviga facilmente nel tuo libro con l’indice integrato.",
+          "Totalmente gratuito e senza pubblicità."
+        ]
+      },
+      pt: {
+        name: "Leitor ePub",
+        description: "Leia os seus livros EPUB online, em qualquer lugar e em qualquer dispositivo. Sem downloads, sem registos. Basta carregar e desfrutar de uma experiência de leitura limpa e personalizável.",
+        featureList: [
+          "Instantâneo e gratuito: Sem instalação nem registo.",
+          "Privacidade em primeiro: Os seus ficheiros são processados localmente no navegador e nunca são enviados para servidores.",
+          "Experiência personalizável: Controle a sua leitura. Ajuste tamanho da fonte, espaçamento de linha, e escolha entre visualização de página única ou dupla.",
+          "Funciona em qualquer dispositivo: Leia sem interrupções em desktop, tablet ou smartphone.",
+          "Navegação fácil: Navegue pelo livro com o índice integrado.",
+          "Totalmente gratuito e sem publicidade."
+        ]
+      },
+      bg: {
+        name: "ePub Прегледач",
+        description: "Четете вашите EPUB книги онлайн, навсякъде, на всяко устройство. Без изтегляния, без регистрации. Просто качете и се насладете на чисто, персонализирано изживяване при четене.",
+        featureList: [
+          "Незабавно и безплатно: Не се изисква инсталация или регистрация.",
+          "Поверителност на първо място: Вашите файлове се обработват локално в браузъра и никога не се качват на нашите сървъри.",
+          "Персонализирано изживяване: Контролирайте как четете. Коригирайте размера на шрифта, междуредието и изберете между изглед с една или две страници.",
+          "Работи на всяко устройство: Насладете се на безпроблемно четене на настолен компютър, таблет или смартфон.",
+          "Лесна навигация: Навигирайте лесно в книгата с вградена таблица на съдържанието.",
+          "Напълно безплатно и без реклами."
+        ]
+      },
     };
 
     const specificContent = content[lang];
@@ -755,6 +1036,10 @@ export async function generateMetadata(): Promise<Metadata> {
   const headersList = headers();
   const acceptLanguage = headersList.get("accept-language") || "";
   
+  if (acceptLanguage.startsWith("zh-TW")) return zhTWMetadata;
+  if (acceptLanguage.startsWith("it")) return itMetadata;
+  if (acceptLanguage.startsWith("pt")) return ptMetadata;
+  if (acceptLanguage.startsWith("bg")) return bgMetadata;
   if (acceptLanguage.startsWith("de")) return deMetadata;
   if (acceptLanguage.startsWith("fr")) return frMetadata;
   if (acceptLanguage.startsWith("es")) return esMetadata;
@@ -776,7 +1061,7 @@ export default function RootLayout({
   const headersList = headers();
   const acceptLanguage = headersList.get("accept-language") || "";
   
-  let lang: 'en' | 'ja' | 'ru' | 'ko' | 'ar' | 'de' | 'fr' | 'es' | 'pl' = "en";
+  let lang: Language = "en";
   let dir: 'ltr' | 'rtl' = 'ltr';
 
   if (acceptLanguage.startsWith("ar")) {
@@ -796,7 +1081,16 @@ export default function RootLayout({
     lang = "es";
   } else if (acceptLanguage.startsWith("pl")) {
     lang = "pl";
+  } else if (acceptLanguage.startsWith("zh-TW")) {
+    lang = "zh-TW";
+  } else if (acceptLanguage.startsWith("it")) {
+    lang = "it";
+  } else if (acceptLanguage.startsWith("pt")) {
+    lang = "pt";
+  } else if (acceptLanguage.startsWith("bg")) {
+    lang = "bg";
   }
+
 
   const jsonLd = createJsonLd(lang);
 

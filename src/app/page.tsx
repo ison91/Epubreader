@@ -457,33 +457,19 @@ export default function EPubReaderPage() {
                             </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
-                            <DropdownMenuItem onSelect={() => setLocale("en")}>
-                            English
-                            </DropdownMenuItem>
-                            <DropdownMenuItem onSelect={() => setLocale("de")}>
-                            Deutsch
-                            </DropdownMenuItem>
-                            <DropdownMenuItem onSelect={() => setLocale("es")}>
-                            Español
-                            </DropdownMenuItem>
-                             <DropdownMenuItem onSelect={() => setLocale("fr")}>
-                            Français
-                            </DropdownMenuItem>
-                            <DropdownMenuItem onSelect={() => setLocale("pl")}>
-                            Polski
-                            </DropdownMenuItem>
-                            <DropdownMenuItem onSelect={() => setLocale("ja")}>
-                            日本語
-                            </DropdownMenuItem>
-                            <DropdownMenuItem onSelect={() => setLocale("ru")}>
-                            Русский
-                            </DropdownMenuItem>
-                            <DropdownMenuItem onSelect={() => setLocale("ko")}>
-                            한국어
-                            </DropdownMenuItem>
-                             <DropdownMenuItem onSelect={() => setLocale("ar")}>
-                            العربية
-                            </DropdownMenuItem>
+                            <DropdownMenuItem onSelect={() => setLocale("en")}>English</DropdownMenuItem>
+                            <DropdownMenuItem onSelect={() => setLocale("de")}>Deutsch</DropdownMenuItem>
+                            <DropdownMenuItem onSelect={() => setLocale("es")}>Español</DropdownMenuItem>
+                            <DropdownMenuItem onSelect={() => setLocale("fr")}>Français</DropdownMenuItem>
+                            <DropdownMenuItem onSelect={() => setLocale("pl")}>Polski</DropdownMenuItem>
+                            <DropdownMenuItem onSelect={() => setLocale("it")}>Italiano</DropdownMenuItem>
+                            <DropdownMenuItem onSelect={() => setLocale("pt")}>Português</DropdownMenuItem>
+                            <DropdownMenuItem onSelect={() => setLocale("bg")}>български</DropdownMenuItem>
+                            <DropdownMenuItem onSelect={() => setLocale("ru")}>Русский</DropdownMenuItem>
+                            <DropdownMenuItem onSelect={() => setLocale("ar")}>العربية</DropdownMenuItem>
+                            <DropdownMenuItem onSelect={() => setLocale("ja")}>日本語</DropdownMenuItem>
+                            <DropdownMenuItem onSelect={() => setLocale("ko")}>한국어</DropdownMenuItem>
+                            <DropdownMenuItem onSelect={() => setLocale("zh-TW")}>繁體中文</DropdownMenuItem>
                         </DropdownMenuContent>
                         </DropdownMenu>
                     </div>
