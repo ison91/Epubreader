@@ -22,7 +22,8 @@ const enMetadata: Metadata = {
     "table of contents navigation", "ebook library online", "personal digital library", "privacy-focused reader", "no-login ebook reader",
     "secure epub viewer", "open source epub reader", "epub format support", "read .epub files", "online reading tool",
     "digital reading platform", "epub web app", "best online epub reader", "simple epub reader", "clean reading interface",
-    "distraction-free reading", "epub to html", "web-based e-reader", "free book reader", "read epub on chromebook", "how to open epub file"
+    "distraction-free reading", "epub to html", "web-based e-reader", "free book reader", "read epub on chromebook", "how to open epub file",
+    "epub viewer for chrome", "online novel reader", "free ebook reading", "epub online viewer", "upload and read epub"
   ],
   authors: [{ name: "Firebase Studio", url: "https://epubreader.info" }],
   creator: "Firebase Studio",
@@ -93,7 +94,8 @@ const jaMetadata: Metadata = {
     "目次ナビゲーション", "オンライン電子書籍ライブラリ", "個人デジタルライブラリ", "プライバシー重視リーダー", "ログイン不要 電子書籍リーダー",
     "安全なEPUBビューア", "オープンソースEPUBリーダー", "EPUBフォーマット対応", ".epubファイルを読む", "オンライン読書ツール",
     "デジタル読書プラットフォーム", "EPUBウェブアプリ", "最高のオンラインEPUBリーダー", "シンプルなEPUBリーダー", "クリーンな読書インターフェース",
-    "集中できる読書", "EPUBからHTMLへ", "ウェブベースの電子リーダー", "電子書籍", "書籍リーダー", "オンラインで読む", "無料リーダー", "epub 開き方", "epub chromebook"
+    "集中できる読書", "EPUBからHTMLへ", "ウェブベースの電子リーダー", "電子書籍", "書籍リーダー", "オンラインで読む", "無料リーダー", "epub 開き方", "epub chromebook",
+    "chrome epub ビューア", "オンライン 小説 閲覧", "無料 電子ブック", "epub オンライン ビューア", "epub アップロードして読む"
   ],
   authors: [{ name: "Firebase Studio", url: "https://epubreader.info" }],
   creator: "Firebase Studio",
@@ -164,7 +166,8 @@ const ruMetadata: Metadata = {
     "навигация по содержанию", "онлайн-библиотека", "личная цифровая библиотека", "конфиденциальная читалка", "читалка без регистрации",
     "безопасный просмотрщик EPUB", "читалка с открытым исходным кодом", "поддержка формата EPUB", "читать .epub файлы", "инструмент для чтения онлайн",
     "цифровая платформа для чтения", "EPUB веб-приложение", "лучшая онлайн EPUB читалка", "простая EPUB читалка", "чистый интерфейс для чтения",
-    "чтение без отвлекающих факторов", "EPUB в HTML", "веб-читалка", "как открыть epub", "читалка для chromebook"
+    "чтение без отвлекающих факторов", "EPUB в HTML", "веб-читалка", "как открыть epub", "читалка для chromebook",
+    "читалка epub для chrome", "читалка романов онлайн", "бесплатное чтение электронных книг", "онлайн-просмотрщик epub", "загрузить и читать epub"
   ],
   authors: [{ name: "Firebase Studio", url: "https://epubreader.info" }],
   creator: "Firebase Studio",
@@ -235,7 +238,8 @@ const koMetadata: Metadata = {
     "목차 탐색", "온라인 전자책 라이브러리", "개인 디지털 라이브러리", "개인정보 보호 중심 리더", "로그인 없는 전자책 리더",
     "안전한 EPUB 뷰어", "오픈 소스 EPUB 리더", "EPUB 형식 지원", ".epub 파일 읽기", "온라인 독서 도구",
     "디지털 독서 플랫폼", "EPUB 웹 앱", "최고의 온라인 EPUB 리더", "간단한 EPUB 리더", "깔끔한 독서 인터페이스",
-    "집중력 있는 독서", "EPUB을 HTML로", "웹 기반 전자 리더", "무료 책 리더", "크롬북에서 epub 읽기", "epub 파일 여는 법", "이펍 리더", "전자책 보기"
+    "집중력 있는 독서", "EPUB을 HTML로", "웹 기반 전자 리더", "무료 책 리더", "크롬북에서 epub 읽기", "epub 파일 여는 법", "이펍 리더", "전자책 보기",
+    "크롬 epub 뷰어", "온라인 소설 리더", "무료 전자책 읽기", "epub 온라인 뷰어", "epub 업로드하고 읽기"
   ],
   authors: [{ name: "Firebase Studio", url: "https://epubreader.info" }],
   creator: "Firebase Studio",
@@ -306,7 +310,8 @@ const arMetadata: Metadata = {
     "التنقل عبر جدول المحتويات", "مكتبة كتب إلكترونية على الإنترنت", "مكتبة رقمية شخصية", "قارئ يركز على الخصوصية", "قارئ كتب إلكترونية بدون تسجيل دخول",
     "عارض EPUB آمن", "قارئ EPUB مفتوح المصدر", "دعم صيغة EPUB", "قراءة ملفات .epub", "أداة قراءة عبر الإنترنت",
     "منصة قراءة رقمية", "تطبيق ويب EPUB", "أفضل قارئ EPUB عبر الإنترنت", "قارئ EPUB بسيط", "واجهة قراءة نظيفة",
-    "قراءة بدون تشتيت", "EPUB إلى HTML", "قارئ إلكتروني على الويب", "قارئ كتب مجاني", "قراءة epub على كروم بوك", "كيفية فتح ملف epub"
+    "قراءة بدون تشتيت", "EPUB إلى HTML", "قارئ إلكتروني على الويب", "قارئ كتب مجاني", "قراءة epub على كروم بوك", "كيفية فتح ملف epub",
+    "عارض epub لـ chrome", "قارئ روايات اون لاين", "قراءة كتب الكترونية مجانا", "عارض epub اون لاين", "تحميل وقراءة epub"
   ],
   authors: [{ name: "Firebase Studio", url: "https://epubreader.info" }],
   creator: "Firebase Studio",
@@ -365,12 +370,12 @@ const createJsonLd = (lang: 'en' | 'ja' | 'ru' | 'ko' | 'ar') => {
         name: "ePub Reader",
         description: "Read your EPUB books online, anywhere, on any device. No downloads, no sign-ups. Just upload and enjoy a clean, customizable reading experience.",
         featureList: [
-          "Instant Reading: No installation or registration required.",
+          "Instant & Free: No installation or registration required. Upload and read instantly.",
           "Privacy First: Your files are processed in your browser and are never uploaded to our servers.",
           "Fully Customizable: Adjust font size, line height, and reading modes for your comfort.",
           "Mobile Ready: Enjoy a seamless reading experience on any device.",
-          "Keyboard & Swipe Navigation",
-          "Table of Contents Navigation",
+          "Keyboard & Swipe Navigation for easy page turning.",
+          "Table of Contents Navigation to jump to any chapter.",
           "Completely free with no ads."
         ],
       },
@@ -378,12 +383,12 @@ const createJsonLd = (lang: 'en' | 'ja' | 'ru' | 'ko' | 'ar') => {
         name: "ePubリーダー",
         description: "お使いのデバイスで、いつでもどこでもEPUBブックをオンラインで読書。ダウンロードや登録は不要。アップロードするだけで、クリーンでカスタマイズ可能な読書体験を楽しめます。",
         featureList: [
-          "即時読書：インストールや登録は不要です。",
+          "即時読書：インストールや登録は不要ですぐに読書開始。",
           "プライバシー第一：ファイルはブラウザで処理され、サーバーにはアップロードされません。",
           "完全カスタマイズ可能：フォントサイズ、行の高さ、読書モードを快適に調整できます。",
           "モバイル対応：どのデバイスでもシームレスな読書体験を楽しめます。",
-          "キーボードとスワイプによるナビゲーション",
-          "目次ナビゲーション",
+          "キーボードとスワイプによる簡単なページめくり。",
+          "目次ナビゲーションで好きな章にジャンプ。",
           "完全に無料で広告なし。"
         ],
       },
@@ -395,8 +400,8 @@ const createJsonLd = (lang: 'en' | 'ja' | 'ru' | 'ko' | 'ar') => {
           "Конфиденциальность прежде всего: Ваши файлы обрабатываются в вашем браузере и никогда не загружаются на наши серверы.",
           "Полностью настраиваемый: Настраивайте размер шрифта, межстрочный интервал и режимы чтения для вашего удобства.",
           "Готовность к мобильным устройствам: Наслаждайтесь бесперебойным чтением на любом устройстве.",
-          "Навигация с помощью клавиатуры и свайпов",
-          "Навигация по оглавлению",
+          "Навигация с помощью клавиатуры и свайпов для легкого перелистывания страниц.",
+          "Навигация по оглавлению для перехода к любой главе.",
           "Полностью бесплатно и без рекламы."
         ],
       },
@@ -408,8 +413,8 @@ const createJsonLd = (lang: 'en' | 'ja' | 'ru' | 'ko' | 'ar') => {
           "개인정보 보호 우선: 파일은 브라우저 내에서 처리되며 서버로 업로드되지 않습니다.",
           "완전한 사용자 맞춤화: 글꼴 크기, 줄 간격, 읽기 모드를 원하는 대로 조정할 수 있습니다.",
           "모바일 최적화: 데스크톱부터 스마트폰까지 모든 기기에서 원활한 독서 경험을 제공합니다.",
-          "키보드 및 스와이프 탐색",
-          "목차 탐색",
+          "키보드 및 스와이프 탐색으로 쉬운 페이지 넘김.",
+          "목차 탐색으로 원하는 챕터로 즉시 이동.",
           "광고 없이 완전 무료입니다."
         ],
       },
@@ -417,12 +422,12 @@ const createJsonLd = (lang: 'en' | 'ja' | 'ru' | 'ko' | 'ar') => {
         name: "قارئ ePub",
         description: "اقرأ كتب EPUB الخاصة بك على الإنترنت، في أي مكان، وعلى أي جهاز. بدون تنزيلات أو تسجيل. فقط قم بالتحميل واستمتع بتجربة قراءة نظيفة وقابلة للتخصيص.",
         featureList: [
-          "قراءة فورية: لا حاجة للتثبيت أو التسجيل.",
+          "قراءة فورية: لا حاجة للتثبيت أو التسجيل. قم بالتحميل والقراءة فورًا.",
           "الخصوصية أولاً: تتم معالجة ملفاتك في متصفحك فقط ولا تُرفع إلى خوادمنا.",
           "قابل للتخصيص بالكامل: يمكنك ضبط حجم الخط، وارتفاع السطر، ووضع القراءة حسب راحتك.",
           "متوافق مع الجوال: استمتع بتجربة قراءة سلسة على أي جهاز.",
-          "التنقل باستخدام لوحة المفاتيح والسحب",
-          "التنقل عبر جدول المحتويات",
+          "التنقل باستخدام لوحة المفاتيح والسحب لقلب الصفحات بسهولة.",
+          "التنقل عبر جدول المحتويات للقفز إلى أي فصل.",
           "مجاني تمامًا وبدون إعلانات."
         ],
       },

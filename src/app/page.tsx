@@ -25,9 +25,7 @@ import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
 import {
   Sheet,
@@ -504,15 +502,27 @@ export default function EPubReaderPage() {
             <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
                 <section id="features" className="mb-20">
                     <h2 className="text-3xl font-bold text-center mb-10">{t('features_title')}</h2>
-                    <div className="grid md:grid-cols-3 gap-8">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {featureList.map((feature, index) => (
                         <div key={index} className="text-center p-6 border rounded-lg shadow-sm hover:shadow-md transition-shadow">
                             <div className="flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 text-primary mx-auto mb-4">
                                 <feature.icon className="h-6 w-6" />
                             </div>
-                            <p>{t(`features_list.${feature.key}`)}</p>
+                            <h3 className="text-lg font-semibold mb-2">{t(`features_list.${feature.key}.title`)}</h3>
+                            <p className="text-muted-foreground">{t(`features_list.${feature.key}.description`)}</p>
                         </div>
                     ))}
+                    </div>
+                </section>
+                
+                <section id="why-choose-us" className="mb-20 bg-muted -mx-4 sm:-mx-6 lg:-mx-8 py-16 px-4 sm:px-6 lg:px-8">
+                    <div className="w-full max-w-3xl mx-auto">
+                        <h2 className="text-3xl font-bold text-center mb-10">{t('why_choose_us_title')}</h2>
+                        <div className="text-center text-muted-foreground space-y-4">
+                            <p>{t('why_choose_us_p1')}</p>
+                            <p>{t('why_choose_us_p2')}</p>
+                            <p>{t('why_choose_us_p3')}</p>
+                        </div>
                     </div>
                 </section>
 
