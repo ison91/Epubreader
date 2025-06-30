@@ -1,0 +1,75 @@
+
+{
+  "ePub Reader": "Lector ePub",
+  "Upload a Book": "Subir un libro",
+  "preparing_book": "Preparando tu libro...",
+  "Menu": "Menú",
+  "Contents": "Índice",
+  "Settings": "Configuración",
+  "Page View": "Vista de página",
+  "Two Page": "Dos páginas",
+  "Single": "Una sola",
+  "Font Size": "Tamaño de fuente",
+  "Line Height": "Interlineado",
+  "Read a new Book": "Leer un libro nuevo",
+  "of": "de",
+  "Language": "Idioma",
+  "Open Menu (T)": "Abrir menú (T)",
+  "Previous Page": "Página anterior",
+  "Next Page": "Página siguiente",
+  "Current Page": "Página actual",
+  "Loading...": "Cargando...",
+  "features_title": "¿Por qué elegir Lector ePub?",
+  "features_list": {
+    "feature_1": {
+      "title": "Instantáneo y gratis",
+      "description": "No requiere instalación ni registro. Sube tu EPUB y comienza a leer al instante. Nuestro servicio es completamente gratuito y sin anuncios."
+    },
+    "feature_2": {
+      "title": "Privacidad primero",
+      "description": "Respetamos tu privacidad. Tus archivos se procesan localmente en tu navegador y nunca se suben a nuestros servidores. Tus libros son tuyos."
+    },
+    "feature_3": {
+      "title": "Experiencia personalizable",
+      "description": "Toma el control de tu experiencia de lectura. Ajusta tamaño de fuente, interlineado y elige entre una o dos páginas según tu comodidad."
+    },
+    "feature_4": {
+      "title": "Funciona en cualquier dispositivo",
+      "description": "Disfruta una lectura fluida en ordenador, tablet o móvil. Nuestro diseño responsivo se adapta a tu pantalla."
+    },
+    "feature_5": {
+      "title": "Rápido y eficiente",
+      "description": "Construido con tecnologías web modernas, nuestro lector ofrece un rendimiento rápido y sensible, asegurando que tus libros carguen ágilmente y funcionen sin fallos."
+    },
+    "feature_6": {
+      "title": "Navegación sencilla",
+      "description": "Navega fácilmente por tu libro usando el índice integrado o salta directamente a cualquier página. Leer debe ser fácil."
+    }
+  },
+  "why_choose_us_title": "Diseñado para el lector moderno",
+  "why_choose_us_p1": "En un mundo de apps y suscripciones complejas, creemos en la simplicidad. Lector ePub fue creado con un objetivo: ofrecer la forma más fácil y directa de leer libros EPUB en línea. Eliminamos barreras entre tú y tus historias.",
+  "why_choose_us_p2": "Ya seas estudiante, profesional o lector empedernido, nuestra herramienta ofrece una interfaz clara y sin distracciones que pone tu contenido en el centro. Sin ventanas emergentes, sin anuncios, sin adornos innecesarios: solo tú y tu libro.",
+  "why_choose_us_p3": "Estamos comprometidos con una plataforma abierta y accesible para todos. Por eso es completamente gratis y funciona en cualquier dispositivo con navegador moderno. Únete a miles de usuarios que han simplificado la lectura en línea.",
+  "how_it_works_title": "Cómo funciona en 3 pasos sencillos",
+  "how_it_works_steps": {
+    "step_1": "Haz clic en «Subir un libro» y selecciona un archivo EPUB de tu dispositivo.",
+    "step_2": "El libro se abre al instante en un lector limpio y sin distracciones.",
+    "step_3": "Usa el menú para personalizar tu lectura y navegar por capítulos."
+  },
+  "faq_title": "Preguntas frecuentes",
+  "faq_items": {
+    "q1": "¿Este servicio es realmente gratis?",
+    "a1": "Sí, Lector ePub es completamente gratis, sin costes ocultos ni anuncios. Nuestro objetivo es ofrecer una herramienta de lectura simple y accesible para todos.",
+    "q2": "¿Mis libros están seguros? ¿Se almacenan en algún sitio?",
+    "a2": "Tu privacidad es nuestra máxima prioridad. Tus archivos nunca se suben ni se almacenan en ningún servidor. El archivo EPUB se abre y procesa directamente en tu navegador.",
+    "q3": "¿En qué dispositivos puedo usarlo?",
+    "a3": "Nuestro lector es una aplicación web, lo que significa que funciona en cualquier dispositivo con navegador moderno: ordenadores (Windows, macOS, Linux), tablets (iPad, Android) y smartphones (iPhone, Android)."
+  },
+  "error": {
+    "reading_file_title": "Error al leer el archivo",
+    "reading_file_description": "Hubo un problema al leer el archivo. Por favor, asegúrate de que no esté dañado.",
+    "reading_file_error_description": "Ocurrió un error al procesar el archivo.",
+    "loading_book_title": "Error al cargar el libro",
+    "loading_book_description": "Ocurrió un error al cargar el libro. El archivo puede estar dañado o en un formato no compatible."
+  }
+}

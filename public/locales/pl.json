@@ -1,0 +1,75 @@
+
+{
+  "ePub Reader": "Czytnik ePub",
+  "Upload a Book": "Prześlij książkę",
+  "preparing_book": "Przygotowywanie książki...",
+  "Menu": "Menu",
+  "Contents": "Spis treści",
+  "Settings": "Ustawienia",
+  "Page View": "Widok strony",
+  "Two Page": "Dwie strony",
+  "Single": "Pojedyncza",
+  "Font Size": "Rozmiar czcionki",
+  "Line Height": "Interlinia",
+  "Read a new Book": "Czytaj nową książkę",
+  "of": "z",
+  "Language": "Język",
+  "Open Menu (T)": "Otwórz menu (T)",
+  "Previous Page": "Poprzednia strona",
+  "Next Page": "Następna strona",
+  "Current Page": "Obecna strona",
+  "Loading...": "Ładowanie...",
+  "features_title": "Dlaczego warto wybrać Czytnik ePub?",
+  "features_list": {
+    "feature_1": {
+      "title": "Natychmiastowy i bezpłatny",
+      "description": "Bez instalacji i rejestracji. Prześlij EPUB i zacznij czytać od razu. Nasza usługa jest całkowicie darmowa i bez reklam."
+    },
+    "feature_2": {
+      "title": "Prywatność przede wszystkim",
+      "description": "Dbamy o Twoją prywatność. Pliki są przetwarzane lokalnie w przeglądarce i nigdy nie są wysyłane na serwery. Twoje książki należą do Ciebie."
+    },
+    "feature_3": {
+      "title": "Dostosowane doświadczenie",
+      "description": "Kontroluj swoje czytanie. Dostosuj rozmiar czcionki, interlinię i wybierz widok jednej lub dwóch stron."
+    },
+    "feature_4": {
+      "title": "Działa na każdym urządzeniu",
+      "description": "Ciesz się płynnym czytaniem na komputerze, tablecie i smartfonie. Nasz responsywny układ dopasowuje się do ekranu."
+    },
+    "feature_5": {
+      "title": "Szybki i wydajny",
+      "description": "Zbudowany z wykorzystaniem nowoczesnych technologii webowych — nasz czytnik szybko się ładuje i działa płynnie."
+    },
+    "feature_6": {
+      "title": "Łatwa nawigacja",
+      "description": "Przeglądaj książkę bez trudu dzięki spisowi treści lub przechodź bezpośrednio do wybranej strony. Czytanie ma być łatwe."
+    }
+  },
+  "why_choose_us_title": "Zaprojеktowany z myślą o nowoczesnym czytelniku",
+  "why_choose_us_p1": "W świecie pełnym skomplikowanych aplikacji i subskrypcji stawiamy na prostotę. Czytnik ePub powstał z jednym celem: zapewnić najłatwiejszy, najbardziej bezpośredni sposób czytania EPUB online. Usuwamy bariery między tobą a twoimi historiami.",
+  "why_choose_us_p2": "Niezależnie od tego, czy jesteś studentem, profesjonalistą czy zapalonym czytelnikiem, nasze narzędzie oferuje czysty, wolny od rozproszeń interfejs, który oddaje pierwszy plan twoim treściom. Bez wyskakujących okien, bez reklam, bez zbędnych dodatków — tylko ty i twoja książka.",
+  "why_choose_us_p3": "Jesteśmy zobowiązani do zapewnienia otwartej i dostępnej platformy dla każdego. Dlatego nasza usługa jest całkowicie darmowa i działa na każdym urządzeniu z nowoczesną przeglądarką. Dołącz do tysięcy użytkowników, którzy uprościli czytanie online.",
+  "how_it_works_title": "Jak to działa w 3 prostych krokach",
+  "how_it_works_steps": {
+    "step_1": "Kliknij „Prześlij książkę” i wybierz plik EPUB ze swojego urządzenia.",
+    "step_2": "Książka otworzy się natychmiast w czytniku wolnym od rozproszeń.",
+    "step_3": "Użyj menu, aby dostosować doświadczenie czytania i nawigować po rozdziałach."
+  },
+  "faq_title": "Najczęściej zadawane pytania",
+  "faq_items": {
+    "q1": "Czy ta usługa jest naprawdę darmowa?",
+    "a1": "Tak, Czytnik ePub jest całkowicie darmowy, bez ukrytych kosztów i reklam. Naszym celem jest udostępnianie prostego i dostępnego narzędzia do czytania dla każdego.",
+    "q2": "Czy moje książki są bezpieczne? Czy są gdzieś przechowywane?",
+    "a2": "Twoja prywatność to nasz najwyższy priorytet. Twoje pliki nigdy nie są przesyłane ani przechowywane na żadnym serwerze. Plik EPUB jest otwierany i przetwarzany bezpośrednio w Twojej przeglądarce.",
+    "q3": "Na jakich urządzeniach mogę korzystać?",
+    "a3": "Nasz czytnik to aplikacja webowa – działa na każdym urządzeniu z nowoczesną przeglądarką – komputery (Windows, macOS, Linux), tablety (iPad, Android) i smartfony (iPhone, Android)."
+  },
+  "error": {
+    "reading_file_title": "Błąd odczytu pliku",
+    "reading_file_description": "Wystąpił problem z odczytem pliku. Upewnij się, że nie jest uszkodzony.",
+    "reading_file_error_description": "Wystąpił błąd podczas przetwarzania pliku.",
+    "loading_book_title": "Błąd ładowania książki",
+    "loading_book_description": "Wystąpił błąd podczas ładowania książki. Plik może być uszkodzony lub w formacie nieobsługiwanym."
+  }
+}

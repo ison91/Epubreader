@@ -460,6 +460,18 @@ export default function EPubReaderPage() {
                             <DropdownMenuItem onSelect={() => setLocale("en")}>
                             English
                             </DropdownMenuItem>
+                            <DropdownMenuItem onSelect={() => setLocale("de")}>
+                            Deutsch
+                            </DropdownMenuItem>
+                            <DropdownMenuItem onSelect={() => setLocale("es")}>
+                            Español
+                            </DropdownMenuItem>
+                             <DropdownMenuItem onSelect={() => setLocale("fr")}>
+                            Français
+                            </DropdownMenuItem>
+                            <DropdownMenuItem onSelect={() => setLocale("pl")}>
+                            Polski
+                            </DropdownMenuItem>
                             <DropdownMenuItem onSelect={() => setLocale("ja")}>
                             日本語
                             </DropdownMenuItem>

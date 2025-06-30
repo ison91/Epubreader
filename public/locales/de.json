@@ -1,0 +1,75 @@
+
+{
+  "ePub Reader": "ePub‑Reader",
+  "Upload a Book": "Buch hochladen",
+  "preparing_book": "Buch wird vorbereitet...",
+  "Menu": "Menü",
+  "Contents": "Inhalt",
+  "Settings": "Einstellungen",
+  "Page View": "Seitenansicht",
+  "Two Page": "Zwei Seiten",
+  "Single": "Einzelseite",
+  "Font Size": "Schriftgröße",
+  "Line Height": "Zeilenhöhe",
+  "Read a new Book": "Neues Buch lesen",
+  "of": "von",
+  "Language": "Sprache",
+  "Open Menu (T)": "Menü öffnen (T)",
+  "Previous Page": "Vorherige Seite",
+  "Next Page": "Nächste Seite",
+  "Current Page": "Aktuelle Seite",
+  "Loading...": "Wird geladen...",
+  "features_title": "Warum ePub‑Reader?",
+  "features_list": {
+    "feature_1": {
+      "title": "Sofort & kostenlos",
+      "description": "Keine Installation oder Registrierung nötig. EPUB hochladen und sofort lesen. Unser Dienst ist völlig kostenlos und werbefrei."
+    },
+    "feature_2": {
+      "title": "Datenschutz zuerst",
+      "description": "Wir respektieren Ihre Privatsphäre. Ihre Dateien werden lokal im Browser verarbeitet und nie auf Server hochgeladen. Ihre Bücher gehören Ihnen."
+    },
+    "feature_3": {
+      "title": "Anpassbares Leseerlebnis",
+      "description": "Gestalten Sie Ihr Leseerlebnis selbst. Passen Sie Schriftgröße, Zeilenhöhe an und wählen Sie zwischen Einzel‑ oder Doppelseiten‑Ansicht."
+    },
+    "feature_4": {
+      "title": "Funktioniert auf jedem Gerät",
+      "description": "Genießen Sie ein nahtloses Leseerlebnis auf Desktop, Tablet oder Smartphone. Unser responsives Design passt sich Ihrem Bildschirm an."
+    },
+    "feature_5": {
+      "title": "Schnell & effizient",
+      "description": "Mit modernen Webtechnologien gebaut – unser Reader lädt schnell und läuft flüssig."
+    },
+    "feature_6": {
+      "title": "Einfache Navigation",
+      "description": "Blättern Sie bequem mit dem Inhaltsverzeichnis oder springen Sie direkt zu jeder Seite. Lesen soll einfach sein."
+    }
+  },
+  "why_choose_us_title": "Für moderne Leser gemacht",
+  "why_choose_us_p1": "In einer Welt voller komplexer Apps und Abos setzen wir auf Einfachheit. ePub‑Reader hat ein Ziel: der direkteste Weg, EPUBs online zu lesen. Wir beseitigen Hindernisse zwischen Ihnen und Ihren Geschichten.",
+  "why_choose_us_p2": "Ob Student, Profi oder Bücherfreund – unser Tool bietet eine klare, ablenkungsfreie Oberfläche, die den Inhalt in den Fokus stellt. Keine Pop‑ups, keine Werbung, keine unnötigen Spielereien – nur Sie und Ihr Buch.",
+  "why_choose_us_p3": "Wir stehen für offene, barrierefreie Dienste. Deshalb ist unser Service kostenlos und funktioniert auf jedem Gerät mit modernem Browser. Schließen Sie sich tausenden Nutzern an, die Online‑Lesen einfach gemacht haben.",
+  "how_it_works_title": "Wie es in 3 Schritten funktioniert",
+  "how_it_works_steps": {
+    "step_1": "Klicken Sie auf «Buch hochladen» und wählen Sie eine EPUB‑Datei von Ihrem Gerät.",
+    "step_2": "Das Buch öffnet sich sofort in einem klaren, ablenkungsfreien Reader.",
+    "step_3": "Nutzen Sie das Menü, um Ihr Leseerlebnis anzupassen und Kapitel zu navigieren."
+  },
+  "faq_title": "Häufige Fragen",
+  "faq_items": {
+    "q1": "Ist dieser Dienst wirklich kostenlos?",
+    "a1": "Ja, der ePub‑Reader ist völlig kostenlos – ohne versteckte Kosten oder Werbung. Unser Ziel ist ein einfaches, zugängliches Lese‑Tool für alle.",
+    "q2": "Sind meine Bücher sicher? Werden sie gespeichert?",
+    "a2": "Ihre Privatsphäre hat höchste Priorität. Ihre Dateien werden nie hochgeladen oder auf Servern gespeichert. Die EPUB wird direkt im Browser geöffnet und verarbeitet.",
+    "q3": "Auf welchen Geräten kann ich das nutzen?",
+    "a3": "Unser Reader ist webbasiert und funktioniert auf jedem Gerät mit modernem Browser – Desktop (Windows, macOS, Linux), Tablets (iPad, Android) und Smartphones (iPhone, Android)."
+  },
+  "error": {
+    "reading_file_title": "Fehler beim Lesen der Datei",
+    "reading_file_description": "Beim Lesen der Datei gab es ein Problem. Bitte prüfen Sie, ob die Datei beschädigt ist.",
+    "reading_file_error_description": "Beim Verarbeiten der Datei ist ein Fehler aufgetreten.",
+    "loading_book_title": "Fehler beim Laden des Buches",
+    "loading_book_description": "Beim Laden des Buches ist ein Fehler aufgetreten. Die Datei könnte beschädigt oder nicht unterstützt sein."
+  }
+}
