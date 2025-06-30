@@ -33,6 +33,7 @@ const enMetadata: Metadata = {
       'en-US': 'https://epubreader.info/',
       'ja-JP': 'https://epubreader.info/',
       'ru-RU': 'https://epubreader.info/',
+      'ko-KR': 'https://epubreader.info/',
     },
   },
   openGraph: {
@@ -102,6 +103,7 @@ const jaMetadata: Metadata = {
       'en-US': 'https://epubreader.info/',
       'ja-JP': 'https://epubreader.info/',
       'ru-RU': 'https://epubreader.info/',
+      'ko-KR': 'https://epubreader.info/',
     },
   },
   openGraph: {
@@ -171,6 +173,7 @@ const ruMetadata: Metadata = {
       'en-US': 'https://epubreader.info/',
       'ja-JP': 'https://epubreader.info/',
       'ru-RU': 'https://epubreader.info/',
+      'ko-KR': 'https://epubreader.info/',
     },
   },
   openGraph: {
@@ -211,7 +214,77 @@ const ruMetadata: Metadata = {
   },
 };
 
-const createJsonLd = (lang: 'en' | 'ja' | 'ru') => {
+const koMetadata: Metadata = {
+  title: {
+    default: "ePub 리더 | 무료, 즉시 온라인 EPUB 책 리더",
+    template: "%s | ePub 리더",
+  },
+  description:
+    "어디서나 모든 기기에서 EPUB 책을 온라인으로 읽으세요. 다운로드나 가입 없이. 업로드만으로 깔끔하고 맞춤 설정 가능한 독서 경험을 즐기세요.",
+  keywords: [
+    "EPUB 리더", "전자책 리더", "온라인 책 리더", "무료 EPUB 리더", "온라인에서 EPUB 읽기",
+    "웹 EPUB 뷰어", "브라우저 EPUB 리더", "HTML5 EPUB 리더", "자바스크립트 EPUB 리더", "NextJS EPUB 리더",
+    "React EPUB 리더", "epubjs 리더", "디지털 책 리더", "온라인 문서 뷰어", "브라우저에서 책 읽기",
+    "EPUB 업로드", "EPUB 파일 열기", "다운로드 없는 전자책 리더", "즉시 전자책 접근", "클라우드 전자책 리더",
+    "크로스플랫폼 리더", "모바일 EPUB 리더", "태블릿 전자책 리더", "데스크톱 EPUB 리더", "경량 EPUB 리더",
+    "빠른 EPUB 로더", "접근성 있는 전자책 리더", "스크린 리더 친화적", "맞춤형 독서 경험", "전자책 글꼴 크기 변경",
+    "책 줄 간격 조정", "다크 모드 리더", "라이트 모드 읽기", "세피아 테마 리더", "독서 진행 상황 추적기",
+    "목차 탐색", "온라인 전자책 라이브러리", "개인 디지털 라이브러리", "개인정보 보호 중심 리더", "로그인 없는 전자책 리더",
+    "안전한 EPUB 뷰어", "오픈 소스 EPUB 리더", "EPUB 형식 지원", ".epub 파일 읽기", "온라인 독서 도구",
+    "디지털 독서 플랫폼", "EPUB 웹 앱", "최고의 온라인 EPUB 리더", "간단한 EPUB 리더", "깔끔한 독서 인터페이스",
+    "집중력 있는 독서", "EPUB을 HTML로", "웹 기반 전자 리더", "무료 책 리더", "크롬북에서 epub 읽기", "epub 파일 여는 법", "이펍 리더", "전자책 보기"
+  ],
+  authors: [{ name: "Firebase Studio", url: "https://epubreader.info" }],
+  creator: "Firebase Studio",
+  publisher: "Firebase",
+  alternates: {
+    canonical: "https://epubreader.info/",
+    languages: {
+      'en-US': 'https://epubreader.info/',
+      'ja-JP': 'https://epubreader.info/',
+      'ru-RU': 'https://epubreader.info/',
+      'ko-KR': 'https://epubreader.info/',
+    },
+  },
+  openGraph: {
+    title: "ePub 리더 | 무료, 즉시 온라인 EPUB 책 리더",
+    description:
+      "어디서나 모든 기기에서 EPUB 책을 온라인으로 읽으세요. 다운로드나 가입 없이. 업로드만으로 깔끔하고 맞춤 설정 가능한 독서 경험을 즐기세요.",
+    url: "https://epubreader.info",
+    siteName: "ePub 리더",
+    images: [
+      {
+        url: "https://placehold.co/1200x630.png",
+        width: 1200,
+        height: 630,
+        alt: "열린 책을 보여주는 ePub 리더 애플리케이션의 깔끔하고 현대적인 인터페이스.",
+      },
+    ],
+    locale: "ko_KR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ePub 리더 | 무료, 즉시 온라인 EPUB 책 리더",
+    description:
+      "온라인으로 ePub 책을 읽는 가장 쉬운 방법. 깔끔하고 모바일에 최적화된 맞춤형 인터페이스로 브라우저에 직접 파일을 업로드하고 읽으세요.",
+    images: ["https://placehold.co/1200x630.png"],
+    creator: "@Firebase",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+};
+
+const createJsonLd = (lang: 'en' | 'ja' | 'ru' | 'ko') => {
     const content = {
       en: {
         name: "ePub Reader",
@@ -250,6 +323,19 @@ const createJsonLd = (lang: 'en' | 'ja' | 'ru') => {
           "Навигация с помощью клавиатуры и свайпов",
           "Навигация по оглавлению",
           "Полностью бесплатно и без рекламы."
+        ],
+      },
+      ko: {
+        name: "ePub 리더",
+        description: "어디서나 모든 기기에서 EPUB 책을 온라인으로 읽으세요. 다운로드나 가입 없이. 업로드만으로 깔끔하고 맞춤 설정 가능한 독서 경험을 즐기세요.",
+        featureList: [
+          "즉시 읽기: 설치나 가입 없이 바로 책을 업로드하고 읽기 시작할 수 있습니다.",
+          "개인정보 보호 우선: 파일은 브라우저 내에서 처리되며 서버로 업로드되지 않습니다.",
+          "완전한 사용자 맞춤화: 글꼴 크기, 줄 간격, 읽기 모드를 원하는 대로 조정할 수 있습니다.",
+          "모바일 최적화: 데스크톱부터 스마트폰까지 모든 기기에서 원활한 독서 경험을 제공합니다.",
+          "키보드 및 스와이프 탐색",
+          "목차 탐색",
+          "광고 없이 완전 무료입니다."
         ],
       },
     };
@@ -301,9 +387,13 @@ const createJsonLd = (lang: 'en' | 'ja' | 'ru') => {
 export async function generateMetadata(): Promise<Metadata> {
   const headersList = headers();
   const acceptLanguage = headersList.get("accept-language");
+  const isKorean = acceptLanguage?.startsWith("ko");
   const isJapanese = acceptLanguage?.startsWith("ja");
   const isRussian = acceptLanguage?.startsWith("ru");
 
+  if (isKorean) {
+    return koMetadata;
+  }
   if (isRussian) {
     return ruMetadata;
   }
@@ -321,12 +411,15 @@ export default function RootLayout({
 }>) {
   const headersList = headers();
   const acceptLanguage = headersList.get("accept-language");
+  const isKorean = acceptLanguage?.startsWith("ko");
   const isJapanese = acceptLanguage?.startsWith("ja");
   const isRussian = acceptLanguage?.startsWith("ru");
   
-  let lang: 'en' | 'ja' | 'ru' = "en";
+  let lang: 'en' | 'ja' | 'ru' | 'ko' = "en";
 
-  if (isRussian) {
+  if (isKorean) {
+    lang = "ko";
+  } else if (isRussian) {
     lang = "ru";
   } else if (isJapanese) {
     lang = "ja";
