@@ -19,6 +19,10 @@
   "Next Page": "Página siguiente",
   "Current Page": "Página actual",
   "Loading...": "Cargando...",
+  "footer": {
+    "site_name": "Lector ePub",
+    "rights_reserved": "Todos los derechos reservados."
+  },
   "features_title": "¿Por qué elegir Lector ePub?",
   "features_list": {
     "feature_1": {
@@ -65,15 +69,48 @@
     "q3": "¿En qué dispositivos puedo usarlo?",
     "a3": "Nuestro lector es una aplicación web, lo que significa que funciona en cualquier dispositivo con navegador moderno: ordenadores (Windows, macOS, Linux), tablets (iPad, Android) y smartphones (iPhone, Android)."
   },
-  "footer": {
-    "site_name": "Lector ePub",
-    "rights_reserved": "Todos los derechos reservados."
-  },
   "error": {
     "reading_file_title": "Error al leer el archivo",
     "reading_file_description": "Hubo un problema al leer el archivo. Por favor, asegúrate de que no esté dañado.",
     "reading_file_error_description": "Ocurrió un error al procesar el archivo.",
     "loading_book_title": "Error al cargar el libro",
     "loading_book_description": "Ocurrió un error al cargar el libro. El archivo puede estar dañado o en un formato no compatible."
+  },
+  "metadata": {
+    "title": {
+      "default": "Lector ePub | Lector de libros EPUB online, gratuito e instantáneo",
+      "template": "%s | Lector ePub"
+    },
+    "description": "Lee tus libros EPUB en línea, en cualquier lugar y en cualquier dispositivo. Sin descargas ni registros. Simplemente sube tu archivo y disfruta de una experiencia de lectura limpia y personalizable.",
+    "keywords": [
+      "lector EPUB", "lector de ebooks online", "lector EPUB gratis", "leer EPUBs online", "visor EPUB web", "lector EPUB para navegador", "lector epubjs", "leer libros digitales", "subir EPUB", "abrir archivo EPUB", "lector de ebooks sin descargar", "acceso instantáneo a ebooks", "lector multiplataforma", "lector EPUB ligero", "lector centrado en la privacidad", "lector EPUB sin registro", "lector EPUB de código abierto", "leer archivos .epub", "herramienta de lectura online", "aplicación web EPUB", "mejor lector EPUB online", "lector EPUB simple", "lectura sin distracciones", "abrir epub", "leer epub en chromebook", "abrir .epub", "lector de libros gratis", "biblioteca virtual", "privacidad lector", "leer en el navegador"
+    ],
+    "authors": [{ "name": "Firebase Studio", "url": "https://epubreader.info" }],
+    "creator": "Firebase Studio",
+    "publisher": "Firebase",
+    "openGraph": {
+      "title": "Lector ePub | Lector de libros EPUB online, gratuito e instantáneo",
+      "description": "Lee tus libros EPUB en línea, en cualquier lugar y en cualquier dispositivo. Sin descargas ni registros.",
+      "url": "https://epubreader.info",
+      "siteName": "Lector ePub",
+      "images": [
+        {
+          "alt": "Una interfaz limpia y moderna de la aplicación Lector ePub, mostrando un libro abierto."
+        }
+      ],
+      "locale": "es_ES",
+      "type": "website"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "Lector ePub | La forma más fácil de leer EPUBs online",
+      "description": "Sube y lee tus archivos EPUB directamente en tu navegador con una interfaz limpia, adaptable a móviles y personalizable.",
+      "creator": "@Firebase"
+    },
+    "robots": { "index": true, "follow": true }
+  },
+  "schema": {
+    "name": "Lector ePub",
+    "description": "Lea sus libros EPUB en línea con nuestro lector gratuito y centrado en la privacidad. No se necesita instalación ni registro. Acceda instantáneamente a sus libros en cualquier dispositivo."
   }
 }

@@ -1,6 +1,6 @@
 
 {
-  "ePub Reader": "ePub‑Reader",
+  "ePub Reader": "ePub-Reader",
   "Upload a Book": "Buch hochladen",
   "preparing_book": "Buch wird vorbereitet...",
   "Menu": "Menü",
@@ -19,7 +19,11 @@
   "Next Page": "Nächste Seite",
   "Current Page": "Aktuelle Seite",
   "Loading...": "Wird geladen...",
-  "features_title": "Warum ePub‑Reader?",
+  "footer": {
+    "site_name": "ePub-Reader",
+    "rights_reserved": "Alle Rechte vorbehalten."
+  },
+  "features_title": "Warum ePub-Reader?",
   "features_list": {
     "feature_1": {
       "title": "Sofort & kostenlos",
@@ -27,15 +31,15 @@
     },
     "feature_2": {
       "title": "Datenschutz zuerst",
-      "description": "Wir respektieren Ihre Privatsphäre. Ihre Dateien werden lokal im Browser verarbeitet und nie auf Server hochgeladen. Ihre Bücher gehören Ihnen."
+      "description": "Wir respektieren Ihre Privatsphäre. Ihre Dateien werden lokal im Browser verarbeitet und nie auf Server hochgeladen. Ihre Bücher bleiben Ihre."
     },
     "feature_3": {
       "title": "Anpassbares Leseerlebnis",
-      "description": "Gestalten Sie Ihr Leseerlebnis selbst. Passen Sie Schriftgröße, Zeilenhöhe an und wählen Sie zwischen Einzel‑ oder Doppelseiten‑Ansicht."
+      "description": "Übernehmen Sie die Kontrolle über Ihr Leseerlebnis. Passen Sie Schriftgröße, Zeilenhöhe an und wechseln Sie zwischen Einzel- oder Doppelseitenansicht für Ihren Komfort."
     },
     "feature_4": {
       "title": "Funktioniert auf jedem Gerät",
-      "description": "Genießen Sie ein nahtloses Leseerlebnis auf Desktop, Tablet oder Smartphone. Unser responsives Design passt sich Ihrem Bildschirm an."
+      "description": "Genießen Sie ein nahtloses Leseerlebnis auf Ihrem Desktop, Tablet oder Smartphone. Unser responsives Design passt sich Ihrem Bildschirm an."
     },
     "feature_5": {
       "title": "Schnell & effizient",
@@ -47,27 +51,23 @@
     }
   },
   "why_choose_us_title": "Für moderne Leser gemacht",
-  "why_choose_us_p1": "In einer Welt voller komplexer Apps und Abos setzen wir auf Einfachheit. ePub‑Reader hat ein Ziel: der direkteste Weg, EPUBs online zu lesen. Wir beseitigen Hindernisse zwischen Ihnen und Ihren Geschichten.",
-  "why_choose_us_p2": "Ob Student, Profi oder Bücherfreund – unser Tool bietet eine klare, ablenkungsfreie Oberfläche, die den Inhalt in den Fokus stellt. Keine Pop‑ups, keine Werbung, keine unnötigen Spielereien – nur Sie und Ihr Buch.",
-  "why_choose_us_p3": "Wir stehen für offene, barrierefreie Dienste. Deshalb ist unser Service kostenlos und funktioniert auf jedem Gerät mit modernem Browser. Schließen Sie sich tausenden Nutzern an, die Online‑Lesen einfach gemacht haben.",
+  "why_choose_us_p1": "In einer Welt voller komplexer Apps und Abos setzen wir auf Einfachheit. ePub-Reader hat ein Ziel: der direkteste Weg, EPUBs online zu lesen. Wir beseitigen Hindernisse zwischen Ihnen und Ihren Geschichten.",
+  "why_choose_us_p2": "Ob Student, Profi oder Bücherfreund – unser Tool bietet eine klare, ablenkungsfreie Oberfläche, die den Inhalt in den Fokus stellt. Keine Pop-ups, keine Werbung, keine unnötigen Spielereien – nur Sie und Ihr Buch.",
+  "why_choose_us_p3": "Wir stehen für offene, barrierefreie Dienste. Deshalb ist unser Service kostenlos und funktioniert auf jedem Gerät mit modernem Browser. Schließen Sie sich tausenden Nutzern an, die Online-Lesen einfach gemacht haben.",
   "how_it_works_title": "Wie es in 3 Schritten funktioniert",
   "how_it_works_steps": {
-    "step_1": "Klicken Sie auf «Buch hochladen» und wählen Sie eine EPUB‑Datei von Ihrem Gerät.",
+    "step_1": "Klicken Sie auf «Buch hochladen» und wählen Sie eine EPUB-Datei von Ihrem Gerät.",
     "step_2": "Das Buch öffnet sich sofort in einem klaren, ablenkungsfreien Reader.",
     "step_3": "Nutzen Sie das Menü, um Ihr Leseerlebnis anzupassen und Kapitel zu navigieren."
   },
   "faq_title": "Häufige Fragen",
   "faq_items": {
     "q1": "Ist dieser Dienst wirklich kostenlos?",
-    "a1": "Ja, der ePub‑Reader ist völlig kostenlos – ohne versteckte Kosten oder Werbung. Unser Ziel ist ein einfaches, zugängliches Lese‑Tool für alle.",
+    "a1": "Ja, der ePub-Reader ist völlig kostenlos – ohne versteckte Kosten oder Werbung. Unser Ziel ist ein einfaches, zugängliches Lese-Tool für alle.",
     "q2": "Sind meine Bücher sicher? Werden sie gespeichert?",
     "a2": "Ihre Privatsphäre hat höchste Priorität. Ihre Dateien werden nie hochgeladen oder auf Servern gespeichert. Die EPUB wird direkt im Browser geöffnet und verarbeitet.",
     "q3": "Auf welchen Geräten kann ich das nutzen?",
     "a3": "Unser Reader ist webbasiert und funktioniert auf jedem Gerät mit modernem Browser – Desktop (Windows, macOS, Linux), Tablets (iPad, Android) und Smartphones (iPhone, Android)."
-  },
-  "footer": {
-    "site_name": "ePub-Reader",
-    "rights_reserved": "Alle Rechte vorbehalten."
   },
   "error": {
     "reading_file_title": "Fehler beim Lesen der Datei",
@@ -75,5 +75,42 @@
     "reading_file_error_description": "Beim Verarbeiten der Datei ist ein Fehler aufgetreten.",
     "loading_book_title": "Fehler beim Laden des Buches",
     "loading_book_description": "Beim Laden des Buches ist ein Fehler aufgetreten. Die Datei könnte beschädigt oder nicht unterstützt sein."
+  },
+  "metadata": {
+    "title": {
+      "default": "ePub-Reader | Kostenloser, sofortiger Online-EPUB-Buchleser",
+      "template": "%s | ePub-Reader"
+    },
+    "description": "Lesen Sie Ihre EPUB-Bücher online, überall und auf jedem Gerät. Keine Downloads, keine Anmeldungen. Laden Sie einfach hoch und genießen Sie ein sauberes, anpassbares Leseerlebnis.",
+    "keywords": [
+      "EPUB-Reader", "E-Book-Reader online", "kostenloser EPUB-Reader", "EPUBs online lesen", "Web-EPUB-Viewer", "Browser-EPUB-Reader", "epubjs-Reader", "digitale Bücher lesen", "EPUB hochladen", "EPUB-Datei öffnen", "E-Book-Reader ohne Download", "sofortiger E-Book-Zugriff", "plattformübergreifender Reader", "leichter EPUB-Reader", "datenschutzorientierter Reader", "EPUB-Reader ohne Anmeldung", "Open-Source-EPUB-Reader", "epub-Dateien lesen", "Online-Lesetool", "Web-App für EPUBs", "bester Online-EPUB-Reader", "einfacher EPUB-Reader", "ablenkungsfreies Lesen", "epub öffnen", "epub auf chromebook lesen", "buch online lesen", "dokumentenbetrachter", "privater ebook reader", "sicherer epub viewer", "epub software", "e-reader app"
+    ],
+    "authors": [{ "name": "Firebase Studio", "url": "https://epubreader.info" }],
+    "creator": "Firebase Studio",
+    "publisher": "Firebase",
+    "openGraph": {
+      "title": "ePub-Reader | Kostenloser, sofortiger Online-EPUB-Buchleser",
+      "description": "Lesen Sie Ihre EPUB-Bücher online, überall und auf jedem Gerät. Keine Downloads, keine Anmeldungen. Einfach hochladen und genießen.",
+      "url": "https://epubreader.info",
+      "siteName": "ePub-Reader",
+      "images": [
+        {
+          "alt": "Eine saubere und moderne Oberfläche der ePub-Reader-Anwendung, die ein geöffnetes Buch zeigt."
+        }
+      ],
+      "locale": "de_DE",
+      "type": "website"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "ePub-Reader | Der einfachste Weg, ePubs online zu lesen",
+      "description": "Laden Sie Ihre ePub-Dateien direkt im Browser hoch und lesen Sie sie mit einer sauberen, mobilfreundlichen und anpassbaren Oberfläche.",
+      "creator": "@Firebase"
+    },
+    "robots": { "index": true, "follow": true }
+  },
+  "schema": {
+    "name": "ePub-Reader",
+    "description": "Lesen Sie Ihre EPUB-Bücher online mit unserem kostenlosen, datenschutzorientierten Reader. Keine Installation, keine Registrierung erforderlich. Greifen Sie sofort auf jedem Gerät auf Ihre Bücher zu."
   }
 }

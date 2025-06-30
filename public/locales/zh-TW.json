@@ -19,6 +19,10 @@
   "Next Page": "下一頁",
   "Current Page": "目前頁面",
   "Loading...": "載入中…",
+  "footer": {
+    "site_name": "ePub 閱讀器",
+    "rights_reserved": "版權所有。"
+  },
   "features_title": "為什麼選擇 ePub 閱讀器？",
   "features_list": {
     "feature_1": {
@@ -65,15 +69,48 @@
     "q3": "可以在哪些裝置上使用？",
     "a3": "我們的閱讀器為網頁應用程式，支援所有具備現代瀏覽器的裝置，包括桌機（Windows、macOS、Linux）、平板（iPad、Android）和智慧型手機（iPhone、Android）。"
   },
-  "footer": {
-    "site_name": "ePub 閱讀器",
-    "rights_reserved": "版權所有。"
-  },
   "error": {
     "reading_file_title": "讀取檔案錯誤",
     "reading_file_description": "讀取檔案時發生問題。請確認檔案是否損毀。",
     "reading_file_error_description": "處理檔案時發生錯誤。",
     "loading_book_title": "載入書籍錯誤",
     "loading_book_description": "載入書籍時發生錯誤。檔案可能已損毀或格式不支援。"
+  },
+  "metadata": {
+    "title": {
+      "default": "ePub 閱讀器 | 免費、即時的線上 EPUB 電子書閱讀器",
+      "template": "%s | ePub 閱讀器"
+    },
+    "description": "在任何裝置上隨時隨地線上閱讀您的 EPUB 書籍。無需下載，無需註冊。只需上傳，即可享受乾淨、可自訂的閱讀體驗。",
+    "keywords": [
+      "EPUB 閱讀器", "線上電子書閱讀器", "免費EPUB閱讀器", "在線閱讀EPUB", "EPUB閱讀軟體", "網頁EPUB檢視器", "瀏覽器EPUB閱讀", "HTML5 EPUB", "JavaScript EPUB", "NextJS EPUB", "React EPUB", "epubjs", "數位書籍閱讀器", "線上文件檢視器", "瀏覽器讀書", "上傳EPUB", "開啟EPUB檔案", "免下載電子書", "即時電子書", "雲端電子書", "跨平台閱讀器", "手機EPUB閱讀", "平板EPUB閱讀", "電腦EPUB閱讀", "輕量級EPUB閱讀器", "快速EPUB載入", "無障礙電子書", "螢幕閱讀器友善", "自訂閱讀體驗", "調整字體大小", "調整行距", "夜間模式閱讀", "日間模式閱讀", "棕褐色調", "閱讀進度追蹤", "目錄導航", "線上電子圖書館", "個人數位圖書館", "注重隱私的閱讀器", "免登入電子書", "安全的EPUB檢視器", "開源EPUB閱讀器", "支援EPUB格式", "讀取.epub檔案", "線上閱讀工具", "數位閱讀平台", "EPUB網頁應用", "最佳線上EPUB閱讀器", "簡單EPUB閱讀器", "乾淨閱讀介面", "無干擾閱讀", "EPUB轉HTML", "網頁版電子閱讀器", "免費讀書", "在Chromebook上讀EPUB", "如何開啟epub檔", "Chrome epub檢視器", "線上小說閱讀", "免費電子書", "epub線上看", "上傳讀epub"
+    ],
+    "authors": [{ "name": "Firebase Studio", "url": "https://epubreader.info" }],
+    "creator": "Firebase Studio",
+    "publisher": "Firebase",
+    "openGraph": {
+      "title": "ePub 閱讀器 | 免費、即時的線上 EPUB 電子書閱讀器",
+      "description": "在任何裝置上隨時隨地線上閱讀您的 EPUB 書籍。無需下載，無需註冊。只需上傳，即可享受乾淨、可自訂的閱讀體驗。",
+      "url": "https://epubreader.info",
+      "siteName": "ePub 閱讀器",
+      "images": [
+        {
+          "alt": "一個乾淨、現代的 ePub 閱讀器應用程式介面，顯示一本打開的書。"
+        }
+      ],
+      "locale": "zh_TW",
+      "type": "website"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "ePub 閱讀器 | 最簡單的線上 ePub 閱讀方式",
+      "description": "透過乾淨、行動裝置友善且可自訂的介面，直接在瀏覽器中上傳和閱讀您的 ePub 檔案。",
+      "creator": "@Firebase"
+    },
+    "robots": { "index": true, "follow": true }
+  },
+  "schema": {
+    "name": "ePub 閱讀器",
+    "description": "使用我們免費、注重隱私的閱讀器在線閱讀您的 EPUB 書籍。無需安裝，無需註冊。在任何設備上即時訪問您的書籍。"
   }
 }
