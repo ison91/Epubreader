@@ -1,7 +1,8 @@
 
 'use client';
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode, useMemo, useCallback } from 'react';
+import enTranslations from '../../public/locales/en.json';
 
 // Define the shape of the translation context
 interface I18nContextType {
@@ -15,22 +16,32 @@ const I18nContext = createContext<I18nContextType | undefined>(undefined);
 // Define the props for the provider
 interface I18nProviderProps {
   children: ReactNode;
+  initialLocale?: string;
 }
 
 // The provider component
-export const I18nProvider = ({ children }: I18nProviderProps) => {
-  const [locale, setLocale] = useState('en');
-  const [translations, setTranslations] = useState<Record<string, any>>({});
+export const I18nProvider = ({ children, initialLocale = 'en' }: I18nProviderProps) => {
+  const [locale, setLocale] = useState(initialLocale);
+  const [translations, setTranslations] = useState<Record<string, any>>({ en: enTranslations });
 
   useEffect(() => {
-    const loadTranslations = async () => {
+    // Set the initial locale from server/browser
+    setLocale(initialLocale);
+  }, [initialLocale]);
+
+
+  useEffect(() => {
+    const loadTranslations = async (lang: string) => {
+      if (lang === 'en' || translations[lang]) {
+        return;
+      }
       try {
-        const response = await fetch(`/locales/${locale}.json`);
+        const response = await fetch(`/locales/${lang}.json`);
         if (!response.ok) {
-          throw new Error(`Failed to load translations for ${locale}`);
+          throw new Error(`Failed to load translations for ${lang}`);
         }
         const data = await response.json();
-        setTranslations(data);
+        setTranslations(prev => ({ ...prev, [lang]: data }));
       } catch (error) {
         console.error(error);
         // Fallback to English if loading fails
@@ -39,17 +50,31 @@ export const I18nProvider = ({ children }: I18nProviderProps) => {
         }
       }
     };
-    loadTranslations();
-  }, [locale]);
+    if (locale) {
+        loadTranslations(locale);
+    }
+  }, [locale, translations]);
 
-  const t = (key: string, params?: Record<string, string | number>): string => {
+  const t = useCallback((key: string, params?: Record<string, string | number>): string => {
+    const langTranslations = translations[locale] || translations.en;
+    
     const keys = key.split('.');
-    let result = translations;
+    let result = langTranslations;
     for (const k of keys) {
         if (result && typeof result === 'object' && k in result) {
             result = result[k];
         } else {
-            return key; // Return the key if not found
+            // Fallback to English if key not found in current language
+            let fallbackResult = translations.en;
+            for (const fk of keys) {
+                if (fallbackResult && typeof fallbackResult === 'object' && fk in fallbackResult) {
+                    fallbackResult = fallbackResult[fk];
+                } else {
+                    return key; // Return key if not in English either
+                }
+            }
+            result = fallbackResult;
+            break;
         }
     }
 
@@ -64,11 +89,12 @@ export const I18nProvider = ({ children }: I18nProviderProps) => {
     }
 
     return result;
-  };
+  }, [locale, translations]);
 
+  const contextValue = useMemo(() => ({ locale, setLocale, t }), [locale, setLocale, t]);
 
   return (
-    <I18nContext.Provider value={{ locale, setLocale, t }}>
+    <I18nContext.Provider value={contextValue}>
       {children}
     </I18nContext.Provider>
   );

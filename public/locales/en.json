@@ -18,11 +18,35 @@
   "Next Page": "Next Page",
   "Current Page": "Current Page",
   "Loading...": "Loading...",
+  "features_title": "Why Choose ePub Reader?",
+  "features_list": {
+    "feature_1": "Instant Reading: No installation or registration required. Upload and start reading immediately.",
+    "feature_2": "Privacy First: Your files are processed in your browser and are never uploaded to our servers.",
+    "feature_3": "Fully Customizable: Adjust font size, line height, and reading modes for your comfort.",
+    "feature_4": "Mobile Ready: Enjoy a seamless reading experience on any device, from desktop to smartphone.",
+    "feature_5": "Fast & Efficient: Built with modern technology for a speedy, responsive experience.",
+    "feature_6": "TOC Navigation: Jump to any chapter with our easy-to-use table of contents."
+  },
+  "how_it_works_title": "How It Works in 3 Simple Steps",
+  "how_it_works_steps": {
+    "step_1": "Click 'Upload a Book' and select an EPUB file from your device.",
+    "step_2": "The book opens instantly in our clean, distraction-free reader.",
+    "step_3": "Use the menu to customize your reading experience and navigate chapters."
+  },
+  "faq_title": "Frequently Asked Questions",
+  "faq_items": {
+    "q1": "Is this service really free?",
+    "a1": "Yes, ePub Reader is completely free to use with no hidden costs or advertisements. Our goal is to provide a simple, accessible reading tool for everyone.",
+    "q2": "Are my books safe? Do you store them?",
+    "a2": "Your privacy is our top priority. We do not upload or store your files on any server. Your EPUB file is opened and processed directly in your web browser.",
+    "q3": "What devices can I use this on?",
+    "a3": "Our e-reader is a web-based application, which means it works on any device with a modern web browser, including desktops (Windows, macOS, Linux), tablets (iPad, Android), and smartphones (iPhone, Android)."
+  },
   "error": {
     "reading_file_title": "Error Reading File",
-    "reading_file_description": "There was an error reading the file. Please ensure the file is not corrupted.",
-    "reading_file_error_description": "An error occurred while reading the file.",
+    "reading_file_description": "There was a problem reading the file. Please ensure the file is not corrupted.",
+    "reading_file_error_description": "An error occurred while processing the file.",
     "loading_book_title": "Error Loading Book",
-    "loading_book_description": "An error occurred while loading the book. The file may be corrupted or in an unsupported format."
+    "loading_book_description": "There was an error loading the book. The file may be corrupted or in an unsupported format."
   }
 }

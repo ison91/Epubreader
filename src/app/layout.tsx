@@ -6,11 +6,11 @@ import "./globals.css";
 
 const enMetadata: Metadata = {
   title: {
-    default: "ePub Reader | Free Online EPUB Book Reader",
+    default: "ePub Reader | Free, Instant Online EPUB Book Reader",
     template: "%s | ePub Reader",
   },
   description:
-    "Instantly read EPUB files in your browser with ePub Reader. Our free, secure, and customizable online reader offers an exceptional, distraction-free experience on any device. Upload your books and start reading now—no installation required.",
+    "Read your EPUB books online, anywhere, on any device. No downloads, no sign-ups. Just upload and enjoy a clean, customizable reading experience.",
   keywords: [
     "epub reader", "ebook reader", "online book reader", "free epub reader", "read epubs online",
     "web epub viewer", "browser epub reader", "html5 epub reader", "javascript epub reader", "nextjs epub reader",
@@ -22,7 +22,7 @@ const enMetadata: Metadata = {
     "table of contents navigation", "ebook library online", "personal digital library", "privacy-focused reader", "no-login ebook reader",
     "secure epub viewer", "open source epub reader", "epub format support", "read .epub files", "online reading tool",
     "digital reading platform", "epub web app", "best online epub reader", "simple epub reader", "clean reading interface",
-    "distraction-free reading", "epub to html", "web-based e-reader",
+    "distraction-free reading", "epub to html", "web-based e-reader", "free book reader", "read epub on chromebook", "how to open epub file"
   ],
   authors: [{ name: "Firebase Studio", url: "https://epubreader.info" }],
   creator: "Firebase Studio",
@@ -75,23 +75,23 @@ const enMetadata: Metadata = {
 
 const jaMetadata: Metadata = {
   title: {
-    default: "ePubリーダー | 無料オンラインEPUBブックリーダー",
+    default: "ePubリーダー | 無料・瞬時に読めるオンラインEPUBブックリーダー",
     template: "%s | ePubリーダー",
   },
   description:
-    "ePubリーダーを使えば、ブラウザでEPUBファイルを即座に読むことができます。無料で安全、カスタマイズ可能なオンラインリーダーは、どのデバイスでも卓越した、集中できる読書体験を提供します。本をアップロードして、今すぐ読書を始めましょう—インストールは不要です。",
+    "お使いのデバイスで、いつでもどこでもEPUBブックをオンラインで読書。ダウンロードや登録は不要。アップロードするだけで、クリーンでカスタマイズ可能な読書体験を楽しめます。",
   keywords: [
     "EPUBリーダー", "電子書籍リーダー", "オンラインブックリーダー", "無料EPUBリーダー", "EPUBをオンラインで読む",
     "ウェブEPUBビューア", "ブラウザEPUBリーダー", "HTML5 EPUBリーダー", "JavaScript EPUBリーダー", "NextJS EPUBリーダー",
     "React EPUBリーダー", "epubjsリーダー", "デジタルブックリーダー", "オンラインドキュメントビューア", "ブラウザで本を読む",
     "EPUBアップロード", "EPUBファイルオープナー", "ダウンロード不要 電子書籍リーダー", "即時電子書籍アクセス", "クラウド電子書籍リーダー",
-    "クロスプラットフォームリーダー", "モバイルEPUBリーダー", "タブレット電子書籍リーダー", "デスクトップEPUBリーダー", "軽量EPUBリーダー",
+    "クロスプラットフォームリーダー", "モバイルEPUBリーダー", "タブレットEPUBリーダー", "デスクトップEPUBリーダー", "軽量EPUBリーダー",
     "高速EPUBローダー", "アクセシブルな電子書籍リーダー", "スクリーンリーダー対応", "カスタマイズ可能な読書体験", "電子書籍 フォントサイズ変更",
     "本の行間調整", "ダークモードリーダー", "ライトモード読書", "セピアテーマリーダー", "読書進捗トラッカー",
     "目次ナビゲーション", "オンライン電子書籍ライブラリ", "個人デジタルライブラリ", "プライバシー重視リーダー", "ログイン不要 電子書籍リーダー",
     "安全なEPUBビューア", "オープンソースEPUBリーダー", "EPUBフォーマット対応", ".epubファイルを読む", "オンライン読書ツール",
     "デジタル読書プラットフォーム", "EPUBウェブアプリ", "最高のオンラインEPUBリーダー", "シンプルなEPUBリーダー", "クリーンな読書インターフェース",
-    "集中できる読書", "EPUBからHTMLへ", "ウェブベースの電子リーダー", "電子書籍", "書籍リーダー", "オンラインで読む", "無料リーダー"
+    "集中できる読書", "EPUBからHTMLへ", "ウェブベースの電子リーダー", "電子書籍", "書籍リーダー", "オンラインで読む", "無料リーダー", "epub 開き方", "epub chromebook"
   ],
   authors: [{ name: "Firebase Studio", url: "https://epubreader.info" }],
   creator: "Firebase Studio",
@@ -144,15 +144,15 @@ const jaMetadata: Metadata = {
 
 const ruMetadata: Metadata = {
   title: {
-    default: "ePub Читалка | Бесплатная онлайн-читалка для EPUB",
+    default: "ePub Читалка | Бесплатная, мгновенная онлайн-читалка для EPUB",
     template: "%s | ePub Читалка",
   },
   description:
-    "Мгновенно читайте EPUB-файлы в вашем браузере с помощью ePub Читалки. Наша бесплатная, безопасная и настраиваемая онлайн-читалка предлагает исключительный опыт чтения без отвлекающих факторов на любом устройстве. Загружайте свои книги и начинайте читать прямо сейчас — установка не требуется.",
+    "Читайте ваши EPUB книги онлайн, где угодно, на любом устройстве. Без загрузок, без регистрации. Просто загрузите и наслаждайтесь чистым, настраиваемым опытом чтения.",
   keywords: [
     "EPUB читалка", "читалка для электронных книг", "читать книги онлайн", "бесплатная EPUB читалка", "читать EPUB онлайн",
     "просмотрщик EPUB", "браузерная EPUB читалка", "HTML5 EPUB читалка", "JavaScript EPUB читалка", "NextJS EPUB читалка",
-    "React EPUB читалка", "epubjs читалка", "цифровая читалка книг", "онлайн просмотрщик документов", "читать книги в браузере",
+    "React EPUB читалка", "epubjs читалка", "цифровая читалка книг", "онлайн просмотрщик документов", "читать книги в браузere",
     "загрузить EPUB", "открыть файл EPUB", "читалка без загрузки", "мгновенный доступ к книгам", "облачная читалка",
     "кросс-платформенная читалка", "мобильная EPUB читалка", "планшетная EPUB читалка", "десктопная EPUB читалка", "легкая EPUB читалка",
     "быстрый загрузчик EPUB", "доступная читалка", "для программ чтения с экрана", "настраиваемый опыт чтения", "изменить размер шрифта в книге",
@@ -160,7 +160,7 @@ const ruMetadata: Metadata = {
     "навигация по содержанию", "онлайн-библиотека", "личная цифровая библиотека", "конфиденциальная читалка", "читалка без регистрации",
     "безопасный просмотрщик EPUB", "читалка с открытым исходным кодом", "поддержка формата EPUB", "читать .epub файлы", "инструмент для чтения онлайн",
     "цифровая платформа для чтения", "EPUB веб-приложение", "лучшая онлайн EPUB читалка", "простая EPUB читалка", "чистый интерфейс для чтения",
-    "чтение без отвлекающих факторов", "EPUB в HTML", "веб-читалка"
+    "чтение без отвлекающих факторов", "EPUB в HTML", "веб-читалка", "как открыть epub", "читалка для chromebook"
   ],
   authors: [{ name: "Firebase Studio", url: "https://epubreader.info" }],
   creator: "Firebase Studio",
@@ -211,94 +211,90 @@ const ruMetadata: Metadata = {
   },
 };
 
-const enJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  name: "ePub Reader",
-  description:
-    "Instantly read EPUB files from your device. Our free online ePub reader offers a clean, customizable, and distraction-free experience. No installation required.",
-  url: "https://epubreader.info",
-  applicationCategory: "ProductivityApplication",
-  operatingSystem: "Any",
-  browserRequirements: "Requires HTML5 and JavaScript.",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-  },
-  publisher: {
-    "@type": "Organization",
-    name: "Firebase Studio",
-  },
-  featureList: [
-    "EPUB File Upload and Display",
-    "Content Pagination and Navigation",
-    "Customizable Font Size and Line Height",
-    "Mobile-Friendly Responsive Design",
-    "Keyboard and Swipe Navigation",
-    "Table of Contents",
-  ],
-  screenshot: "https://placehold.co/1200x630.png",
-};
+const createJsonLd = (lang: 'en' | 'ja' | 'ru') => {
+    const content = {
+      en: {
+        name: "ePub Reader",
+        description: "Read your EPUB books online, anywhere, on any device. No downloads, no sign-ups. Just upload and enjoy a clean, customizable reading experience.",
+        featureList: [
+          "Instant Reading: No installation or registration required.",
+          "Privacy First: Your files are processed in your browser and are never uploaded to our servers.",
+          "Fully Customizable: Adjust font size, line height, and reading modes for your comfort.",
+          "Mobile Ready: Enjoy a seamless reading experience on any device.",
+          "Keyboard & Swipe Navigation",
+          "Table of Contents Navigation",
+          "Completely free with no ads."
+        ],
+      },
+      ja: {
+        name: "ePubリーダー",
+        description: "お使いのデバイスで、いつでもどこでもEPUBブックをオンラインで読書。ダウンロードや登録は不要。アップロードするだけで、クリーンでカスタマイズ可能な読書体験を楽しめます。",
+        featureList: [
+          "即時読書：インストールや登録は不要です。",
+          "プライバシー第一：ファイルはブラウザで処理され、サーバーにはアップロードされません。",
+          "完全カスタマイズ可能：フォントサイズ、行の高さ、読書モードを快適に調整できます。",
+          "モバイル対応：どのデバイスでもシームレスな読書体験を楽しめます。",
+          "キーボードとスワイプによるナビゲーション",
+          "目次ナビゲーション",
+          "完全に無料で広告なし。"
+        ],
+      },
+      ru: {
+        name: "ePub Читалка",
+        description: "Читайте ваши EPUB книги онлайн, где угодно, на любом устройстве. Без загрузок, без регистрации. Просто загрузите и наслаждайтесь чистым, настраиваемым опытом чтения.",
+        featureList: [
+          "Мгновенное чтение: Установка или регистрация не требуется.",
+          "Конфиденциальность прежде всего: Ваши файлы обрабатываются в вашем браузере и никогда не загружаются на наши серверы.",
+          "Полностью настраиваемый: Настраивайте размер шрифта, межстрочный интервал и режимы чтения для вашего удобства.",
+          "Готовность к мобильным устройствам: Наслаждайтесь бесперебойным чтением на любом устройстве.",
+          "Навигация с помощью клавиатуры и свайпов",
+          "Навигация по оглавлению",
+          "Полностью бесплатно и без рекламы."
+        ],
+      },
+    };
 
-const jaJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  name: "ePubリーダー",
-  description:
-    "お使いのデバイスからEPUBファイルを即座に読み込みます。当社の無料オンラインePubリーダーは、クリーンでカスタマイズ可能、そして集中できる読書体験を提供します。インストールは不要です。",
-  url: "https://epubreader.info",
-  applicationCategory: "ProductivityApplication",
-  operatingSystem: "Any",
-  browserRequirements: "Requires HTML5 and JavaScript.",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-  },
-  publisher: {
-    "@type": "Organization",
-    name: "Firebase Studio",
-  },
-  featureList: [
-    "EPUBファイルのアップロードと表示",
-    "コンテンツのページネーションとナビゲーション",
-    "カスタマイズ可能なフォントサイズと行の高さ",
-    "モバイルフレンドリーなレスポンシブデザイン",
-    "キーボードとスワイプ操作によるナビゲーション",
-    "目次",
-  ],
-  screenshot: "https://placehold.co/1200x630.png",
-};
+    const specificContent = content[lang];
 
-const ruJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  name: "ePub Читалка",
-  description:
-    "Мгновенно читайте EPUB-файлы с вашего устройства. Наша бесплатная онлайн-читалка ePub предлагает чистый, настраиваемый и не отвлекающий опыт чтения. Установка не требуется.",
-  url: "https://epubreader.info",
-  applicationCategory: "ProductivityApplication",
-  operatingSystem: "Any",
-  browserRequirements: "Requires HTML5 and JavaScript.",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-  },
-  publisher: {
-    "@type": "Organization",
-    name: "Firebase Studio",
-  },
-  featureList: [
-    "Загрузка и отображение файлов EPUB",
-    "Пагинация и навигация по содержимому",
-    "Настраиваемый размер шрифта и межстрочный интервал",
-    "Адаптивный дизайн для мобильных устройств",
-    "Навигация с помощью клавиатуры и свайпов",
-    "Оглавление",
-  ],
-  screenshot: "https://placehold.co/1200x630.png",
+    return {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": specificContent.name,
+        "url": "https://epubreader.info",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://epubreader.info"
+            },
+            "query-input": "required name=search_term_string"
+        },
+        "mainEntity": {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": specificContent.name,
+            "description": specificContent.description,
+            "url": "https://epubreader.info",
+            "applicationCategory": "ProductivityApplication",
+            "operatingSystem": "Any",
+            "browserRequirements": "Requires HTML5 and JavaScript.",
+            "fileFormat": "application/epub+zip",
+            "softwareVersion": "2.0.0",
+            "permissions": "No special permissions required",
+            "releaseNotes": "https://epubreader.info/#features",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD",
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "Firebase Studio",
+            },
+            "featureList": specificContent.featureList,
+            "screenshot": "https://placehold.co/1200x630.png",
+        }
+    };
 };
 
 
@@ -328,16 +324,15 @@ export default function RootLayout({
   const isJapanese = acceptLanguage?.startsWith("ja");
   const isRussian = acceptLanguage?.startsWith("ru");
   
-  let lang = "en";
-  let jsonLd = enJsonLd;
+  let lang: 'en' | 'ja' | 'ru' = "en";
 
   if (isRussian) {
     lang = "ru";
-    jsonLd = ruJsonLd;
   } else if (isJapanese) {
     lang = "ja";
-    jsonLd = jaJsonLd;
   }
+
+  const jsonLd = createJsonLd(lang);
 
   return (
     <html
@@ -351,7 +346,7 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
-        <I18nProvider>
+        <I18nProvider initialLocale={lang}>
           {children}
           <Toaster />
         </I18nProvider>
