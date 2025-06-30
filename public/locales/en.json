@@ -1,3 +1,4 @@
+
 {
   "ePub Reader": "ePub Reader",
   "Upload a Book": "Upload a Book",
@@ -20,33 +21,33 @@
   "Loading...": "Loading...",
   "features_title": "Why Choose ePub Reader?",
   "features_list": {
-    "feature_1": "Instant Reading: No installation or sign-up. Just upload your book and start reading.",
-    "feature_2": "Privacy First: Your files are processed in your browser and are never uploaded to our servers.",
+    "feature_1": "Instant Reading: No installation or registration required. Upload and start reading.",
+    "feature_2": "Privacy First: Your files are processed in your browser and never uploaded to our servers.",
     "feature_3": "Fully Customizable: Adjust font size, line height, and reading modes for your comfort.",
-    "feature_4": "Mobile Ready: Enjoy a seamless reading experience on your desktop, tablet, or smartphone.",
-    "feature_5": "Fast & Efficient: Built with modern technology to be quick and responsive.",
-    "feature_6": "TOC Navigation: Instantly jump to any chapter with an easy-to-use table of contents."
+    "feature_4": "Mobile Ready: Enjoy a seamless reading experience on any device, from desktop to smartphone.",
+    "feature_5": "Fast & Efficient: Built with modern tech for a speedy and responsive experience.",
+    "feature_6": "Table of Contents: Jump to any chapter instantly with an easy-to-use table of contents."
   },
   "how_it_works_title": "How It Works in 3 Simple Steps",
   "how_it_works_steps": {
     "step_1": "Click 'Upload a Book' and select an EPUB file from your device.",
-    "step_2": "Your book instantly opens in a clean, distraction-free reader.",
+    "step_2": "Your book opens instantly in a clean, distraction-free reader.",
     "step_3": "Use the menu to customize your reading experience and navigate chapters."
   },
   "faq_title": "Frequently Asked Questions",
   "faq_items": {
-    "q1": "Is this service truly free?",
-    "a1": "Yes, ePub Reader is completely free with no ads or hidden costs. Our goal is to provide a simple, accessible reading tool for everyone.",
-    "q2": "Are my books safe? Are they stored anywhere?",
-    "a2": "Your privacy is our top priority. Your files are never uploaded or stored on our servers. They are opened and processed directly in your web browser.",
+    "q1": "Is this service really free?",
+    "a1": "Yes, ePub Reader is completely free to use with no hidden costs or ads. Our goal is to provide a simple, accessible reading tool for everyone.",
+    "q2": "Are my books safe? Do you store them?",
+    "a2": "Your privacy is our top priority. We do not upload or store your files on any server. Your EPUB file is opened and processed directly within your web browser.",
     "q3": "What devices can I use this on?",
-    "a3": "As a web-based application, this reader works on any device with a modern web browser, including desktops (Windows, macOS, Linux), tablets (iPad, Android), and smartphones (iPhone, Android)."
+    "a3": "Our reader is a web-based application, meaning it works on any device with a modern web browser, including desktops (Windows, macOS, Linux), tablets (iPad, Android), and smartphones (iPhone, Android)."
   },
   "error": {
     "reading_file_title": "Error Reading File",
     "reading_file_description": "There was a problem reading the file. Please ensure the file is not corrupted.",
     "reading_file_error_description": "An error occurred while processing the file.",
     "loading_book_title": "Error Loading Book",
-    "loading_book_description": "There was an error loading the book. It may be corrupted or in an unsupported format."
+    "loading_book_description": "An error occurred while loading the book. The file may be corrupted or in an unsupported format."
   }
 }

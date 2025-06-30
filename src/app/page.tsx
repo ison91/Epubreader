@@ -471,6 +471,9 @@ export default function EPubReaderPage() {
                             <DropdownMenuItem onSelect={() => setLocale("ko")}>
                             한국어
                             </DropdownMenuItem>
+                             <DropdownMenuItem onSelect={() => setLocale("ar")}>
+                            العربية
+                            </DropdownMenuItem>
                         </DropdownMenuContent>
                         </DropdownMenu>
                     </div>

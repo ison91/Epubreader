@@ -34,6 +34,7 @@ const enMetadata: Metadata = {
       'ja-JP': 'https://epubreader.info/',
       'ru-RU': 'https://epubreader.info/',
       'ko-KR': 'https://epubreader.info/',
+      'ar': 'https://epubreader.info/',
     },
   },
   openGraph: {
@@ -104,6 +105,7 @@ const jaMetadata: Metadata = {
       'ja-JP': 'https://epubreader.info/',
       'ru-RU': 'https://epubreader.info/',
       'ko-KR': 'https://epubreader.info/',
+      'ar': 'https://epubreader.info/',
     },
   },
   openGraph: {
@@ -174,6 +176,7 @@ const ruMetadata: Metadata = {
       'ja-JP': 'https://epubreader.info/',
       'ru-RU': 'https://epubreader.info/',
       'ko-KR': 'https://epubreader.info/',
+      'ar': 'https://epubreader.info/',
     },
   },
   openGraph: {
@@ -244,6 +247,7 @@ const koMetadata: Metadata = {
       'ja-JP': 'https://epubreader.info/',
       'ru-RU': 'https://epubreader.info/',
       'ko-KR': 'https://epubreader.info/',
+      'ar': 'https://epubreader.info/',
     },
   },
   openGraph: {
@@ -284,7 +288,78 @@ const koMetadata: Metadata = {
   },
 };
 
-const createJsonLd = (lang: 'en' | 'ja' | 'ru' | 'ko') => {
+const arMetadata: Metadata = {
+  title: {
+    default: "قارئ ePub | قارئ كتب EPUB مجاني وفوري عبر الإنترنت",
+    template: "%s | قارئ ePub",
+  },
+  description:
+    "اقرأ كتب EPUB الخاصة بك على الإنترنت، في أي مكان، وعلى أي جهاز. بدون تنزيلات أو تسجيل. فقط قم بالتحميل واستمتع بتجربة قراءة نظيفة وقابلة للتخصيص.",
+  keywords: [
+    "قارئ EPUB", "قارئ كتب إلكترونية", "قراءة كتب عبر الإنترنت", "قارئ EPUB مجاني", "قراءة EPUB أونلاين",
+    "عارض EPUB على الويب", "قارئ EPUB للمتصفح", "قارئ EPUB بتقنية HTML5", "قارئ EPUB بجافاسكريبت", "قارئ EPUB بـ NextJS",
+    "قارئ EPUB بـ React", "قارئ epubjs", "قارئ كتب رقمي", "عارض مستندات أونلاين", "قراءة الكتب في المتصفح",
+    "تحميل EPUB", "فاتح ملفات EPUB", "قارئ كتب إلكترونية بدون تحميل", "وصول فوري للكتب الإلكترونية", "قارئ كتب إلكترونية سحابي",
+    "قارئ متعدد المنصات", "قارئ EPUB للجوال", "قارئ كتب إلكترونية للتابلت", "قارئ EPUB لسطح المكتب", "قارئ EPUB خفيف",
+    "محمل EPUB سريع", "قارئ كتب إلكترونية متاح", "متوافق مع قارئات الشاشة", "تجربة قراءة قابلة للتخصيص", "تغيير حجم خط الكتاب الإلكتروني",
+    "تعديل ارتفاع السطر في الكتاب", "وضع القراءة الليلي", "وضع القراءة النهاري", "ثيم بني داكن للقراءة", "متتبع تقدم القراءة",
+    "التنقل عبر جدول المحتويات", "مكتبة كتب إلكترونية على الإنترنت", "مكتبة رقمية شخصية", "قارئ يركز على الخصوصية", "قارئ كتب إلكترونية بدون تسجيل دخول",
+    "عارض EPUB آمن", "قارئ EPUB مفتوح المصدر", "دعم صيغة EPUB", "قراءة ملفات .epub", "أداة قراءة عبر الإنترنت",
+    "منصة قراءة رقمية", "تطبيق ويب EPUB", "أفضل قارئ EPUB عبر الإنترنت", "قارئ EPUB بسيط", "واجهة قراءة نظيفة",
+    "قراءة بدون تشتيت", "EPUB إلى HTML", "قارئ إلكتروني على الويب", "قارئ كتب مجاني", "قراءة epub على كروم بوك", "كيفية فتح ملف epub"
+  ],
+  authors: [{ name: "Firebase Studio", url: "https://epubreader.info" }],
+  creator: "Firebase Studio",
+  publisher: "Firebase",
+  alternates: {
+    canonical: "https://epubreader.info/",
+    languages: {
+      'en-US': 'https://epubreader.info/',
+      'ja-JP': 'https://epubreader.info/',
+      'ru-RU': 'https://epubreader.info/',
+      'ko-KR': 'https://epubreader.info/',
+      'ar': 'https://epubreader.info/',
+    },
+  },
+  openGraph: {
+    title: "قارئ ePub | قارئ كتب EPUB مجاني وفوري عبر الإنترنت",
+    description:
+      "اقرأ كتب EPUB الخاصة بك على الإنترنت، في أي مكان، وعلى أي جهاز. بدون تنزيلات أو تسجيل. فقط قم بالتحميل واستمتع بتجربة قراءة نظيفة وقابلة للتخصيص.",
+    url: "https://epubreader.info",
+    siteName: "قارئ ePub",
+    images: [
+      {
+        url: "https://placehold.co/1200x630.png",
+        width: 1200,
+        height: 630,
+        alt: "واجهة نظيفة وحديثة لتطبيق قارئ ePub، تظهر كتابًا مفتوحًا.",
+      },
+    ],
+    locale: "ar_AR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "قارئ ePub | قارئ كتب EPUB مجاني وفوري عبر الإنترنت",
+    description:
+      "أسهل طريقة لقراءة كتب ePub عبر الإنترنت. قم بتحميل وقراءة ملفاتك مباشرة في متصفحك بواجهة نظيفة ومتوافقة مع الجوال وقابلة للتخصيص.",
+    images: ["https://placehold.co/1200x630.png"],
+    creator: "@Firebase",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+};
+
+const createJsonLd = (lang: 'en' | 'ja' | 'ru' | 'ko' | 'ar') => {
     const content = {
       en: {
         name: "ePub Reader",
@@ -338,6 +413,19 @@ const createJsonLd = (lang: 'en' | 'ja' | 'ru' | 'ko') => {
           "광고 없이 완전 무료입니다."
         ],
       },
+      ar: {
+        name: "قارئ ePub",
+        description: "اقرأ كتب EPUB الخاصة بك على الإنترنت، في أي مكان، وعلى أي جهاز. بدون تنزيلات أو تسجيل. فقط قم بالتحميل واستمتع بتجربة قراءة نظيفة وقابلة للتخصيص.",
+        featureList: [
+          "قراءة فورية: لا حاجة للتثبيت أو التسجيل.",
+          "الخصوصية أولاً: تتم معالجة ملفاتك في متصفحك فقط ولا تُرفع إلى خوادمنا.",
+          "قابل للتخصيص بالكامل: يمكنك ضبط حجم الخط، وارتفاع السطر، ووضع القراءة حسب راحتك.",
+          "متوافق مع الجوال: استمتع بتجربة قراءة سلسة على أي جهاز.",
+          "التنقل باستخدام لوحة المفاتيح والسحب",
+          "التنقل عبر جدول المحتويات",
+          "مجاني تمامًا وبدون إعلانات."
+        ],
+      },
     };
 
     const specificContent = content[lang];
@@ -387,10 +475,14 @@ const createJsonLd = (lang: 'en' | 'ja' | 'ru' | 'ko') => {
 export async function generateMetadata(): Promise<Metadata> {
   const headersList = headers();
   const acceptLanguage = headersList.get("accept-language");
+  const isArabic = acceptLanguage?.startsWith("ar");
   const isKorean = acceptLanguage?.startsWith("ko");
   const isJapanese = acceptLanguage?.startsWith("ja");
   const isRussian = acceptLanguage?.startsWith("ru");
 
+  if (isArabic) {
+    return arMetadata;
+  }
   if (isKorean) {
     return koMetadata;
   }
@@ -411,13 +503,18 @@ export default function RootLayout({
 }>) {
   const headersList = headers();
   const acceptLanguage = headersList.get("accept-language");
+  const isArabic = acceptLanguage?.startsWith("ar");
   const isKorean = acceptLanguage?.startsWith("ko");
   const isJapanese = acceptLanguage?.startsWith("ja");
   const isRussian = acceptLanguage?.startsWith("ru");
   
-  let lang: 'en' | 'ja' | 'ru' | 'ko' = "en";
+  let lang: 'en' | 'ja' | 'ru' | 'ko' | 'ar' = "en";
+  let dir: 'ltr' | 'rtl' = 'ltr';
 
-  if (isKorean) {
+  if (isArabic) {
+    lang = "ar";
+    dir = "rtl";
+  } else if (isKorean) {
     lang = "ko";
   } else if (isRussian) {
     lang = "ru";
@@ -430,6 +527,7 @@ export default function RootLayout({
   return (
     <html
       lang={lang}
+      dir={dir}
       suppressHydrationWarning
     >
       <head>
