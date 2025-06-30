@@ -555,6 +555,13 @@ export default function EPubReaderPage() {
                     </Accordion>
                 </section>
             </div>
+            <footer className="w-full border-t bg-muted/50 py-6">
+                <div className="container mx-auto text-center text-sm text-muted-foreground">
+                    <p>
+                        © {new Date().getFullYear()} {t("footer.site_name")}. {t("footer.rights_reserved")}
+                    </p>
+                </div>
+            </footer>
         </div>
     );
   }

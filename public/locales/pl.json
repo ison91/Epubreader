@@ -65,6 +65,10 @@
     "q3": "Na jakich urządzeniach mogę korzystać?",
     "a3": "Nasz czytnik to aplikacja webowa – działa na każdym urządzeniu z nowoczesną przeglądarką – komputery (Windows, macOS, Linux), tablety (iPad, Android) i smartfony (iPhone, Android)."
   },
+  "footer": {
+    "site_name": "Czytnik ePub",
+    "rights_reserved": "Wszelkie prawa zastrzeżone."
+  },
   "error": {
     "reading_file_title": "Błąd odczytu pliku",
     "reading_file_description": "Wystąpił problem z odczytem pliku. Upewnij się, że nie jest uszkodzony.",

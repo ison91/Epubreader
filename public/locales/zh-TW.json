@@ -65,6 +65,10 @@
     "q3": "可以在哪些裝置上使用？",
     "a3": "我們的閱讀器為網頁應用程式，支援所有具備現代瀏覽器的裝置，包括桌機（Windows、macOS、Linux）、平板（iPad、Android）和智慧型手機（iPhone、Android）。"
   },
+  "footer": {
+    "site_name": "ePub 閱讀器",
+    "rights_reserved": "版權所有。"
+  },
   "error": {
     "reading_file_title": "讀取檔案錯誤",
     "reading_file_description": "讀取檔案時發生問題。請確認檔案是否損毀。",

@@ -65,6 +65,10 @@
     "q3": "Auf welchen Geräten kann ich das nutzen?",
     "a3": "Unser Reader ist webbasiert und funktioniert auf jedem Gerät mit modernem Browser – Desktop (Windows, macOS, Linux), Tablets (iPad, Android) und Smartphones (iPhone, Android)."
   },
+  "footer": {
+    "site_name": "ePub-Reader",
+    "rights_reserved": "Alle Rechte vorbehalten."
+  },
   "error": {
     "reading_file_title": "Fehler beim Lesen der Datei",
     "reading_file_description": "Beim Lesen der Datei gab es ein Problem. Bitte prüfen Sie, ob die Datei beschädigt ist.",

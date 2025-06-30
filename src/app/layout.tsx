@@ -823,167 +823,145 @@ const createJsonLd = (lang: Language) => {
     const content: Record<Language, any> = {
       en: {
         name: "ePub Reader",
-        description: "Read your EPUB books online, anywhere, on any device. No downloads, no sign-ups. Just upload and enjoy a clean, customizable reading experience.",
+        description: "Read your EPUB books online with our free, privacy-focused reader. No installation, no registration needed. Instantly access your books on any device.",
         featureList: [
-          "Instant & Free: No installation or registration required. Upload and read instantly.",
-          "Privacy First: Your files are processed in your browser and are never uploaded to our servers.",
-          "Fully Customizable: Adjust font size, line height, and reading modes for your comfort.",
-          "Mobile Ready: Enjoy a seamless reading experience on any device.",
-          "Keyboard & Swipe Navigation for easy page turning.",
-          "Table of Contents Navigation to jump to any chapter.",
-          "Completely free with no ads."
+          "Instant & Free: No installation or registration required. Upload and read instantly. Our service is completely free and ad-free.",
+          "Privacy First: We respect your privacy. Your files are processed locally in your browser and are never uploaded to our servers. Your books remain yours.",
+          "Customizable Reading Experience: Take control of your reading. Adjust font size, line height, and switch between single or two-page views for your comfort.",
+          "Works on Any Device: Enjoy a seamless reading experience on your desktop, tablet, or smartphone. Our responsive design adapts to your screen.",
+          "Easy Navigation: Navigate your book effortlessly with the integrated table of contents or jump directly to any page. Reading should be simple."
         ],
       },
       ja: {
         name: "ePubリーダー",
-        description: "お使いのデバイスで、いつでもどこでもEPUBブックをオンラインで読書。ダウンロードや登録は不要。アップロードするだけで、クリーンでカスタマイズ可能な読書体験を楽しめます。",
+        description: "プライバシーを重視した無料のEPUBリーダーで、オンラインでEPUBブックを読みましょう。インストールや登録は不要。どのデバイスからでもすぐに本にアクセスできます。",
         featureList: [
-          "即時読書：インストールや登録は不要ですぐに読書開始。",
-          "プライバシー第一：ファイルはブラウザで処理され、サーバーにはアップロードされません。",
-          "完全カスタマイズ可能：フォントサイズ、行の高さ、読書モードを快適に調整できます。",
-          "モバイル対応：どのデバイスでもシームレスな読書体験を楽しめます。",
-          "キーボードとスワイプによる簡単なページめくり。",
-          "目次ナビゲーションで好きな章にジャンプ。",
-          "完全に無料で広告なし。"
+          "即時・無料: インストールや登録は不要。アップロードしてすぐに読書を開始。当サービスは完全に無料で広告もありません。",
+          "プライバシー第一: お客様のプライバシーを尊重します。ファイルはブラウザ内でローカルに処理され、当社のサーバーにアップロードされることはありません。あなたの本はあなたのものです。",
+          "カスタマイズ可能な読書体験: 読書体験をコントロールしましょう。フォントサイズ、行の高さを調整し、快適さに合わせて単一ページまたは見開き表示を切り替えることができます。",
+          "どのデバイスでも動作: デスクトップ、タブレット、スマートフォンでシームレスな読書体験をお楽しみください。レスポンシブデザインが画面に適応します。",
+          "簡単なナビゲーション: 統合された目次で本を楽々ナビゲートしたり、直接任意のページにジャンプしたりできます。読書はシンプルであるべきです。"
         ],
       },
       ru: {
         name: "ePub Читалка",
-        description: "Читайте ваши EPUB книги онлайн, где угодно, на любом устройстве. Без загрузок, без регистрации. Просто загрузите и наслаждайтесь чистым, настраиваемым опытом чтения.",
+        description: "Читайте ваши EPUB книги онлайн с помощью нашей бесплатной читалки, ориентированной на конфиденциальность. Без установки, без регистрации. Мгновенный доступ к вашим книгам на любом устройстве.",
         featureList: [
-          "Мгновенное чтение: Установка или регистрация не требуется.",
-          "Конфиденциальность прежде всего: Ваши файлы обрабатываются в вашем браузере и никогда не загружаются на наши серверы.",
-          "Полностью настраиваемый: Настраивайте размер шрифта, межстрочный интервал и режимы чтения для вашего удобства.",
-          "Готовность к мобильным устройствам: Наслаждайтесь бесперебойным чтением на любом устройстве.",
-          "Навигация с помощью клавиатуры и свайпов для легкого перелистывания страниц.",
-          "Навигация по оглавлению для перехода к любой главе.",
-          "Полностью бесплатно и без рекламы."
+          "Мгновенно и бесплатно: Не требуется установка или регистрация. Загрузите и читайте мгновенно. Наш сервис полностью бесплатен и без рекламы.",
+          "Конфиденциальность прежде всего: Мы уважаем вашу конфиденциальность. Ваши файлы обрабатываются локально в вашем браузере и никогда не загружаются на наши серверы. Ваши книги остаются вашими.",
+          "Настраиваемый опыт чтения: Управляйте своим чтением. Настраивайте размер шрифта, межстрочный интервал и переключайтесь между одностраничным или двухстраничным видом для вашего удобства.",
+          "Работает на любом устройстве: Наслаждайтесь бесперебойным чтением на настольном компьютере, планшете или смартфоне. Наш адаптивный дизайн подстраивается под ваш экран.",
+          "Простая навигация: Легко перемещайтесь по книге с помощью встроенного оглавления или переходите непосредственно на любую страницу. Чтение должно быть простым."
         ],
       },
       ko: {
         name: "ePub 리더",
-        description: "어디서나 모든 기기에서 EPUB 책을 온라인으로 읽으세요. 다운로드나 가입 없이. 업로드만으로 깔끔하고 맞춤 설정 가능한 독서 경험을 즐기세요.",
+        description: "개인 정보 보호에 중점을 둔 무료 EPUB 리더로 온라인에서 EPUB 책을 읽으십시오. 설치나 등록이 필요 없습니다. 모든 장치에서 즉시 책에 액세스하십시오.",
         featureList: [
-          "즉시 읽기: 설치나 가입 없이 바로 책을 업로드하고 읽기 시작할 수 있습니다.",
-          "개인정보 보호 우선: 파일은 브라우저 내에서 처리되며 서버로 업로드되지 않습니다.",
-          "완전한 사용자 맞춤화: 글꼴 크기, 줄 간격, 읽기 모드를 원하는 대로 조정할 수 있습니다.",
-          "모바일 최적화: 데스크톱부터 스마트폰까지 모든 기기에서 원활한 독서 경험을 제공합니다.",
-          "키보드 및 스와이프 탐색으로 쉬운 페이지 넘김.",
-          "목차 탐색으로 원하는 챕터로 즉시 이동.",
-          "광고 없이 완전 무료입니다."
+          "즉시 및 무료: 설치 또는 등록이 필요하지 않습니다. 즉시 업로드하고 읽으십시오. 저희 서비스는 완전 무료이며 광고가 없습니다.",
+          "개인 정보 보호 우선: 저희는 귀하의 개인 정보를 존중합니다. 귀하의 파일은 브라우저에서 로컬로 처리되며 저희 서버에 업로드되지 않습니다. 귀하의 책은 귀하의 것입니다.",
+          "맞춤형 독서 경험: 독서를 제어하십시오. 글꼴 크기, 줄 높이를 조정하고 편의에 따라 단일 또는 2페이지 보기로 전환하십시오.",
+          "모든 기기에서 작동: 데스크톱, 태블릿 또는 스마트폰에서 원활한 독서 경험을 즐기십시오. 저희의 반응형 디자인은 화면에 맞춰 조정됩니다.",
+          "쉬운 탐색: 통합된 목차로 책을 쉽게 탐색하거나 원하는 페이지로 직접 이동하십시오. 독서는 간단해야 합니다."
         ],
       },
       ar: {
         name: "قارئ ePub",
-        description: "اقرأ كتب EPUB الخاصة بك على الإنترنت، في أي مكان، وعلى أي جهاز. بدون تنزيلات أو تسجيل. فقط قم بالتحميل واستمتع بتجربة قراءة نظيفة وقابلة للتخصيص.",
+        description: "اقرأ كتب EPUB الخاصة بك عبر الإنترنت باستخدام قارئنا المجاني الذي يركز على الخصوصية. لا حاجة للتثبيت أو التسجيل. يمكنك الوصول إلى كتبك على الفور على أي جهاز.",
         featureList: [
-          "قراءة فورية: لا حاجة للتثبيت أو التسجيل. قم بالتحميل والقراءة فورًا.",
-          "الخصوصية أولاً: تتم معالجة ملفاتك في متصفحك فقط ولا تُرفع إلى خوادمنا.",
-          "قابل للتخصيص بالكامل: يمكنك ضبط حجم الخط، وارتفاع السطر، ووضع القراءة حسب راحتك.",
-          "متوافق مع الجوال: استمتع بتجربة قراءة سلسة على أي جهاز.",
-          "التنقل باستخدام لوحة المفاتيح والسحب لقلب الصفحات بسهولة.",
-          "التنقل عبر جدول المحتويات للقفز إلى أي فصل.",
-          "مجاني تمامًا وبدون إعلانات."
+          "فوري ومجاني: لا يلزم التثبيت أو التسجيل. قم بالتحميل والقراءة على الفور. خدمتنا مجانية تمامًا وخالية من الإعلانات.",
+          "الخصوصية أولاً: نحن نحترم خصوصيتك. تتم معالجة ملفاتك محليًا في متصفحك ولا يتم تحميلها على خوادمنا أبدًا. كتبك تبقى لك.",
+          "تجربة قراءة قابلة للتخصيص: تحكم في قراءتك. اضبط حجم الخط وارتفاع الأسطر والتبديل بين طرق عرض صفحة واحدة أو صفحتين لراحتك.",
+          "يعمل على أي جهاز: استمتع بتجربة قراءة سلسة على سطح المكتب أو الجهاز اللوحي أو الهاتف الذكي. يتكيف تصميمنا سريع الاستجابة مع شاشتك.",
+          "سهولة التنقل: تنقل في كتابك بسهولة باستخدام جدول المحتويات المدمج أو انتقل مباشرة إلى أي صفحة. يجب أن تكون القراءة بسيطة."
         ],
       },
       de: {
         name: "ePub-Reader",
-        description: "Lesen Sie Ihre EPUB-Bücher online, überall und auf jedem Gerät. Keine Downloads, keine Anmeldungen. Laden Sie einfach hoch und genießen Sie ein sauberes, anpassbares Leseerlebnis.",
+        description: "Lesen Sie Ihre EPUB-Bücher online mit unserem kostenlosen, datenschutzorientierten Reader. Keine Installation, keine Registrierung erforderlich. Greifen Sie sofort auf jedem Gerät auf Ihre Bücher zu.",
         featureList: [
-          "Sofort & kostenlos: Keine Installation oder Registrierung nötig.",
-          "Datenschutz zuerst: Ihre Dateien werden lokal im Browser verarbeitet und nie auf Server hochgeladen.",
-          "Anpassbares Leseerlebnis: Passen Sie Schriftgröße, Zeilenhöhe und Lesemodi an.",
-          "Funktioniert auf jedem Gerät: Nahtloses Leseerlebnis auf Desktop, Tablet oder Smartphone.",
-          "Einfache Navigation: Blättern Sie mit Tastatur oder Wischgesten.",
-          "Inhaltsverzeichnis-Navigation: Springen Sie direkt zu jedem Kapitel.",
-          "Völlig kostenlos und werbefrei."
+          "Sofort & kostenlos: Keine Installation oder Registrierung nötig. Hochladen und sofort lesen. Unser Dienst ist völlig kostenlos und werbefrei.",
+          "Datenschutz zuerst: Wir respektieren Ihre Privatsphäre. Ihre Dateien werden lokal im Browser verarbeitet und nie auf unsere Server hochgeladen. Ihre Bücher bleiben Ihre.",
+          "Anpassbares Leseerlebnis: Übernehmen Sie die Kontrolle über Ihr Leseerlebnis. Passen Sie Schriftgröße, Zeilenhöhe an und wechseln Sie zwischen Einzel- oder Doppelseitenansicht für Ihren Komfort.",
+          "Funktioniert auf jedem Gerät: Genießen Sie ein nahtloses Leseerlebnis auf Ihrem Desktop, Tablet oder Smartphone. Unser responsives Design passt sich Ihrem Bildschirm an.",
+          "Einfache Navigation: Navigieren Sie mühelos durch Ihr Buch mit dem integrierten Inhaltsverzeichnis oder springen Sie direkt zu einer beliebigen Seite. Lesen sollte einfach sein."
         ],
       },
       fr: {
         name: "Lecteur ePub",
-        description: "Lisez vos livres EPUB en ligne, n'importe où, sur n'importe quel appareil. Sans téléchargement ni inscription. Téléversez simplement et profitez d'une expérience de lecture propre et personnalisable.",
+        description: "Lisez vos livres EPUB en ligne avec notre lecteur gratuit et respectueux de la vie privée. Aucune installation, aucune inscription requise. Accédez instantanément à vos livres sur n'importe quel appareil.",
         featureList: [
-          "Instantané et gratuit: Aucune installation ni inscription requise.",
-          "Confidentialité avant tout: Vos fichiers sont traités localement dans votre navigateur.",
-          "Expérience personnalisée: Ajustez la taille de la police, l'interligne et les modes de lecture.",
-          "Fonctionne sur tout appareil: Expérience de lecture fluide sur ordinateur, tablette et smartphone.",
-          "Navigation facile: Utilisez le clavier ou le balayage pour tourner les pages.",
-          "Navigation par table des matières: Accédez directement à n'importe quel chapitre.",
-          "Totalement gratuit et sans publicité."
+          "Instantané et gratuit : Aucune installation ou inscription n'est requise. Téléchargez et lisez instantanément. Notre service est entièrement gratuit et sans publicité.",
+          "La confidentialité d'abord : Nous respectons votre vie privée. Vos fichiers sont traités localement dans votre navigateur et ne sont jamais téléchargés sur nos serveurs. Vos livres restent les vôtres.",
+          "Expérience de lecture personnalisable : Prenez le contrôle de votre lecture. Ajustez la taille de la police, la hauteur des lignes et basculez entre les vues d'une ou deux pages pour votre confort.",
+          "Fonctionne sur n'importe quel appareil : Profitez d'une expérience de lecture transparente sur votre ordinateur de bureau, votre tablette ou votre smartphone. Notre design réactif s'adapte à votre écran.",
+          "Navigation facile : Naviguez sans effort dans votre livre grâce à la table des matières intégrée ou sautez directement à n'importe quelle page. La lecture doit être simple."
         ],
       },
       es: {
         name: "Lector ePub",
-        description: "Lee tus libros EPUB en línea, en cualquier lugar y en cualquier dispositivo. Sin descargas ni registros. Simplemente sube tu archivo y disfruta de una experiencia de lectura limpia y personalizable.",
+        description: "Lea sus libros EPUB en línea con nuestro lector gratuito y centrado en la privacidad. No se necesita instalación ni registro. Acceda instantáneamente a sus libros en cualquier dispositivo.",
         featureList: [
-          "Instantáneo y gratis: No requiere instalación ni registro.",
-          "Privacidad primero: Tus archivos se procesan localmente en tu navegador y nunca se suben a nuestros servidores.",
-          "Experiencia personalizable: Ajusta el tamaño de fuente, interlineado y modos de lectura.",
-          "Funciona en cualquier dispositivo: Disfruta una lectura fluida en ordenador, tablet o móvil.",
-          "Navegación sencilla: Pasa las páginas con el teclado o deslizando.",
-          "Navegación por índice: Salta directamente a cualquier capítulo.",
-          "Completamente gratis y sin anuncios."
+          "Instantáneo y gratuito: No se requiere instalación ni registro. Sube y lee al instante. Nuestro servicio es completamente gratuito y sin anuncios.",
+          "La privacidad es lo primero: Respetamos tu privacidad. Tus archivos se procesan localmente en tu navegador y nunca se suben a nuestros servidores. Tus libros siguen siendo tuyos.",
+          "Experiencia de lectura personalizable: Toma el control de tu lectura. Ajusta el tamaño de la fuente, la altura de la línea y cambia entre las vistas de una o dos páginas para tu comodidad.",
+          "Funciona en cualquier dispositivo: Disfruta de una experiencia de lectura perfecta en tu ordenador, tableta o smartphone. Nuestro diseño adaptable se adapta a tu pantalla.",
+          "Navegación sencilla: Navega por tu libro sin esfuerzo con el índice de contenidos integrado o salta directamente a cualquier página. Leer debe ser sencillo."
         ],
       },
       pl: {
         name: "Czytnik ePub",
-        description: "Czytaj swoje książki EPUB online, gdziekolwiek, na dowolnym urządzeniu. Bez pobierania, bez rejestracji. Po prostu prześlij plik i ciesz się czystym, dostosowywanym interfejsem do czytania.",
+        description: "Czytaj swoje książki EPUB online za pomocą naszego bezpłatnego czytnika, który dba o prywatność. Nie wymaga instalacji ani rejestracji. Błyskawiczny dostęp do książek na każdym urządzeniu.",
         featureList: [
-          "Natychmiastowy i bezpłatny: Bez instalacji i rejestracji.",
-          "Prywatność przede wszystkim: Twoje pliki są przetwarzane lokalnie w przeglądarce i nigdy nie są wysyłane na serwery.",
-          "Dostosowane doświadczenie: Dostosuj rozmiar czcionki, interlinię i tryby czytania.",
-          "Działa na każdym urządzeniu: Płynne czytanie na komputerze, tablecie i smartfonie.",
-          "Łatwa nawigacja: Przewracaj strony za pomocą klawiatury lub gestów.",
-          "Nawigacja po spisie treści: Przechodź bezpośrednio do dowolnego rozdziału.",
-          "Całkowicie za darmo i bez reklam."
+          "Natychmiastowy i bezpłatny: Nie jest wymagana instalacja ani rejestracja. Prześlij i czytaj natychmiast. Nasza usługa jest całkowicie bezpłatna i wolna od reklam.",
+          "Prywatność na pierwszym miejscu: Szanujemy Twoją prywatność. Twoje pliki są przetwarzane lokalnie w przeglądarce i nigdy nie są przesyłane na nasze serwery. Twoje książki pozostają Twoje.",
+          "Dostosowywalne doświadczenie czytania: Przejmij kontrolę nad swoim czytaniem. Dostosuj rozmiar czcionki, wysokość wiersza i przełączaj się między widokiem pojedynczej lub podwójnej strony dla własnej wygody.",
+          "Działa na każdym urządzeniu: Ciesz się płynnym doświadczeniem czytania na komputerze, tablecie lub smartfonie. Nasz responsywny projekt dostosowuje się do Twojego ekranu.",
+          "Łatwa nawigacja: Nawiguj po książce bez wysiłku za pomocą zintegrowanego spisu treści lub przechodź bezpośrednio na dowolną stronę. Czytanie powinno być proste."
         ],
       },
       "zh-TW": {
         name: "ePub 閱讀器",
-        description: "在任何裝置上隨時隨地線上閱讀您的 EPUB 書籍。無需下載，無需註冊。只需上傳，即可享受乾淨、可自訂的閱讀體驗。",
+        description: "使用我們免費、注重隱私的閱讀器在線閱讀您的 EPUB 書籍。無需安裝，無需註冊。在任何設備上即時訪問您的書籍。",
         featureList: [
-          "立即免費使用：無需安裝或註冊。上傳 EPUB，即刻開始閱讀。",
-          "隱私優先：檔案在瀏覽器本地處理，絕不上傳至伺服器。",
-          "可自訂閱讀體驗：掌握您的閱讀體驗。可調整字體大小、行距，並在單頁或雙頁之間切換。",
-          "跨裝置相容：無論桌機、平板或手機，都可享受流暢閱讀。",
-          "操作直覺：使用內建目錄導航，或直接跳至任一頁。",
-          "完全免費，無廣告。"
+            "即時免費：無需安裝或註冊。上傳並立即閱讀。我們的服務完全免費，無廣告。",
+            "隱私至上：我們尊重您的隱私。您的文件在您的瀏覽器中本地處理，絕不上傳到我們的服務器。您的書籍仍然是您的。",
+            "可定制的閱讀體驗：掌控您的閱讀。調整字體大小、行高，並在單頁或雙頁視圖之間切換，以獲得舒適的閱讀體驗。",
+            "適用於任何設備：在您的台式機、平板電腦或智能手機上享受無縫的閱讀體驗。我們的響應式設計可適應您的屏幕。",
+            "輕鬆導航：使用集成的目錄輕鬆瀏覽您的書籍，或直接跳轉到任何頁面。閱讀應該是簡單的。"
         ]
       },
       it: {
         name: "Lettore ePub",
-        description: "Leggi i tuoi libri EPUB online, ovunque e su qualsiasi dispositivo. Nessun download, nessuna registrazione. Carica e goditi un'esperienza di lettura pulita e personalizzabile.",
+        description: "Leggi i tuoi libri EPUB online con il nostro lettore gratuito e attento alla privacy. Nessuna installazione, nessuna registrazione richiesta. Accedi istantaneamente ai tuoi libri su qualsiasi dispositivo.",
         featureList: [
-          "Istantaneo e gratuito: Nessuna installazione o registrazione richiesta.",
-          "Privacy al primo posto: I file vengono elaborati localmente nel browser e non sono mai caricati sui nostri server.",
-          "Esperienza personalizzabile: Hai il controllo della tua lettura. Regola dimensione del carattere, interlinea e scegli tra visualizzazione a pagina singola o doppia.",
-          "Funziona su qualsiasi dispositivo: Leggi senza interruzioni su desktop, tablet o smartphone.",
-          "Navigazione semplice: Naviga facilmente nel tuo libro con l’indice integrato.",
-          "Totalmente gratuito e senza pubblicità."
+          "Istantaneo e gratuito: non è richiesta alcuna installazione o registrazione. Carica e leggi immediatamente. Il nostro servizio è completamente gratuito e senza pubblicità.",
+          "La privacy prima di tutto: rispettiamo la tua privacy. I tuoi file vengono elaborati localmente nel tuo browser e non vengono mai caricati sui nostri server. I tuoi libri rimangono tuoi.",
+          "Esperienza di lettura personalizzabile: prendi il controllo della tua lettura. Regola la dimensione del carattere, l'altezza della linea e passa dalla visualizzazione a pagina singola a quella a due pagine per il tuo comfort.",
+          "Funziona su qualsiasi dispositivo: goditi un'esperienza di lettura senza interruzioni sul tuo desktop, tablet o smartphone. Il nostro design reattivo si adatta al tuo schermo.",
+          "Navigazione semplice: naviga senza sforzo nel tuo libro con il sommario integrato o passa direttamente a qualsiasi pagina. La lettura dovrebbe essere semplice."
         ]
       },
       pt: {
         name: "Leitor ePub",
-        description: "Leia os seus livros EPUB online, em qualquer lugar e em qualquer dispositivo. Sem downloads, sem registos. Basta carregar e desfrutar de uma experiência de leitura limpa e personalizável.",
+        description: "Leia os seus livros EPUB online com o nosso leitor gratuito e focado na privacidade. Não é necessária instalação nem registo. Aceda instantaneamente aos seus livros em qualquer dispositivo.",
         featureList: [
-          "Instantâneo e gratuito: Sem instalação nem registo.",
-          "Privacidade em primeiro: Os seus ficheiros são processados localmente no navegador e nunca são enviados para servidores.",
-          "Experiência personalizável: Controle a sua leitura. Ajuste tamanho da fonte, espaçamento de linha, e escolha entre visualização de página única ou dupla.",
-          "Funciona em qualquer dispositivo: Leia sem interrupções em desktop, tablet ou smartphone.",
-          "Navegação fácil: Navegue pelo livro com o índice integrado.",
-          "Totalmente gratuito e sem publicidade."
+          "Instantâneo e gratuito: Não é necessária qualquer instalação ou registo. Carregue e leia instantaneamente. O nosso serviço é totalmente gratuito e sem anúncios.",
+          "Privacidade em primeiro lugar: Respetamo-lo a sua privacidade. Os seus ficheiros são processados localmente no seu browser e nunca são carregados para os nossos servidores. Os seus livros continuam a ser seus.",
+          "Experiência de leitura personalizável: Assuma o controlo da sua leitura. Ajuste o tamanho do tipo de letra, a altura da linha e alterne entre as visualizações de uma ou duas páginas para seu conforto.",
+          "Funciona em qualquer dispositivo: Desfrute de uma experiência de leitura perfeita no seu computador, tablet ou smartphone. O nosso design responsivo adapta-se ao seu ecrã.",
+          "Navegação fácil: Navegue no seu livro sem esforço com o índice integrado ou salte diretamente para qualquer página. A leitura deve ser simples."
         ]
       },
       bg: {
         name: "ePub Прегледач",
-        description: "Четете вашите EPUB книги онлайн, навсякъде, на всяко устройство. Без изтегляния, без регистрации. Просто качете и се насладете на чисто, персонализирано изживяване при четене.",
+        description: "Четете вашите EPUB книги онлайн с нашия безплатен четец, който се фокусира върху поверителността. Не се изисква инсталация или регистрация. Незабавен достъп до вашите книги на всяко устройство.",
         featureList: [
-          "Незабавно и безплатно: Не се изисква инсталация или регистрация.",
-          "Поверителност на първо място: Вашите файлове се обработват локално в браузъра и никога не се качват на нашите сървъри.",
-          "Персонализирано изживяване: Контролирайте как четете. Коригирайте размера на шрифта, междуредието и изберете между изглед с една или две страници.",
-          "Работи на всяко устройство: Насладете се на безпроблемно четене на настолен компютър, таблет или смартфон.",
-          "Лесна навигация: Навигирайте лесно в книгата с вградена таблица на съдържанието.",
-          "Напълно безплатно и без реклами."
+          "Незабавно и безплатно: Не се изисква инсталация или регистрация. Качете и четете незабавно. Нашата услуга е напълно безплатна и без реклами.",
+          "Поверителност на първо място: Ние уважаваме вашата поверителност. Вашите файлове се обработват локално във вашия браузър и никога не се качват на нашите сървъри. Вашите книги си остават ваши.",
+          "Персонализирано изживяване при четене: Поемете контрол над четенето си. Регулирайте размера на шрифта, височината на реда и превключвайте между изглед с една или две страници за ваше удобство.",
+          "Работи на всяко устройство: Насладете се на безпроблемно изживяване при четене на вашия настолен компютър, таблет или смартфон. Нашият отзивчив дизайн се адаптира към вашия екран.",
+          "Лесна навигация: Навигирайте без усилие в книгата си с интегрираното съдържание или прескачайте директно към която и да е страница. Четенето трябва да бъде лесно."
         ]
       },
     };

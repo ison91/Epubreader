@@ -65,6 +65,10 @@
     "q3": "Su quali dispositivi posso usarlo?",
     "a3": "Il nostro lettore è un’applicazione web, funziona su qualsiasi dispositivo con browser moderno: desktop (Windows, macOS, Linux), tablet (iPad, Android) e smartphone (iPhone, Android)."
   },
+  "footer": {
+    "site_name": "Lettore ePub",
+    "rights_reserved": "Tutti i diritti riservati."
+  },
   "error": {
     "reading_file_title": "Errore nella lettura del file",
     "reading_file_description": "Si è verificato un problema nella lettura del file. Verifica che non sia danneggiato.",
