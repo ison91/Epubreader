@@ -10,51 +10,32 @@ import path from 'path';
 type Language = 'en' | 'ja' | 'ru' | 'ko' | 'ar' | 'de' | 'fr' | 'es' | 'pl' | 'zh-TW' | 'it' | 'pt' | 'bg';
 
 const supportedLanguages: Language[] = ['en', 'ja', 'ru', 'ko', 'ar', 'de', 'fr', 'es', 'pl', 'zh-TW', 'it', 'pt', 'bg'];
+const fallbackLang: Language = 'en';
 
 async function getTranslations(lang: Language): Promise<any> {
-    const fallbackLang = 'en';
     let langToLoad = supportedLanguages.includes(lang) ? lang : fallbackLang;
 
     const filePath = path.join(process.cwd(), 'public', 'locales', `${langToLoad}.json`);
     
     try {
         const fileContent = await fs.readFile(filePath, 'utf8');
-        const translations = JSON.parse(fileContent);
-        
-        // Ensure featureList for schema is an array of strings
-        if (translations.features_list && typeof translations.features_list === 'object') {
-            translations.schema_feature_list = Object.values(translations.features_list).map(
-                (feature: any) => `${feature.title}: ${feature.description}`
-            );
-        } else {
-            translations.schema_feature_list = [];
-        }
-
-        return translations;
+        return JSON.parse(fileContent);
     } catch (error) {
         console.error(`Could not load translations for ${langToLoad}, falling back to ${fallbackLang}`, error);
         if (langToLoad !== fallbackLang) {
             const fallbackPath = path.join(process.cwd(), 'public', 'locales', `${fallbackLang}.json`);
             const fileContent = await fs.readFile(fallbackPath, 'utf8');
-            const translations = JSON.parse(fileContent);
-            if (translations.features_list && typeof translations.features_list === 'object') {
-                translations.schema_feature_list = Object.values(translations.features_list).map(
-                    (feature: any) => `${feature.title}: ${feature.description}`
-                );
-            } else {
-                translations.schema_feature_list = [];
-            }
-            return translations;
+            return JSON.parse(fileContent);
         }
         return { metadata: { title: { default: 'ePub Reader' } } }; // Should not happen if en.json exists
     }
 }
 
 function detectLanguage(acceptLanguage: string): Language {
-  const langOrder = acceptLanguage.split(',').map(lang => lang.split(';')[0].trim());
+  const langOrder = acceptLanguage.split(',').map(lang => lang.split(';')[0].trim().toLowerCase());
 
   for (const lang of langOrder) {
-    if (lang.startsWith("zh-TW")) return 'zh-TW';
+    if (lang === "zh-tw") return 'zh-TW';
     if (lang.startsWith("it")) return 'it';
     if (lang.startsWith("pt")) return 'pt';
     if (lang.startsWith("bg")) return 'bg';
@@ -68,7 +49,7 @@ function detectLanguage(acceptLanguage: string): Language {
     if (lang.startsWith("ja")) return 'ja';
     if (lang.startsWith("en")) return 'en';
   }
-  return 'en';
+  return fallbackLang;
 }
 
 
@@ -77,25 +58,24 @@ export async function generateMetadata(): Promise<Metadata> {
   const acceptLanguage = headersList.get("accept-language") || "";
   const lang = detectLanguage(acceptLanguage);
   const t = await getTranslations(lang);
-  const siteUrl = 'https://epubreader.info/';
+  const siteUrl = 'https://epubreader.info';
 
   const languagesObject = supportedLanguages.reduce((acc, currentLang) => {
-    if (currentLang === 'zh-TW') {
-        acc['zh-TW'] = siteUrl;
-    } else {
-        acc[currentLang] = siteUrl;
-    }
+    acc[currentLang] = `${siteUrl}`;
     return acc;
   }, {} as Record<string, string>);
   
-
   if (!t.metadata) {
       return {
           title: "ePub Reader"
       };
   }
+  
+  const ogImage = `${siteUrl}/og-image.png`;
+  const twitterImage = `${siteUrl}/twitter-image.png`;
 
   return {
+    metadataBase: new URL(siteUrl),
     title: {
       default: t.metadata.title.default,
       template: t.metadata.title.template,
@@ -110,65 +90,97 @@ export async function generateMetadata(): Promise<Metadata> {
       languages: languagesObject,
     },
     openGraph: {
-      ...t.metadata.openGraph,
+      title: t.metadata.title.default,
+      description: t.metadata.description,
+      url: siteUrl,
+      siteName: t.metadata.openGraph.siteName,
       images: [
         {
-          url: "https://placehold.co/1200x630.png",
+          url: ogImage,
           width: 1200,
           height: 630,
           alt: t.metadata.openGraph.images[0].alt,
         },
       ],
+      locale: lang,
+      type: 'website',
     },
     twitter: {
-        ...t.metadata.twitter,
-        images: ["https://placehold.co/1200x630.png"],
+      card: 'summary_large_image',
+      title: t.metadata.title.default,
+      description: t.metadata.description,
+      images: [twitterImage], 
+      creator: t.metadata.twitter.creator,
     },
-    robots: t.metadata.robots,
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            'max-video-preview': -1,
+            'max-image-preview': 'large',
+            'max-snippet': -1,
+        },
+    },
   };
 }
 
 const createJsonLd = (lang: Language, translations: any) => {
-    const schemaData = translations.schema || {};
+    const siteUrl = 'https://epubreader.info';
+    const schemaTranslations = translations.schema || {};
+
+    const featureList = Object.values(translations.features_list || {}).map((feature: any) => `${feature.title}: ${feature.description}`);
 
     return {
         "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": schemaData.name,
-        "url": "https://epubreader.info",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": {
-                "@type": "EntryPoint",
-                "urlTemplate": "https://epubreader.info"
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "url": siteUrl,
+                "name": schemaTranslations.name,
+                "inLanguage": lang,
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": {
+                        "@type": "EntryPoint",
+                        "urlTemplate": `${siteUrl}#?q={search_term_string}`
+                    },
+                    "query-input": "required name=search_term_string"
+                }
             },
-            "query-input": "required name=search_term_string"
-        },
-        "mainEntity": {
-            "@context": "https://schema.org",
-            "@type": "WebApplication",
-            "name": schemaData.name,
-            "description": schemaData.description,
-            "url": "https://epubreader.info",
-            "applicationCategory": "ProductivityApplication",
-            "operatingSystem": "Any",
-            "browserRequirements": "Requires HTML5 and JavaScript.",
-            "fileFormat": "application/epub+zip",
-            "softwareVersion": "2.0.0",
-            "permissions": "No special permissions required",
-            "releaseNotes": "https://epubreader.info/#features",
-            "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD",
-            },
-            "publisher": {
-                "@type": "Organization",
-                "name": "Firebase Studio",
-            },
-            "featureList": translations.schema_feature_list,
-            "screenshot": "https://placehold.co/1200x630.png",
-        }
+            {
+                "@type": "WebApplication",
+                "name": schemaTranslations.name,
+                "description": schemaTranslations.description,
+                "url": siteUrl,
+                "inLanguage": lang,
+                "applicationCategory": "ProductivityApplication",
+                "operatingSystem": "Any",
+                "browserRequirements": "Requires HTML5 and JavaScript.",
+                "fileFormat": "application/epub+zip",
+                "softwareVersion": "2.0.0",
+                "permissions": "No special permissions required",
+                "releaseNotes": `${siteUrl}#features`,
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD"
+                },
+                "provider": {
+                    "@type": "Organization",
+                    "name": "ePubReader.info",
+                     "url": siteUrl
+                },
+                "featureList": featureList,
+                "screenshot": {
+                    "@type": "ImageObject",
+                    "url": `${siteUrl}/og-image.png`,
+                    "width": 1200,
+                    "height": 630
+                }
+            }
+        ]
     };
 };
 
@@ -202,8 +214,8 @@ export default async function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="antialiased">
-        <I18nProvider initialLocale={lang}>
+      <body className="antialiased font-sans">
+        <I18nProvider initialLocale={lang} translations={translations}>
           {children}
           <Toaster />
         </I18nProvider>

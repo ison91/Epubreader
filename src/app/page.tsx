@@ -26,6 +26,8 @@ import {
   Card,
   CardContent,
   CardHeader,
+  CardTitle,
+  CardDescription,
 } from "@/components/ui/card";
 import {
   Sheet,
@@ -261,8 +263,8 @@ export default function EPubReaderPage() {
 
       newRendition.themes.register("light", {
         body: {
-          background: "hsl(0 0% 93.3%)",
-          color: "hsl(0 0% 3.9%)",
+          background: "hsl(var(--background))",
+          color: "hsl(var(--foreground))",
         },
         "a:hover": {
           color: "#0000EE",
@@ -446,117 +448,126 @@ export default function EPubReaderPage() {
 
 
     return (
-        <div className="flex w-full flex-col items-center bg-background">
-            <div className="flex min-h-screen w-full flex-col items-center justify-center p-4">
-                <Card className="relative w-full max-w-md text-center shadow-2xl z-10">
-                    <div className="absolute top-4 right-4">
-                        <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                            <Button variant="ghost" size="icon" aria-label={t("Language")}>
-                            <Globe className="h-5 w-5" />
-                            </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end">
-                            <DropdownMenuItem onSelect={() => setLocale("en")}>English</DropdownMenuItem>
-                            <DropdownMenuItem onSelect={() => setLocale("de")}>Deutsch</DropdownMenuItem>
-                            <DropdownMenuItem onSelect={() => setLocale("es")}>Español</DropdownMenuItem>
-                            <DropdownMenuItem onSelect={() => setLocale("fr")}>Français</DropdownMenuItem>
-                            <DropdownMenuItem onSelect={() => setLocale("pl")}>Polski</DropdownMenuItem>
-                            <DropdownMenuItem onSelect={() => setLocale("it")}>Italiano</DropdownMenuItem>
-                            <DropdownMenuItem onSelect={() => setLocale("pt")}>Português</DropdownMenuItem>
-                            <DropdownMenuItem onSelect={() => setLocale("bg")}>български</DropdownMenuItem>
-                            <DropdownMenuItem onSelect={() => setLocale("ru")}>Русский</DropdownMenuItem>
-                            <DropdownMenuItem onSelect={() => setLocale("ar")}>العربية</DropdownMenuItem>
-                            <DropdownMenuItem onSelect={() => setLocale("ja")}>日本語</DropdownMenuItem>
-                            <DropdownMenuItem onSelect={() => setLocale("ko")}>한국어</DropdownMenuItem>
-                            <DropdownMenuItem onSelect={() => setLocale("zh-TW")}>繁體中文</DropdownMenuItem>
-                        </DropdownMenuContent>
-                        </DropdownMenu>
-                    </div>
-                    <CardHeader>
-                        <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-primary/10 text-primary">
-                        <BookOpen className="h-10 w-10" />
+        <div className="flex w-full flex-col items-center bg-background text-foreground font-body">
+            <main className="w-full">
+                <section className="flex min-h-screen w-full flex-col items-center justify-center p-4 text-center">
+                    <Card className="relative w-full max-w-lg shadow-2xl z-10 border-2 border-primary/10">
+                        <div className="absolute top-4 right-4">
+                            <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <Button variant="ghost" size="icon" aria-label={t("Language")}>
+                                <Globe className="h-5 w-5" />
+                                </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align="end">
+                                <DropdownMenuItem onSelect={() => setLocale("en")}>English</DropdownMenuItem>
+                                <DropdownMenuItem onSelect={() => setLocale("de")}>Deutsch</DropdownMenuItem>
+                                <DropdownMenuItem onSelect={() => setLocale("es")}>Español</DropdownMenuItem>
+                                <DropdownMenuItem onSelect={() => setLocale("fr")}>Français</DropdownMenuItem>
+                                <DropdownMenuItem onSelect={() => setLocale("pl")}>Polski</DropdownMenuItem>
+                                <DropdownMenuItem onSelect={() => setLocale("it")}>Italiano</DropdownMenuItem>
+                                <DropdownMenuItem onSelect={() => setLocale("pt")}>Português</DropdownMenuItem>
+                                <DropdownMenuItem onSelect={() => setLocale("bg")}>български</DropdownMenuItem>
+                                <DropdownMenuItem onSelect={() => setLocale("ru")}>Русский</DropdownMenuItem>
+                                <DropdownMenuItem onSelect={() => setLocale("ar")}>العربية</DropdownMenuItem>
+                                <DropdownMenuItem onSelect={() => setLocale("ja")}>日本語</DropdownMenuItem>
+                                <DropdownMenuItem onSelect={() => setLocale("ko")}>한국어</DropdownMenuItem>
+                                <DropdownMenuItem onSelect={() => setLocale("zh-TW")}>繁體中文</DropdownMenuItem>
+                            </DropdownMenuContent>
+                            </DropdownMenu>
                         </div>
-                        <h1 className="text-3xl font-bold font-headline">
-                           {t("ePub Reader")}
-                        </h1>
-                    </CardHeader>
-                    <CardContent>
-                        <input
-                        type="file"
-                        ref={fileInputRef}
-                        onChange={handleFileChange}
-                        className="hidden"
-                        accept=".epub"
-                        />
-                        <Button size="lg" onClick={handleFileUploadClick}>
-                        <Upload className="mr-2 h-5 w-5" />
-                        {t("Upload a Book")}
-                        </Button>
-                    </CardContent>
-                </Card>
-            </div>
-            
-            <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-                <section id="features" className="mb-20">
-                    <h2 className="text-3xl font-bold text-center mb-10">{t('features_title')}</h2>
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {featureList.map((feature, index) => (
-                        <div key={index} className="text-center p-6 border rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                            <div className="flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 text-primary mx-auto mb-4">
-                                <feature.icon className="h-6 w-6" />
+                        <CardHeader>
+                            <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-primary/10 text-primary">
+                            <BookOpen className="h-10 w-10" />
                             </div>
-                            <h3 className="text-lg font-semibold mb-2">{t(`features_list.${feature.key}.title`)}</h3>
-                            <p className="text-muted-foreground">{t(`features_list.${feature.key}.description`)}</p>
-                        </div>
-                    ))}
-                    </div>
+                            <CardTitle as="h1" className="text-3xl lg:text-4xl font-bold font-headline">
+                               {t("ePub Reader")}
+                            </CardTitle>
+                             <CardDescription className="text-lg text-muted-foreground pt-2">
+                                {t('homepage_subtitle')}
+                            </CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <input
+                            type="file"
+                            ref={fileInputRef}
+                            onChange={handleFileChange}
+                            className="hidden"
+                            accept=".epub"
+                            />
+                            <Button size="lg" onClick={handleFileUploadClick} className="font-semibold">
+                            <Upload className="mr-2 h-5 w-5" />
+                            {t("Upload a Book")}
+                            </Button>
+                        </CardContent>
+                    </Card>
                 </section>
                 
-                <section id="why-choose-us" className="mb-20 bg-muted -mx-4 sm:-mx-6 lg:-mx-8 py-16 px-4 sm:px-6 lg:px-8">
-                    <div className="w-full max-w-3xl mx-auto">
-                        <h2 className="text-3xl font-bold text-center mb-10">{t('why_choose_us_title')}</h2>
-                        <div className="text-center text-muted-foreground space-y-4">
-                            <p>{t('why_choose_us_p1')}</p>
-                            <p>{t('why_choose_us_p2')}</p>
-                            <p>{t('why_choose_us_p3')}</p>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="how-it-works" className="mb-20">
-                    <h2 className="text-3xl font-bold text-center mb-10">{t('how_it_works_title')}</h2>
-                    <div className="relative">
-                         <div className="absolute left-1/2 top-4 hidden h-[calc(100%-2rem)] w-0.5 bg-border md:block" aria-hidden="true"></div>
-                        <div className="grid md:grid-cols-3 gap-12">
-                            {howItWorksSteps.map((step, index) => (
-                                <div key={index} className="text-center relative">
-                                     <div className="flex items-center justify-center h-12 w-12 rounded-full bg-primary text-primary-foreground mx-auto mb-4 z-10 relative">
-                                        <span className="text-xl font-bold">{step.num}</span>
-                                    </div>
-                                    <p className="text-muted-foreground">{t(`how_it_works_steps.${step.key}`)}</p>
+                <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 space-y-20">
+                    <section id="features">
+                        <h2 className="text-3xl font-bold text-center mb-10 font-headline">{t('features_title')}</h2>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {featureList.map((feature, index) => (
+                            <div key={index} className="text-center p-6 border rounded-lg shadow-sm hover:shadow-md transition-shadow bg-card">
+                                <div className="flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 text-primary mx-auto mb-4">
+                                    <feature.icon className="h-6 w-6" />
                                 </div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-
-                <section id="faq">
-                    <h2 className="text-3xl font-bold text-center mb-10">{t('faq_title')}</h2>
-                    <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">
-                        {faqItems.map((item, index) => (
-                             <AccordionItem key={index} value={`item-${index + 1}`}>
-                                <AccordionTrigger className="text-lg font-medium text-left">{t(`faq_items.${item.q}`)}</AccordionTrigger>
-                                <AccordionContent className="text-muted-foreground text-base">
-                                {t(`faq_items.${item.a}`)}
-                                </AccordionContent>
-                            </AccordionItem>
+                                <h3 className="text-xl font-semibold mb-2 font-headline">{t(`features_list.${feature.key}.title`)}</h3>
+                                <p className="text-muted-foreground">{t(`features_list.${feature.key}.description`)}</p>
+                            </div>
                         ))}
-                    </Accordion>
-                </section>
-            </div>
-            <footer className="w-full border-t bg-muted/50 py-6">
-                <div className="container mx-auto text-center text-sm text-muted-foreground">
+                        </div>
+                    </section>
+                    
+                    <section id="why-choose-us" className="bg-muted -mx-4 sm:-mx-6 lg:-mx-8 py-16 px-4 sm:px-6 lg:px-8 rounded-lg">
+                        <div className="w-full max-w-3xl mx-auto">
+                            <h2 className="text-3xl font-bold text-center mb-10 font-headline">{t('why_choose_us_title')}</h2>
+                            <div className="text-center text-muted-foreground space-y-4 text-lg">
+                                <p>{t('why_choose_us_p1')}</p>
+                                <p>
+                                  {t('why_choose_us_p2_1')}
+                                  <a href="#features" className="text-primary underline hover:text-primary/80">{t('why_choose_us_p2_link')}</a>
+                                  {t('why_choose_us_p2_2')}
+                                </p>
+                                <p>{t('why_choose_us_p3')}</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="how-it-works">
+                        <h2 className="text-3xl font-bold text-center mb-12 font-headline">{t('how_it_works_title')}</h2>
+                        <div className="relative">
+                             <div className="absolute left-1/2 top-6 hidden h-[calc(100%-3rem)] w-0.5 bg-border md:block" aria-hidden="true"></div>
+                            <div className="grid md:grid-cols-3 gap-y-12 md:gap-x-12">
+                                {howItWorksSteps.map((step) => (
+                                    <div key={step.num} className="text-center relative px-4">
+                                        <div className="flex items-center justify-center h-12 w-12 rounded-full bg-primary text-primary-foreground mx-auto mb-4 z-10 relative ring-8 ring-background">
+                                            <span className="text-xl font-bold">{step.num}</span>
+                                        </div>
+                                        <p className="text-muted-foreground mt-4 text-lg">{t(`how_it_works_steps.${step.key}`)}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="faq">
+                        <h2 className="text-3xl font-bold text-center mb-10 font-headline">{t('faq_title')}</h2>
+                        <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">
+                            {faqItems.map((item, index) => (
+                                <AccordionItem key={index} value={`item-${index + 1}`} className="bg-card px-4 rounded-lg mb-2 shadow-sm">
+                                    <AccordionTrigger className="text-lg font-medium text-left hover:no-underline font-headline">{t(`faq_items.${item.q}`)}</AccordionTrigger>
+                                    <AccordionContent className="text-muted-foreground text-base leading-relaxed">
+                                    {t(`faq_items.${item.a}`)}
+                                    </AccordionContent>
+                                </AccordionItem>
+                            ))}
+                        </Accordion>
+                    </section>
+                </div>
+            </main>
+            <footer className="w-full border-t bg-muted/50 mt-12">
+                <div className="container mx-auto py-6 text-center text-sm text-muted-foreground">
                     <p>
                         © {new Date().getFullYear()} {t("footer.site_name")}. {t("footer.rights_reserved")}
                     </p>
@@ -567,7 +578,7 @@ export default function EPubReaderPage() {
   }
 
   return (
-    <div className="flex h-dvh flex-col bg-background text-foreground">
+    <div className="flex h-dvh flex-col bg-background text-foreground font-body">
       <header className="flex h-16 flex-shrink-0 items-center justify-between border-b px-4 sm:px-6">
         <h1 className="truncate text-xl font-bold font-headline">
           {bookTitle || t("Loading...")}
@@ -579,7 +590,7 @@ export default function EPubReaderPage() {
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent className="flex flex-col sm:max-w-md">
+            <SheetContent className="flex flex-col sm:max-w-md font-body">
               <SheetHeader>
                 <SheetTitle className="font-headline">{t("Menu")}</SheetTitle>
               </SheetHeader>

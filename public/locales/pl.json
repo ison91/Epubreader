@@ -1,6 +1,7 @@
 
 {
   "ePub Reader": "Czytnik ePub",
+  "homepage_subtitle": "Prosty, darmowy i prywatny sposób na czytanie e-booków.",
   "Upload a Book": "Prześlij książkę",
   "preparing_book": "Przygotowywanie książki...",
   "Menu": "Menu",
@@ -19,40 +20,38 @@
   "Next Page": "Następna strona",
   "Current Page": "Obecna strona",
   "Loading...": "Ładowanie...",
-  "footer": {
-    "site_name": "Czytnik ePub",
-    "rights_reserved": "Wszelkie prawa zastrzeżone."
-  },
   "features_title": "Dlaczego warto wybrać Czytnik ePub?",
   "features_list": {
     "feature_1": {
       "title": "Natychmiastowy i bezpłatny",
-      "description": "Bez instalacji i rejestracji. Prześlij EPUB i zacznij czytać od razu. Nasza usługa jest całkowicie darmowa i bez reklam."
+      "description": "Bez instalacji i rejestracji. Prześlij EPUB i zacznij czytać od razu. Nasza usługa jest całkowicie darmowa i bez reklam, zaprojektowana dla natychmiastowego dostępu do Twoich historii."
     },
     "feature_2": {
       "title": "Prywatność przede wszystkim",
-      "description": "Dbamy o Twoją prywatność. Pliki są przetwarzane lokalnie w przeglądarce i nigdy nie są wysyłane na serwery. Twoje książki należą do Ciebie."
+      "description": "Szanujemy Twoją prywatność. Pliki są przetwarzane lokalnie w przeglądarce i nigdy nie są wysyłane na nasze serwery. Twoje książki pozostają Twoje, zawsze."
     },
     "feature_3": {
       "title": "Dostosowane doświadczenie",
-      "description": "Kontroluj swoje czytanie. Dostosuj rozmiar czcionki, interlinię i wybierz widok jednej lub dwóch stron."
+      "description": "Dostosuj swoje środowisko czytelnicze. Zmieniaj rozmiar czcionki, interlinię i wybieraj między układem jedno- a dwustronicowym dla maksymalnego komfortu."
     },
     "feature_4": {
       "title": "Działa na każdym urządzeniu",
-      "description": "Ciesz się płynnym czytaniem na komputerze, tablecie i smartfonie. Nasz responsywny układ dopasowuje się do ekranu."
+      "description": "Ciesz się płynnym czytaniem na komputerze, tablecie lub smartfonie. Nasz responsywny design dostosowuje się do Twojego ekranu, abyś mógł czytać wszędzie."
     },
     "feature_5": {
       "title": "Szybki i wydajny",
-      "description": "Zbudowany z wykorzystaniem nowoczesnych technologii webowych — nasz czytnik szybko się ładuje i działa płynnie."
+      "description": "Zbudowany z wykorzystaniem nowoczesnych technologii webowych, nasz czytnik jest lekki i zoptymalizowany pod kątem wydajności, co zapewnia szybkie ładowanie książek."
     },
     "feature_6": {
       "title": "Łatwa nawigacja",
-      "description": "Przeglądaj książkę bez trudu dzięki spisowi treści lub przechodź bezpośrednio do wybranej strony. Czytanie ma być łatwe."
+      "description": "Bezproblemowo przeglądaj książkę dzięki zintegrowanemu spisowi treści lub przeskakuj bezpośrednio na dowolną stronę. Czytanie powinno być proste, a my to zapewniamy."
     }
   },
   "why_choose_us_title": "Zaprojektowany z myślą o nowoczesnym czytelniku",
   "why_choose_us_p1": "W świecie pełnym skomplikowanych aplikacji i subskrypcji stawiamy na prostotę. Czytnik ePub powstał z jednym celem: zapewnić najłatwiejszy, najbardziej bezpośredni sposób czytania EPUB online. Usuwamy bariery między tobą a twoimi historiami.",
-  "why_choose_us_p2": "Niezależnie od tego, czy jesteś studentem, profesjonalistą czy zapalonym czytelnikiem, nasze narzędzie oferuje czysty, wolny od rozproszeń interfejs, który oddaje pierwszy plan twoim treściom. Bez wyskakujących okien, bez reklam, bez zbędnych dodatków — tylko ty i twoja książka.",
+  "why_choose_us_p2_1": "Niezależnie od tego, czy jesteś studentem, profesjonalistą czy zapalonym czytelnikiem, nasze narzędzie oferuje czysty, wolny od rozproszeń interfejs, który oddaje pierwszy plan twoim treściom. Bez wyskakujących okien, bez reklam, bez zbędnych dodatków — tylko ty i twoja książka. Sprawdź naszą ",
+  "why_choose_us_p2_link": "pełną listę funkcji",
+  "why_choose_us_p2_2": ", aby zobaczyć, jak priorytetowo traktujemy Twoje doświadczenie czytelnicze.",
   "why_choose_us_p3": "Jesteśmy zobowiązani do zapewnienia otwartej i dostępnej platformy dla każdego. Dlatego nasza usługa jest całkowicie darmowa i działa na każdym urządzeniu z nowoczesną przeglądarką. Dołącz do tysięcy użytkowników, którzy uprościli czytanie online.",
   "how_it_works_title": "Jak to działa w 3 prostych krokach",
   "how_it_works_steps": {
@@ -76,41 +75,89 @@
     "loading_book_title": "Błąd ładowania książki",
     "loading_book_description": "Wystąpił błąd podczas ładowania książki. Plik może być uszkodzony lub w formacie nieobsługiwanym."
   },
+  "footer": {
+    "site_name": "ePubReader.info",
+    "rights_reserved": "Wszelkie prawa zastrzeżone."
+  },
   "metadata": {
     "title": {
-      "default": "Czytnik ePub | Darmowy, natychmiastowy czytnik książek EPUB online",
+      "default": "Darmowy Czytnik ePub Online - Czytaj Książki EPUB Natychmiast",
       "template": "%s | Czytnik ePub"
     },
-    "description": "Czytaj swoje książki EPUB online, gdziekolwiek, na dowolnym urządzeniu. Bez pobierania, bez rejestracji. Po prostu prześlij plik i ciesz się czystym, dostosowywanym interfejsem do czytania.",
+    "description": "Czytaj pliki EPUB online natychmiast za pomocą naszego darmowego Czytnika ePub. Bez instalacji, bez rejestracji. W 100% prywatnie i bezpiecznie. Działa na każdym urządzeniu.",
     "keywords": [
-      "czytnik EPUB", "czytnik e-booków online", "darmowy czytnik EPUB", "czytaj EPUB online", "przeglądarka EPUB web", "czytnik EPUB w przeglądarce", "czytnik epubjs", "czytanie książek cyfrowych", "prześlij EPUB", "otwórz plik EPUB", "czytnik e-booków bez pobierania", "natychmiastowy dostęp do e-booków", "czytnik wieloplatformowy", "lekki czytnik EPUB", "czytnik dbający o prywatność", "czytnik EPUB bez logowania", "czytnik EPUB open source", "czytaj pliki .epub", "narzędzie do czytania online", "aplikacja webowa EPUB", "najlepszy czytnik EPUB online", "prosty czytnik EPUB", "czytanie bez rozpraszaczy", "jak otworzyć epub", "czytnik epub na chromebook", "otwieranie epub", "darmowe ebooki online", "czytnik online", "bezpieczny czytnik", "prywatność e-book"
+      "czytnik ePub",
+      "czytnik epub online",
+      "darmowy czytnik epub",
+      "czytaj epub online",
+      "przeglądarka epub",
+      "czytnik epub web",
+      "czytnik plików epub",
+      "otwórz plik epub",
+      "epub online",
+      "epub w przeglądarce",
+      "czytnik epub bez instalacji",
+      "czytnik ebooków",
+      "czytnik książek online",
+      "czytaj ebooki online za darmo",
+      "przeglądarka epub w przeglądarce",
+      "czytnik epub html5",
+      "czytnik epub javascript",
+      "czytnik epub.js",
+      "czytnik epub dla chrome",
+      "czytnik epub dla firefox",
+      "czytnik epub dla mac",
+      "czytnik epub dla windows",
+      "czytnik epub dla linux",
+      "czytnik epub dla chromebook",
+      "czytnik epub mobilny",
+      "czytaj epub na ipadzie",
+      "czytaj epub na androidzie",
+      "przeglądarka dokumentów online",
+      "czytnik książek cyfrowych",
+      "darmowe narzędzie do ebooków",
+      "czytnik zorientowany na prywatność",
+      "bezpieczny czytnik epub",
+      "czytnik epub po stronie klienta",
+      "jak otworzyć plik epub online",
+      "najlepszy darmowy czytnik epub",
+      "aplikacja webowa czytnik epub",
+      "czytnik ebooków bez rejestracji",
+      "natychmiastowa przeglądarka epub",
+      "lekki czytnik epub",
+      "szybki czytnik epub",
+      "konfigurowalny czytnik epub",
+      "dostępny czytnik epub",
+      "czytaj książki cyfrowe",
+      "przeglądarka formatu epub",
+      "czytnik e-booków online",
+      "czytnik ebooków oparty na sieci",
+      "otwieranie plików .epub",
+      "otwieracz plików epub",
+      "czytaj dokumenty epub"
     ],
-    "authors": [{ "name": "Firebase Studio", "url": "https://epubreader.info" }],
+    "authors": [
+      {
+        "name": "ePubReader.info",
+        "url": "https://epubreader.info"
+      }
+    ],
     "creator": "Firebase Studio",
     "publisher": "Firebase",
     "openGraph": {
-      "title": "Czytnik ePub | Darmowy, natychmiastowy czytnik książek EPUB online",
-      "description": "Czytaj swoje książki EPUB online, gdziekolwiek, na dowolnym urządzeniu. Bez pobierania, bez rejestracji.",
-      "url": "https://epubreader.info",
       "siteName": "Czytnik ePub",
       "images": [
         {
-          "alt": "Czysty i nowoczesny interfejs aplikacji Czytnik ePub, pokazujący otwartą książkę."
+          "alt": "Czysty i nowoczesny interfejs czytnika ePub pokazujący otwartą książkę."
         }
-      ],
-      "locale": "pl_PL",
-      "type": "website"
+      ]
     },
     "twitter": {
-      "card": "summary_large_image",
-      "title": "Czytnik ePub | Najprostszy sposób na czytanie EPUB online",
-      "description": "Przesyłaj i czytaj swoje pliki EPUB bezpośrednio w przeglądarce dzięki czystemu, mobilnemu i dostosowywanemu interfejsowi.",
       "creator": "@Firebase"
-    },
-    "robots": { "index": true, "follow": true }
+    }
   },
   "schema": {
     "name": "Czytnik ePub",
-    "description": "Czytaj swoje książki EPUB online za pomocą naszego bezpłatnego czytnika, który dba o prywatność. Nie wymaga instalacji ani rejestracji. Błyskawiczny dostęp do książek na każdym urządzeniu."
+    "description": "Darmowy, prywatny i łatwy w użyciu czytnik ePub online, który działa bezpośrednio w Twojej przeglądarce. Nie wymaga instalacji."
   }
 }

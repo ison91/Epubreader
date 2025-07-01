@@ -1,6 +1,7 @@
 
 {
   "ePub Reader": "Leitor ePub",
+  "homepage_subtitle": "A maneira simples, gratuita e privada de ler os seus e-books.",
   "Upload a Book": "Carregar um livro",
   "preparing_book": "A preparar o seu livro…",
   "Menu": "Menu",
@@ -19,40 +20,38 @@
   "Next Page": "Próxima página",
   "Current Page": "Página atual",
   "Loading...": "A carregar…",
-  "footer": {
-    "site_name": "Leitor ePub",
-    "rights_reserved": "Todos os direitos reservados."
-  },
   "features_title": "Porque escolher o Leitor ePub?",
   "features_list": {
     "feature_1": {
       "title": "Instantâneo e gratuito",
-      "description": "Sem instalação nem registo. Carregue o seu EPUB e comece a ler imediatamente. O serviço é totalmente gratuito e sem publicidade."
+      "description": "Sem instalação nem registo. Carregue o seu EPUB e comece a ler imediatamente. O nosso serviço é totalmente gratuito e sem publicidade, desenhado para acesso imediato às suas histórias."
     },
     "feature_2": {
-      "title": "Privacidade em primeiro",
-      "description": "Privilegiamos a sua privacidade. Os seus ficheiros são processados localmente no navegador e nunca são enviados para servidores. Os seus livros são seus."
+      "title": "Privacidade em primeiro lugar",
+      "description": "Defendemos a sua privacidade. Os seus ficheiros são processados localmente no seu navegador e nunca são enviados para os nossos servidores. Os seus livros continuam a ser seus, sempre."
     },
     "feature_3": {
       "title": "Experiência personalizável",
-      "description": "Controle a sua leitura. Ajuste tamanho da fonte, espaçamento de linha, e escolha entre visualização de página única ou dupla."
+      "description": "Personalize o seu ambiente de leitura. Ajuste o tamanho da fonte, o espaçamento entre linhas e escolha entre layouts de página única ou dupla para o máximo conforto."
     },
     "feature_4": {
       "title": "Funciona em qualquer dispositivo",
-      "description": "Leia sem interrupções em desktop, tablet ou smartphone. O design responsivo adapta-se ao seu ecrã."
+      "description": "Desfrute de uma experiência de leitura fluida em qualquer desktop, tablet ou smartphone. O nosso design responsivo adapta-se ao seu ecrã, para que possa ler em qualquer lugar."
     },
     "feature_5": {
       "title": "Rápido e eficiente",
-      "description": "Construído com tecnologias web modernas, o nosso leitor oferece desempenho rápido e fluido, assegurando carregamentos e leitura suave."
+      "description": "Construído com tecnologias web modernas, o nosso leitor é leve e otimizado para o desempenho, garantindo que os seus livros carreguem rapidamente e funcionem sem problemas."
     },
     "feature_6": {
       "title": "Navegação fácil",
-      "description": "Navegue pelo livro com o índice integrado ou vá diretamente a qualquer página. A leitura deve ser fácil."
+      "description": "Navegue sem esforço pelo seu livro com o índice integrado ou salte diretamente para qualquer página. Ler deve ser simples, e nós garantimos que seja."
     }
   },
   "why_choose_us_title": "Concebido para o leitor moderno",
   "why_choose_us_p1": "Num mundo de apps complexas e subscrições, acreditamos na simplicidade. O Leitor ePub foi criado com um único objetivo: proporcionar a forma mais fácil e direta de ler EPUB online. Eliminando barreiras entre si e as suas histórias.",
-  "why_choose_us_p2": "Quer seja estudante, profissional ou leitor ávido, a nossa ferramenta oferece uma interface limpa sem distrações que coloca o seu conteúdo em primeiro plano. Sem pop-ups, sem anúncios, sem floreados desnecessários—apenas você e o seu livro.",
+  "why_choose_us_p2_1": "Quer seja estudante, profissional ou leitor ávido, a nossa ferramenta oferece uma interface limpa sem distrações que coloca o seu conteúdo em primeiro plano. Sem pop-ups, sem anúncios, sem floreados desnecessários—apenas você e o seu livro. Veja a nossa ",
+  "why_choose_us_p2_link": "lista completa de funcionalidades",
+  "why_choose_us_p2_2": " para ver como priorizamos a sua experiência de leitura.",
   "why_choose_us_p3": "Estamos comprometidos com uma plataforma aberta e acessível a todos. Por isso, o nosso serviço é totalmente gratuito e projetado para funcionar em qualquer dispositivo com navegador moderno. Junte-se a milhares de utilizadores que já simplificaram a leitura online.",
   "how_it_works_title": "Como funciona em 3 passos simples",
   "how_it_works_steps": {
@@ -76,41 +75,89 @@
     "loading_book_title": "Erro ao carregar o livro",
     "loading_book_description": "Ocorreu um erro ao carregar o livro. O ficheiro pode estar corrompido ou num formato não suportado."
   },
+  "footer": {
+    "site_name": "ePubReader.info",
+    "rights_reserved": "Todos os direitos reservados."
+  },
   "metadata": {
     "title": {
-      "default": "Leitor ePub | Leitor de livros EPUB online, grátis e instantâneo",
+      "default": "Leitor de ePub Online Gratuito - Leia Livros EPUB Instantaneamente",
       "template": "%s | Leitor ePub"
     },
-    "description": "Leia os seus livros EPUB online, em qualquer lugar e em qualquer dispositivo. Sem downloads, sem registos. Basta carregar e desfrutar de uma experiência de leitura limpa e personalizável.",
+    "description": "Leia ficheiros EPUB online instantaneamente com o nosso Leitor ePub gratuito. Sem instalação, sem registo. 100% privado e seguro. Funciona em qualquer dispositivo.",
     "keywords": [
-      "Leitor EPUB", "leitor de ebooks online", "leitor EPUB gratuito", "ler EPUB online", "visualizador EPUB web", "leitor EPUB para navegador", "epubjs", "leitor de livros digitais", "visualizador de documentos online", "ler livros no navegador", "carregar EPUB", "abrir ficheiro EPUB", "leitor de ebook sem download", "acesso instantâneo a ebooks", "leitor de ebook na nuvem", "leitor multiplataforma", "leitor EPUB móvel", "leitor de ebook para tablet", "leitor EPUB para desktop", "leitor EPUB leve", "carregador EPUB rápido", "leitor de ebook acessível", "personalizar experiência de leitura", "alterar tamanho da fonte ebook", "ajustar espaçamento entre linhas", "modo escuro", "modo claro", "tema sépia", "monitorizar progresso de leitura", "navegação por índice", "biblioteca de ebooks online", "biblioteca digital pessoal", "leitor focado na privacidade", "leitor de ebook sem login", "visualizador EPUB seguro", "leitor EPUB de código aberto", "suporte ao formato EPUB", "ler ficheiros .epub", "ferramenta de leitura online", "plataforma de leitura digital", "aplicação web EPUB", "melhor leitor EPUB online", "leitor EPUB simples", "interface de leitura limpa", "leitura sem distrações", "EPUB para HTML", "e-reader baseado na web", "ler livros grátis", "como abrir ficheiro epub", "leitor epub para chrome", "ler romances online", "ebooks gratuitos", "visualizador epub online", "carregar e ler epub"
+      "leitor ePub",
+      "leitor epub online",
+      "leitor epub gratuito",
+      "ler epub online",
+      "visualizador epub",
+      "leitor epub web",
+      "leitor de ficheiros epub",
+      "abrir ficheiro epub",
+      "epub online",
+      "epub no navegador",
+      "leitor epub sem instalação",
+      "leitor de ebooks",
+      "leitor de livros online",
+      "ler ebooks online grátis",
+      "visualizador epub para navegador",
+      "leitor epub html5",
+      "leitor epub javascript",
+      "leitor epub.js",
+      "leitor epub para chrome",
+      "leitor epub para firefox",
+      "leitor epub para mac",
+      "leitor epub para windows",
+      "leitor epub para linux",
+      "leitor epub para chromebook",
+      "leitor epub móvel",
+      "ler epub no ipad",
+      "ler epub no android",
+      "visualizador de documentos online",
+      "leitor de livros digitais",
+      "ferramenta de ebook gratuita",
+      "leitor focado na privacidade",
+      "leitor epub seguro",
+      "leitor epub do lado do cliente",
+      "como abrir ficheiro epub online",
+      "melhor leitor epub gratuito",
+      "aplicação web leitor epub",
+      "leitor de ebooks sem registo",
+      "visualizador epub instantâneo",
+      "leitor epub leve",
+      "leitor epub rápido",
+      "leitor epub personalizável",
+      "leitor epub acessível",
+      "ler livros digitais",
+      "visualizador de formato epub",
+      "e-reader online",
+      "leitor de ebooks baseado na web",
+      "abrir ficheiros .epub",
+      "abridor de ficheiros epub",
+      "ler documentos epub"
     ],
-    "authors": [{ "name": "Firebase Studio", "url": "https://epubreader.info" }],
+    "authors": [
+      {
+        "name": "ePubReader.info",
+        "url": "https://epubreader.info"
+      }
+    ],
     "creator": "Firebase Studio",
     "publisher": "Firebase",
     "openGraph": {
-      "title": "Leitor ePub | Leitor de livros EPUB online, grátis e instantâneo",
-      "description": "Leia os seus livros EPUB online, em qualquer lugar e em qualquer dispositivo. Sem downloads, sem registos.",
-      "url": "https://epubreader.info",
       "siteName": "Leitor ePub",
       "images": [
         {
-          "alt": "Uma interface limpa e moderna da aplicação Leitor ePub, mostrando um livro aberto."
+          "alt": "Uma interface de leitor de ePub limpa e moderna a exibir um livro aberto."
         }
-      ],
-      "locale": "pt_PT",
-      "type": "website"
+      ]
     },
     "twitter": {
-      "card": "summary_large_image",
-      "title": "Leitor ePub | A forma mais fácil de ler ePubs online",
-      "description": "Carregue e leia os seus ficheiros EPUB diretamente no seu navegador com uma interface limpa, adaptada a telemóveis e personalizável.",
       "creator": "@Firebase"
-    },
-    "robots": { "index": true, "follow": true }
+    }
   },
   "schema": {
     "name": "Leitor ePub",
-    "description": "Leia os seus livros EPUB online com o nosso leitor gratuito e focado na privacidade. Não é necessária instalação nem registo. Aceda instantaneamente aos seus livros em qualquer dispositivo."
+    "description": "Um leitor de ePub online gratuito, privado e fácil de usar que funciona diretamente no seu navegador. Não necessita de instalação."
   }
 }

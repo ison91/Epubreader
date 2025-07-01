@@ -1,6 +1,7 @@
 
 {
   "ePub Reader": "ePub Reader",
+  "homepage_subtitle": "The simple, free, and private way to read your e-books.",
   "Upload a Book": "Upload a Book",
   "preparing_book": "Preparing your book...",
   "Menu": "Menu",
@@ -11,7 +12,7 @@
   "Single": "Single",
   "Font Size": "Font Size",
   "Line Height": "Line Height",
-  "Read a new Book": "Read a new Book",
+  "Read a new Book": "Read a New Book",
   "of": "of",
   "Language": "Language",
   "Open Menu (T)": "Open Menu (T)",
@@ -19,45 +20,43 @@
   "Next Page": "Next Page",
   "Current Page": "Current Page",
   "Loading...": "Loading...",
-  "footer": {
-    "site_name": "ePub Reader",
-    "rights_reserved": "All rights reserved."
-  },
   "features_title": "Why Choose ePub Reader?",
   "features_list": {
     "feature_1": {
       "title": "Instant & Free",
-      "description": "No installation or registration required. Upload your EPUB and start reading immediately. Our service is completely free and ad-free."
+      "description": "No installation or registration needed. Upload your EPUB and start reading instantly. Our service is completely free and ad-free, designed for immediate access to your stories."
     },
     "feature_2": {
       "title": "Privacy First",
-      "description": "We respect your privacy. Your files are processed locally in your browser and are never uploaded to our servers. Your books remain yours."
+      "description": "We champion your privacy. Your files are processed locally in your browser and are never uploaded to our servers. Your books remain yours, always."
     },
     "feature_3": {
-      "title": "Customizable Reading",
-      "description": "Take control of your reading experience. Adjust font size, line height, and switch between single or two-page views for your comfort."
+      "title": "Customizable Experience",
+      "description": "Tailor your reading environment. Adjust font size, and line height, and choose between single or two-page layouts for maximum comfort."
     },
     "feature_4": {
-      "title": "Works on Any Device",
-      "description": "Enjoy a seamless reading experience on your desktop, tablet, or smartphone. Our responsive design adapts to your screen."
+      "title": "Works On Any Device",
+      "description": "Enjoy a seamless reading experience on any desktop, tablet, or smartphone. Our responsive design adapts to your screen, so you can read anywhere."
     },
     "feature_5": {
       "title": "Fast & Efficient",
-      "description": "Built with modern web technologies, our reader is fast and responsive, ensuring your books load quickly and run smoothly."
+      "description": "Built with modern web technologies, our reader is lightweight and performance-optimized, ensuring your books load quickly and run smoothly."
     },
     "feature_6": {
       "title": "Easy Navigation",
-      "description": "Navigate your book effortlessly with the integrated table of contents or jump directly to any page. Reading should be simple."
+      "description": "Effortlessly browse your book with the integrated table of contents or jump directly to any page. Reading should be simple, and we make sure it is."
     }
   },
   "why_choose_us_title": "Built for the Modern Reader",
-  "why_choose_us_p1": "In a world of complex apps and subscriptions, we believe in simplicity. ePub Reader was built for one purpose: to be the easiest, most direct way to read EPUB books online. We remove the barriers between you and your stories.",
-  "why_choose_us_p2": "Whether you're a student, a professional, or an avid reader, our tool provides a clean, distraction-free interface that puts your content front and center. No pop-ups, no ads, no unnecessary frills—just you and your book.",
-  "why_choose_us_p3": "We are committed to an open, accessible platform for everyone. That's why our service is completely free and designed to work on any device with a modern browser. Join thousands of users who have made online reading simple.",
+  "why_choose_us_p1": "In a world of complex apps and subscriptions, we believe in simplicity. ePub Reader was created with one goal: to be the easiest, most direct way to read EPUB books online. We remove the barriers between you and your stories.",
+  "why_choose_us_p2_1": "Whether you're a student, a professional, or an avid reader, our tool provides a clean, distraction-free interface that puts your content front and center. No pop-ups, no ads, and no unnecessary frills—just you and your book. Check out our ",
+  "why_choose_us_p2_link": "full list of features",
+  "why_choose_us_p2_2": " to see how we prioritize your reading experience.",
+  "why_choose_us_p3": "We are committed to an open and accessible platform for everyone. That's why our service is entirely free and built to work on any device with a modern browser. Join thousands of users who have simplified online reading.",
   "how_it_works_title": "How It Works in 3 Simple Steps",
   "how_it_works_steps": {
     "step_1": "Click 'Upload a Book' and select an EPUB file from your device.",
-    "step_2": "The book opens instantly in a clean, distraction-free reader.",
+    "step_2": "The book instantly opens in a clean, distraction-free reader.",
     "step_3": "Use the menu to customize your reading experience and navigate chapters."
   },
   "faq_title": "Frequently Asked Questions",
@@ -67,7 +66,7 @@
     "q2": "Are my books safe? Are they stored anywhere?",
     "a2": "Your privacy is our top priority. Your files are never uploaded or stored on any server. The EPUB file is opened and processed directly within your web browser.",
     "q3": "What devices can I use this on?",
-    "a3": "Our reader is a web-based application, which means it works on any device with a modern web browser, including desktops (Windows, macOS, Linux), tablets (iPad, Android), and smartphones (iPhone, Android)."
+    "a3": "Our reader is a web-based application, which means it works on any device with a modern browser, including desktops (Windows, macOS, Linux), tablets (iPad, Android), and smartphones (iPhone, Android)."
   },
   "error": {
     "reading_file_title": "Error Reading File",
@@ -76,62 +75,90 @@
     "loading_book_title": "Error Loading Book",
     "loading_book_description": "An error occurred while loading the book. The file may be corrupted or in an unsupported format."
   },
+  "footer": {
+    "site_name": "ePubReader.info",
+    "rights_reserved": "All rights reserved."
+  },
   "metadata": {
     "title": {
-      "default": "ePub Reader | Free, Instant Online EPUB Book Reader",
+      "default": "Free Online ePub Reader - Read EPUB Books Instantly",
       "template": "%s | ePub Reader"
     },
-    "description": "Read your EPUB books online, anywhere, on any device. No downloads, no sign-ups. Just upload and enjoy a clean, customizable reading experience.",
+    "description": "Read EPUB files online instantly with our free ePub Reader. No installation, no registration. 100% private and secure. Works on any device.",
     "keywords": [
-      "epub reader", "ebook reader", "online book reader", "free epub reader", "read epubs online",
-      "web epub viewer", "browser epub reader", "html5 epub reader", "javascript epub reader", "nextjs epub reader",
-      "react epub reader", "epubjs reader", "digital book reader", "online document viewer", "read books on browser",
-      "upload epub", "epub file opener", "no download ebook reader", "instant ebook access", "cloud ebook reader",
-      "cross-platform reader", "mobile epub reader", "tablet ebook reader", "desktop epub reader", "lightweight epub reader",
-      "fast epub loader", "accessible ebook reader", "screen reader friendly", "customizable reading experience", "change font size ebook",
-      "adjust line height book", "dark mode reader", "light mode reading", "sepia theme reader", "reading progress tracker",
-      "table of contents navigation", "ebook library online", "personal digital library", "privacy-focused reader", "no-login ebook reader",
-      "secure epub viewer", "open source epub reader", "epub format support", "read .epub files", "online reading tool",
-      "digital reading platform", "epub web app", "best online epub reader", "simple epub reader", "clean reading interface",
-      "distraction-free reading", "epub to html", "web-based e-reader", "free book reader", "read epub on chromebook", "how to open epub file",
-      "epub viewer for chrome", "online novel reader", "free ebook reading", "epub online viewer", "upload and read epub"
+      "ePub reader",
+      "online epub reader",
+      "free epub reader",
+      "read epub online",
+      "epub viewer",
+      "web epub reader",
+      "epub file reader",
+      "open epub file",
+      "epub online",
+      "epub in browser",
+      "no install epub reader",
+      "ebook reader",
+      "online book reader",
+      "read ebooks online for free",
+      "epub browser viewer",
+      "html5 epub reader",
+      "javascript epub reader",
+      "epub.js reader",
+      "epub reader for chrome",
+      "epub reader for firefox",
+      "epub reader for safari",
+      "epub reader for windows",
+      "epub reader for mac",
+      "epub reader for linux",
+      "epub reader for chromebook",
+      "epub reader mobile",
+      "read epub on ipad",
+      "read epub on android",
+      "online document viewer",
+      "digital book reader",
+      "free ebook tool",
+      "privacy focused reader",
+      "secure epub reader",
+      "client-side epub reader",
+      "how to open epub file online",
+      "best free epub reader",
+      "epub reader web app",
+      "no sign up ebook reader",
+      "instant epub viewer",
+      "lightweight epub reader",
+      "fast epub reader",
+      "customizable epub reader",
+      "accessible epub reader",
+      "read digital books",
+      "epub format viewer",
+      "online e-reader",
+      "web-based ebook reader",
+      "open .epub files",
+      "epub file opener",
+      "read epub documents"
     ],
-    "authors": [{ "name": "Firebase Studio", "url": "https://epubreader.info" }],
+    "authors": [
+      {
+        "name": "ePubReader.info",
+        "url": "https://epubreader.info"
+      }
+    ],
     "creator": "Firebase Studio",
     "publisher": "Firebase",
     "openGraph": {
-      "title": "ePub Reader | Free, Instant Online EPUB Book Reader",
-      "description": "Read your EPUB books online, anywhere, on any device. No downloads, no sign-ups. Just upload and enjoy a clean, customizable reading experience.",
-      "url": "https://epubreader.info",
       "siteName": "ePub Reader",
       "images": [
         {
-          "alt": "A clean and modern interface of the ePub Reader application, showing an open book."
+          "alt": "A clean and modern ePub reader interface showing an open book."
         }
-      ],
-      "locale": "en_US",
-      "type": "website"
+      ]
     },
     "twitter": {
-      "card": "summary_large_image",
-      "title": "ePub Reader | Free, Instant Online EPUB Book Reader",
-      "description": "The easiest way to read ePub books online. Upload and read your files directly in your browser with a clean, mobile-friendly, and customizable interface.",
       "creator": "@Firebase"
-    },
-    "robots": {
-      "index": true,
-      "follow": true,
-      "googleBot": {
-        "index": true,
-        "follow": true,
-        "max-video-preview": -1,
-        "max-image-preview": "large",
-        "max-snippet": -1
-      }
     }
   },
   "schema": {
     "name": "ePub Reader",
-    "description": "Read your EPUB books online with our free, privacy-focused reader. No installation, no registration needed. Instantly access your books on any device."
+    "description": "A free, private, and easy-to-use online ePub reader that works directly in your browser. No installation needed."
   }
 }
