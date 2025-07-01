@@ -67,7 +67,10 @@ export async function generateMetadata(): Promise<Metadata> {
   
   if (!t.metadata) {
       return {
-          title: "ePub Reader"
+          title: "ePub Reader",
+          icons: {
+            icon: '/locales/icon.png',
+          }
       };
   }
   
@@ -76,6 +79,9 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     metadataBase: new URL(siteUrl),
+    icons: {
+      icon: '/locales/icon.png',
+    },
     title: {
       default: t.metadata.title.default,
       template: t.metadata.title.template,
