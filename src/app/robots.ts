@@ -2,7 +2,7 @@
 import { type MetadataRoute } from 'next'
  
 export default function robots(): MetadataRoute.Robots {
-  const siteUrl = 'https://epubreader.info';
+  const siteUrl = 'https://epubreader.tech';
 
   return {
     rules: [

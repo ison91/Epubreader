@@ -1,7 +1,8 @@
+
 export const dynamic = 'force-dynamic';
 
 export async function GET() {
-  const siteUrl = 'https://epubreader.info';
+  const siteUrl = 'https://epubreader.tech';
   const languages = ['en', 'ja', 'ru', 'ko', 'ar', 'de', 'fr', 'es', 'pl', 'zh-TW', 'it', 'pt', 'bg'];
   
   const lastModified = new Date().toISOString();

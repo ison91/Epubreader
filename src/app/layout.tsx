@@ -58,7 +58,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const acceptLanguage = headersList.get("accept-language") || "";
   const lang = detectLanguage(acceptLanguage);
   const t = await getTranslations(lang);
-  const siteUrl = 'https://epubreader.info';
+  const siteUrl = 'https://epubreader.tech';
 
   const languagesObject = supportedLanguages.reduce((acc, currentLang) => {
     acc[currentLang] = `${siteUrl}`;
@@ -70,6 +70,7 @@ export async function generateMetadata(): Promise<Metadata> {
           title: "ePub Reader",
           icons: {
             icon: '/locales/icon.png',
+            apple: '/locales/icon.png',
           }
       };
   }
@@ -79,8 +80,18 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     metadataBase: new URL(siteUrl),
+    viewport: {
+      width: 'device-width',
+      initialScale: 1,
+      maximumScale: 1,
+    },
+    themeColor: [
+      { media: '(prefers-color-scheme: light)', color: '#673AB7' },
+      { media: '(prefers-color-scheme: dark)', color: '#000000' },
+    ],
     icons: {
       icon: '/locales/icon.png',
+      apple: '/locales/icon.png',
     },
     title: {
       default: t.metadata.title.default,
@@ -133,10 +144,26 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const createJsonLd = (lang: Language, translations: any) => {
-    const siteUrl = 'https://epubreader.info';
+    const siteUrl = 'https://epubreader.tech';
     const schemaTranslations = translations.schema || {};
+    const faqTranslations = translations.faq_items || {};
 
     const featureList = Object.values(translations.features_list || {}).map((feature: any) => `${feature.title}: ${feature.description}`);
+
+    const faqItems = [
+        { q: "q1", a: "a1" },
+        { q: "q2", a: "a2" },
+        { q: "q3", a: "a3" },
+    ];
+
+    const mainEntity = faqItems.map(item => ({
+        "@type": "Question",
+        "name": faqTranslations[item.q],
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faqTranslations[item.a]
+        }
+    })).filter(item => item.name && item.acceptedAnswer.text);
 
     return {
         "@context": "https://schema.org",
@@ -175,8 +202,9 @@ const createJsonLd = (lang: Language, translations: any) => {
                 },
                 "provider": {
                     "@type": "Organization",
-                    "name": "ePubReader.info",
-                     "url": siteUrl
+                    "name": "ePubReader.tech",
+                     "url": siteUrl,
+                     "logo": `${siteUrl}/locales/icon.png`
                 },
                 "featureList": featureList,
                 "screenshot": {
@@ -185,6 +213,10 @@ const createJsonLd = (lang: Language, translations: any) => {
                     "width": 1200,
                     "height": 630
                 }
+            },
+            {
+                "@type": "FAQPage",
+                mainEntity
             }
         ]
     };
