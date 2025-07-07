@@ -1,163 +1,116 @@
 
 {
-  "ePub Reader": "ePub 리더",
-  "homepage_subtitle": "간단하고, 무료이며, 안전하게 전자책을 읽는 방법입니다.",
-  "Upload a Book": "책 업로드",
-  "preparing_book": "책을 준비 중입니다...",
-  "Menu": "메뉴",
-  "Contents": "목차",
-  "Settings": "설정",
-  "Page View": "페이지 보기",
-  "Two Page": "두 페이지",
-  "Single": "한 페이지",
-  "Font Size": "글꼴 크기",
-  "Line Height": "줄 간격",
-  "Read a new Book": "새 책 읽기",
-  "of": "/",
-  "Language": "언어",
-  "Open Menu (T)": "메뉴 열기 (T)",
-  "Previous Page": "이전 페이지",
-  "Next Page": "다음 페이지",
-  "Current Page": "현재 페이지",
-  "Loading...": "불러오는 중...",
-  "features_title": "왜 ePub 리더를 선택해야 하나요?",
-  "features_list": {
-    "feature_1": {
-      "title": "즉시 & 무료",
-      "description": "설치나 회원가입이 필요 없습니다. EPUB을 업로드하고 바로 읽기를 시작하세요. 저희 서비스는 광고 없이 완전 무료이며, 이야기에 즉시 접근할 수 있도록 설계되었습니다."
-    },
-    "feature_2": {
-      "title": "개인정보 보호 우선",
-      "description": "저희는 귀하의 개인정보를 존중합니다. 파일은 브라우저에서 로컬로 처리되며 서버에 업로드되지 않습니다. 책은 항상 귀하의 소유입니다."
-    },
-    "feature_3": {
-      "title": "사용자 맞춤형 경험",
-      "description": "독서 환경을 맞춤 설정하세요. 글꼴 크기, 줄 간격을 조절하고 한 페이지 또는 두 페이지 레이아웃 중에서 선택하여 최대한의 편안함을 누리세요."
-    },
-    "feature_4": {
-      "title": "모든 기기에서 작동",
-      "description": "데스크톱, 태블릿, 스마트폰 등 모든 기기에서 원활한 독서 경험을 즐기세요. 반응형 디자인이 화면에 맞춰 조정되므로 어디서든 읽을 수 있습니다."
-    },
-    "feature_5": {
-      "title": "빠르고 효율적",
-      "description": "최신 웹 기술로 제작된 저희 리더는 가볍고 성능에 최적화되어 있어 책이 빠르게 로드되고 원활하게 실행됩니다."
-    },
-    "feature_6": {
-      "title": "쉬운 탐색",
-      "description": "통합된 목차를 사용하여 책을 손쉽게 탐색하거나 원하는 페이지로 바로 이동하세요. 독서는 간단해야 하며, 저희가 그렇게 만들어 드립니다."
-    }
-  },
-  "why_choose_us_title": "현대 독자를 위해 제작되었습니다",
-  "why_choose_us_p1": "복잡한 앱과 구독의 세계에서 저희는 단순함을 추구합니다. ePub 리더는 온라인에서 EPUB 책을 가장 쉽고 직접적으로 읽을 수 있는 방법을 제공한다는 한 가지 목표로 만들어졌습니다. 저희는 당신과 당신의 이야기 사이의 장벽을 제거합니다.",
-  "why_choose_us_p2_1": "학생, 전문가, 열렬한 독자 등 누구에게나 저희 도구는 콘텐츠를 전면에 내세우는 깨끗하고 방해 없는 인터페이스를 제공합니다. 팝업, 광고, 불필요한 장식 없이 오직 당신과 당신의 책만 있을 뿐입니다. 저희의 ",
-  "why_choose_us_p2_link": "전체 기능 목록",
-  "why_choose_us_p2_2": "을 확인하여 저희가 귀하의 독서 경험을 어떻게 우선시하는지 확인해 보세요.",
-  "why_choose_us_p3": "저희는 모든 사람을 위한 개방적이고 접근 가능한 플랫폼을 약속합니다. 그렇기 때문에 저희 서비스는 완전히 무료이며 최신 브라우저가 설치된 모든 기기에서 작동하도록 제작되었습니다. 온라인 독서를 간소화한 수천 명의 사용자와 함께하세요.",
-  "how_it_works_title": "간단한 3단계 사용 방법",
-  "how_it_works_steps": {
-    "step_1": "'책 업로드'를 클릭하고 기기에서 EPUB 파일을 선택하세요.",
-    "step_2": "책이 깔끔하고 방해 없는 리더에서 즉시 열립니다.",
-    "step_3": "메뉴를 사용하여 독서 환경을 맞춤 설정하고 챕터를 탐색하세요."
-  },
-  "faq_title": "자주 묻는 질문",
-  "faq_items": {
-    "q1": "이 서비스는 정말 무료인가요?",
-    "a1": "네, ePub 리더는 숨겨진 비용이나 광고 없이 완전히 무료입니다. 저희의 목표는 모두를 위한 간단하고 접근성 있는 독서 도구를 제공하는 것입니다.",
-    "q2": "제 책은 안전한가요? 저장되나요?",
-    "a2": "귀하의 개인정보는 최우선입니다. 파일은 서버에 업로드되거나 저장되지 않으며, 웹 브라우저에서 직접 열리고 처리됩니다.",
-    "q3": "어떤 기기에서 사용할 수 있나요?",
-    "a3": "저희 리더는 웹 기반 애플리케이션으로, 최신 웹 브라우저가 설치된 모든 기기(Windows, macOS, Linux의 데스크톱, iPad/Android 태블릿, iPhone/Android 스마트폰)에서 작동합니다."
-  },
-  "error": {
-    "reading_file_title": "파일 읽기 오류",
-    "reading_file_description": "파일을 읽는 중 문제가 발생했습니다. 파일이 손상되지 않았는지 확인하세요.",
-    "reading_file_error_description": "파일을 처리하는 중 오류가 발생했습니다.",
-    "loading_book_title": "책 불러오기 오류",
-    "loading_book_description": "책을 불러오는 중 오류가 발생했습니다. 파일이 손상되었거나 지원되지 않는 형식일 수 있습니다."
-  },
-  "footer": {
-    "site_name": "ePubReader.info",
-    "rights_reserved": "모든 권리 보유."
-  },
-  "metadata": {
-    "title": {
-      "default": "무료 온라인 ePub 리더 - EPUB 책을 즉시 읽으세요",
-      "template": "%s | ePub 리더"
-    },
-    "description": "무료 ePub 리더로 EPUB 파일을 온라인에서 즉시 읽으세요. 설치나 회원가입이 필요 없습니다. 100% 비공개이며 안전합니다. 모든 기기에서 작동합니다.",
-    "keywords": [
-      "ePub 리더",
-      "온라인 epub 리더",
-      "무료 epub 리더",
-      "epub 온라인으로 읽기",
-      "epub 뷰어",
-      "웹 epub 리더",
-      "epub 파일 리더",
-      "epub 파일 열기",
-      "epub 온라인",
-      "브라우저에서 epub 읽기",
-      "설치 없는 epub 리더",
-      "ebook 리더",
-      "온라인 책 리더",
-      "무료로 온라인에서 전자책 읽기",
-      "epub 브라우저 뷰어",
-      "html5 epub 리더",
-      "javascript epub 리더",
-      "epub.js 리더",
-      "chrome용 epub 리더",
-      "firefox용 epub 리더",
-      "mac용 epub 리더",
-      "windows용 epub 리더",
-      "linux용 epub 리더",
-      "chromebook용 epub 리더",
-      "모바일 epub 리더",
-      "ipad에서 epub 읽기",
-      "android에서 epub 읽기",
-      "온라인 문서 뷰어",
-      "디지털 책 리더",
-      "무료 ebook 도구",
-      "개인 정보 보호 중심 리더",
-      "안전한 epub 리더",
-      "클라이언트 측 epub 리더",
-      "온라인에서 epub 파일 여는 방법",
-      "최고의 무료 epub 리더",
-      "epub 리더 웹 앱",
-      "가입 없는 ebook 리더",
-      "즉시 epub 뷰어",
-      "가벼운 epub 리더",
-      "빠른 epub 리더",
-      "사용자 정의 가능한 epub 리더",
-      "접근성 있는 epub 리더",
-      "디지털 책 읽기",
-      "epub 형식 뷰어",
-      "온라인 e-리더",
-      "웹 기반 ebook 리더",
-      ".epub 파일 열기",
-      "epub 파일 오프너",
-      "epub 문서 읽기"
-    ],
-    "authors": [
-      {
-        "name": "ePubReader.info",
-        "url": "https://epubreader.info"
-      }
-    ],
-    "creator": "Firebase Studio",
-    "publisher": "Firebase",
-    "openGraph": {
-      "siteName": "ePub 리더",
-      "images": [
-        {
-          "alt": "열린 책을 보여주는 깨끗하고 현대적인 ePub 리더 인터페이스."
+    "metadata": {
+        "title": {
+            "default": "ePub 리더 | 무료 & 보안 온라인 ePub 뷰어",
+            "template": "%s | ePubReader.tech"
+        },
+        "description": "epubreader.tech에서 최고의 온라인 ePub 리더를 경험하세요. 무료이고 안전하며 개인 정보 보호에 중점을 둔 뷰어로 브라우저에서 직접 .epub 파일을 열고 읽으십시오. 설치, 업로드, 등록이 필요 없습니다. 조정 가능한 글꼴 크기, 줄 높이 및 라이트/다크 모드로 독서를 사용자 정의하십시오. Chrome, Firefox, Safari를 포함한 모든 장치에서 원활한 경험을 즐기십시오. 저희 도구는 오프라인 읽기 기능과 아름답고 방해 없는 인터페이스를 제공합니다. 강력한 웹 기반 전자 리더로 좋아하는 전자책과 디지털 책을 즉시 열어보세요.",
+        "keywords": [
+            "epub 리더", "온라인 epub 뷰어", "온라인으로 epub 읽기", "무료 epub 리더", "epub 파일 리더", ".epub 파일 열기", "브라우저 epub 리더", "웹 기반 epub 리더", "epub 뷰어 온라인", "설치 없는 epub 리더", "개인 정보 보호 중심 epub 리더", "안전한 epub 리더", "오프라인 epub 리더", "chrome용 epub 리더", "firefox용 epub 리더", "safari용 epub 리더", "edge용 epub 리더", "크로스 브라우저 epub 리더", "온라인으로 전자책 읽기", "디지털 북 리더", "온라인 북 뷰어", "epubjs 뷰어", "html5 epub 리더", "javascript epub 리더", "사용자 정의 가능한 독서 경험", "epub 글꼴 크기 조정", "전자책 줄 높이 변경", "다크 모드 epub 리더", "라이트 모드 epub 리더", "두 페이지 보기 epub", "한 페이지 보기 epub", "목차 epub", "epub 탐색", "epub 진행률 추적", "온라인 전자책 리더", "무료 온라인 북 리더", "디지털 책 읽기", "최고의 온라인 epub 리더", "epubreader.tech", "오픈 소스 epub 리더", "계정 없이 책 읽기", "등록 없는 북 리더", "즉시 epub 뷰어", "epub 파일 오프너", "pc에서 epub 읽는 방법", "mac용 epub 리더", "windows용 epub 리더", "linux용 epub 리더", "모바일 epub 리더", "반응형 epub 리더", "모든 장치에서 읽기", "전자 리더 소프트웨어", "클라우드 없는 epub 리더", "로컬 파일 epub 리더", "클라이언트 측 epub 리더"
+        ],
+        "authors": [
+            { "name": "ePubReader.tech", "url": "https://epubreader.tech" }
+        ],
+        "creator": "ePubReader.tech",
+        "publisher": "ePubReader.tech",
+        "openGraph": {
+            "siteName": "ePubReader.tech",
+            "images": [
+                { "alt": "열린 책을 보여주는 ePub 리더 인터페이스." }
+            ]
+        },
+        "twitter": {
+            "creator": "@epubreader"
         }
-      ]
     },
-    "twitter": {
-      "creator": "@Firebase"
-    }
-  },
-  "schema": {
-    "name": "ePub 리더",
-    "description": "브라우저에서 직접 작동하는 무료의 비공개이며 사용하기 쉬운 온라인 ePub 리더입니다. 설치가 필요 없습니다."
-  }
+    "schema": {
+        "name": "ePubReader.tech",
+        "description": "브라우저에서 직접 작동하는 무료이고 안전하며 개인 정보 보호에 중점을 둔 온라인 ePub 뷰어입니다. 설치나 가입이 필요 없습니다."
+    },
+    "ePub Reader": "ePub 리더",
+    "homepage_subtitle": "무료 & 보안 온라인 ePub 뷰어. 브라우저를 떠나지 않고 책을 읽으세요.",
+    "Upload a Book": "책 업로드",
+    "Language": "언어",
+    "features_title": "왜 우리 리더를 선택해야 할까요?",
+    "features_list": {
+        "feature_1": {
+            "title": "즉각적이고 편리함",
+            "description": "기다림 없이 장치에서 직접 .epub 파일을 엽니다. 설치나 복잡한 설정이 필요 없습니다."
+        },
+        "feature_2": {
+            "title": "개인 정보 보호 우선",
+            "description": "당신의 책은 당신의 것입니다. 파일은 브라우저에서 로컬로 처리되며 서버에 업로드되지 않습니다."
+        },
+        "feature_3": {
+            "title": "사용자 정의 가능한 독서",
+            "description": "글꼴 크기, 줄 높이 및 레이아웃을 조정하여 편안하고 맞춤화된 독서 경험을 즐기십시오."
+        },
+        "feature_4": {
+            "title": "모바일 친화적",
+            "description": "데스크톱, 태블릿, 스마트폰 등 모든 장치에서 원활한 독서 경험을 즐기십시오."
+        },
+        "feature_5": {
+            "title": "빠르고 가벼움",
+            "description": "성능을 위해 설계된 저희 리더는 큰 책이라도 빠른 페이지 로딩과 부드러운 브라우징을 보장합니다."
+        },
+        "feature_6": {
+            "title": "목차",
+            "description": "대화형 목차를 통해 책을 쉽게 탐색하십시오. 클릭 한 번으로 원하는 장을 찾을 수 있습니다."
+        }
+    },
+    "why_choose_us_title": "우수한 독서 경험",
+    "why_choose_us_p1": "ePubReader.tech에서는 모든 사람이 디지털 독서를 쉽고 즐겁게 즐길 수 있도록 열정을 다하고 있습니다. 저희 도구는 단순성, 성능 및 개인 정보 보호에 중점을 두고 사용자를 염두에 두고 제작되었습니다.",
+    "why_choose_us_p2_1": "학생, 전문가 또는 열렬한 독자이든, 저희의 포괄적인",
+    "why_choose_us_p2_link": "기능",
+    "why_choose_us_p2_2": "제품군은 편안하고 개인화된 독서 경험을 보장합니다. 최대 호환성을 위해 광범위한 ePub 표준을 지원합니다.",
+    "why_choose_us_p3": "저희의 임무는 제한이나 성가신 광고 없이 웹에서 최고의 ePub 리더를 완전 무료로 제공하는 것입니다. 오늘 바로 읽기 시작하고 직접 확인하십시오!",
+    "why_choose_us_p4": "타의 추종을 불허하는 보안. 모든 파일을 클라이언트 측에서 처리함으로써 귀하의 책과 독서 데이터가 귀하의 장치에만 독점적으로 유지되도록 보장합니다. 데이터 유출이나 무단 액세스의 위험이 없습니다.",
+    "why_choose_us_p5": "모두를 위해 제작되었습니다. 저희는 스크린 리더 및 키보드 탐색을 지원하여 모든 사람이 전자책을 즐길 수 있도록 접근성에 전념하고 있습니다.",
+    "how_it_works_title": "작동 방식",
+    "how_it_works_steps": {
+        "step_1": "'책 업로드' 버튼을 클릭하여 장치에서 .epub 파일을 선택하십시오.",
+        "step_2": "책이 즉시 처리되어 브라우저에 표시됩니다.",
+        "step_3": "컨트롤을 사용하여 독서 경험을 탐색하고 사용자 정의하십시오."
+    },
+    "faq_title": "자주 묻는 질문",
+    "faq_items": {
+        "q1": "ePubReader.tech는 무료인가요?",
+        "a1": "예, 저희 ePub 리더는 숨겨진 요금이나 광고 없이 완전히 무료로 사용할 수 있습니다.",
+        "q2": "제 책이 서버에 업로드되나요?",
+        "a2": "전혀 아닙니다. 모든 파일은 브라우저 내에서 로컬로 처리됩니다. 귀하의 개인 정보는 100% 보장됩니다.",
+        "q3": "어떤 장치와 브라우저가 지원되나요?",
+        "a3": "저희 리더는 모든 최신 브라우저(Chrome, Firefox, Safari, Edge)와 데스크톱, 태블릿, 스마트폰을 포함한 모든 장치에서 작동합니다.",
+        "q4": "ePubReader.tech에서 제 데이터는 안전한가요?",
+        "a4": "물론입니다. 귀하의 개인 정보는 저희의 최우선 과제입니다. 모든 파일 처리가 귀하의 장치에서 로컬로 이루어지므로 데이터가 저희에게 전송되지 않습니다. 귀하의 책은 귀하의 것입니다.",
+        "q5": "이것을 모바일 장치에서 사용할 수 있나요?",
+        "a5": "예! ePubReader.tech는 완전히 반응형으로 설계되어 데스크톱뿐만 아니라 스마트폰과 태블릿에서도 훌륭한 독서 경험을 제공합니다."
+    },
+    "footer": {
+        "site_name": "ePubReader.tech",
+        "rights_reserved": "All rights reserved."
+    },
+    "error": {
+        "reading_file_title": "파일 읽기 오류",
+        "reading_file_description": "선택한 파일을 읽을 수 없습니다. 유효한 ePub 파일인지 확인하십시오.",
+        "reading_file_error_description": "파일을 읽는 동안 예기치 않은 오류가 발생했습니다.",
+        "loading_book_title": "책 로딩 오류",
+        "loading_book_description": "책을 로드할 수 없습니다. 파일이 손상되었거나 지원되지 않을 수 있습니다."
+    },
+    "Loading...": "로드 중...",
+    "Open Menu (T)": "메뉴 열기 (T)",
+    "Menu": "메뉴",
+    "Contents": "목차",
+    "Settings": "설정",
+    "Page View": "페이지 보기",
+    "Two Page": "두 페이지",
+    "Single": "한 페이지",
+    "Font Size": "글꼴 크기",
+    "Line Height": "줄 높이",
+    "Read a new Book": "새 책 읽기",
+    "preparing_book": "책을 준비 중입니다...",
+    "Previous Page": "이전 페이지",
+    "Current Page": "현재 페이지",
+    "of": "/",
+    "Next Page": "다음 페이지"
 }

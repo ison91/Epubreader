@@ -1,163 +1,116 @@
 
 {
-  "ePub Reader": "ePub 閱讀器",
-  "homepage_subtitle": "以簡單、免費且私密的方式閱讀您的電子書。",
-  "Upload a Book": "上傳書籍",
-  "preparing_book": "正在準備您的書籍…",
-  "Menu": "選單",
-  "Contents": "目錄",
-  "Settings": "設定",
-  "Page View": "頁面檢視",
-  "Two Page": "雙頁",
-  "Single": "單頁",
-  "Font Size": "字體大小",
-  "Line Height": "行距",
-  "Read a new Book": "閱讀新書",
-  "of": "之",
-  "Language": "語言",
-  "Open Menu (T)": "開啟選單（T）",
-  "Previous Page": "上一頁",
-  "Next Page": "下一頁",
-  "Current Page": "目前頁面",
-  "Loading...": "載入中…",
-  "features_title": "為什麼選擇 ePub 閱讀器？",
-  "features_list": {
-    "feature_1": {
-      "title": "立即免費使用",
-      "description": "無需安裝或註冊。上傳您的 EPUB，立即開始閱讀。我們的服務完全免費，無廣告，專為即時存取您的故事而設計。"
-    },
-    "feature_2": {
-      "title": "隱私優先",
-      "description": "我們保護您的隱私。您的檔案在瀏覽器本地處理，絕不上傳至我們的伺服器。您的書籍始終屬於您。"
-    },
-    "feature_3": {
-      "title": "可自訂閱讀體驗",
-      "description": "自訂您的閱讀環境。調整字體大小、行距，並在單頁或雙頁佈局之間選擇，以獲得最大的舒適度。"
-    },
-    "feature_4": {
-      "title": "跨裝置相容",
-      "description": "在任何桌上型電腦、平板電腦或智慧型手機上享受流暢的閱讀體驗。我們的響應式設計能適應您的螢幕，讓您隨處閱讀。"
-    },
-    "feature_5": {
-      "title": "快速高效",
-      "description": "採用現代網頁技術建構，我們的閱讀器輕巧且效能優化，確保您的書籍快速載入並順暢運行。"
-    },
-    "feature_6": {
-      "title": "操作直覺",
-      "description": "使用整合的目錄輕鬆瀏覽您的書籍，或直接跳至任何頁面。閱讀應該簡單，我們確保如此。"
-    }
-  },
-  "why_choose_us_title": "為現代讀者設計",
-  "why_choose_us_p1": "在充滿複雜應用程式和訂閱服務的世界中，我們崇尚簡單。ePub 閱讀器旨在成為線上閱讀 EPUB 書籍最簡單、最直接的方式。我們消除了您與故事之間的障礙。",
-  "why_choose_us_p2_1": "無論您是學生、專業人士還是熱情的讀者，我們的工具都提供一個乾淨、無干擾的介面，將您的內容放在首位。沒有彈出視窗、沒有廣告、沒有不必要的裝飾——只有您和您的書。查看我們的",
-  "why_choose_us_p2_link": "完整功能列表",
-  "why_choose_us_p2_2": "，了解我們如何優先考慮您的閱讀體驗。",
-  "why_choose_us_p3": "我們致力於為所有人提供一個開放且易於存取的平台。因此，我們的服務完全免費，並能在任何配備現代瀏覽器的裝置上運作。加入成千上萬簡化了線上閱讀的用戶行列。",
-  "how_it_works_title": "3 個簡單步驟即可運作",
-  "how_it_works_steps": {
-    "step_1": "點選「上傳書籍」，並從您的裝置選擇一個 EPUB 檔案。",
-    "step_2": "書籍會立即在一個乾淨、無干擾的閱讀器中開啟。",
-    "step_3": "使用選單自訂您的閱讀體驗並在章節間導航。"
-  },
-  "faq_title": "常見問題",
-  "faq_items": {
-    "q1": "這項服務真的免費嗎？",
-    "a1": "是的，ePub 閱讀器完全免費，沒有任何隱藏費用或廣告。我們的目標是為所有人提供簡單、好用的閱讀工具。",
-    "q2": "我的書籍安全嗎？會被儲存嗎？",
-    "a2": "您的隱私是我們的最高優先。您的檔案絕不會被上傳或儲存到任何伺服器。EPUB 檔案會直接在您的網路瀏覽器中開啟與處理。",
-    "q3": "我可以在哪些裝置上使用？",
-    "a3": "我們的閱讀器是一個網頁應用程式，這意味著它可以在任何配備現代瀏覽器的裝置上運作，包括桌上型電腦（Windows、macOS、Linux）、平板電腦（iPad、Android）和智慧型手機（iPhone、Android）。"
-  },
-  "error": {
-    "reading_file_title": "讀取檔案錯誤",
-    "reading_file_description": "讀取檔案時發生問題。請確認檔案是否損毀。",
-    "reading_file_error_description": "處理檔案時發生錯誤。",
-    "loading_book_title": "載入書籍錯誤",
-    "loading_book_description": "載入書籍時發生錯誤。檔案可能已損毀或格式不支援。"
-  },
-  "footer": {
-    "site_name": "ePubReader.info",
-    "rights_reserved": "版權所有。"
-  },
-  "metadata": {
-    "title": {
-      "default": "免費線上 ePub 閱讀器 - 即時閱讀 EPUB 書籍",
-      "template": "%s | ePub 閱讀器"
-    },
-    "description": "使用我們的免費 ePub 閱讀器即時線上閱讀 EPUB 檔案。無需安裝，無需註冊。100% 私密安全。適用於任何裝置。",
-    "keywords": [
-      "ePub 閱讀器",
-      "線上epub閱讀器",
-      "免費epub閱讀器",
-      "線上閱讀epub",
-      "epub檢視器",
-      "網頁epub閱讀器",
-      "epub檔案閱讀器",
-      "開啟epub檔案",
-      "epub線上",
-      "在瀏覽器中閱讀epub",
-      "免安裝epub閱讀器",
-      "電子書閱讀器",
-      "線上圖書閱讀器",
-      "免費線上閱讀電子書",
-      "epub瀏覽器檢視器",
-      "html5 epub閱讀器",
-      "javascript epub閱讀器",
-      "epub.js閱讀器",
-      "chrome epub閱讀器",
-      "firefox epub閱讀器",
-      "mac epub閱讀器",
-      "windows epub閱讀器",
-      "linux epub閱讀器",
-      "chromebook epub閱讀器",
-      "行動epub閱讀器",
-      "在ipad上閱讀epub",
-      "在android上閱讀epub",
-      "線上文件檢視器",
-      "數位圖書閱讀器",
-      "免費電子書工具",
-      "注重隱私的閱讀器",
-      "安全的epub閱讀器",
-      "客戶端epub閱讀器",
-      "如何線上開啟epub檔案",
-      "最佳免費epub閱讀器",
-      "epub閱讀器網頁應用",
-      "免註冊電子書閱讀器",
-      "即時epub檢視器",
-      "輕量級epub閱讀器",
-      "快速epub閱讀器",
-      "可自訂的epub閱讀器",
-      "無障礙epub閱讀器",
-      "閱讀數位書籍",
-      "epub格式檢視器",
-      "線上電子閱讀器",
-      "網頁式電子書閱讀器",
-      "開啟 .epub 檔案",
-      "epub檔案開啟器",
-      "閱讀epub文件"
-    ],
-    "authors": [
-      {
-        "name": "ePubReader.info",
-        "url": "https://epubreader.info"
-      }
-    ],
-    "creator": "Firebase Studio",
-    "publisher": "Firebase",
-    "openGraph": {
-      "siteName": "ePub 閱讀器",
-      "images": [
-        {
-          "alt": "一個乾淨且現代的 ePub 閱讀器介面，顯示一本打開的書。"
+    "metadata": {
+        "title": {
+            "default": "ePub 閱讀器 | 免費安全的線上 ePub 檢視器",
+            "template": "%s | ePubReader.tech"
+        },
+        "description": "在 epubreader.tech 體驗最佳的線上 ePub 閱讀器。使用我們免費、安全且注重隱私的檢視器，直接在您的瀏覽器中開啟和閱讀 .epub 檔案。無需安裝、上傳或註冊。透過可調整的字體大小、行高和淺色/深色模式自訂您的閱讀體驗。在任何裝置上享受無縫體驗，包括 Chrome、Firefox 和 Safari。我們的工具提供離線閱讀功能和一個美觀、無干擾的介面。使用我們強大的網頁式電子閱讀器，立即開啟您最喜愛的電子書和數位書籍。",
+        "keywords": [
+            "epub閱讀器", "線上epub檢視器", "線上閱讀epub", "免費epub閱讀器", "epub檔案閱讀器", "開啟.epub檔案", "瀏覽器epub閱讀器", "網頁式epub閱讀器", "epub檢視器線上", "免安裝epub閱讀器", "注重隱私的epub閱讀器", "安全的epub閱讀器", "離線epub閱讀器", "chrome的epub閱讀器", "firefox的epub閱讀器", "safari的epub閱讀器", "edge的epub閱讀器", "跨瀏覽器epub閱讀器", "線上閱讀電子書", "數位書籍閱讀器", "線上書籍檢視器", "epubjs檢視器", "html5 epub閱讀器", "javascript epub閱讀器", "可自訂的閱讀體驗", "調整epub字體大小", "更改電子書行高", "深色模式epub閱讀器", "淺色模式epub閱讀d器", "雙頁檢視epub", "單頁檢視epub", "目錄epub", "epub導航", "epub進度追蹤", "線上電子書閱讀器", "免費線上書籍閱讀器", "閱讀數位書籍", "最佳線上epub閱讀器", "epubreader.tech", "開源epub閱讀器", "無需帳號閱讀書籍", "無需註冊的書籍閱讀器", "即時epub檢視器", "epub檔案開啟器", "如何在pc上閱讀epub", "epub閱讀器mac", "epub閱讀器windows", "epub閱讀器linux", "行動epub閱讀器", "響應式epub閱讀器", "在任何裝置上閱讀", "電子閱讀器軟體", "無雲端epub閱讀器", "本地檔案epub閱讀器", "客戶端epub閱讀器"
+        ],
+        "authors": [
+            { "name": "ePubReader.tech", "url": "https://epubreader.tech" }
+        ],
+        "creator": "ePubReader.tech",
+        "publisher": "ePubReader.tech",
+        "openGraph": {
+            "siteName": "ePubReader.tech",
+            "images": [
+                { "alt": "一個顯示打開書籍的 ePub 閱讀器介面。" }
+            ]
+        },
+        "twitter": {
+            "creator": "@epubreader"
         }
-      ]
     },
-    "twitter": {
-      "creator": "@Firebase"
-    }
-  },
-  "schema": {
-    "name": "ePub 閱讀器",
-    "description": "一個免費、私密且易於使用的線上 ePub 閱讀器，可直接在您的瀏覽器中運作。無需安裝。"
-  }
+    "schema": {
+        "name": "ePubReader.tech",
+        "description": "一個免費、安全且注重隱私的線上 ePub 檢視器，可直接在您的瀏覽器中運作。無需安裝或註冊。"
+    },
+    "ePub Reader": "ePub 閱讀器",
+    "homepage_subtitle": "免費安全的線上 ePub 檢視器。無需離開瀏覽器即可閱讀您的書籍。",
+    "Upload a Book": "上傳書籍",
+    "Language": "語言",
+    "features_title": "為什麼選擇我們的閱讀器？",
+    "features_list": {
+        "feature_1": {
+            "title": "即時且方便",
+            "description": "直接從您的裝置開啟 .epub 檔案，無需等待。無需安裝或複雜的設定。"
+        },
+        "feature_2": {
+            "title": "隱私至上",
+            "description": "您的書籍屬於您自己。檔案在您的瀏覽器中本地處理；絕不會上傳到我們的伺服器。"
+        },
+        "feature_3": {
+            "title": "可自訂的閱讀",
+            "description": "調整字體大小、行高和版面配置，為您量身打造舒適的閱讀體驗。"
+        },
+        "feature_4": {
+            "title": "行動裝置友善",
+            "description": "在任何裝置上享受無縫的閱讀體驗，無論是桌上型電腦、平板電腦還是智慧型手機。"
+        },
+        "feature_5": {
+            "title": "快速輕巧",
+            "description": "我們的閱讀器專為效能而設計，即使是大型書籍也能確保快速的頁面載入和流暢的瀏覽。"
+        },
+        "feature_6": {
+            "title": "目錄",
+            "description": "使用互動式目錄輕鬆瀏覽您的書籍。一鍵找到您要找的章節。"
+        }
+    },
+    "why_choose_us_title": "卓越的閱讀體驗",
+    "why_choose_us_p1": "在 ePubReader.tech，我們熱衷於讓每個人都能輕鬆愉快地進行數位閱讀。我們的工具以您為中心，專注於簡單、效能和隱私。",
+    "why_choose_us_p2_1": "無論您是學生、專業人士還是狂熱的讀者，我們全面的",
+    "why_choose_us_p2_link": "功能",
+    "why_choose_us_p2_2": "套件都能確保舒適且個人化的閱讀體驗。我們支援廣泛的 ePub 標準，以實現最大程度的相容性。",
+    "why_choose_us_p3": "我們的使命是完全免費提供網路上最好的 ePub 閱讀器，沒有任何限制或煩人的廣告。立即開始閱讀，親自體驗！",
+    "why_choose_us_p4": "無與倫比的安全性。透過在客戶端處理所有檔案，我們確保您的書籍和閱讀資料專屬於您的裝置。沒有資料外洩或未經授權存取的風險。",
+    "why_choose_us_p5": "為每個人打造。我們致力於無障礙，支援螢幕閱讀器和鍵盤導航，確保每個人都能享受他們的電子書。",
+    "how_it_works_title": "運作方式",
+    "how_it_works_steps": {
+        "step_1": "點擊「上傳書籍」按鈕，從您的裝置中選擇一個 .epub 檔案。",
+        "step_2": "書籍會立即在您的瀏覽器中處理並顯示。",
+        "step_3": "使用控制項來導覽和自訂您的閱讀體驗。"
+    },
+    "faq_title": "常見問題",
+    "faq_items": {
+        "q1": "ePubReader.tech 是免費的嗎？",
+        "a1": "是的，我們的 ePub 閱讀器完全免費，沒有任何隱藏費用或廣告。",
+        "q2": "我的書籍會上傳到你們的伺服器嗎？",
+        "a2": "絕對不會。所有檔案都在您的瀏覽器中本地處理。您的隱私 100% 受到保障。",
+        "q3": "支援哪些裝置和瀏覽器？",
+        "a3": "我們的閱讀器適用於所有現代瀏覽器（Chrome、Firefox、Safari、Edge）以及所有裝置，包括桌上型電腦、平板電腦和智慧型手機。",
+        "q4": "我在 ePubReader.tech 上的資料安全嗎？",
+        "a4": "絕對安全。您的隱私是我們的首要任務。由於所有檔案處理都在您的裝置上本地進行，因此絕不會有任何資料傳輸給我們。您的書籍仍然是您的。",
+        "q5": "我可以在我的行動裝置上使用它嗎？",
+        "a5": "是的！ePubReader.tech 的設計是完全響應式的，在智慧型手機和平板電腦上以及桌上型電腦上都能提供出色的閱讀體驗。"
+    },
+    "footer": {
+        "site_name": "ePubReader.tech",
+        "rights_reserved": "版權所有。"
+    },
+    "error": {
+        "reading_file_title": "讀取檔案錯誤",
+        "reading_file_description": "無法讀取所選檔案。請確保它是有效的 ePub 檔案。",
+        "reading_file_error_description": "嘗試讀取檔案時發生意外錯誤。",
+        "loading_book_title": "載入書籍錯誤",
+        "loading_book_description": "無法載入書籍。檔案可能已損壞或不受支援。"
+    },
+    "Loading...": "正在載入...",
+    "Open Menu (T)": "開啟選單 (T)",
+    "Menu": "選單",
+    "Contents": "目錄",
+    "Settings": "設定",
+    "Page View": "頁面檢視",
+    "Two Page": "雙頁",
+    "Single": "單頁",
+    "Font Size": "字體大小",
+    "Line Height": "行高",
+    "Read a new Book": "閱讀新書",
+    "preparing_book": "正在準備您的書籍...",
+    "Previous Page": "上一頁",
+    "Current Page": "目前頁面",
+    "of": "/",
+    "Next Page": "下一頁"
 }

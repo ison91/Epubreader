@@ -444,6 +444,8 @@ export default function EPubReaderPage() {
         { q: "q1", a: "a1" },
         { q: "q2", a: "a2" },
         { q: "q3", a: "a3" },
+        { q: "q4", a: "a4" },
+        { q: "q5", a: "a5" },
     ];
 
 
@@ -530,6 +532,8 @@ export default function EPubReaderPage() {
                                   {t('why_choose_us_p2_2')}
                                 </p>
                                 <p>{t('why_choose_us_p3')}</p>
+                                <p>{t('why_choose_us_p4')}</p>
+                                <p>{t('why_choose_us_p5')}</p>
                             </div>
                         </div>
                     </section>
