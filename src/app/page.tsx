@@ -607,8 +607,8 @@ export default function EPubReaderPage() {
                   value="contents"
                   className="flex-1 overflow-hidden"
                 >
-                  <ScrollArea className="h-full p-4">
-                    <ul className="space-y-1">
+                  <ScrollArea className="h-full">
+                    <ul className="space-y-1 p-4">
                       {toc.map((item, index) => (
                         <li key={index}>
                           <button
