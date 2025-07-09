@@ -605,9 +605,9 @@ export default function EPubReaderPage() {
                 </TabsList>
                 <TabsContent
                   value="contents"
-                  className="flex-1 overflow-hidden py-4"
+                  className="flex-1 overflow-hidden"
                 >
-                  <ScrollArea className="h-full pr-4">
+                  <ScrollArea className="h-full p-4">
                     <ul className="space-y-1">
                       {toc.map((item, index) => (
                         <li key={index}>
@@ -624,9 +624,9 @@ export default function EPubReaderPage() {
                 </TabsContent>
                 <TabsContent
                   value="settings"
-                  className="flex-1 overflow-hidden py-4"
+                  className="flex-1 overflow-hidden"
                 >
-                  <ScrollArea className="h-full pr-4">
+                  <ScrollArea className="h-full p-4">
                     <div className="grid gap-6">
                       <div className="grid grid-cols-3 items-center gap-4">
                         <Label>{t("Page View")}</Label>
