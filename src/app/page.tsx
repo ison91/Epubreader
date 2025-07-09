@@ -605,7 +605,7 @@ export default function EPubReaderPage() {
                 </TabsList>
                 <TabsContent
                   value="contents"
-                  className="flex-1 overflow-hidden"
+                  className="flex-1 overflow-hidden min-h-0"
                 >
                   <ScrollArea className="h-full">
                     <ul className="space-y-1 p-4">
@@ -624,7 +624,7 @@ export default function EPubReaderPage() {
                 </TabsContent>
                 <TabsContent
                   value="settings"
-                  className="flex-1 overflow-hidden"
+                  className="flex-1 overflow-hidden min-h-0"
                 >
                   <ScrollArea className="h-full p-4">
                     <div className="grid gap-6">
