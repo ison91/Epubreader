@@ -446,6 +446,8 @@ export default function EPubReaderPage() {
         { q: "q3", a: "a3" },
         { q: "q4", a: "a4" },
         { q: "q5", a: "a5" },
+        { q: "q6", a: "a6" },
+        { q: "q7", a: "a7" },
     ];
 
 
@@ -482,9 +484,9 @@ export default function EPubReaderPage() {
                             <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-primary/10 text-primary">
                             <BookOpen className="h-10 w-10" />
                             </div>
-                            <CardTitle as="h1" className="text-3xl lg:text-4xl font-bold font-headline">
+                            <h1 className="text-3xl lg:text-4xl font-bold font-headline">
                                {t("ePub Reader")}
-                            </CardTitle>
+                            </h1>
                              <CardDescription className="text-lg text-muted-foreground pt-2">
                                 {t('homepage_subtitle')}
                             </CardDescription>
@@ -526,11 +528,7 @@ export default function EPubReaderPage() {
                             <h2 className="text-3xl font-bold text-center mb-10 font-headline">{t('why_choose_us_title')}</h2>
                             <div className="text-center text-muted-foreground space-y-4 text-lg">
                                 <p>{t('why_choose_us_p1')}</p>
-                                <p>
-                                  {t('why_choose_us_p2_1')}
-                                  <a href="#features" className="text-primary underline hover:text-primary/80">{t('why_choose_us_p2_link')}</a>
-                                  {t('why_choose_us_p2_2')}
-                                </p>
+                                <p>{t('why_choose_us_p2_1')} <a href="#features" className="text-primary underline hover:text-primary/80">{t('why_choose_us_p2_link')}</a>{t('why_choose_us_p2_2')}</p>
                                 <p>{t('why_choose_us_p3')}</p>
                                 <p>{t('why_choose_us_p4')}</p>
                                 <p>{t('why_choose_us_p5')}</p>
@@ -548,7 +546,8 @@ export default function EPubReaderPage() {
                                         <div className="flex items-center justify-center h-12 w-12 rounded-full bg-primary text-primary-foreground mx-auto mb-4 z-10 relative ring-8 ring-background">
                                             <span className="text-xl font-bold">{step.num}</span>
                                         </div>
-                                        <p className="text-muted-foreground mt-4 text-lg">{t(`how_it_works_steps.${step.key}`)}</p>
+                                        <h3 className="text-xl font-semibold mb-2 font-headline">{t(`how_it_works_steps.${step.key}.title`)}</h3>
+                                        <p className="text-muted-foreground mt-4 text-lg">{t(`how_it_works_steps.${step.key}.description`)}</p>
                                     </div>
                                 ))}
                             </div>
@@ -584,9 +583,9 @@ export default function EPubReaderPage() {
   return (
     <div className="flex h-dvh flex-col bg-background text-foreground font-body">
       <header className="flex h-16 flex-shrink-0 items-center justify-between border-b px-4 sm:px-6">
-        <h1 className="truncate text-xl font-bold font-headline">
+        <h2 className="truncate text-xl font-bold font-headline">
           {bookTitle || t("Loading...")}
-        </h1>
+        </h2>
         <div className="flex items-center gap-1">
           <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
             <SheetTrigger asChild>
@@ -605,7 +604,7 @@ export default function EPubReaderPage() {
                 </TabsList>
                 <TabsContent
                   value="contents"
-                  className="flex-1 overflow-hidden min-h-0"
+                  className="flex-1 min-h-0"
                 >
                   <ScrollArea className="h-full">
                     <ul className="space-y-1 p-4">
